@@ -1,0 +1,542 @@
+{
+  "list": [
+    {
+      "id": 5,
+      "requiredModule": 25,
+      "openChapterData": {
+        "mainChapterId": 1,
+        "subChapterId": 107,
+        "nodeId": 10736,
+        "unlockCode": 107
+      },
+      "uiConfig":{
+        "railwayLineNumber": 5,
+        "mainColor":"#401063",
+        "subColor":"#FFEF23",
+        "driveBannerColor": "#AD56E4",
+        "driveBannerTextColor": "#7E2AAD",
+        "entrancePanelColor": "#7C2BB0",
+        "entrancePopupColor": "#7E2AAE",
+        "participateErrorTextKey": "railway_5_must_participate_all",
+        "isForceBattleBuffUIBtn": true,
+        "isShowEndDateForUI": true,
+        "isLoadEntranceUIInAddressable": true,
+        "recommendPersonalityLevel": 50,
+        "recommendPersonalitySyncLevel": 4,
+        "recommendEgoSyncLevel": 4
+      },
+      "challengeType": "CLEAR_TURN_COUNT_MULTI_COMPLETION_CONDITION",
+      "isWithoutStartFormation": true,
+      "isSaveBattleState": false,
+      "isLoadSinFromSave": false,
+      "isNotAbleToAddSlot": true,
+      "isGiveUpNodeWhenAllDead": false,
+      "hasRestHeal": true,
+      "restHPHealRate": 10,
+      "restMPHeal": 0,
+      "isResetMPAtRestNode": true,
+      "isResetAfterLose": false,
+      "disableDanteAbilityIds": [ ],
+      "danteAbilityCategory": 1,
+      "forceEgoGifts": [992343],
+      "atLeastPersonalityPerCharacter": 2,
+      "nodeIdCollection_ForLog": [
+        {
+          "collectionId": 1,
+          "nodeIds": [ 1 ],
+          "formationTargetNode": 1
+        },
+        {
+          "collectionId": 2,
+          "nodeIds": [ 2 ],
+          "formationTargetNode": 2
+        },
+        {
+          "collectionId": 3,
+          "nodeIds": [ 3 ],
+          "formationTargetNode": 3
+        }
+      ],
+      "startDate": "2025-01-14T03:00:00.000Z",
+      "startDateForUI": "2025-02-20T03:00:00.000Z",
+      "endDate": "2099-12-31T15:00:00.000Z",
+      "endDateForUI": "2026-05-28T01:00:00.000Z",
+      "bannerRewards": [
+        {
+          "requiredConditions": [
+          ],
+          "reward": {
+            "type": "USERBANNER",
+            "id": 51,
+            "num": 1
+          },
+          "localizeId": "railway_dungeon_5_banner_reward_condition_1"
+        },
+        {
+          "requiredConditions": [
+            {
+              "type": "CLEAR_TURN_COUNT",
+              "count": 100
+            }
+          ],
+          "endDate": "2025-05-14T21:00:00.000Z",
+          "reward": {
+            "type": "USERBANNER",
+            "id": 52,
+            "num": 1
+          },
+          "localizeId": "railway_dungeon_5_banner_reward_condition_2"
+        }
+      ],
+      "extraRewards": [
+        {
+          "id": 1,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 1
+            }
+          ],
+          "rewards": [
+            {
+              "type": "ITEM",
+              "id": 214,
+              "num": 50
+            },
+            {
+              "type": "ITEM",
+              "id": 213,
+              "num": 20
+            },
+            {
+              "type": "ITEM",
+              "id": 225,
+              "num": 1
+            }
+          ],
+          "uiConfig": {
+            "showStationNumber": 1
+          }
+        },
+        {
+          "id": 2,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 2
+            }
+          ],
+          "rewards": [
+            {
+              "type": "ITEM",
+              "id": 201,
+              "num": 200
+            },
+            {
+              "type": "ITEM",
+              "id": 1105,
+              "num": 20
+            },
+            {
+              "type": "ITEM",
+              "id": 1205,
+              "num": 60
+            }
+          ],
+          "uiConfig": {
+            "showStationNumber": 2
+          }
+        },
+        {
+          "id": 3,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 3
+            }
+          ],
+          "rewards": [
+            {
+              "type": "ITEM",
+              "id": 102,
+              "num": 3
+            },
+            {
+              "type": "ITEM",
+              "id": 108,
+              "num": 1
+            }
+          ],
+          "uiConfig": {
+            "showStationNumber": 3
+          }
+        },
+        {
+          "id": 4,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 3
+            }
+          ],
+          "rewards": [
+            {
+              "type": "USER_TICKET_DECO_LEFT",
+              "id": 44,
+              "num": 1
+            },
+            {
+              "type": "USER_TICKET_DECO_RIGHT",
+              "id": 44,
+              "num": 1
+            },
+            {
+              "type": "USER_TICKET_DECO_EGOBG",
+              "id": 44,
+              "num": 1
+            }
+          ],
+          "uiConfig": {
+            "showStationNumber": 3
+          }
+        },
+        {
+          "id": 5,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 3
+            },
+            {
+              "type": "CLEAR_TURN_COUNT",
+              "count": 100
+            }
+          ],
+          "startDateForUI": "2025-02-20T03:00:00.000Z",
+          "endDate": "2025-05-14T21:00:00.000Z",
+          "rewards": [
+            {
+              "type": "USER_TICKET_DECO_LEFT",
+              "id": 45,
+              "num": 1
+            },
+            {
+              "type": "USER_TICKET_DECO_RIGHT",
+              "id": 45,
+              "num": 1
+            },
+            {
+              "type": "USER_TICKET_DECO_EGOBG",
+              "id": 45,
+              "num": 1
+            }
+          ],
+          "uiConfig": {
+            "isSpecialReward": true,
+            "descLocalizeId": "railway_dungeon_5_reward_condition_special_ticket",
+            "warningDescLocalizeId": "railway_dungeon_5_reward_condition_special_ticket_warning",
+            "isHideAtNode": false
+          }
+        }
+      ],
+      "bossUnitIdList": [
+        8632, 8630, 8631, 8633
+      ],
+      "sector": [
+        {
+          "nodeId": 1,
+          "stageId": 501,
+          "nextNodes": [ 2, 3 ],
+          "buffLoadNodeIds": [1],
+          "egoResourceNodeIds": [],
+          "restrictedFormationNodeIds": [ ],
+          "removeNodeIdsWhenRestart": [1, 2, 3],
+          "isSetFormationWithBattle": true,
+          "uiConfig": {
+            "warningBeforeEnter": "railway_5_warning_enter_node_1",
+            "nextMoveTargetId" : 2
+          }
+        },
+        {
+          "nodeId": 2,
+          "stageId": 502,
+          "nextNodes": [ 1, 3 ],
+          "clearRequiredNodesForEnter": [ 1 ],
+          "egoResourceNodeIds": [ 1 ],
+          "restrictedFormationNodeIds": [1],
+          "buffLoadNodeIds": [1, 2],
+          "removeNodeIdsWhenRestart": [2, 3],
+          "isSetFormationWithBattle": true,
+          "uiConfig": {
+            "nextMoveTargetId" : 3
+          }
+        },
+        {
+          "nodeId": 3,
+          "stageId": 503,
+          "nextNodes": [ 1, 2 ],
+          "clearRequiredNodesForEnter": [ 1, 2 ],
+          "buffLoadNodeIds": [1, 2, 3],
+          "egoResourceNodeIds": [ 2 ],
+          "restrictedFormationNodeIds": [ ],
+          "isBossNode": true,
+          "isSetFormationWithBattle": true
+        }
+      ],
+      "buffInBattle": {
+        "buffSetPool": [
+          {
+            "id": 1,
+            "allyBuffId": 992301,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 2,
+            "allyBuffId": 992302,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 3,
+            "allyBuffId": 992303,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 4,
+            "allyBuffId": 992357,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 5,
+            "allyBuffId": 992305,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 6,
+            "allyBuffId": 992306,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 7,
+            "allyBuffId": 992307,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 8,
+            "allyBuffId": 992308,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 9,
+            "allyBuffId": 992309,
+            "enemyBuffId": 992330
+          },
+          {
+            "id": 10,
+            "allyBuffId": 992310,
+            "enemyBuffId": 992329
+          },
+          {
+            "id": 11,
+            "allyBuffId": 992311,
+            "enemyBuffId": 992369
+          },
+          {
+            "id": 12,
+            "allyBuffId": 992312,
+            "enemyBuffId": 992355
+          },
+          {
+            "id": 13,
+            "allyBuffId": 992313,
+            "enemyBuffId": 992332
+          },
+          {
+            "id": 14,
+            "allyBuffId": 992351,
+            "enemyBuffId": 992333
+          },
+          {
+            "id": 15,
+            "allyBuffId": 992315,
+            "enemyBuffId": 992334
+          },
+          {
+            "id": 16,
+            "allyBuffId": 992345,
+            "enemyBuffId": 992356
+          },
+          {
+            "id": 17,
+            "allyBuffId": 992317,
+            "enemyBuffId": 992336
+          },
+          {
+            "id": 18,
+            "allyBuffId": 992318,
+            "enemyBuffId": 992369
+          },
+          {
+            "id": 19,
+            "allyBuffId": 992353,
+            "enemyBuffId": 992330
+          },
+          {
+            "id": 20,
+            "allyBuffId": 992320,
+            "enemyBuffId": 992369
+          },
+          {
+            "id": 21,
+            "allyBuffId": 992321,
+            "enemyBuffId": 992342
+          },
+          {
+            "id": 22,
+            "allyBuffId": 992322,
+            "enemyBuffId": 992348
+          },
+          {
+            "id": 23,
+            "allyBuffId": 992323,
+            "enemyBuffId": 992342
+          },
+          {
+            "id": 24,
+            "allyBuffId": 992344,
+            "enemyBuffId": 992347
+          },
+          {
+            "id": 25,
+            "allyBuffId": 992316,
+            "enemyBuffId": 992349
+          },
+          {
+            "id": 26,
+            "allyBuffId": 992326,
+            "enemyBuffId": 992350
+          },
+          {
+            "id": 27,
+            "allyBuffId": 992327,
+            "enemyBuffId": 992350
+          },
+          {
+            "id": 28,
+            "allyBuffId": 992328,
+            "enemyBuffId": 992350
+          },
+          {
+            "id": 29,
+            "allyBuffId": 992324,
+            "enemyBuffId": 992369
+          },
+          {
+            "id": 30,
+            "allyBuffId": 992346,
+            "enemyBuffId": 992367
+          },
+          {
+            "id": 31,
+            "allyBuffId": 992358,
+            "enemyBuffId": 992366
+          },
+          {
+            "id": 32,
+            "allyBuffId": 992359,
+            "enemyBuffId": 992366
+          },
+          {
+            "id": 33,
+            "allyBuffId": 992360,
+            "enemyBuffId": 992366
+          },
+          {
+            "id": 34,
+            "allyBuffId": 992361,
+            "enemyBuffId": 992366
+          },
+          {
+            "id": 35,
+            "allyBuffId": 992362,
+            "enemyBuffId": 992366
+          },
+          {
+            "id": 36,
+            "allyBuffId": 992363,
+            "enemyBuffId": 992366
+          },
+          {
+            "id": 37,
+            "allyBuffId": 992364,
+            "enemyBuffId": 992366
+          },
+          {
+            "id": 38,
+            "allyBuffId": 992365,
+            "enemyBuffId": 992368
+          }
+        ],
+        "buffSetDistribute": [
+          {
+            "nodeId": 1,
+            "stageId": 501,
+            "waves": [
+              {
+                "waveNumber":1,
+                "poolIds":[1, 2, 3]
+              },
+              {
+                "waveNumber":2,
+                "poolIds":[1, 2, 3, 4, 5, 6, 7, 8, 14]
+              },
+              {
+                "waveNumber":3,
+                "poolIds":[1, 2, 3, 4, 5, 6, 7, 8, 14]
+              },
+              {
+                "waveNumber":4,
+                "poolIds":[9, 10, 19]
+              }
+            ]
+          },
+          {
+            "nodeId": 2,
+            "stageId": 502,
+            "waves": [
+              {
+                "waveNumber":1,
+                "poolIds":[12, 13, 17, 25, 23, 21]
+              },
+              {
+                "waveNumber":2,
+                "poolIds":[12, 13, 17, 25, 23, 21]
+              },
+              {
+                "waveNumber":3,
+                "poolIds":[18, 20, 11, 29]
+              }
+            ]
+          },
+          {
+            "nodeId": 3,
+            "stageId": 503,
+            "waves": [
+              {
+                "waveNumber":1,
+                "poolIds":[1, 2, 3, 4, 5, 6, 7, 8, 14, 12, 13, 17, 25, 23, 21, 24, 15, 31, 32, 33, 34, 35, 36, 37]
+              },
+              {
+                "waveNumber":2,
+                "poolIds":[1, 2, 3, 4, 5, 6, 7, 8, 14, 12, 13, 17, 25, 23, 21, 24, 15, 31, 32, 33, 34, 35, 36, 37]
+              },
+              {
+                "waveNumber":3,
+                "poolIds":[26, 27, 28, 30, 38]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

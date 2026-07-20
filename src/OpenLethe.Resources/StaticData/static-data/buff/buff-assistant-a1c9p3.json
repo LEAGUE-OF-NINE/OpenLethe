@@ -1,0 +1,619 @@
+{
+  "list": [
+    {
+      "id": "LvUpFireFly",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": 10
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "LvUpFireFly_Over",
+      "iconId": "LvUpFireFly",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": 10
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 4,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LvUpFireFlyMp",
+          "value": 5
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "LanternHohenheimBigBird",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1,
+            "value": 1,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "TauntAllSlotOnREViaSinActionCnt"
+        }
+      ]
+    },
+    {
+      "id": "DelusionHohenheimBigBird",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DelusionHohenheimBigBirdEffect"
+        },
+        {
+          "ability": "TakeAimToSpecificUnitIDLastSlotSkill",
+          "value": 400008
+        },
+        {
+          "ability": "DestroyBuffOnRoundEndAfterGettingBuff"
+        }
+      ]
+    },
+    {
+      "id": "LvUpHohenheimBigBird",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "id": "LvUpHohenheimBigBird_Over",
+      "iconId": "LvUpHohenheimBigBird",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": 15
+        },
+        {
+          "ability": "LvUpHohenheimBigBirdOver"
+        }
+      ]
+    },
+    {
+      "id": "MosesWhiteBreathMental",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "MentalDefaultIncreaseAdder",
+          "value": 5
+        },
+        {
+          "ability": "MentalDefaultDecreaseAdder",
+          "value": -5
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "WhiteBreathEffect"
+        }
+      ]
+    },
+    {
+      "id": "MosesRedBreathBody",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "DefaultLevelAdderDevideByMp",
+          "value": 10
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "RedBreathEffect"
+        }
+      ]
+    },
+    {
+      "id": "MosesRedBreathShield",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AddShieldOnRoundStart",
+          "value": 30
+        },
+        {
+          "ability": "RedBreathEffect"
+        }
+      ]
+    },
+    {
+      "id": "MosesPurpleBreathBind",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "MosesPurpleBreathHpMpDamage"
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "PlusCoinValueDown",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "PurpleBreathEffect"
+        }
+      ]
+    },
+    {
+      "id": "MosesRedBreathCharge",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "MosesRedBreathCharge",
+          "value": 0.2
+        },
+        {
+          "ability": "TakeHpDmgSelfByValueOnRoundEnd",
+          "value": 10
+        },
+        {
+          "ability": "TakeMpDmgSelfByValueOnRoundEnd",
+          "value": 20
+        },
+        {
+          "ability": "RedBreathChargeEffect"
+        }
+      ]
+    },
+    {
+      "id": "MosesSin",
+      "iconId": "Sin_Default",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [        
+        {
+          "ability": "DefenseLevelAdder",
+          "value": 3
+        },
+        {
+          "ability": "DefSkillPowerResultAdder",
+          "value": 2
+        },
+        {
+          "ability": "MosesSin",
+          "value": 5
+        },
+        {
+          "ability": "ShinEffect"
+        }
+      ]
+    },
+    {
+      "id": "MosesWarPTSD",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -25
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "RefreshSpeedOnRoundStart"
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "MosesRedBreathAttack",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ParryingResultAdderIfDefaultSkill",
+          "value": 5
+        },
+        {
+          "ability": "RedRedBreathEffect"
+        }
+      ]
+    },
+    {
+      "id": "DimensionalBagEzraA",
+      "subIdList": [ "DimensionalBagBase" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        
+      ]
+    },
+    {
+      "id": "DimensionalBagEzraB",
+      "subIdList": [ "DimensionalBagBase" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "DimensionalBagEzraC",
+      "subIdList": [ "DimensionalBagBase" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "DimensionalBagEzraD",
+      "subIdList": [ "DimensionalBagBase" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "DimensionalBagEzraE",
+      "subIdList": [ "DimensionalBagBase" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "MiddleFingerEzraSin",
+      "iconId": "Sin_Default",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerAdder",
+          "value": 1
+        },
+        {
+          "ability": "DefenseSkillPowerAdder",
+          "value": 2
+        },
+        {
+          "ability": "ShinEffect"
+        }
+      ]
+    },
+    {
+      "id": "WillAwakenSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 3
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 3
+        },
+        {
+          "ability": "AttackDmgMultiplierIfOneSideAttack",
+          "value": 0.2
+        },
+        {
+          "ability": "GiveBuffStackAdder",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "stack": 2
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdder",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "turn": 1
+          }
+        },
+        {
+          "ability": "ForceCoinResultHeadViaMpCondition",
+          "value": 40
+        },
+        {
+          "ability": "GiveBuffOnRoundEndDivideMp400013",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "value": 10,
+            "limit": 4
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEndDivideMp400013",
+          "buffData": {
+            "buffKeyword": "ResultEnhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "value": 20,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "ShinEffect"
+        }
+      ]
+    },
+    {
+      "id": "SignAwakenSinclair",
+      "iconId": "StudySignSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ParryingResultAdderIfLevelUpperThanMe",
+          "value": 2
+        },
+        {
+          "ability": "RecoverBreakOnRS400013"
+        }
+      ]
+    },
+    {
+      "id": "LimitedAwakenSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultAtkSkillAtkDamageMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "PlusCoinValueUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "AaCfPcBiv2",
+      "iconId": "AaCfPcBi",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AaCfPcBiv2Ability",
+          "value": 0.005
+        }
+      ]
+    },
+    {
+      "id": "VergiliusSin",
+      "iconId": "Sin_Default",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "VergiliusSinDmgMultiplier",
+          "value": 0.5
+        },
+        {
+          "ability": "ShinEffect"
+        }
+      ]
+    },
+    {
+      "id": "BloodBranch",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "BloodBranchHpDmg"
+        },
+        {
+          "ability": "GiveBuffOnBattleStart",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseAllStackOnBattleStart"
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    }
+  ]
+}

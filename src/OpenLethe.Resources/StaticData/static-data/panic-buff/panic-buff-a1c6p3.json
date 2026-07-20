@@ -1,0 +1,47 @@
+{
+  "list": [
+    {
+      "id": "LOSS",
+      "buffA": {
+        "id": "Loss_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Loss_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 6,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

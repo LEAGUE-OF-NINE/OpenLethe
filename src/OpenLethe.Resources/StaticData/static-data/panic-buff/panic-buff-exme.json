@@ -1,0 +1,356 @@
+{
+  "list": [
+    {
+      "id": "CHOI_SWORD",
+      "buffA": {
+        "id": "ChoiSword_LowMorale",
+        "iconId": "Normal_Lowmorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplier",
+            "value": 0.1
+          },
+          {
+            "ability": "CriticalAtkDamageMultiplier",
+            "value": 0.15
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "ChoiSword_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplier",
+            "value": 0.1
+          },
+          {
+            "ability": "CriticalAtkDamageMultiplier",
+            "value": 0.3
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "ChoiSwordPanicCoinBuffAdder"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RESTING_KIMSATGAT",
+      "buffA": {
+        "id": "RestingKimSatgat_LowMorale",
+        "iconId": "RestingKimSatgat_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "RecoverIfAbnormalityAllPartsHpOnPanicOrLowMorale",
+            "value": 40
+          }
+        ]
+      },
+      "buffB": {
+        "id": "RestingKimSatgat_Panic",
+        "iconId": "RestingKimSatgat_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "RecoverIfAbnormalityAllPartsHpOnPanicOrLowMorale",
+            "value": 60
+          }
+        ]
+      }
+    },
+    {
+      "id": "LENSMAN",
+      "buffA": {
+        "id": "Lensman_Lowmorale",
+        "iconId": "Normal_Lowmorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierOnDuelViaBuffCheck",
+            "value": 0.1,
+            "buffData": {
+              "buffKeyword": "TakePicture",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "SkillPowerAdderOnDuelViaBuffCheck",
+            "value": 1,
+            "buffData": {
+              "buffKeyword": "TakePicture",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Lensman_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierOnDuelViaBuffCheck",
+            "value": 0.2,
+            "buffData": {
+              "buffKeyword": "TakePicture",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "SkillPowerAdderOnDuelViaBuffCheck",
+            "value": 1,
+            "buffData": {
+              "buffKeyword": "TakePicture",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "COLLAGE",
+      "buffA": {
+        "id": "Collage_LowMorale",
+        "iconId": "Normal_Lowmorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMoraleWithRandomStack",
+            "value": 3,
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMoraleWithRandomStack",
+            "value": 3,
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Collage_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMoraleWithRandomStack",
+            "value": 5,
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMoraleWithRandomStack",
+            "value": 5,
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "AENGDU",
+      "buffA": {
+        "id": "Aengdu_Lowmorale",
+        "iconId": "Normal_Lowmorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Disarming",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Agility",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Aengdu_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Disarming",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Agility",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

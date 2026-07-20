@@ -1,0 +1,175 @@
+{
+  "list": [
+    {
+      "id": "MiddleFatherGutsMirror",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "iconId": "MiddleFatherGuts",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "ReduceTakeAttackDmgMultiplierByLoseHpRatio",
+          "value": 50
+        },
+        {
+          "ability": "MiddleFatherGuts",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "TeachersPreyMirror",
+      "subIdList": [ "TeachersPrey" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "iconId": "TeachersPrey",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "OverwriteSpeed",
+          "value": 1
+        },
+        {
+          "ability": "TeachersPreyMirrorEffect"
+        }
+      ]
+    },
+    {
+      "id": "ObservationTheRingsHidden",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "iconId": "ObservationTheRings",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "enemyImportanceLevel": 2,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -20
+        },
+        {
+          "ability": "ObservationTheRingsHidden",
+          "value": -0.7
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "LookingFutureMirror",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 5,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": 2
+        },
+        {
+          "ability": "LookingFutureMirrorPlus_1",
+          "value": 2
+        },
+        {
+          "ability": "LookingFutureMirrorMinus_2",
+          "value": 2
+        },
+        {
+          "ability": "LoseAllStackOnEndTurn"
+        }
+      ]
+    },
+    {
+      "id": "FutureEyeOnMirror",
+      "iconId": "FutureEyeOn",
+      "subIdList": [ "FutureEyeOn" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "FutureEyeOnMirror",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ParryingResultAdderIfDefaultSkill",
+          "value": 2
+        },
+        {
+          "ability": "FutureEyeOnMirror"
+        }
+      ]
+    },
+    {
+      "id": "FutureEyeOffMirror",
+      "iconId": "FutureEyeOff",
+      "subIdList": [ "FutureEyeOff" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "FutureEyeOffMirror",
+          "value": -0.2,
+          "buffData": {
+            "buffKeyword": "FutureEyeOffMirror",
+            "target": "Self",
+            "stack": 10,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "PlayingWithWaterTogetherMirror",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "PlayingWithWaterTogetherMirrorParry"
+        },
+        {
+          "ability": "PlayingWithWaterTogetherMirrorAtkMultiplier",
+          "value": 0.5
+        }
+      ]
+    }
+  ]
+}

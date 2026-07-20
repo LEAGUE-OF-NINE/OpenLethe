@@ -1,0 +1,3989 @@
+{
+	"list":[
+		{
+			"id": 10101,
+			"floors":[
+				{
+					"count":0,
+					"sectors":[
+						{
+							"sectorNumber":0,
+							"nodes":[
+								{
+									"id":"0",
+									"isHidden":"False",
+									"position":"-18.96,12.569",
+									"encounter":"start",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10"
+										},
+										{
+											"nodeId":"11"
+										},
+										{
+											"nodeId":"12"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":1,
+							"nodes":[
+								{
+									"id":"10",
+									"isHidden":"False",
+									"position":"-14.581,9.524",
+									"encounter":"battle",
+									"encounterId":10112,
+									"adjacentNode":[
+										{
+											"nodeId":"0"
+										},
+										{
+											"nodeId":"20"
+										}
+									]
+								},
+								{
+									"id":"11",
+									"isHidden":"False",
+									"position":"-14.103,13.291",
+									"encounter":"battle",
+									"encounterId":10111,
+									"adjacentNode":[
+										{
+											"nodeId":"0"
+										},
+										{
+											"nodeId":"20"
+										}
+									]
+								},
+								{
+									"id":"12",
+									"isHidden":"False",
+									"position":"-10.293,15.093",
+									"encounter":"battle",
+									"encounterId":10110,
+									"adjacentNode":[
+										{
+											"nodeId":"0"
+										},
+										{
+											"nodeId":"20"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":2,
+							"nodes":[
+								{
+									"id":"20",
+									"isHidden":"False",
+									"position":"-6.982,10.104",
+									"encounter":"ab_battle",
+									"encounterId":100101,
+									"adjacentNode":[
+										{
+											"nodeId":"10"
+										},
+										{
+											"nodeId":"11"
+										},
+										{
+											"nodeId":"12"
+										},
+										{
+											"nodeId":"30"
+										},
+										{
+											"nodeId":"31"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":3,
+							"nodes":[
+								{
+									"id":"30",
+									"isHidden":"False",
+									"position":"-1.28,12.275",
+									"encounter":"ab_battle",
+									"encounterId":100102,
+									"adjacentNode":[
+										{
+											"nodeId":"20"
+										},
+										{
+											"nodeId":"40"
+										}
+									]
+								},
+								{
+									"id":"31",
+									"isHidden":"False",
+									"position":"-1.79,15.392",
+									"encounter":"ab_battle",
+									"encounterId":100103,
+									"adjacentNode":[
+										{
+											"nodeId":"20"
+										},
+										{
+											"nodeId":"40"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":4,
+							"nodes":[
+								{
+									"id":"40",
+									"isHidden":"False",
+									"position":"5.272,15.042",
+									"encounter":"save",
+									"encounterId":1,
+									"story":{
+										"enter":[
+											"1D104B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"30"
+										},
+										{
+											"nodeId":"31"
+										},
+										{
+											"nodeId":"50"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":5,
+							"nodes":[
+								{
+									"id":"50",
+									"isHidden":"False",
+									"position":"5.219,10.165",
+									"encounter":"boss",
+									"encounterId":100107
+								}
+							]
+						}
+					]
+				},
+				{
+					"count":1,
+					"sectors":[
+						{
+							"sectorNumber":0,
+							"nodes":[
+								{
+									"id":"100",
+									"isHidden":"False",
+									"position":"7.79,2.35",
+									"encounter":"save",
+									"encounterId":0,
+									"story":{
+										"enter":[
+											"1D201B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"110"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":1,
+							"nodes":[
+								{
+									"id":"110",
+									"isHidden":"False",
+									"position":"2.329,2.269",
+									"encounter":"hard_battle",
+									"encounterId":10113,
+									"adjacentNode":[
+										{
+											"nodeId":"100"
+										},
+										{
+											"nodeId":"120"
+										},
+										{
+											"nodeId":"121"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":2,
+							"nodes":[
+								{
+									"id":"120",
+									"isHidden":"False",
+									"position":"-3.346,-0.29",
+									"encounter":"ab_battle",
+									"encounterId":100106,
+									"adjacentNode":[
+										{
+											"nodeId":"110"
+										},
+										{
+											"nodeId":"130"
+										}
+									]
+								},
+								{
+									"id":"121",
+									"isHidden":"False",
+									"position":"-3.639,4.725",
+									"encounter":"ab_battle",
+									"encounterId":100105,
+									"adjacentNode":[
+										{
+											"nodeId":"110"
+										},
+										{
+											"nodeId":"130"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":3,
+							"nodes":[
+								{
+									"id":"130",
+									"isHidden":"False",
+									"position":"-9.45,-0.533",
+									"encounter":"event",
+									"encounterId":101001,
+									"story":{
+										"enter":[
+											"1D204B"
+										]
+									},
+									"abnormalityEventList":[
+										101001,
+										10100101
+									],
+									"adjacentNode":[
+										{
+											"nodeId":"120"
+										},
+										{
+											"nodeId":"121"
+										},
+										{
+											"nodeId":"140"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":4,
+							"nodes":[
+								{
+									"id":"140",
+									"isHidden":"False",
+									"position":"-15.282,-0.328",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"130"
+										},
+										{
+											"nodeId":"150"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":5,
+							"nodes":[
+								{
+									"id":"150",
+									"isHidden":"False",
+									"position":"-15.09,4.15",
+									"encounter":"boss",
+									"encounterId":100108
+								}
+							]
+						}
+					]
+				},
+				{
+					"count":2,
+					"sectors":[
+						{
+							"sectorNumber":0,
+							"nodes":[
+								{
+									"id":"200",
+									"isHidden":"False",
+									"position":"-17.98,-10.46",
+									"encounter":"save",
+									"encounterId":0,
+									"story":{
+										"enter":[
+											"1D301B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"210"
+										},
+										{
+											"nodeId":"211"
+										},
+										{
+											"nodeId":"212"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":1,
+							"nodes":[
+								{
+									"id":"211",
+									"isHidden":"False",
+									"position":"-13.29,-10.51",
+									"encounter":"battle",
+									"encounterId":10115,
+									"adjacentNode":[
+										{
+											"nodeId":"200"
+										},
+										{
+											"nodeId":"220"
+										}
+									]
+								},
+								{
+									"id":"210",
+									"isHidden":"False",
+									"position":"-13.29,-13.58",
+									"encounter":"battle",
+									"encounterId":10114,
+									"adjacentNode":[
+										{
+											"nodeId":"200"
+										},
+										{
+											"nodeId":"220"
+										}
+									]
+								},
+								{
+									"id":"212",
+									"isHidden":"False",
+									"position":"-13.29,-7.397",
+									"encounter":"battle",
+									"encounterId":10114,
+									"adjacentNode":[
+										{
+											"nodeId":"200"
+										},
+										{
+											"nodeId":"221"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":2,
+							"nodes":[
+								{
+									"id":"220",
+									"isHidden":"False",
+									"position":"-6.618,-13.675",
+									"encounter":"event",
+									"encounterId":101002,
+									"story":{
+										"enter":[
+											"1D303B"
+										]
+									},
+									"abnormalityEventList": [
+										101002,
+										10100201
+									],
+									"adjacentNode":[
+										{
+											"nodeId":"210"
+										},
+										{
+											"nodeId":"211"
+										},
+										{
+											"nodeId":"230"
+										}
+									]
+								},
+								{
+									"id":"221",
+									"isHidden":"False",
+									"position":"-8.43,-7.39",
+									"encounter":"battle",
+									"encounterId":10117,
+									"adjacentNode":[
+										{
+											"nodeId":"212"
+										},
+										{
+											"nodeId":"230"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":3,
+							"nodes":[
+								{
+									"id":"230",
+									"isHidden":"False",
+									"position":"-5.07,-10.04",
+									"encounter":"save",
+									"encounterId":0,
+									"story":{
+										"enter":[
+											"1D304B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"240"
+										},
+										{
+											"nodeId":"241"
+										},
+										{
+											"nodeId":"242"
+										},
+										{
+											"nodeId":"220"
+										},
+										{
+											"nodeId":"221"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":4,
+							"nodes":[
+								{
+									"id":"240",
+									"isHidden":"False",
+									"position":"0.4385,-13.598",
+									"encounter":"ab_battle",
+									"encounterId":100104,
+									"adjacentNode":[
+										{
+											"nodeId":"230"
+										},
+										{
+											"nodeId":"250"
+										}
+									]
+								},
+								{
+									"id":"241",
+									"isHidden":"False",
+									"position":"-0.612,-10.404",
+									"encounter":"ab_battle",
+									"encounterId":100110,
+									"adjacentNode":[
+										{
+											"nodeId":"230"
+										},
+										{
+											"nodeId":"250"
+										}
+									]
+								},
+								{
+									"id":"242",
+									"isHidden":"False",
+									"position":"-0.1,-7.647",
+									"encounter":"event",
+									"encounterId":101003,
+									"story":{
+										"enter":[
+											"1D305B"
+										]
+									},
+									"abnormalityEventList":[
+										101003
+									],
+									"adjacentNode":[
+										{
+											"nodeId":"230"
+										},
+										{
+											"nodeId":"251"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":5,
+							"nodes":[
+								{
+									"id":"250",
+									"isHidden":"False",
+									"position":"4.45,-12.621",
+									"encounter":"hard_battle",
+									"encounterId":10116,
+									"adjacentNode":[
+										{
+											"nodeId":"260"
+										},
+										{
+											"nodeId":"240"
+										},
+										{
+											"nodeId":"241"
+										}
+									]
+								},
+								{
+									"id":"251",
+									"isHidden":"False",
+									"position":"4.488,-7.647",
+									"encounter":"ab_battle",
+									"encounterId":100111,
+									"adjacentNode":[
+										{
+											"nodeId":"242"
+										},
+										{
+											"nodeId":"260"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":6,
+							"nodes":[
+								{
+									"id":"260",
+									"isHidden":"False",
+									"position":"9.518,-10.481",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"250"
+										},
+										{
+											"nodeId":"251"
+										},
+										{
+											"nodeId":"270"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":7,
+							"nodes":[
+								{
+									"id":"270",
+									"isHidden":"False",
+									"position":"17.1,-10.53",
+									"encounter":"boss",
+									"encounterId":100109
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 10201,
+			"floors": [
+				{
+					"count": 0,
+					"sectors": [
+						{
+							"sectorNumber": 0,
+							"nodes": [
+								{
+									"id": "0",
+									"isHidden": "False",
+									"position": "-10.47,15.94",
+									"encounter": "start",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "10"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 1,
+							"nodes": [
+								{
+									"id": "10",
+									"isHidden": "False",
+									"position": "-7.02,15.91",
+									"encounter": "ab_battle",
+									"encounterId": 10201,
+									"adjacentNode": [
+										{
+											"nodeId": "0"
+										},
+										{
+											"nodeId": "20"
+										},
+										{
+											"nodeId": "21"
+										},
+										{
+											"nodeId": "22"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 2,
+							"nodes": [
+								{
+									"id": "20",
+									"isHidden": "False",
+									"position": "-1.54,18.7",
+									"encounter": "battle",
+									"encounterId": 10202,
+									"adjacentNode": [
+										{
+											"nodeId": "10"
+										},
+										{
+											"nodeId": "30"
+										}
+									]
+								},
+								{
+									"id": "21",
+									"isHidden": "False",
+									"position": "-1.54,15.85",
+									"encounter": "battle",
+									"encounterId": 10203,
+									"adjacentNode": [
+										{
+											"nodeId": "10"
+										},
+										{
+											"nodeId": "30"
+										},
+										{
+											"nodeId": "31"
+										}
+									]
+								},
+								{
+									"id": "22",
+									"isHidden": "False",
+									"position": "-1.54,12.99",
+									"encounter": "battle",
+									"encounterId": 10204,
+									"adjacentNode": [
+										{
+											"nodeId": "10"
+										},
+										{
+											"nodeId": "31"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 3,
+							"nodes": [
+								{
+									"id": "30",
+									"isHidden": "False",
+									"position": "5.48,16.95",
+									"encounter": "hard_battle",
+									"encounterId": 10205,
+									"adjacentNode": [
+										{
+											"nodeId": "20"
+										},
+										{
+											"nodeId": "21"
+										},
+										{
+											"nodeId": "40"
+										}
+									]
+								},
+								{
+									"id": "31",
+									"isHidden": "False",
+									"position": "4.04,12.16",
+									"encounter": "hard_battle",
+									"encounterId": 10206,
+									"adjacentNode": [
+										{
+											"nodeId": "21"
+										},
+										{
+											"nodeId": "22"
+										},
+										{
+											"nodeId": "40"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 4,
+							"nodes": [
+								{
+									"id": "40",
+									"isHidden": "False",
+									"position": "11.85,15.8",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "30"
+										},
+										{
+											"nodeId": "31"
+										},
+										{
+											"nodeId": "50"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 5,
+							"nodes": [
+								{
+									"id": "50",
+									"isHidden": "False",
+									"position": "18.56,15.91",
+									"encounter": "ab_battle",
+									"encounterId": 10207
+								}
+							]
+						}
+					]
+				},
+				{
+					"count": 1,
+					"sectors": [
+						{
+							"sectorNumber": 0,
+							"nodes": [
+								{
+									"id": "100",
+									"isHidden": "False",
+									"position": "19.34,0.43",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "110"
+										},
+										{
+											"nodeId": "111"
+										},
+										{
+											"nodeId": "112"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 1,
+							"nodes": [
+								{
+									"id": "110",
+									"isHidden": "False",
+									"position": "14.18,4.25",
+									"encounter": "ab_battle",
+									"encounterId": 10209,
+									"adjacentNode": [
+										{
+											"nodeId": "100"
+										},
+										{
+											"nodeId": "120"
+										}
+									]
+								},
+								{
+									"id": "111",
+									"isHidden": "False",
+									"position": "14.17,0.59",
+									"encounter": "ab_battle",
+									"encounterId": 10210,
+									"adjacentNode": [
+										{
+											"nodeId": "100"
+										},
+										{
+											"nodeId": "121"
+										}
+									]
+								},
+								{
+									"id": "112",
+									"isHidden": "False",
+									"position": "14.18009,-2.35",
+									"encounter": "ab_battle",
+									"encounterId": 10211,
+									"adjacentNode": [
+										{
+											"nodeId": "100"
+										},
+										{
+											"nodeId": "121"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 2,
+							"nodes": [
+								{
+									"id": "120",
+									"isHidden": "False",
+									"position": "9.48,4.37",
+									"encounter": "ab_battle",
+									"encounterId": 10212,
+									"adjacentNode": [
+										{
+											"nodeId": "110"
+										},
+										{
+											"nodeId": "130"
+										}
+									]
+								},
+								{
+									"id": "121",
+									"isHidden": "False",
+									"position": "9.97,-0.88",
+									"encounter": "event",
+									"encounterId": 102001,
+									"abnormalityEventList": [
+										102001
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "111"
+										},
+										{
+											"nodeId": "112"
+										},
+										{
+											"nodeId": "130"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 3,
+							"nodes": [
+								{
+									"id": "130",
+									"isHidden": "False",
+									"position": "4.34,-0.14",
+									"encounter": "boss",
+									"encounterId": 10213,
+									"adjacentNode": [
+										{
+											"nodeId": "120"
+										},
+										{
+											"nodeId": "121"
+										},
+										{
+											"nodeId": "140"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 4,
+							"nodes": [
+								{
+									"id": "140",
+									"isHidden": "False",
+									"position": "1.49,-1.36",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "130"
+										},
+										{
+											"nodeId": "151"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 5,
+							"nodes": [
+								{
+									"id": "150",
+									"isHidden": "False",
+									"position": "-0.43,4.33",
+									"encounter": "event",
+									"encounterId": 102002,
+									"abnormalityEventList": [
+										102002,
+										10200201,
+										10200202,
+										10200203
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "151"
+										},
+										{
+											"nodeId": "160"
+										},
+										{
+											"nodeId": "161"
+										}
+									]
+								},
+								{
+									"id": "151",
+									"isHidden": "False",
+									"position": "-0.52,-0.3",
+									"encounter": "battle",
+									"encounterId": 10207,
+									"adjacentNode": [
+										{
+											"nodeId": "140"
+										},
+										{
+											"nodeId": "150"
+										},
+										{
+											"nodeId": "161"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 6,
+							"nodes": [
+								{
+									"id": "160",
+									"isHidden": "False",
+									"position": "-8.14,5.33",
+									"encounter": "ab_battle",
+									"encounterId": 10215,
+									"adjacentNode": [
+										{
+											"nodeId": "150"
+										},
+										{
+											"nodeId": "170"
+										}
+									]
+								},
+								{
+									"id": "161",
+									"isHidden": "False",
+									"position": "-8.56,-0.34",
+									"encounter": "ab_battle",
+									"encounterId": 10219,
+									"adjacentNode": [
+										{
+											"nodeId": "150"
+										},
+										{
+											"nodeId": "151"
+										},
+										{
+											"nodeId": "170"
+										},
+										{
+											"nodeId": "171"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 7,
+							"nodes": [
+								{
+									"id": "170",
+									"isHidden": "False",
+									"position": "-12.42,1.09",
+									"encounter": "ab_battle",
+									"encounterId": 10218,
+									"adjacentNode": [
+										{
+											"nodeId": "160"
+										},
+										{
+											"nodeId": "161"
+										},
+										{
+											"nodeId": "180"
+										}
+									]
+								},
+								{
+									"id": "171",
+									"isHidden": "False",
+									"position": "-12.42,-1.74",
+									"encounter": "ab_battle",
+									"encounterId": 10220,
+									"adjacentNode": [
+										{
+											"nodeId": "161"
+										},
+										{
+											"nodeId": "180"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 8,
+							"nodes": [
+								{
+									"id": "180",
+									"isHidden": "False",
+									"position": "-18.73,0.5",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "170"
+										},
+										{
+											"nodeId": "171"
+										},
+										{
+											"nodeId": "190"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 9,
+							"nodes": [
+								{
+									"id": "190",
+									"isHidden": "False",
+									"position": "-18.72,4.14",
+									"encounter": "boss",
+									"encounterId": 10221
+								}
+							]
+						}
+					]
+				},
+				{
+					"count": 2,
+					"sectors": [
+						{
+							"sectorNumber": 0,
+							"nodes": [
+								{
+									"id": "200",
+									"isHidden": "False",
+									"position": "-8.39,-14.26",
+									"encounter": "save",
+									"encounterId": 0,
+									"story": {
+										"enter": [
+											"2D301B"
+										]
+									},
+									"adjacentNode": [
+										{
+											"nodeId": "210"
+										},
+										{
+											"nodeId": "211"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 1,
+							"nodes": [
+								{
+									"id": "210",
+									"isHidden": "False",
+									"position": "-2.67,-11.79",
+									"encounter": "ab_battle",
+									"encounterId": 10222,
+									"adjacentNode": [
+										{
+											"nodeId": "200"
+										},
+										{
+											"nodeId": "220"
+										}
+									]
+								},
+								{
+									"id": "211",
+									"isHidden": "False",
+									"position": "-2.65,-16.77",
+									"encounter": "ab_battle",
+									"encounterId": 10223,
+									"adjacentNode": [
+										{
+											"nodeId": "200"
+										},
+										{
+											"nodeId": "221"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 2,
+							"nodes": [
+								{
+									"id": "220",
+									"isHidden": "False",
+									"position": "1.45,-9.17",
+									"encounter": "ab_battle",
+									"encounterId": 10224,
+									"adjacentNode": [
+										{
+											"nodeId": "210"
+										},
+										{
+											"nodeId": "230"
+										}
+									]
+								},
+								{
+									"id": "221",
+									"isHidden": "False",
+									"position": "1.41,-19.12",
+									"encounter": "ab_battle",
+									"encounterId": 10225,
+									"adjacentNode": [
+										{
+											"nodeId": "211"
+										},
+										{
+											"nodeId": "231"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 3,
+							"nodes": [
+								{
+									"id": "230",
+									"isHidden": "False",
+									"position": "5.57,-11.78",
+									"encounter": "ab_battle",
+									"encounterId": 10226,
+									"adjacentNode": [
+										{
+											"nodeId": "220"
+										},
+										{
+											"nodeId": "240"
+										}
+									]
+								},
+								{
+									"id": "231",
+									"isHidden": "False",
+									"position": "5.53,-16.75",
+									"encounter": "ab_battle",
+									"encounterId": 10227,
+									"adjacentNode": [
+										{
+											"nodeId": "221"
+										},
+										{
+											"nodeId": "240"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 4,
+							"nodes": [
+								{
+									"id": "240",
+									"isHidden": "False",
+									"position": "10.1,-14.27",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "230"
+										},
+										{
+											"nodeId": "231"
+										},
+										{
+											"nodeId": "250"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 5,
+							"nodes": [
+								{
+									"id": "250",
+									"isHidden": "False",
+									"position": "18.31,-14.29",
+									"encounter": "boss",
+									"encounterId": 10228
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 10301,
+			"floors": [
+				{
+					"count": 0,
+					"sectors": [
+						{
+							"sectorNumber": 0,
+							"nodes": [
+								{
+									"id": "0",
+									"isHidden": "False",
+									"position": "-20.03,14.17",
+									"encounter": "start",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "10"
+										},
+										{
+											"nodeId": "12"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 1,
+							"nodes": [
+								{
+									"id": "10",
+									"isHidden": "False",
+									"position": "-15.8812,16.9238",
+									"encounter": "ab_battle",
+									"encounterId": 10301,
+									"adjacentNode": [
+										{
+											"nodeId": "0"
+										},
+										{
+											"nodeId": "11"
+										}
+									]
+								},
+								{
+									"id": "11",
+									"isHidden": "False",
+									"position": "-15.876,14.2006",
+									"encounter": "ab_battle",
+									"encounterId": 10302,
+									"adjacentNode": [
+										{
+											"nodeId": "10"
+										},
+										{
+											"nodeId": "12"
+										},
+										{
+											"nodeId": "20"
+										},
+										{
+											"nodeId": "21"
+										},
+										{
+											"nodeId": "22"
+										}
+									]
+								},
+								{
+									"id": "12",
+									"isHidden": "False",
+									"position": "-15.876,11.5207",
+									"encounter": "battle",
+									"encounterId": 10303,
+									"adjacentNode": [
+										{
+											"nodeId": "0"
+										},
+										{
+											"nodeId": "11"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 2,
+							"nodes": [
+								{
+									"id": "20",
+									"isHidden": "False",
+									"position": "-10.36,18.5694",
+									"encounter": "event",
+									"encounterId": 10301,
+									"abnormalityEventList": [
+										10301,
+										1030101
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "11"
+										},
+										{
+											"nodeId": "31"
+										}
+									]
+								},
+								{
+									"id": "21",
+									"isHidden": "False",
+									"position": "-10.5696,14.1887",
+									"encounter": "battle",
+									"encounterId": 10304,
+									"adjacentNode": [
+										{
+											"nodeId": "11"
+										},
+										{
+											"nodeId": "31"
+										}
+									]
+								},
+								{
+									"id": "22",
+									"isHidden": "False",
+									"position": "-11.015,10.438",
+									"encounter": "ab_battle",
+									"encounterId": 10305,
+									"adjacentNode": [
+										{
+											"nodeId": "11"
+										},
+										{
+											"nodeId": "31"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 3,
+							"nodes": [
+								{
+									"id": "30",
+									"isHidden": "False",
+									"position": "-3.2669,18.8516",
+									"encounter": "ab_battle",
+									"encounterId": 10306,
+									"adjacentNode": [
+										{
+											"nodeId": "31"
+										},
+										{
+											"nodeId": "50"
+										}
+									]
+								},
+								{
+									"id": "31",
+									"isHidden": "False",
+									"position": "-3.5988,13.485",
+									"encounter": "event",
+									"encounterId": 10303,
+									"abnormalityEventList": [
+										10303,
+										1030301,
+										1030302
+									],
+									"story": {
+										"exit": [
+											"3D102A"
+										]
+									},
+									"adjacentNode": [
+										{
+											"nodeId": "20"
+										},
+										{
+											"nodeId": "21"
+										},
+										{
+											"nodeId": "22"
+										},
+										{
+											"nodeId": "30"
+										},
+										{
+											"nodeId": "32"
+										},
+										{
+											"nodeId": "51"
+										}
+									]
+								},
+								{
+									"id": "32",
+									"isHidden": "False",
+									"position": "-3.1504,8.6698",
+									"encounter": "event",
+									"encounterId": 10302,
+									"abnormalityEventList": [
+										10302,
+										1030201,
+										1030202
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "31"
+										},
+										{
+											"nodeId": "33"
+										},
+										{
+											"nodeId": "40"
+										}
+									]
+								},
+								{
+									"id": "33",
+									"isHidden": "True",
+									"position": "-3.8175,3.1898",
+									"encounter": "ab_battle",
+									"encounterId": 10307,
+									"adjacentNode": [
+										{
+											"nodeId": "32"
+										},
+										{
+											"nodeId": "53"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 4,
+							"nodes": [
+								{
+									"id": "40",
+									"isHidden": "False",
+									"position": "3.4261,7.8006",
+									"encounter": "ab_battle",
+									"encounterId": 10308,
+									"adjacentNode": [
+										{
+											"nodeId": "32"
+										},
+										{
+											"nodeId": "52"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 5,
+							"nodes": [
+								{
+									"id": "50",
+									"isHidden": "False",
+									"position": "6.9982,18.809",
+									"encounter": "ab_battle",
+									"encounterId": 10309,
+									"adjacentNode": [
+										{
+											"nodeId": "30"
+										},
+										{
+											"nodeId": "61"
+										},
+										{
+											"nodeId": "62"
+										}
+									]
+								},
+								{
+									"id": "51",
+									"isHidden": "False",
+									"position": "4.805402,13.3714",
+									"encounter": "hard_battle",
+									"encounterId": 10310,
+									"adjacentNode": [
+										{
+											"nodeId": "31"
+										},
+										{
+											"nodeId": "52"
+										}
+									]
+								},
+								{
+									"id": "52",
+									"isHidden": "False",
+									"position": "10.6157,8.4646",
+									"encounter": "battle",
+									"encounterId": 10311,
+									"adjacentNode": [
+										{
+											"nodeId": "40"
+										},
+										{
+											"nodeId": "51"
+										},
+										{
+											"nodeId": "61"
+										},
+										{
+											"nodeId": "60"
+										},
+										{
+											"nodeId": "53"
+										}
+									]
+								},
+								{
+									"id": "53",
+									"isHidden": "True",
+									"position": "8.5308,3.0929",
+									"encounter": "event",
+									"encounterId": 10304,
+									"abnormalityEventList": [
+										10304
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "33"
+										},
+										{
+											"nodeId": "52"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 6,
+							"nodes": [
+								{
+									"id": "60",
+									"isHidden": "False",
+									"position": "16.9274,7.0938",
+									"encounter": "event",
+									"encounterId": 10305,
+									"abnormalityEventList": [
+										10305,
+										1030501
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "52"
+										},
+										{
+											"nodeId": "61"
+										}
+									]
+								},
+								{
+									"id": "61",
+									"isHidden": "False",
+									"position": "16.9037,11.8828",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "50"
+										},
+										{
+											"nodeId": "52"
+										},
+										{
+											"nodeId": "60"
+										},
+										{
+											"nodeId": "62"
+										}
+									]
+								},
+								{
+									"id": "62",
+									"isHidden": "False",
+									"position": "15.9284,18.1819",
+									"encounter": "boss",
+									"encounterId": 10312
+								}
+							]
+						}
+					]
+				},
+				{
+					"count": 1,
+					"sectors": [
+						{
+							"sectorNumber": 0,
+							"nodes": [
+								{
+									"id": "100",
+									"isHidden": "False",
+									"position": "20.603,-18.1246",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "101"
+										},
+										{
+											"nodeId": "102"
+										}
+									]
+								},
+								{
+									"id": "101",
+									"isHidden": "False",
+									"position": "20.5811,-14.2905",
+									"encounter": "ab_battle",
+									"encounterId": 10317,
+									"adjacentNode": [
+										{
+											"nodeId": "100"
+										},
+										{
+											"nodeId": "110"
+										},
+										{
+											"nodeId": "111"
+										}
+									]
+								},
+								{
+									"id": "102",
+									"isHidden": "False",
+									"position": "20.6012,-22.0036",
+									"encounter": "battle",
+									"encounterId": 10318,
+									"adjacentNode": [
+										{
+											"nodeId": "100"
+										},
+										{
+											"nodeId": "110"
+										},
+										{
+											"nodeId": "111"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 1,
+							"nodes": [
+								{
+									"id": "110",
+									"isHidden": "False",
+									"position": "16.4042,-14.2619",
+									"encounter": "event",
+									"encounterId": 10306,
+									"abnormalityEventList": [
+										10306,
+										1030601
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "101"
+										},
+										{
+											"nodeId": "102"
+										},
+										{
+											"nodeId": "111"
+										},
+										{
+											"nodeId": "120"
+										},
+										{
+											"nodeId": "121"
+										}
+									]
+								},
+								{
+									"id": "111",
+									"isHidden": "False",
+									"position": "16.4002,-22.024",
+									"encounter": "ab_battle",
+									"encounterId": 10320,
+									"adjacentNode": [
+										{
+											"nodeId": "101"
+										},
+										{
+											"nodeId": "102"
+										},
+										{
+											"nodeId": "110"
+										},
+										{
+											"nodeId": "120"
+										},
+										{
+											"nodeId": "121"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 2,
+							"nodes": [
+								{
+									"id": "120",
+									"isHidden": "False",
+									"position": "13.06,-14.26",
+									"encounter": "battle",
+									"encounterId": 10322,
+									"adjacentNode": [
+										{
+											"nodeId": "110"
+										},
+										{
+											"nodeId": "111"
+										},
+										{
+											"nodeId": "121"
+										},
+										{
+											"nodeId": "130"
+										}
+									]
+								},
+								{
+									"id": "121",
+									"isHidden": "False",
+									"position": "13.0572,-21.9775",
+									"encounter": "event",
+									"encounterId": 10307,
+									"abnormalityEventList": [
+										10307
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "110"
+										},
+										{
+											"nodeId": "111"
+										},
+										{
+											"nodeId": "120"
+										},
+										{
+											"nodeId": "130"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 3,
+							"nodes": [
+								{
+									"id": "130",
+									"isHidden": "False",
+									"position": "10.1592,-18.0585",
+									"encounter": "event",
+									"encounterId": 10308,
+									"abnormalityEventList": [
+										10308,
+										1030801
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "120"
+										},
+										{
+											"nodeId": "121"
+										},
+										{
+											"nodeId": "140"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 4,
+							"nodes": [
+								{
+									"id": "140",
+									"isHidden": "False",
+									"position": "6.676701,-18.0774",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "130"
+										},
+										{
+											"nodeId": "150"
+										},
+										{
+											"nodeId": "151"
+										},
+										{
+											"nodeId": "152"
+										},
+										{
+											"nodeId": "160"
+										},
+										{
+											"nodeId": "164"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 5,
+							"nodes": [
+								{
+									"id": "150",
+									"isHidden": "False",
+									"position": "2.600801,-12.9869",
+									"encounter": "battle",
+									"encounterId": 10326,
+									"adjacentNode": [
+										{
+											"nodeId": "140"
+										},
+										{
+											"nodeId": "151"
+										},
+										{
+											"nodeId": "161"
+										}
+									]
+								},
+								{
+									"id": "151",
+									"isHidden": "False",
+									"position": "2.442001,-18.06",
+									"encounter": "ab_battle",
+									"encounterId": 10327,
+									"adjacentNode": [
+										{
+											"nodeId": "140"
+										},
+										{
+											"nodeId": "150"
+										},
+										{
+											"nodeId": "152"
+										},
+										{
+											"nodeId": "162"
+										}
+									]
+								},
+								{
+									"id": "152",
+									"isHidden": "False",
+									"position": "2.430001,-22.97",
+									"encounter": "event",
+									"encounterId": 10309,
+									"abnormalityEventList": [
+										10309
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "140"
+										},
+										{
+											"nodeId": "151"
+										},
+										{
+											"nodeId": "163"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 6,
+							"nodes": [
+								{
+									"id": "160",
+									"isHidden": "True",
+									"position": "-2.621199,-3.3728",
+									"encounter": "event",
+									"encounterId": 10310,
+									"abnormalityEventList": [
+										10310,
+										1031001
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "140"
+										},
+										{
+											"nodeId": "161"
+										},
+										{
+											"nodeId": "180"
+										}
+									]
+								},
+								{
+									"id": "161",
+									"isHidden": "False",
+									"position": "-2.651799,-8.530701",
+									"encounter": "boss",
+									"encounterId": 10329,
+									"adjacentNode": [
+										{
+											"nodeId": "150"
+										},
+										{
+											"nodeId": "160"
+										},
+										{
+											"nodeId": "162"
+										},
+										{
+											"nodeId": "180"
+										}
+									]
+								},
+								{
+									"id": "162",
+									"isHidden": "False",
+									"position": "-2.460899,-18.0718",
+									"encounter": "hard_battle",
+									"encounterId": 10330,
+									"adjacentNode": [
+										{
+											"nodeId": "151"
+										},
+										{
+											"nodeId": "161"
+										},
+										{
+											"nodeId": "163"
+										},
+										{
+											"nodeId": "170"
+										}
+									]
+								},
+								{
+									"id": "163",
+									"isHidden": "False",
+									"position": "-2.641799,-27.7195",
+									"encounter": "hard_battle",
+									"encounterId": 10331,
+									"adjacentNode": [
+										{
+											"nodeId": "152"
+										},
+										{
+											"nodeId": "162"
+										},
+										{
+											"nodeId": "164"
+										},
+										{
+											"nodeId": "182"
+										}
+									]
+								},
+								{
+									"id": "164",
+									"isHidden": "True",
+									"position": "-2.636199,-32.8517",
+									"encounter": "event",
+									"encounterId": 10312,
+									"abnormalityEventList": [
+										10312,
+										1031201
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "140"
+										},
+										{
+											"nodeId": "163"
+										},
+										{
+											"nodeId": "182"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 7,
+							"nodes": [
+								{
+									"id": "170",
+									"isHidden": "False",
+									"position": "-7.522399,-18.0688",
+									"encounter": "event",
+									"encounterId": 10311,
+									"abnormalityEventList": [
+										10311
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "162"
+										},
+										{
+											"nodeId": "180"
+										},
+										{
+											"nodeId": "181"
+										},
+										{
+											"nodeId": "182"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 8,
+							"nodes": [
+								{
+									"id": "180",
+									"isHidden": "False",
+									"position": "-11.703,-8.530001",
+									"encounter": "battle",
+									"encounterId": 10334,
+									"adjacentNode": [
+										{
+											"nodeId": "160"
+										},
+										{
+											"nodeId": "161"
+										},
+										{
+											"nodeId": "170"
+										},
+										{
+											"nodeId": "181"
+										}
+									]
+								},
+								{
+									"id": "181",
+									"isHidden": "False",
+									"position": "-11.6768,-18.0825",
+									"encounter": "event",
+									"encounterId": 10314,
+									"abnormalityEventList": [
+										10314,
+										1031401
+									],
+									"adjacentNode": [
+										{
+											"nodeId": "170"
+										},
+										{
+											"nodeId": "180"
+										},
+										{
+											"nodeId": "182"
+										},
+										{
+											"nodeId": "190"
+										}
+									]
+								},
+								{
+									"id": "182",
+									"isHidden": "False",
+									"position": "-11.7128,-27.7093",
+									"encounter": "battle",
+									"encounterId": 10335,
+									"adjacentNode": [
+										{
+											"nodeId": "163"
+										},
+										{
+											"nodeId": "164"
+										},
+										{
+											"nodeId": "170"
+										},
+										{
+											"nodeId": "181"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 9,
+							"nodes": [
+								{
+									"id": "190",
+									"isHidden": "False",
+									"position": "-15.7527,-18.1457",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "181"
+										},
+										{
+											"nodeId": "1100"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 10,
+							"nodes": [
+								{
+									"id": "1100",
+									"isHidden": "False",
+									"position": "-20.20821,-18.1349",
+									"encounter": "boss",
+									"encounterId": 10336
+								}
+							]
+						}
+					]
+				},
+				{
+					"count": 2,
+					"sectors": [
+						{
+							"sectorNumber": 0,
+							"nodes": [
+								{
+									"id": "200",
+									"isHidden": "False",
+									"position": "-15.4042,-50.3007",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "210"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 1,
+							"nodes": [
+								{
+									"id": "210",
+									"isHidden": "False",
+									"position": "-9.9479,-50.3233",
+									"encounter": "battle",
+									"encounterId": 10340,
+									"adjacentNode": [
+										{
+											"nodeId": "200"
+										},
+										{
+											"nodeId": "220"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 2,
+							"nodes": [
+								{
+									"id": "220",
+									"isHidden": "False",
+									"position": "-5.1248,-50.2574",
+									"encounter": "battle",
+									"encounterId": 10341,
+									"adjacentNode": [
+										{
+											"nodeId": "210"
+										},
+										{
+											"nodeId": "230"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 3,
+							"nodes": [
+								{
+									"id": "230",
+									"isHidden": "False",
+									"position": "-1.4259,-56.3718",
+									"encounter": "ab_battle",
+									"encounterId": 10342,
+									"adjacentNode": [
+										{
+											"nodeId": "220"
+										},
+										{
+											"nodeId": "240"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 4,
+							"nodes": [
+								{
+									"id": "240",
+									"isHidden": "False",
+									"position": "4.6934,-60.64",
+									"encounter": "battle",
+									"encounterId": 10343,
+									"adjacentNode": [
+										{
+											"nodeId": "230"
+										},
+										{
+											"nodeId": "250"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 5,
+							"nodes": [
+								{
+									"id": "250",
+									"isHidden": "False",
+									"position": "10.82051,-56.3892",
+									"encounter": "ab_battle",
+									"encounterId": 10344,
+									"adjacentNode": [
+										{
+											"nodeId": "240"
+										},
+										{
+											"nodeId": "260"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 6,
+							"nodes": [
+								{
+									"id": "260",
+									"isHidden": "False",
+									"position": "15.05,-50.3654",
+									"encounter": "hard_battle",
+									"encounterId": 10345,
+									"adjacentNode": [
+										{
+											"nodeId": "250"
+										},
+										{
+											"nodeId": "270"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 7,
+							"nodes": [
+								{
+									"id": "270",
+									"isHidden": "False",
+									"position": "10.811,-44.4089",
+									"encounter": "ab_battle",
+									"encounterId": 10346,
+									"adjacentNode": [
+										{
+											"nodeId": "260"
+										},
+										{
+											"nodeId": "280"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 8,
+							"nodes": [
+								{
+									"id": "280",
+									"isHidden": "False",
+									"position": "4.7034,-40.2051",
+									"encounter": "ab_battle",
+									"encounterId": 10347,
+									"adjacentNode": [
+										{
+											"nodeId": "270"
+										},
+										{
+											"nodeId": "290"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 9,
+							"nodes": [
+								{
+									"id": "290",
+									"isHidden": "False",
+									"position": "-1.4265,-44.4638",
+									"encounter": "save",
+									"encounterId": 0,
+									"adjacentNode": [
+										{
+											"nodeId": "280"
+										},
+										{
+											"nodeId": "2100"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber": 10,
+							"nodes": [
+								{
+									"id": "2100",
+									"isHidden": "False",
+									"position": "4.65,-50.1982",
+									"encounter": "boss",
+									"encounterId": 10348
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"id":10401,
+			"floors":[
+				{
+					"count":0,
+					"sectors":[
+						{
+							"sectorNumber":0,
+							"nodes":[
+								{
+									"id":"10401",
+									"isHidden":"False",
+									"position":"-18.0734,11.0903",
+									"encounter":"start",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10402"
+										},
+										{
+											"nodeId":"10403"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":1,
+							"nodes":[
+								{
+									"id":"10402",
+									"isHidden":"False",
+									"position":"-18.0734,19.02",
+									"encounter":"battle",
+									"encounterId":10401,
+									"story":{
+										"exit":[
+											"4D102A"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10401"
+										},
+										{
+											"nodeId":"10404"
+										}
+									]
+								},
+								{
+									"id":"10403",
+									"isHidden":"False",
+									"position":"-18.0734,3.18",
+									"encounter":"ab_battle",
+									"encounterId":10402,
+									"story":{
+										"exit":[
+											"4D102A"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10401"
+										},
+										{
+											"nodeId":"10405"
+										}
+									]
+								},
+								{
+									"id":"10404",
+									"isHidden":"False",
+									"position":"0.2918,19.0118",
+									"encounter":"ab_battle",
+									"encounterId":10403,
+									"adjacentNode":[
+										{
+											"nodeId":"10402"
+										},
+										{
+											"nodeId":"10406"
+										}
+									]
+								},
+								{
+									"id":"10405",
+									"isHidden":"False",
+									"position":"0.2918,3.15",
+									"encounter":"battle",
+									"encounterId":10404,
+									"adjacentNode":[
+										{
+											"nodeId":"10403"
+										},
+										{
+											"nodeId":"10407"
+										}
+									]
+								},
+								{
+									"id":"10406",
+									"isHidden":"False",
+									"position":"18.0632,19.02",
+									"encounter":"event",
+									"encounterId":10401,
+									"adjacentNode":[
+										{
+											"nodeId":"10404"
+										},
+										{
+											"nodeId":"10408"
+										}
+									]
+								},
+								{
+									"id":"10407",
+									"isHidden":"False",
+									"position":"18.063,3.19",
+									"encounter":"event",
+									"encounterId":10402,
+									"adjacentNode":[
+										{
+											"nodeId":"10405"
+										},
+										{
+											"nodeId":"10408"
+										}
+									]
+								},
+								{
+									"id":"10408",
+									"isHidden":"False",
+									"position":"18.0792,11.101",
+									"encounter":"hard_battle",
+									"encounterId":10405,
+									"story":{
+										"enter":[
+											"4D103B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10406"
+										},
+										{
+											"nodeId":"10407"
+										},
+										{
+											"nodeId":"10409"
+										}
+									]
+								},
+								{
+									"id":"10409",
+									"isHidden":"False",
+									"position":"12.8265,11.0612",
+									"encounter":"ab_battle",
+									"encounterId":10406,
+									"adjacentNode":[
+										{
+											"nodeId":"10408"
+										},
+										{
+											"nodeId":"10410"
+										},
+										{
+											"nodeId":"10414"
+										}
+									]
+								},
+								{
+									"id":"10410",
+									"isHidden":"False",
+									"position":"12.8103,15.4947",
+									"encounter":"event",
+									"encounterId":10403,
+									"adjacentNode":[
+										{
+											"nodeId":"10409"
+										},
+										{
+											"nodeId":"10411"
+										}
+									]
+								},
+								{
+									"id":"10411",
+									"isHidden":"False",
+									"position":"2.7511,15.49",
+									"encounter":"battle",
+									"encounterId":10407,
+									"story":{
+										"enter":[
+											"4D104B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10410"
+										},
+										{
+											"nodeId":"10412"
+										}
+									]
+								},
+								{
+									"id":"10412",
+									"isHidden":"False",
+									"position":"2.7971,11.13",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10411"
+										},
+										{
+											"nodeId":"10413"
+										}
+									]
+								},
+								{
+									"id":"10413",
+									"isHidden":"False",
+									"position":"8.1901,11.0999",
+									"encounter":"boss",
+									"encounterId":10408,
+									"story":{
+										"enter":[
+											"4D105B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10412"
+										}
+									]
+								},
+								{
+									"id":"10414",
+									"isHidden":"True",
+									"position":"12.8103,5.48",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10409"
+										},
+										{
+											"nodeId":"10415"
+										}
+									]
+								},
+								{
+									"id":"10415",
+									"isHidden":"False",
+									"position":"-12.35,5.48",
+									"encounter":"battle",
+									"encounterId":10409,
+									"story":{
+										"enter":[
+											"4D106B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10414"
+										},
+										{
+											"nodeId":"10416"
+										}
+									]
+								},
+								{
+									"id":"10416",
+									"isHidden":"False",
+									"position":"-12.35,15.46",
+									"encounter":"event",
+									"encounterId":10404,
+									"adjacentNode":[
+										{
+											"nodeId":"10415"
+										},
+										{
+											"nodeId":"10417"
+										}
+									]
+								},
+								{
+									"id":"10417",
+									"isHidden":"False",
+									"position":"-2.0656,15.46",
+									"encounter":"ab_battle",
+									"encounterId":10410,
+									"story":{
+										"enter":[
+											"4D107B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10416"
+										},
+										{
+											"nodeId":"10418"
+										}
+									]
+								},
+								{
+									"id":"10418",
+									"isHidden":"False",
+									"position":"-2.0762,11.11",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10417"
+										},
+										{
+											"nodeId":"10419"
+										}
+									]
+								},
+								{
+									"id":"10419",
+									"isHidden":"False",
+									"position":"-7.5111,11.1",
+									"encounter":"boss",
+									"encounterId":10411
+								}
+							]
+						}
+					]
+				},
+				{
+					"count":1,
+					"sectors":[
+						{
+							"sectorNumber":0,
+							"nodes":[
+								{
+									"id":"10420",
+									"isHidden":"False",
+									"position":"18.9072,-12.2714",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10421"
+										},
+										{
+											"nodeId":"10422"
+										},
+										{
+											"nodeId":"10434"
+										},
+										{
+											"nodeId":"10435"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":1,
+							"nodes":[
+								{
+									"id":"10421",
+									"isHidden":"False",
+									"position":"18.9072,-3.57",
+									"encounter":"ab_battle",
+									"encounterId":10412,
+									"story":{
+										"enter":[
+											"4D201B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10420"
+										},
+										{
+											"nodeId":"10423"
+										}
+									]
+								},
+								{
+									"id":"10422",
+									"isHidden":"False",
+									"position":"18.9072,-20.87",
+									"encounter":"battle",
+									"encounterId":10413,
+									"story":{
+										"enter":[
+											"4D201B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10420"
+										},
+										{
+											"nodeId":"10424"
+										}
+									]
+								},
+								{
+									"id":"10423",
+									"isHidden":"False",
+									"position":"0.1671,-3.5929",
+									"encounter":"battle",
+									"encounterId":10414,
+									"story":{
+										"enter":[
+											"4D202B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10421"
+										},
+										{
+											"nodeId":"10425"
+										},
+										{
+											"nodeId":"10430"
+										},
+										{
+											"nodeId":"10434"
+										}
+									]
+								},
+								{
+									"id":"10424",
+									"isHidden":"False",
+									"position":"0.1671,-20.91",
+									"encounter":"battle",
+									"encounterId":10415,
+									"story":{
+										"enter":[
+											"4D202B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10422"
+										},
+										{
+											"nodeId":"10426"
+										},
+										{
+											"nodeId":"10431"
+										},
+										{
+											"nodeId":"10435"
+										}
+									]
+								},
+								{
+									"id":"10425",
+									"isHidden":"False",
+									"position":"-9.4954,-3.625",
+									"encounter":"battle",
+									"encounterId":10416,
+									"story":{
+										"enter":[
+											"4D203B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10423"
+										},
+										{
+											"nodeId":"10427"
+										}
+									]
+								},
+								{
+									"id":"10426",
+									"isHidden":"False",
+									"position":"-9.4954,-20.86",
+									"encounter":"ab_battle",
+									"encounterId":10417,
+									"story":{
+										"enter":[
+											"4D203B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10424"
+										},
+										{
+											"nodeId":"10428"
+										}
+									]
+								},
+								{
+									"id":"10427",
+									"isHidden":"False",
+									"position":"-18.8628,-3.5865",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10425"
+										},
+										{
+											"nodeId":"10429"
+										}
+									]
+								},
+								{
+									"id":"10428",
+									"isHidden":"False",
+									"position":"-18.8628,-20.87",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10426"
+										},
+										{
+											"nodeId":"10429"
+										}
+									]
+								},
+								{
+									"id":"10429",
+									"isHidden":"False",
+									"position":"-18.8635,-12.29",
+									"encounter":"boss",
+									"encounterId":10418,
+									"story":{
+										"enter":[
+											"4D204B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10427"
+										},
+										{
+											"nodeId":"10428"
+										},
+										{
+											"nodeId":"10430"
+										},
+										{
+											"nodeId":"10431"
+										}
+									]
+								},
+								{
+									"id":"10430",
+									"isHidden":"False",
+									"position":"-9.4013,-7.7735",
+									"encounter":"ab_battle",
+									"encounterId":10419,
+									"story":{
+										"enter":[
+											"4D205B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10423"
+										},
+										{
+											"nodeId":"10429"
+										},
+										{
+											"nodeId":"10432"
+										},
+										{
+											"nodeId":"10437"
+										}
+									]
+								},
+								{
+									"id":"10431",
+									"isHidden":"False",
+									"position":"-9.4013,-16.76",
+									"encounter":"ab_battle",
+									"encounterId":10420,
+									"story":{
+										"enter":[
+											"4D205B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10424"
+										},
+										{
+											"nodeId":"10429"
+										},
+										{
+											"nodeId":"10433"
+										},
+										{
+											"nodeId":"10437"
+										}
+									]
+								},
+								{
+									"id":"10432",
+									"isHidden":"False",
+									"position":"0.27,-7.7768",
+									"encounter":"event",
+									"encounterId":10405,
+									"adjacentNode":[
+										{
+											"nodeId":"10430"
+										},
+										{
+											"nodeId":"10434"
+										},
+										{
+											"nodeId":"10436"
+										},
+										{
+											"nodeId":"10437"
+										}
+									]
+								},
+								{
+									"id":"10433",
+									"isHidden":"False",
+									"position":"0.27,-16.71",
+									"encounter":"event",
+									"encounterId":10408,
+									"adjacentNode":[
+										{
+											"nodeId":"10431"
+										},
+										{
+											"nodeId":"10435"
+										},
+										{
+											"nodeId":"10436"
+										},
+										{
+											"nodeId":"10437"
+										}
+									]
+								},
+								{
+									"id":"10434",
+									"isHidden":"False",
+									"position":"9.86,-7.74",
+									"encounter":"battle",
+									"encounterId":10421,
+									"story":{
+										"enter":[
+											"4D206B"
+										],
+										"exit":[
+											"4D206A"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10420"
+										},
+										{
+											"nodeId":"10423"
+										},
+										{
+											"nodeId":"10432"
+										},
+										{
+											"nodeId":"10436"
+										}
+									]
+								},
+								{
+									"id":"10435",
+									"isHidden":"False",
+									"position":"9.86,-16.74",
+									"encounter":"battle",
+									"encounterId":10422,
+									"story":{
+										"enter":[
+											"4D206B"
+										],
+										"exit":[
+											"4D206A"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10420"
+										},
+										{
+											"nodeId":"10424"
+										},
+										{
+											"nodeId":"10433"
+										},
+										{
+											"nodeId":"10436"
+										}
+									]
+								},
+								{
+									"id":"10436",
+									"isHidden":"False",
+									"position":"9.9257,-12.2386",
+									"encounter":"hard_battle",
+									"encounterId":10423,
+									"story":{
+										"enter":[
+											"4D207B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10432"
+										},
+										{
+											"nodeId":"10433"
+										},
+										{
+											"nodeId":"10434"
+										},
+										{
+											"nodeId":"10435"
+										}
+									]
+								},
+								{
+									"id":"10437",
+									"isHidden":"False",
+									"position":"-9.35,-12.2386",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10430"
+										},
+										{
+											"nodeId":"10431"
+										},
+										{
+											"nodeId":"10432"
+										},
+										{
+											"nodeId":"10433"
+										},
+										{
+											"nodeId":"10438"
+										}
+									]
+								},
+								{
+									"id":"10438",
+									"isHidden":"False",
+									"position":"0.2351,-12.26831",
+									"encounter":"boss",
+									"encounterId":10424,
+									"story":{
+										"enter":[
+											"4D208B"
+										]
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"count":2,
+					"sectors":[
+						{
+							"sectorNumber":0,
+							"nodes":[
+								{
+									"id":"10439",
+									"isHidden":"False",
+									"position":"-16.5407,-27.1603",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10440"
+										},
+										{
+											"nodeId":"10444"
+										},
+										{
+											"nodeId":"10446"
+										}
+									]
+								}
+							]
+						},
+						{
+							"sectorNumber":1,
+							"nodes":[
+								{
+									"id":"10440",
+									"isHidden":"False",
+									"position":"0.18,-27.1869",
+									"encounter":"ab_battle",
+									"encounterId":10425,
+									"story":{
+										"enter":[
+											"4D301B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10439"
+										},
+										{
+											"nodeId":"10441"
+										}
+									]
+								},
+								{
+									"id":"10441",
+									"isHidden":"False",
+									"position":"16.85539,-27.16",
+									"encounter":"battle",
+									"encounterId":10426,
+									"adjacentNode":[
+										{
+											"nodeId":"10440"
+										},
+										{
+											"nodeId":"10442"
+										},
+										{
+											"nodeId":"10447"
+										}
+									]
+								},
+								{
+									"id":"10442",
+									"isHidden":"False",
+									"position":"16.85539,-47.74",
+									"encounter":"event",
+									"encounterId":10407,
+									"adjacentNode":[
+										{
+											"nodeId":"10441"
+										},
+										{
+											"nodeId":"10443"
+										},
+										{
+											"nodeId":"10448"
+										}
+									]
+								},
+								{
+									"id":"10443",
+									"isHidden":"False",
+									"position":"0.21,-47.76747",
+									"encounter":"battle",
+									"encounterId":10427,
+									"story":{
+										"enter":[
+											"4D302B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10442"
+										},
+										{
+											"nodeId":"10444"
+										}
+									]
+								},
+								{
+									"id":"10444",
+									"isHidden":"False",
+									"position":"-16.541,-47.74",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10439"
+										},
+										{
+											"nodeId":"10443"
+										},
+										{
+											"nodeId":"10445"
+										}
+									]
+								},
+								{
+									"id":"10445",
+									"isHidden":"False",
+									"position":"-10.962,-44.299",
+									"encounter":"event",
+									"encounterId":10406,
+									"adjacentNode":[
+										{
+											"nodeId":"10444"
+										},
+										{
+											"nodeId":"10446"
+										},
+										{
+											"nodeId":"10448"
+										},
+										{
+											"nodeId":"10450"
+										}
+									]
+								},
+								{
+									"id":"10446",
+									"isHidden":"False",
+									"position":"-10.962,-30.66",
+									"encounter":"ab_battle",
+									"encounterId":10428,
+									"story":{
+										"enter":[
+											"4D303B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10439"
+										},
+										{
+											"nodeId":"10445"
+										},
+										{
+											"nodeId":"10447"
+										},
+										{
+											"nodeId":"10451"
+										}
+									]
+								},
+								{
+									"id":"10447",
+									"isHidden":"False",
+									"position":"11.43,-30.66",
+									"encounter":"hard_battle",
+									"encounterId":10429,
+									"adjacentNode":[
+										{
+											"nodeId":"10441"
+										},
+										{
+											"nodeId":"10446"
+										},
+										{
+											"nodeId":"10448"
+										},
+										{
+											"nodeId":"10452"
+										}
+									]
+								},
+								{
+									"id":"10448",
+									"isHidden":"False",
+									"position":"11.43,-44.33",
+									"encounter":"ab_battle",
+									"encounterId":10430,
+									"adjacentNode":[
+										{
+											"nodeId":"10442"
+										},
+										{
+											"nodeId":"10445"
+										},
+										{
+											"nodeId":"10447"
+										},
+										{
+											"nodeId":"10449"
+										}
+									]
+								},
+								{
+									"id":"10449",
+									"isHidden":"False",
+									"position":"6.7806,-40.945",
+									"encounter":"hard_battle",
+									"encounterId":10431,
+									"adjacentNode":[
+										{
+											"nodeId":"10448"
+										},
+										{
+											"nodeId":"10450"
+										},
+										{
+											"nodeId":"10452"
+										},
+										{
+											"nodeId":"10453"
+										}
+									]
+								},
+								{
+									"id":"10450",
+									"isHidden":"False",
+									"position":"-6.29,-40.945",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10445"
+										},
+										{
+											"nodeId":"10449"
+										},
+										{
+											"nodeId":"10451"
+										},
+										{
+											"nodeId":"10453"
+										}
+									]
+								},
+								{
+									"id":"10451",
+									"isHidden":"False",
+									"position":"-6.29,-33.96",
+									"encounter":"boss",
+									"encounterId":10432,
+									"story":{
+										"enter":[
+											"4D304B"
+										]
+									},
+									"adjacentNode":[
+										{
+											"nodeId":"10446"
+										},
+										{
+											"nodeId":"10450"
+										},
+										{
+											"nodeId":"10452"
+										},
+										{
+											"nodeId":"10453"
+										}
+									]
+								},
+								{
+									"id":"10452",
+									"isHidden":"False",
+									"position":"6.84,-33.96",
+									"encounter":"save",
+									"encounterId":0,
+									"adjacentNode":[
+										{
+											"nodeId":"10447"
+										},
+										{
+											"nodeId":"10449"
+										},
+										{
+											"nodeId":"10451"
+										},
+										{
+											"nodeId":"10453"
+										}
+									]
+								},
+								{
+									"id":"10453",
+									"isHidden":"False",
+									"position":"0.2441,-37.4646",
+									"encounter":"boss",
+									"encounterId":10433,
+									"story":{
+										"enter":[
+											"4D305B"
+										],
+										"exit":[
+											"4D305A"
+										]
+									},
+									"forceAliveCharacterIds":[1]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 910301,
+			"floors": [{
+				"count": 0,
+				"sectors": [{
+					"sectorNumber": 0,
+					"nodes": [{
+						"debugNodeId": "DN-910301",
+						"debugEncounterId": "0",
+						"id": "910301",
+						"encounter": "start",
+						"encounterId": 0,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910302"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 1,
+					"nodes": [{
+						"debugNodeId": "DN-910302",
+						"debugEncounterId": "SDC900041",
+						"id": "910302",
+						"encounter": "event",
+						"encounterId": 910303,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910301"
+						}, {
+							"nodeId": "910303"
+						}, {
+							"nodeId": "910304"
+						}, {
+							"nodeId": "910305"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 2,
+					"nodes": [{
+						"debugNodeId": "DN-910303",
+						"debugEncounterId": "DB910301",
+						"id": "910303",
+						"encounter": "battle",
+						"encounterId": 910301,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910302"
+						}, {
+							"nodeId": "910306"
+						}
+						]
+					}, {
+						"debugNodeId": "DN-910304",
+						"debugEncounterId": "DB910302",
+						"id": "910304",
+						"encounter": "battle",
+						"encounterId": 910302,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910302"
+						}, {
+							"nodeId": "910306"
+						}
+						]
+					}, {
+						"debugNodeId": "DN-910305",
+						"debugEncounterId": "DB910303",
+						"id": "910305",
+						"encounter": "battle",
+						"encounterId": 910303,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910302"
+						}, {
+							"nodeId": "910306"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 3,
+					"nodes": [{
+						"debugNodeId": "DN-910306",
+						"debugEncounterId": "SDC910301",
+						"id": "910306",
+						"encounter": "event",
+						"encounterId": 910301,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910303"
+						}, {
+							"nodeId": "910304"
+						}, {
+							"nodeId": "910305"
+						}, {
+							"nodeId": "910307"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 4,
+					"nodes": [{
+						"debugNodeId": "DN-910307",
+						"debugEncounterId": "DB910304",
+						"id": "910307",
+						"encounter": "battle",
+						"encounterId": 910304,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910306"
+						}, {
+							"nodeId": "910308"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 5,
+					"nodes": [{
+						"debugNodeId": "DN-910308",
+						"debugEncounterId": "SDC910302",
+						"id": "910308",
+						"encounter": "event",
+						"encounterId": 910302,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910307"
+						}, {
+							"nodeId": "910309"
+						}, {
+							"nodeId": "910310"
+						}, {
+							"nodeId": "910311"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 6,
+					"nodes": [{
+						"debugNodeId": "DN-910309",
+						"debugEncounterId": "DB910322",
+						"id": "910309",
+						"encounter": "ab_battle",
+						"encounterId": 910305,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910308"
+						}, {
+							"nodeId": "910312"
+						}
+						]
+					}, {
+						"debugNodeId": "DN-910310",
+						"debugEncounterId": "DB910323",
+						"id": "910310",
+						"encounter": "ab_battle",
+						"encounterId": 910306,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910308"
+						}, {
+							"nodeId": "910312"
+						}
+						]
+					}, {
+						"debugNodeId": "DN-910311",
+						"debugEncounterId": "DB910324",
+						"id": "910311",
+						"encounter": "ab_battle",
+						"encounterId": 910307,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910308"
+						}, {
+							"nodeId": "910312"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 7,
+					"nodes": [{
+						"debugNodeId": "DN-910312",
+						"debugEncounterId": "DB910325",
+						"id": "910312",
+						"encounter": "hard_ab_battle",
+						"encounterId": 910308,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910309"
+						}, {
+							"nodeId": "910310"
+						}, {
+							"nodeId": "910311"
+						}, {
+							"nodeId": "910313"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 8,
+					"nodes": [{
+						"debugNodeId": "DN-910313",
+						"debugEncounterId": "DB910331",
+						"id": "910313",
+						"encounter": "boss",
+						"encounterId": 910309,
+						"isHidden": "False"
+					}
+					]
+				}
+				]
+			}
+			]
+		},
+		{
+			"id": 910302,
+			"floors": [{
+				"count": 0,
+				"sectors": [{
+					"sectorNumber": 0,
+					"nodes": [{
+						"debugNodeId": "DN-910301",
+						"debugEncounterId": "0",
+						"id": "910301",
+						"encounter": "start",
+						"encounterId": 0,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910302"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 1,
+					"nodes": [{
+						"debugNodeId": "DN-910302",
+						"debugEncounterId": "SDC900041",
+						"id": "910302",
+						"encounter": "event",
+						"encounterId": 910303,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910301"
+						}, {
+							"nodeId": "910303"
+						}, {
+							"nodeId": "910304"
+						}, {
+							"nodeId": "910305"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 2,
+					"nodes": [{
+						"debugNodeId": "DN-910303",
+						"debugEncounterId": "DB910305",
+						"id": "910303",
+						"encounter": "battle",
+						"encounterId": 910301,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910302"
+						}, {
+							"nodeId": "910306"
+						}
+						]
+					}, {
+						"debugNodeId": "DN-910304",
+						"debugEncounterId": "DB910306",
+						"id": "910304",
+						"encounter": "battle",
+						"encounterId": 910302,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910302"
+						}, {
+							"nodeId": "910306"
+						}
+						]
+					}, {
+						"debugNodeId": "DN-910305",
+						"debugEncounterId": "DB910307",
+						"id": "910305",
+						"encounter": "battle",
+						"encounterId": 910303,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910302"
+						}, {
+							"nodeId": "910306"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 3,
+					"nodes": [{
+						"debugNodeId": "DN-910306",
+						"debugEncounterId": "SDC910301",
+						"id": "910306",
+						"encounter": "event",
+						"encounterId": 910301,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910303"
+						}, {
+							"nodeId": "910304"
+						}, {
+							"nodeId": "910305"
+						}, {
+							"nodeId": "910307"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 4,
+					"nodes": [{
+						"debugNodeId": "DN-910307",
+						"debugEncounterId": "DB910308",
+						"id": "910307",
+						"encounter": "battle",
+						"encounterId": 910304,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910306"
+						}, {
+							"nodeId": "910308"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 5,
+					"nodes": [{
+						"debugNodeId": "DN-910308",
+						"debugEncounterId": "SDC910302",
+						"id": "910308",
+						"encounter": "event",
+						"encounterId": 910302,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910307"
+						}, {
+							"nodeId": "910309"
+						}, {
+							"nodeId": "910310"
+						}, {
+							"nodeId": "910311"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 6,
+					"nodes": [{
+						"debugNodeId": "DN-910309",
+						"debugEncounterId": "DB910326",
+						"id": "910309",
+						"encounter": "ab_battle",
+						"encounterId": 910305,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910308"
+						}, {
+							"nodeId": "910312"
+						}
+						]
+					}, {
+						"debugNodeId": "DN-910310",
+						"debugEncounterId": "DB910327",
+						"id": "910310",
+						"encounter": "ab_battle",
+						"encounterId": 910306,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910308"
+						}, {
+							"nodeId": "910312"
+						}
+						]
+					}, {
+						"debugNodeId": "DN-910311",
+						"debugEncounterId": "DB910328",
+						"id": "910311",
+						"encounter": "ab_battle",
+						"encounterId": 910307,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910308"
+						}, {
+							"nodeId": "910312"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 7,
+					"nodes": [{
+						"debugNodeId": "DN-910312",
+						"debugEncounterId": "DB910329",
+						"id": "910312",
+						"encounter": "hard_ab_battle",
+						"encounterId": 910308,
+						"isHidden": "False",
+						"adjacentNode": [{
+							"nodeId": "910309"
+						}, {
+							"nodeId": "910310"
+						}, {
+							"nodeId": "910311"
+						}, {
+							"nodeId": "910313"
+						}
+						]
+					}
+					]
+				}, {
+					"sectorNumber": 8,
+					"nodes": [{
+						"debugNodeId": "DN-910313",
+						"debugEncounterId": "DB910332",
+						"id": "910313",
+						"encounter": "boss",
+						"encounterId": 910310,
+						"isHidden": "False"
+					}
+					]
+				}
+				]
+			}
+			]
+		}
+	]
+}

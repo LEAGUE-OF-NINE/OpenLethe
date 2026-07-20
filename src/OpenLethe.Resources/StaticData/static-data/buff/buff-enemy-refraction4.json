@@ -1,0 +1,163 @@
+{
+  "list": [
+    {
+      "id": "UninvitedGuest",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "UninvitedGuest"
+        }
+      ]
+    },
+    {
+      "id": "ConnectedPlug",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "ConnectedPlug"
+        }
+      ]
+    },
+    {
+      "id": "AntiSheepGround",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AntiSheepGround"
+        }
+      ]
+    },
+    {
+      "id": "ThundercloudFormation",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "ThundercloudFormation"
+        }
+      ]
+    },
+    {
+      "id": "BandageOfTheBoundKing",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnDie",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "EveryEnemy",
+            "stack": 2,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BandageOfTheBoundKing"
+        }
+      ]
+    },
+    {
+      "id": "ComeForwardToTheKing",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "TargetNumAdderByStack",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnLoseDuel",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "VioletPeccatulumTwo",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.15
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": -0.15
+        },
+        {
+          "ability": "VioletPeccatulumTwo"
+        }
+      ]
+    },
+    {
+      "id": "RefractedWill",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RefractedWill",
+          "value": -0.5
+        }
+      ]
+    },
+    {
+      "id": "FirmWill",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RefractedWill",
+          "value": -100
+        }
+      ]
+    },
+    {
+      "id": "BreathSupport",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "BreathSupport",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 4,
+            "turn": 4,
+            "activeRound": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "list": [
+    {
+      "id": "NetherseaBrand",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 4,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "SeaTerrorCell",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 5,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "enemyImportanceLevel": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRS",
+          "buffData": {
+            "buffKeyword": "SeaTerrorCell",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "SeaTerrorCell",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "AttackDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "SeaTerrorCell",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ExitBattleViaBuffCheck",
+          "value": 5
+        },
+        {
+          "ability": "ExitBattleFieldOnREIfEquipedDefense"
+        }
+      ]
+    },
+    
+    {
+      "id": "AbyssalVitality",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 100,
+      "list": [
+        {
+          "ability": "MpRecoverOnUseStack",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [
+      ]
+    },
+    {
+      "id": "IndelibleGoodwill",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "IndelibleGoodwill",
+          "value": 0.5,
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "WaitingforCommandMod",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "ParticipationMod",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "ColdAirDOQ",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "SpeedAdderAsStack",
+          "value": -1
+        },
+        {
+          "ability": "ColdAirDOQ",
+          "value": 20,
+          "buffData": {
+            "buffKeyword": "FreezingDOQ",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 20
+          }
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "FreezingDOQ",
+      "subIdList": [ "ColdAirDOQ" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "CanNotAction"
+        },
+        {
+          "ability": "CanNotRetreat"
+        },
+        {
+          "ability": "FreezingDOQ"
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "BloodborneDOQ",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplier",
+          "value": 0.8
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "WeakenDOQ",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -35
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "NetherseaBrandUnit",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "NervousImpairment",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "NervousImpairment",
+          "value": 0.25
+        }
+      ]
+    },
+    {
+      "id": "BitOfEmotion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "BitOfEmotion"
+        }
+      ]
+    },
+    {
+      "id": "WildernessSurvivalModule",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MaxHpMultiplier",
+          "value": 0.2
+        },
+        {
+          "ability": "WildernessSurvivalModule",
+          "value": 0.4
+        }
+      ]
+    },
+    {
+      "id": "HousekeepingAssistantModule",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HousekeepingAssistantModule"
+        }
+      ]
+    },
+    {
+      "id": "IncrementalMotionFirmware",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "IncrementalMotionFirmware"
+        }
+      ]
+    },
+    {
+      "id": "MiniDecontaminationKit",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MiniDecontaminationKit"
+        }
+      ]
+    },
+    {
+      "id": "ExternalUpgradeModule",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ExternalUpgradeModule"
+        }
+      ]
+    }
+  ]
+}

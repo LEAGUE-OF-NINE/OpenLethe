@@ -1,0 +1,182 @@
+{
+  "list": [
+    {
+      "id": "CtrlTeamCaptain",
+      "iconID": "AaCePcBr",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "CtrlTeamCaptain"
+        }
+      ]
+    },
+    {
+      "id": "HeatedGasHarpoon",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "GiveBuffOnSAH",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "OverHeatedGasHarpoon",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "BladeResultUpTier1",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "Tier1SkillPowerResultAdderAsStack",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BladeResultUpTier2",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "Tier2SkillPowerResultAdderAsStack",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "SwordPlayOfTheHomeland",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "SwordPlayOfTheBlade"
+        }
+      ]
+    },
+    {
+      "id": "SwordPlayOfTheMemorial",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "SwordPlayOfTheBlade"
+        }
+      ]
+    },
+    {
+      "id": "LibrarianOfHistoryNormal",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "LibrarianOfHistoryNormal"
+        }
+      ]
+    },
+    {
+      "id": "LibrarianOfHistoryHard",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "LibrarianOfHistoryHard"
+        }
+      ]
+    },
+    {
+      "id": "TcorpSpecialInvestigator",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "TcorpSpecialInvestigator"
+        }
+      ]
+    },
+    {
+      "id": "Zazen",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 108,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.01
+        }
+      ]
+    },
+    {
+      "id": "RequestedTarget",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "RequestedTargetAddEgoResource",
+          "value": 1
+        },
+        {
+          "ability": "RequestedTargetAddMp",
+          "value": 10
+        },
+        {
+          "ability": "RequestedTargetAtkResistWeek",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "id": "UltraPrecisionTimeAcceleration",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 5,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "list": [
+        {
+          "ability": "UltraPrecisionTimeAcceleration",
+          "value": 0.1
+        }
+      ]
+    }
+  ]
+}

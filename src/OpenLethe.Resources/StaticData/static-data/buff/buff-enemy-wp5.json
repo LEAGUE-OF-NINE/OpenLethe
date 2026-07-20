@@ -1,0 +1,59 @@
+{
+  "list": [
+    {
+      "id": "AllSetForShooting",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "TrainTeamCaptain"
+        },
+        {
+          "ability": "AttackDmgMultiplierByUsingBulletCountDefaultAttackSkill",
+          "value": 0.1
+        },
+        {
+          "ability": "CtrlTeamCaptain"
+        },
+        {
+          "ability": "AllSetForShooting",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "Smoke",
+      "buffClass": "CountableBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "maxTurn": 5,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Smoke",
+          "value": 0.05
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "MeatGearForce",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "MeatGearForce"
+        }
+      ]
+    }
+  ]
+}

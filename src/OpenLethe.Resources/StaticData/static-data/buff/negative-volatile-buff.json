@@ -1,0 +1,794 @@
+{
+  "list": [
+    {
+      "id": "Reduction",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkSkillPowerResultAdderAsStack",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "Disarming",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "DefSkillPowerResultAdderAsStack",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "ResultReduction",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "Vulnerable",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "AttackDmgDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "Binding",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SpeedAdderAsStack",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "AttackDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkAdderByStack",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "DefenseDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "DefAdderByStack",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "Paralysis",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "OverrideCoinScale",
+          "value": 0
+        },
+        {
+          "ability": "LoseStackOnAfterCheckCoin",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ElectricShock",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeHpDamageAdderByStack",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "PlusCoinValueDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "CoinScaleAdderByStack",
+          "coinOperator": "ADD",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "MinusCoinValueUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "CoinScaleAdderByStack",
+          "coinOperator": "SUB",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "SlashResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "atk": "SLASH",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "PenetrateResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "atk": "PENETRATE",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "HitResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "atk": "HIT",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "SlashResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkResistAdderByStack",
+          "atk": "SLASH",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "PenetrateResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkResistAdderByStack",
+          "atk": "PENETRATE",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "HitResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkResistAdderByStack",
+          "atk": "HIT",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "SlashDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "atk": "SLASH",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "PenetrateDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "atk": "PENETRATE",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "HitDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "atk": "HIT",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "SlashTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "atk": "SLASH",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "PenetrateTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "atk": "PENETRATE",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "HitTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "atk": "HIT",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "CrimsonResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "attribute": "CRIMSON",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "ScarletResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "attribute": "SCARLET",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "AmberResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "attribute": "AMBER",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "ShamrockResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "attribute": "SHAMROCK",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "AzureResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "attribute": "AZURE",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "IndigoResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "attribute": "INDIGO",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "VioletResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "attribute": "VIOLET",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "CrimsonResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "CRIMSON",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "ScarletResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "SCARLET",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "AmberResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "AMBER",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "ShamrockResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "SHAMROCK",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "AzureResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "AZURE",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "IndigoResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "INDIGO",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "VioletResistDown",
+      "buffClass": "VolatileResistBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "VIOLET",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "CrimsonDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "CRIMSON",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "ScarletDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "SCARLET",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "AmberDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "AMBER",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "ShamrockDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "SHAMROCK",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "AzureDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "AZURE",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "IndigoDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "INDIGO",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "VioletDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "VIOLET",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "CrimsonTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "CRIMSON",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "ScarletTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "SCARLET",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "AmberTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "AMBER",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "ShamrockTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "SHAMROCK",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "AzureTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "AZURE",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "IndigoTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "INDIGO",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "VioletTakeDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "VIOLET",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "Inactible",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "CanNotAction"
+        }
+      ]
+    },
+    {
+      "id": "WeaknessAnalysis",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "WeaknessAnalysis"
+        }
+      ]
+    },
+    {
+      "id": "TakeHpHealReduce",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 5,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeHpHealMultiplierByStack",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "BurstVulnerable",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeSinBuffDamageAdderByStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Burst"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SinkingVulnerable",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeSinBuffDamageAdderByStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Sinking"
+          }
+        }
+      ]
+    },
+    {
+      "id": "DimensionRift",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Self",
+            "stack": 0,
+            "turn": -1,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ParryingResultDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": -1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+    "list": [
+        {
+            "id": 10501,
+            "eventType": "EVENT",
+            "canSkip": false,
+            "actionEvent": {
+                "isHideHint": false,
+                "eachOptionList": [
+                    {
+                        "index": 0,
+                        "cantSelectInThisCase": "None",
+                        "resultList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": 1050101,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "Ishmael",
+                                            "resultEffect": "RecoverMpOnly_10",
+                                            "nextBattleID": -1
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "cantSelectInThisCase": "None",
+                        "resultList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_0.5",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "Ishmael",
+                                            "resultEffect": "LoseMpOnly_10",
+                                            "nextBattleID": -1
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "resultIndex": 1,
+                                "resultCondition": "Prob_0.5",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "Ishmael",
+                                            "resultEffect": "LoseMpOnly_10",
+                                            "nextBattleID": -1
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "EveryAlly",
+                                            "resultEffect": "LoseMpOnly_10",
+                                            "nextBattleID": -1
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "StartBattle",
+                                            "nextBattleID": 10517
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogiftOnWinBattle",
+                                            "nextBattleID": -1,
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2019,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "ChangeEventIllust_1050101"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 10504,
+            "eventType": "EVENT",
+            "canSkip": false,
+            "actionEvent": {
+                "isHideHint": false,
+                "eachOptionList": [
+                    {
+                        "index": 0,
+                        "cantSelectInThisCase": "None",
+                        "resultList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": 1050401
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 10505,
+            "eventType": "EVENT",
+            "canSkip": false,
+            "actionEvent": {
+                "isHideHint": false,
+                "eachOptionList": [
+                    {
+                        "index": 0,
+                        "cantSelectInThisCase": "None",
+                        "resultList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": 1050501
+                            }
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "cantSelectInThisCase": "None",
+                        "resultList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "Nothing",
+                                            "nextBattleID": -1
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

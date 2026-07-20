@@ -1,0 +1,642 @@
+{
+  "list": [
+    {
+      "id": 836301,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S1",
+          "range": 3,
+          "arearange": 4,
+          "viewType": "BATTLE",
+          "targetNum": 1,
+          "defaultValue": 4,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ParryingPowerResultAdder1OSTTargetMpLessThan10"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "VioletUnderstand",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 5,
+              "abilityScriptList": [
+              {
+                "scriptName": "GiveBuffOnSucceedAttack",
+                "buffData": {
+                  "buffKeyword": "MentalCrack",
+                  "target": "Target",
+                  "stack": 1,
+                  "turn": 0,
+                  "activeRound": 0
+                }
+              }
+            ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836302,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S2",
+          "range": 3,
+          "arearange": 4,
+          "viewType": "BATTLE",
+          "targetNum": 1,
+          "defaultValue": 4,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ParryingPowerResultAdder1OSTTargetMpLessThan10"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "VioletUnderstand",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VioletTakeDamageUp",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "MentalCrack",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836303,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S3",
+          "range": 3,
+          "arearange": 4,
+          "viewType": "BATTLE",
+          "targetNum": 3,
+          "defaultValue": 6,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ParryingPowerResultAdder1OSTTargetMpLessThan10"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "VioletUnderstand",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VioletTakeDamageUp",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "MentalCrack",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836304,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "NONE",
+          "defType": "GUARD",
+          "skillMotion": "Default",
+          "viewType": "BATTLE",
+          "targetNum": 1,
+          "defaultValue": 8,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "VioletUnderstand",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836305,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S5",
+          "range": 3,
+          "arearange": 7,
+          "viewType": "BATTLE",
+          "targetNum": 6,
+          "defaultValue": 5,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "8363051"
+            },
+            {
+              "scriptName": "8363052"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 5,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VioletTakeDamageUp",
+                    "target": "Target",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": 836601,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S1",
+          "range": 6,
+          "arearange": 4,
+          "viewType": "BATTLE",
+          "targetNum": 1,
+          "defaultValue": 6,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyLeftArm"
+            },
+            {
+              "scriptName": "EmptyRightArm"
+            },
+            {
+              "scriptName": "ParryingPowerResultAdder1OSTTargetMpLessThan20"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VioletTakeDamageUp",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "MentalCrack",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836602,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S2",
+          "range": 6,
+          "arearange": 4,
+          "viewType": "BATTLE",
+          "targetNum": 3,
+          "defaultValue": 6,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ParryingPowerResultAdder1OSTTargetMpLessThan20"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 5,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VioletTakeDamageUp",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 5,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "MentalCrack",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836603,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S3",
+          "range": 6,
+          "arearange": 4,
+          "viewType": "BATTLE",
+          "targetNum": 6,
+          "defaultValue": 3,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 1,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "MentalCrack",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 1,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "MentalCrack",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836604,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S3",
+          "range": 0,
+          "arearange": 7,
+          "viewType": "BATTLE",
+          "targetNum": 6,
+          "defaultValue": 5,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ParryingPowerResultAdder1OSTTargetMpLessThan20"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 6,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VioletTakeDamageUp",
+                    "target": "Target",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 6,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "MentalCrack",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836605,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "NONE",
+          "defType": "GUARD",
+          "skillMotion": "Default",
+          "viewType": "BATTLE",
+          "targetNum": 1,
+          "defaultValue": 10,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Protection",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 836606,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "attributeType": "VIOLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S4",
+          "range": 6,
+          "arearange": 4,
+          "viewType": "BATTLE",
+          "targetNum": 10,
+          "defaultValue": 20,
+          "skillLevelCorrection": 5,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 0
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 0,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveHpDmgOnSucceedAttackTarget100"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

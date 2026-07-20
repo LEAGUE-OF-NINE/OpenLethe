@@ -1,0 +1,214 @@
+{
+  "list": [
+    {
+      "id": "DragonLance",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DragonLanceSuperCoin"
+        },
+        {
+          "ability": "DragonLanceOnRoundStart",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "CondensedBlood",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "DragonLanceImmortal"
+        },
+        {
+          "ability": "DragonLanceOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "DragonLance",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "CondensedBlood",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "TakeHpDmgByRatioOnREWithoutBreak",
+          "value": 0.2
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "CondensedBlood",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "CondensedBlood"
+        }
+      ]
+    },
+    {
+      "id": "YesdragonSelf",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "YesdragonSelf",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnTakeAttackDamage",
+          "buffData": {
+            "buffKeyword": "YesdragonSelf",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AtkAdderByStackFloorToInt",
+          "value": 0.2
+        },
+        {
+          "ability": "YesdragonSelfOnDie",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Target",
+            "stack": 5,
+            "turn": 0,
+            "value": 1,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "YesdragonNodie",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "YesdragonNodie"
+        }
+      ]
+    },
+    {
+      "id": "YesdragonBurst",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "YesdragonBurst",
+          "value": 0.3
+        }
+      ]
+    },
+    {
+      "id": "YisangParryGubo",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "YisangParryGuboAbility",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "HongluParryGahwan",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HongluParryGahwanAbility",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "DarkHongluParryGahwan",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HongluParryGahwanAbility",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

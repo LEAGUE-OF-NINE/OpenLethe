@@ -1,0 +1,151 @@
+{
+  "list": [
+    {
+      "id": 10001,
+      "openChapterData": {
+        "unlockCode": 9125
+      },
+      "startDate": "2026-04-23T01:00:00.000Z",
+      "startDateForUI": "2026-04-23T03:00:00.000Z",
+      "endDate": "2026-05-14T01:00:00.000Z",
+      "gracePeriod": "2026-05-21T01:00:00.000Z",
+      "maxPartyCount": 3,
+      "danteAbilityCategory": 3,
+      "difficulties": [
+        {
+          "difficulty": "NORMAL",
+          "stageId": 912520,
+          "unlockCode": 0,
+          "rewards": [
+            { "type": "UNLOCK_CODE", "id": 912520, "num": 1 }
+          ],
+          "missions": [
+            { "category": "BOSS_RAID_01_NORMAL", "missionIds": [301001001, 301001002, 301001003, 301001004] }
+          ],
+          "uiConfigs": {
+            "mainUnitId": 5006,
+            "isHideEnemySprite": true,
+            "phases": [
+              {
+                "phaseIndex": 0,
+                "waveIndex": 0
+              }
+            ]
+          }
+        },
+        {
+          "difficulty": "HARD",
+          "stageId": 912521,
+          "unlockCode": 912520,
+          "rewards": [
+            { "type": "UNLOCK_CODE", "id": 912521, "num": 1 }
+          ],
+          "missions": [
+            { "category": "BOSS_RAID_01_HARD", "missionIds": [301001005, 301001006, 301001007, 301001008] }
+          ],
+          "uiConfigs": {
+            "mainUnitId": 5006,
+            "isHideEnemySprite": true,
+            "phases": [
+              {
+                "phaseIndex": 0,
+                "waveIndex": 0
+              }
+            ]
+          }
+        }
+      ],
+      "buffList": [
+        {
+          "faction": "ENEMY",
+          "buffId": "FavorBuffTwthEnemy",
+          "isPart": false,
+          "buffWave": 0,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 0,
+          "targetLevel": -1,
+          "uiConfigs" : {
+            "uiAlternativeBuffId": "FavorBuffTwth1stPhaseForUI"
+          }
+        },
+        {
+          "faction": "ENEMY",
+          "buffId": "FavorBuffTwthEnemyTwo",
+          "isPart": false,
+          "buffWave": 1,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 0,
+          "targetLevel": -1,
+          "uiConfigs" : {
+            "uiAlternativeBuffId": "FavorBuffTwth2ndPhaseForUI"
+          }
+        },
+        {
+          "faction": "PLAYER",
+          "buffId": "FavorBuffTwth",
+          "isPart": false,
+          "buffWave": 0,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 0,
+          "targetLevel": -1,
+          "uiConfigs" : {
+            "uiAlternativeBuffId": "FavorBuffTwth1stPhaseForUI"
+          }
+        },
+        {
+          "faction": "PLAYER",
+          "buffId": "FavorBuffTwthTwo",
+          "isPart": false,
+          "buffWave": 1,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 0,
+          "targetLevel": -1,
+          "uiConfigs" : {
+            "uiAlternativeBuffId": "FavorBuffTwth2ndPhaseForUI"
+          }
+        },
+        {
+          "faction": "ENEMY",
+          "buffId": "FavorBuffTwthHard",
+          "isPart": false,
+          "buffWave": 0,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 1,
+          "targetLevel": 2,
+          "uiConfigs" : {
+            "notShowPhase": true,
+            "uiAlternativeBuffId": "FavorBuffTwthHardForUI"
+          }
+        },
+        {
+          "faction": "ENEMY",
+          "buffId": "FavorBuffTwthHardTwo",
+          "isPart": false,
+          "buffWave": 1,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 1,
+          "targetLevel": 2,
+          "uiConfigs" : {
+            "notShowPhase": true,
+            "uiAlternativeBuffId": "FavorBuffTwthHardForUI"
+          }
+        }
+      ],
+      "uiConfigs": {
+        "resourceName" : "twining-threads",
+        "bannerTitleTextKey": "boss_raid_10001_banner_title",
+        "bannerChapterText": "9.5-1",
+        "bossTitleTextKey": "boss_raid_10001_boss_title",
+        "rewardWarningTextKey": "boss_raid_reward_ui_warning_10001",
+        "ruleTextKey": "boss_raid_rule_popup_desc_10001",
+        "bgm": "event:/BGM/Battle/Battle_Cp9_Enemy_1"
+      }
+    }
+  ]
+}

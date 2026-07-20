@@ -1,0 +1,240 @@
+{
+  "list": [
+    {
+      "id": "BLOODRING_UP",
+      "buffA": {
+        "id": "BloodringUp_LowMorale",
+        "iconId": "Acclamation_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "BloodringUpHeal"
+          },
+          {
+            "ability": "BloodringUpLowMorale"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "BloodringUp_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "BloodringUpHeal"
+          },
+          {
+            "ability": "BloodringUpPanic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "GUILT",
+      "buffA": {
+        "id": "Guilt_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "MentalIncreaseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Guilt_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "MentalIncreaseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "SANCHOMIND",
+      "buffA": {
+        "id": "SanchoMind_LowMorale",
+        "iconId": "BloodPocket_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "MentalSystemResultIncreaseAdder",
+            "value": 2
+          }
+        ]
+      },
+      "buffB": {
+        "id": "SanchoMind_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 6,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "WEIGHTOFRESPONSIBILITY",
+      "buffA": {
+        "id": "WeightOfResponsibility_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "SpeedAdderOnPanicOrLowMorale",
+            "value": 1
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "WeightOfResponsiblity",
+            "value": 1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "WeightOfResponsibility_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "SpeedAdderOnPanicOrLowMorale",
+            "value": 2
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "WeightOfResponsiblity",
+            "value": 2
+          }
+        ]
+      }
+    }
+  ]
+}

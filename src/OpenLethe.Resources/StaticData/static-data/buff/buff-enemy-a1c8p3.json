@@ -1,0 +1,851 @@
+{
+  "list": [
+    {
+      "id": "GazeReplica",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 7,
+      "list": [
+        {
+          "ability": "GazeReplicaAbility",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "ContemptReplica",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ContemptReplicaAbility",
+          "value": -0.5
+        }
+      ]
+    },
+    {
+      "id": "GraspReplica",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 10,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "GraspReplica"
+        }
+
+      ]
+    },
+    {
+      "id": "EgoErodeReplica",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "GiveMpDmgOnRSSelf",
+          "value": 1
+        },
+        {
+          "ability": "EgoErodeReplicaAddBuff",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "IfAbnormalityAllPartsOrSelf"
+          }
+        },
+        {
+          "ability": "EgoErodeReplicaHpDmg",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "BoseProjektilReplica",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 7,
+      "list": [
+      ]
+    },
+    {
+      "id": "GahwanEgoContempt",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GahwanEgoContempt",
+          "value": -7,
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "GuboEgoShooter",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GuboEgoShooter",
+          "value": -2,
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "Bothersome",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "BotherSome",
+          "atk": "SLASH",
+          "value": 1.5
+        }
+      ]
+    },
+    {
+      "id": "VibrationIgnition",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration",
+          "value": 1
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "VibrationIgnition",
+          "value": 0.5
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    },
+    {
+      "id": "BulletPropellant",
+      "subIdList": [ "Bullet" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 6,
+      "list": [
+        
+      ],
+      "categoryKeywordList": [ "BULLET", "RESOURCE" ]
+    },
+    {
+      "id": "BulletPropellantSpecial",
+      "subIdList": [ "Bullet", "BulletPropellant" ],
+      "buffClass": "CountableBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnZeroTurn": false,
+      "destroyableOnBothZero": true,
+      "maxStack": 6,
+      "maxTurn": 18,
+      "list": [
+        {
+          "ability": "BulletPropellantSpecial",
+          "value": 0.3
+        }
+      ],
+      "categoryKeywordList": [ "BULLET", "RESOURCE" ]
+    },
+    {
+      "id": "BulletSpent",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 36,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveMpDmgOnRSSelfByValue",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "id": "Prey",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "Prey",
+          "value": -5
+        }
+      ]
+    },
+    {
+      "id": "Complacency",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 5,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "Complacency"
+        }
+      ]
+    },
+    {
+      "id": "BattleSense",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Positive",
+      "maxStack": 25,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "BattleSense",
+          "value": 25,
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "RestoredBattleSense",
+      "subIdList": [ "BattleSense" ],
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Positive",
+      "maxStack": 50,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "RestoredBattleSense",
+          "value": 25,
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "Irritation",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartPerLostHpRatio",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 0.2,
+            "limit": 3
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartPerLostHpRatio",
+          "buffData": {
+            "buffKeyword": "ResultEnhancement",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 0.2,
+            "limit": 3
+          }
+        },
+        {
+          "ability": "IrritationDiffSpeedAtkDmgMul",
+          "value": 0.2
+        },
+        {
+          "ability": "IrritationSuperCoin",
+          "value": 114504
+        },
+        {
+          "ability": "IrritationVibrationAdder",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "stack": 2,
+            "turn": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "HugeIrritation",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartPerLostHpRatio",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 0.15,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartPerLostHpRatio",
+          "buffData": {
+            "buffKeyword": "ResultEnhancement",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 0.15,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "IrritationDiffSpeedAtkDmgMul",
+          "value": 0.2
+        },
+        {
+          "ability": "IrritationSuperCoin",
+          "value": 114503
+        },
+        {
+          "ability": "IrritationSuperCoin",
+          "value": 114504
+        },
+        {
+          "ability": "IrritationVibrationAdder",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "stack": 3,
+            "turn": 1
+          }
+        }
+      ]
+    },
+    
+    
+    
+    {
+      "id": "PileObedient",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "ChangeBuffIfMaxStackOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Obedient",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "Obedient",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "DestroyOnMaxMp"
+        },
+        {
+          "ability": "ParryingResultAdderIfTargetUniqueId_1146",
+          "value": -2
+        },
+        {
+          "ability": "ParryingResultAdderIfTargetUniqueId_1152",
+          "value": -2
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "ObedientBlockDuplication"
+        }
+      ]
+    },
+    {
+      "id": "ExpensiveJade",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ExpensiveJade"
+        }
+      ]
+    },
+    {
+      "id": "FamilyTreasure",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+      ]
+    },
+    {
+      "id": "OutpouringAnger",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ChangeSuperCoinIfMainTargetCharacterId_6",
+          "value": 115203
+        }
+      ]
+    },
+    {
+      "id": "Honglu_Xi",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ParryingResultAdder",
+          "value": 1
+        },
+        {
+          "ability": "HongluEmotion_3",
+          "value": 1
+        },
+        {
+          "ability": "PreventJade"
+        },
+        {
+          "ability": "EffectBackAutoUpdateAcquire_HongluXi"
+        }
+      ]
+    },
+    {
+      "id": "Honglu_Le",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 1
+        },
+        {
+          "ability": "RecoverMpLowestMpAllyOnWinDuel",
+          "value": 5
+        },
+        {
+          "ability": "HongluEmotion_3",
+          "value": 1
+        },
+        {
+          "ability": "EffectBackAutoUpdateAcquire_HongluLe"
+        }
+      ]
+    },
+    {
+      "id": "Honglu_Ai",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 3
+        },
+        {
+          "ability": "RecoverMpLowestMpAllyOnWinDuel",
+          "value": 5
+        },
+        {
+          "ability": "HongluAi"
+        },
+        {
+          "ability": "HongluEmotion_3",
+          "value": 1
+        },
+        {
+          "ability": "EffectBackAutoUpdateAcquire_HongluAi"
+        }
+      ]
+    },
+    {
+      "id": "Honglu_Nu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 5
+        },
+        {
+          "ability": "RecoverMpAllAllyOnRoundStart",
+          "value": 5
+        },
+        {
+          "ability": "HongluAi"
+        },
+        {
+          "ability": "HongluEmotion_3",
+          "value": 1
+        },
+        {
+          "ability": "HongluNu"
+        },
+        {
+          "ability": "EffectBackAutoUpdateAcquire_HongluNu"
+        }
+      ]
+    },
+    {
+      "id": "SupremeEternalLife",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SupremeEternalLife",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "ImperfectEternalLife",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GiveBuffIfGettingBuffSpecificUnitId_1152",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BreakIfMaxStackAndRemoveOnRoundEnd"
+        }
+      ]
+    },
+    {
+      "id": "FaintEternalLife",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GiveBuffIfGettingBuffSpecificUnitId_1152",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "GoldenBoughSync",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": 2
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "GoldenBoughSyncDistorted",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": 4
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "BudgetBulletPropellant",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 4,
+      "list": [],
+      "categoryKeywordList": [
+        "RESOURCE",
+        "BULLET"
+      ]
+    },
+    {
+      "id": "Chesed_Mercy",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnRetreat" : false,
+      "maxStack": 1,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "Ryoshu_Attackup",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnRetreat" : false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RyosyuVSLeiHeng",
+          "value": 0.025
+        }
+      ]
+    },
+    {
+      "id": "Honglu_EGOResourceup",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat" : false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HongluVSLeiHeng",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "DarkHonglu_EGOResourceup",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat" : false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HongluVSLeiHeng",
+          "value": 2
+        },
+        {
+          "ability": "GiveBuffOnTakeAttackDamageWithLimitCount_1",
+          "buffData": {
+            "buffKeyword": "SlashDamageUp",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "FellBulletMarkReplica",
+      "iconId": "FellBulletMark",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FellBulletMark"
+        }
+      ]
+    },
+    {
+      "id": "DarkHonglu_Xi",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ParryingResultAdder",
+          "value": 1
+        },
+        {
+          "ability": "HongluEmotion_3",
+          "value": 1
+        },
+        {
+          "ability": "PreventJade"
+        },
+        {
+          "ability": "EffectBackAutoUpdateAcquire_HongluXi"
+        }
+      ]
+    },
+    {
+      "id": "DarkHonglu_Le",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 1
+        },
+        {
+          "ability": "RecoverMpLowestMpAllyOnWinDuel",
+          "value": 5
+        },
+        {
+          "ability": "HongluEmotion_3",
+          "value": 1
+        },
+        {
+          "ability": "EffectBackAutoUpdateAcquire_HongluLe"
+        }
+      ]
+    },
+    {
+      "id": "DarkHonglu_Ai",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 3
+        },
+        {
+          "ability": "RecoverMpLowestMpAllyOnWinDuel",
+          "value": 5
+        },
+        {
+          "ability": "HongluAi"
+        },
+        {
+          "ability": "HongluEmotion_3",
+          "value": 1
+        },
+        {
+          "ability": "EffectBackAutoUpdateAcquire_HongluAi"
+        }
+      ]
+    },
+    {
+      "id": "DarkHonglu_Nu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 5
+        },
+        {
+          "ability": "RecoverMpAllAllyOnRoundStart",
+          "value": 5
+        },
+        {
+          "ability": "HongluAi"
+        },
+        {
+          "ability": "HongluEmotion_3",
+          "value": 1
+        },
+        {
+          "ability": "HongluNu"
+        },
+        {
+          "ability": "EffectBackAutoUpdateAcquire_HongluNu"
+        }
+      ]
+    }
+  ]
+}

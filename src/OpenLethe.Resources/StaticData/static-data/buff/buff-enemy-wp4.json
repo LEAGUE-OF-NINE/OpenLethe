@@ -1,0 +1,81 @@
+{
+  "list": [
+    {
+      "id": "TrainTeamCaptain",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "SlotAdder",
+          "value": 1
+        },
+        {
+          "ability": "TrainTeamCaptain"
+        },
+        {
+          "ability": "RecoverSelfMpOnRoundStart",
+          "value": 15
+        },
+        {
+          "ability": "SinBuffStackAndTurnAdder",
+          "value": 1
+        },
+        {
+          "ability": "WalpuSinStockAdderOnKillTarget"
+        }
+      ]
+    },
+    {
+      "id": "VioletUnderstand",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 5,
+      "canBeDespelled": true,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.05
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "MentalCrack",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 5,
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "MentalCrack"
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ImpendingCollapse",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 4,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

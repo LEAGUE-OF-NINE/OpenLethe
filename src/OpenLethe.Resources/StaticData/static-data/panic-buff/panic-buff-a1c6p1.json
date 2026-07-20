@@ -1,0 +1,157 @@
+{
+  "list": [
+    {
+      "id": "CLEANUP",
+      "buffA": {
+        "id": "CleanUp_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveMpDmgOnLoseDuelSelf",
+            "value": 5
+          },
+          {
+            "ability": "GiveBuffOnTakeAttackDamageWithLimitCount_2",
+            "buffData": {
+              "buffKeyword": "Agility",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "CleanUp_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnTakeAttackDamageWithLimitCount_3",
+            "buffData": {
+              "buffKeyword": "Agility",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACCLAMATION",
+      "buffA": {
+        "id": "Acclamation_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdder",
+            "value": -1
+          },
+          {
+            "ability": "AtkDamageMultiplierIfHeadByStack",
+            "value": 0.1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Acclamation_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdder",
+            "value": -2
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "UNSTABLE",
+      "buffA": {
+        "id": "Unstable_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveHpDamageSelfAfterParryingByValue",
+            "value": 2
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Unstable_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveHpDamageSelfAfterParryingByValue",
+            "value": 3
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

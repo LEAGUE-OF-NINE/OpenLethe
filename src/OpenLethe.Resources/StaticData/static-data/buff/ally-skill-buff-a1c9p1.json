@@ -1,0 +1,251 @@
+{
+  "list": [
+    {
+      "id": "IndexPrescriptTargetMarkToEnemy",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescript_Base",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescriptFaust_0",
+      "iconId": "IndexPrescript_Base",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescriptFaust_1",
+      "iconId": "IndexPrescript_Base",
+      "subIdList": [ "IndexPrescriptFaust_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescriptFaust_2",
+      "iconId": "IndexPrescript_Base",
+      "subIdList": [ "IndexPrescriptFaust_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescriptFaust_3",
+      "iconId": "IndexPrescript_Base",
+      "subIdList": [ "IndexPrescriptFaust_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescriptTargetToEnemy",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": true,
+      "totalStack": 1,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeDmgMulByIndexUnit",
+          "value": 0.1
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "BlessingOfIndexPrescriptAlly",
+      "subIdList": [ "IndexCommonBlessing" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "maxStack": 9,
+      "list": [
+        {
+          "ability": "AtkAdderPerStack",
+          "value": 3
+        },
+        {
+          "ability": "BlessingOfIndexPrescriptEffect"
+        }
+      ]
+    },
+    {
+      "id": "KarmaOfIndexAlly",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 100,
+      "list": [
+        {
+          "ability": "GiveBuffOnRSPerStack",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRSPerStack",
+          "value": 20,
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "TheUdjatOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 3
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 3
+        },
+        {
+          "ability": "TheUdjatOutisOnBS",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "UdjatTargetCoinProb",
+          "value": 3
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "SheutFracture",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "AZURE",
+          "value": 0.01
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "AMBER",
+          "value": 0.01
+        },
+        {
+          "ability": "SheutFractureMaxStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "AzureTakeDamageUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "SheutFractureOnDie",
+          "value": 0.5
+        },
+        {
+          "ability": "SheutFractureOnRS"
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ],
+      "categoryKeywordList": [ "SINKING" ]
+    },
+    {
+      "id": "BlueSand",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "LCA_Bullet",
+      "subIdList": [ "Bullet" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 16,
+      "list": [
+
+      ],
+      "categoryKeywordList": [ "BULLET", "RESOURCE" ]
+    }
+  ]
+}

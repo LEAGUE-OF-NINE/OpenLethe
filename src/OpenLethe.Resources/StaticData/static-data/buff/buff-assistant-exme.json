@@ -1,0 +1,123 @@
+{
+  "list": [
+    {
+      "id": "BrandedKimSatgat",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -18
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+
+    {
+      "id": "AengduNewArm",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": 4
+        },
+        {
+          "ability": "TakeAtkDamageMultiplier",
+          "value": -0.2
+        },
+        {
+          "ability": "GiveBuffOnUseSkill",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "GiveBuffOnBattleEnd",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "WindBlade",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 20,
+      "stackLimitPerTurn": 10,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStackWithLimit_10",
+          "atk": "SLASH",
+          "value": 0.01
+        },
+        {
+          "ability": "WindBladeParryingPowerDown_div2_per1_limit5"
+        },
+        {
+          "ability": "GiveBuffOnRoundEndDivideByStack",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 5,
+            "activeRound": 1,
+            "value": 1,
+            "limit": 3
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "DimensionalBagEzraETwo",
+      "iconId": "DimensionalBagEzraE",
+      "subIdList": [ "DimensionalBagBase" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "DimensionalBagEzraDTwo",
+      "iconId": "DimensionalBagEzraD",
+      "subIdList": [ "DimensionalBagBase" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "list": [
+    {
+      "id": "BlueSand",
+      "isPanicBuff": false,
+      "buffA": {
+        "id": "BlueSand_Main",
+        "iconId": "BlueSand",
+        "subIdList": [ "BlueSand" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "GiveBuffOnLoseDuelWithLimitCount_3",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "Self",
+              "stack": 0,
+              "turn": 1,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "OverwritePanicType_BLUESAND"
+          },
+          {
+            "ability" : "BlueSandEffect"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "BlueSand_Sub",
+        "iconId": "BlueSand",
+        "subIdList": [ "BlueSand" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "GiveBuffOnLoseDuelWithLimitCount_3",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "Self",
+              "stack": 0,
+              "turn": 1,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "MinSpeedAdder",
+            "value": -1
+          },
+          {
+            "ability": "MaxSpeedAdder",
+            "value": -1
+          },
+          {
+            "ability" : "BlueSandEffect"
+          }
+        ]
+      }
+    }
+  ]
+}

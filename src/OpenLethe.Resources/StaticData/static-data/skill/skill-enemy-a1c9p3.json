@@ -1,0 +1,745 @@
+{
+  "list": [
+    {
+      "id": 9103401,
+      "skillTier": 1,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "attributeType": "AMBER",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "FRONT",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 1,
+          "defaultValue": 3,
+          "skillMotion": "S1",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "ParryingPowerResultAdderSelfViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "target": "",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "value": 0.1
+              }
+            },
+            {
+              "scriptName": "SkillResultAdderViaMyBreathYourSinking_div6_limit2"
+            },
+            {
+              "scriptName": "IndexTraineeToSuperCoin1Tier",
+              "value": 6
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 2,
+                "turn": 2,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "TargetNotBreakAndNotActiveSinkingOnLoseDuel"
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9103402,
+      "skillTier": 2,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "attributeType": "INDIGO",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "FRONT",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "skillMotion": "S2",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "ParryingPowerResultAdderSelfViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "target": "",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "value": 0.2
+              }
+            },
+            {
+              "scriptName": "SkillResultAdderViaMyBreathYourSinking_div6_limit3"
+            },
+            {
+              "scriptName": "IndexTraineeToSuperCoin1Tier",
+              "value": 6
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 3,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "TargetNotBreakAndNotActiveSinkingOnLoseDuel"
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Breath",
+                    "target": "Self",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ConditionalSuperCoin"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9103403,
+      "skillTier": 3,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "attributeType": "AZURE",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "FRONT",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 3,
+          "defaultValue": 4,
+          "skillMotion": "S3",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "ParryingPowerResultAdderSelfViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "target": "",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 2
+              }
+            },
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "value": 0.25
+              }
+            },
+            {
+              "scriptName": "SkillResultAdderViaMyBreathYourSinking_div6_limit3"
+            },
+            {
+
+              "scriptName": "CoinScaleAdderViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "BlessingOfIndexPrescriptEnemy",
+                "stack": 3,
+                "turn": 0,
+                "buffOwner": "AbnormalitySelf",
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "IndexTraineeToSuperCoin3Tier",
+              "value": 6
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 4,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "TargetNotBreakAndNotActiveSinkingOnLoseDuel"
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Breath",
+                    "target": "Self",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "DmgUpByBuffStackWithLimit45",
+                  "buffData": {
+                    "buffKeyword": "BlessingOfIndexPrescriptEnemy",
+                    "buffOwner": "AbnormalitySelf",
+                    "target": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0,
+                    "value": 0.05
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 3,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ConditionalSuperCoin"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": 9103501,
+      "skillTier": 1,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "attributeType": "AMBER",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "FRONT",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 1,
+          "defaultValue": 3,
+          "skillMotion": "S1",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "ParryingPowerResultAdderSelfViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "target": "",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "value": 0.1
+              }
+            },
+            {
+              "scriptName": "SkillResultAdderViaMyBreathYourSinking_div6_limit2"
+            },
+            {
+              "scriptName": "IndexTraineeToSuperCoin1Tier",
+              "value": 6
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 1,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "TargetNotBreakAndNotActiveSinkingOnLoseDuel"
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9103502,
+      "skillTier": 2,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "attributeType": "INDIGO",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "FRONT",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "skillMotion": "S2",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "ParryingPowerResultAdderSelfViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "target": "",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "value": 0.2
+              }
+            },
+            {
+              "scriptName": "SkillResultAdderViaMyBreathYourSinking_div6_limit3"
+            },
+            {
+              "scriptName": "IndexTraineeToSuperCoin1Tier",
+              "value": 6
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 4,
+                "turn": 2,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "TargetNotBreakAndNotActiveSinkingOnLoseDuel"
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Breath",
+                    "target": "Self",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ConditionalSuperCoin"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9103503,
+      "skillTier": 3,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "attributeType": "AZURE",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "FRONT",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 3,
+          "defaultValue": 4,
+          "skillMotion": "S3",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "ParryingPowerResultAdderSelfViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "target": "",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 2
+              }
+            },
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "IndexPrescriptTargetToPersonality",
+                "buffOwner": "Target",
+                "stack": 1,
+                "turn": 0,
+                "value": 0.25
+              }
+            },
+            {
+              "scriptName": "SkillResultAdderViaMyBreathYourSinking_div6_limit3"
+            },
+            {
+
+              "scriptName": "CoinScaleAdderViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "BlessingOfIndexPrescriptEnemy",
+                "stack": 3,
+                "turn": 0,
+                "buffOwner": "AbnormalitySelf",
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "IndexTraineeToSuperCoin3Tier",
+              "value": 6
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 3,
+                "turn": 4,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "TargetNotBreakAndNotActiveSinkingOnLoseDuel"
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Breath",
+                    "target": "Self",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "DmgUpByBuffStackWithLimit45",
+                  "buffData": {
+                    "buffKeyword": "BlessingOfIndexPrescriptEnemy",
+                    "buffOwner": "AbnormalitySelf",
+                    "target": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0,
+                    "value": 0.05
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "stack": 2,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ConditionalSuperCoin"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

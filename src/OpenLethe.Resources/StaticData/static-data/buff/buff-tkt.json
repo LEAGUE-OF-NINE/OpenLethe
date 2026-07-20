@@ -1,0 +1,211 @@
+{
+  "list": [
+    {
+      "id": "VibrationChain",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "VibrationChain"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    },
+    {
+      "id": "TimeRentalTwo",
+      "iconId": "TimeRental",
+      "buffClass": "TimeRentalTwo",
+      "attributeType": "AMBER",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TimeRentalTwo"
+        }
+      ]
+    },
+    {
+      "id": "TimeAccumulation",
+      "buffClass": "StaticNonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TimeAccumulation"
+        }
+      ]
+    },
+
+    {
+      "id": "TimeAcceleration",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "TimeAcceleration"
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBsGaugeUpMultiplier",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "LimitedTime",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 1000,
+      "list": [
+        {
+          "ability": "LimitedTime"
+        }
+      ]
+    },
+    {
+      "id": "OwnTime",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 200,
+      "list": [
+        {
+          "ability": "OwnTime"
+        }
+      ]
+    },
+    {
+      "id": "EquitableDistribution",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "EquitableDistribution"
+        }
+      ]
+    },
+    {
+      "id": "UnfairDistribution",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "UnfairDistribution"
+        }
+      ]
+    },
+    {
+      "id": "VibrationContinue",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "VibrationContinue",
+          "value": 0.5
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    },
+    {
+      "id": "TimeKillerWatch",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+        }
+      ]
+    },
+    {
+      "id": "TimeSuspend",
+      "buffClass": "TimeSuspend",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TimeSuspend"
+        }
+      ]
+    },
+    {
+      "id": "VibrationChainPersonality",
+      "iconId": "VibrationChain",
+      "subIdList": [
+        "Vibration"
+      ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "VibrationChainPersonality"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [
+        "SIN",
+        "VIBRATION"
+      ]
+    },
+    {
+      "id": "TimeRentalTwoPersonality",
+      "iconId": "TimeRental",
+      "buffClass": "TimeRentalTwoPersonality",
+      "attributeType": "AMBER",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TimeRentalTwoPersonality"
+        }
+      ]
+    }
+  ]
+}

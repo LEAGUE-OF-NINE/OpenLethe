@@ -1,0 +1,2454 @@
+{
+  "list": [
+    {
+      "id": 501201,
+      "skillTier": 1,
+      "textID": 145001,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145001,
+          "attributeType": "AMBER",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 1,
+          "defaultValue": 7,
+          "skillMotion": "S1",
+          "viewType": "BATTLE",
+          "range" : 8,
+          "arearange" : 1.5,
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501202,
+      "skillTier": 2,
+      "textID": 145002,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145002,
+          "attributeType": "SCARLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 7,
+          "range" : 8,
+          "arearange" : 2,
+          "skillMotion": "S2",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 6,
+                "turn": 0
+              }
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501203,
+      "skillTier": 3,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145003,
+          "attributeType": "AZURE",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 11,
+          "range" : 8,
+          "arearange" : 2,
+          "skillMotion": "S3",
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 1,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartTurnViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 8,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 0.4
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 7,
+                "turn": 0
+              }
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartTurnViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 7,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "SlashResistDown",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "SlashResistDown",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501205,
+      "skillTier": 1,
+      "textID": 145005,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145005,
+          "attributeType": "AMBER",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 1,
+          "defaultValue": 3,
+          "range" : 8,
+          "arearange" : 2,
+          "skillMotion": "S5",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501206,
+      "skillTier": 2,
+      "textID": 145006,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145006,
+          "attributeType": "SCARLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "range" : 8,
+          "arearange" : 2,
+          "skillMotion": "S6",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 6,
+                "turn": 0
+              }
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 1,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 1,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501207,
+      "skillTier": 3,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145007,
+          "attributeType": "AZURE",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "skillMotion": "S7",
+          "range" : 8,
+          "arearange" : 2,
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 1,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartTurnViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 8,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 0.4
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinLessThanOrEqualBuffStack",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 3
+              }
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartTurnLessThanOrEquealBuffStack",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "SlashResistDown",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "SlashResistDown",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501209,
+      "skillTier": 1,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145009,
+          "attributeType": "CRIMSON",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "range" : 8,
+          "arearange" : 2,
+          "skillMotion": "S9",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "CanNotDuelWithAssistant"
+            },
+            {
+              "scriptName": "PrimeTargetExceptAssistant"
+            },
+            {
+              "scriptName": "ToSuperCoinOnStartDuelIfTargetSupportiveDefense"
+            },
+            {
+              "scriptName": "LoseBuffOnStartDuelIfNotSupportiveDefense",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "target": "Self",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfOneSideAttackOrSupportiveDefense",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 2,
+              "abilityScriptList": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501210,
+      "skillTier": 1,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145010,
+          "attributeType": "INDIGO",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "skillMotion": "S10",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "CanNotDuelWithAssistant"
+            },
+            {
+              "scriptName": "PrimeTargetExceptAssistant"
+            },
+            {
+              "scriptName": "ToSuperCoinOnStartDuelIfTargetSupportiveDefense"
+            },
+            {
+              "scriptName": "GiveBuffOnStartDuelIfNotSupportiveDefense",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "LoseBuffOnEndAttackIfOneSideAttackOrSupportiveDefense",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 2,
+              "abilityScriptList": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501211,
+      "skillTier": 1,
+      "textID": 145011,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145011,
+          "attributeType": "SCARLET",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 3,
+          "defaultValue": 10,
+          "range" : 8,
+          "arearange" : 2,
+          "skillMotion": "S11",
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 2,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "AttackHighestStackTarget_Laceration"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "SkillPowerResultAdderOnStartTurnIfUseBuff",
+              "value": 2,
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 3,
+                "turn": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 8,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 4,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "DamageFirstBreakSectionOnSuccessAttackIfUsableInDuel",
+                  "value": 10
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackIfUsableInDuel",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackIfUsableInDuel",
+                  "buffData": {
+                    "buffKeyword": "Vulnerable",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ShortArrowMarker"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501212,
+      "skillTier": 1,
+      "textID": 145012,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145012,
+          "attributeType": "SHAMROCK",
+          "atkType": "NONE",
+          "defType": "GUARD",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 0,
+          "defaultValue": 10,
+          "skillMotion": "Default",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "GiveBuffOnBattleStart",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 5,
+                "turn": 5,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "CriticalDamageUp",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 1
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 6,
+              "abilityScriptList": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501213,
+      "skillTier": 1,
+      "textID": 145013,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145013,
+          "attributeType": "SHAMROCK",
+          "atkType": "SLASH",
+          "defType": "COUNTER",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 1,
+          "defaultValue": 4,
+          "skillMotion": "S12",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "GiveBuffOnBattleStart",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 5,
+                "turn": 5,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501301,
+      "skillTier": 1,
+      "textID": 145101,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145101,
+          "attributeType": "AMBER",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 1,
+          "defaultValue": 7,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S1",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501302,
+      "skillTier": 2,
+      "textID": 145102,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145102,
+          "attributeType": "SCARLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 7,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S2",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 6,
+                "turn": 0
+              }
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501303,
+      "skillTier": 3,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145103,
+          "attributeType": "AZURE",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 11,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S3",
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 1,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartTurnViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 8,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 0.4
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "SkillResultPowerAdderOnStartTurnViaBuffStackOverValue",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 6,
+                "turn": 0,
+                "value": 1,
+                "limit": 3
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 7,
+                "turn": 0
+              }
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartTurnViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 7,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "SlashResistDown",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "SlashResistDown",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501304,
+      "skillTier": 3,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145104,
+          "attributeType": "VIOLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 4,
+          "defaultValue": 12,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S4",
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 2,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "AttackHighestStackTarget_Laceration"
+            },
+            {
+              "scriptName": "IgnoreBreak10212"
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit3",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "SkillResultPowerAdderOnStartTurnViaBuffStackOverValue",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 6,
+                "turn": 0,
+                "value": 2,
+                "limit": 6
+              }
+            },
+            {
+              "scriptName": "BlockLoseSinBuffByReactWithActionOnWinDuel_Breath"
+            },
+            {
+              "scriptName": "SetCoinResultToHeadOnWinDuel"
+            },
+            {
+              "scriptName": "ForcedActiveCriticalOnWinDuel"
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartBehaviorDivideByBuffStack",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 2,
+                "turn": 0,
+                "value": 0.3,
+                "limit": 120
+              }
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveSlashDmgOSAIfUsableInDuelByRatioViaBuffDiv",
+                  "buffData": {
+                    "buffKeyword": "Breath",
+                    "buffOwner": "Self",
+                    "stack": 1,
+                    "turn": 0,
+                    "value": 0.1,
+                    "limit": 100
+                  }
+                },
+                {
+                  "scriptName": "GiveAttributeDmgOSAIfUsableInDuelDivideByBuffStackRatio_SCARLET",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "buffOwner": "Target",
+                    "stack": 1,
+                    "turn": 0,
+                    "value": 0.1,
+                    "limit": 100
+                  }
+                },
+                {
+                  "scriptName": "ActivateLacerationOSATarget"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501305,
+      "skillTier": 1,
+      "textID": 145105,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145105,
+          "attributeType": "AMBER",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 1,
+          "defaultValue": 3,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S5",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501306,
+      "skillTier": 2,
+      "textID": 145106,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145106,
+          "attributeType": "SCARLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S6",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 6,
+                "turn": 0
+              }
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 1,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 1,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501307,
+      "skillTier": 3,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145107,
+          "attributeType": "AZURE",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S7",
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 1,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartTurnViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 8,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 0.4
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit2",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinLessThanOrEqualBuffStack",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 3
+              }
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartTurnLessThanOrEquealBuffStack",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "buffOwner": "Self",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "SlashResistDown",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "SlashResistDown",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501308,
+      "skillTier": 3,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145108,
+          "attributeType": "VIOLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 7,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 5,
+          "defaultValue": 4,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S8",
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "AttackHighestStackTarget_Laceration"
+            },
+            {
+              "scriptName": "CanDuelRegardlessSpeed"
+            },
+            {
+              "scriptName": "IgnoreBreak10212"
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit3",
+              "buffData": {
+                "buffKeyword": "Laceration",
+                "buffOwner": "Target",
+                "stack": 4,
+                "turn": 0,
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "BlockLoseSinBuffByReactWithActionOnWinDuel_Breath"
+            },
+            {
+              "scriptName": "SetCoinResultToHeadOnWinDuel"
+            },
+            {
+              "scriptName": "ForcedActiveCriticalOnWinDuel"
+            },
+            {
+              "scriptName": "CriticalDmgUpByRatioOnStartBehaviorDivideByBuffStack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 2,
+                "turn": 0,
+                "value": 0.3,
+                "limit": 120
+              }
+            },
+            {
+              "scriptName": "CanNotActiveCriticalIfLoseDuel"
+            },
+            {
+              "scriptName": "AttackDmgMultiplierAndTargetNotBreakOnLoseDuel",
+              "value": -0.8
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ActivateLacerationOSATarget"
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ActivateLacerationOSATarget"
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ActivateLacerationOSATarget"
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackViaMainTargetBuffCheck_Laceration_10",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "stack": 0,
+                    "turn": 8,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackIfUsableInDuel",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 8,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501309,
+      "skillTier": 1,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145109,
+          "attributeType": "CRIMSON",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S9",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "CanNotDuelWithAssistant"
+            },
+            {
+              "scriptName": "PrimeTargetExceptAssistant"
+            },
+            {
+              "scriptName": "ToSuperCoinOnStartDuelIfTargetSupportiveDefense"
+            },
+            {
+              "scriptName": "LoseBuffOnStartDuelIfNotSupportiveDefense",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "target": "Self",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfOneSideAttackOrSupportiveDefense",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 2,
+              "abilityScriptList": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501310,
+      "skillTier": 1,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145010,
+          "attributeType": "INDIGO",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 2,
+          "defaultValue": 4,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S10",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "CanNotDuelWithAssistant"
+            },
+            {
+              "scriptName": "PrimeTargetExceptAssistant"
+            },
+            {
+              "scriptName": "ToSuperCoinOnStartDuelIfTargetSupportiveDefense"
+            },
+            {
+              "scriptName": "GiveBuffOnStartDuelIfNotSupportiveDefense",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "LoseBuffOnEndAttackIfOneSideAttackOrSupportiveDefense",
+              "buffData": {
+                "buffKeyword": "ChoiSwordsmanship",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 2,
+              "abilityScriptList": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501311,
+      "skillTier": 1,
+      "textID": 145111,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145111,
+          "attributeType": "SCARLET",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 3,
+          "defaultValue": 10,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S11",
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "importanceLevel": 2,
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "AttackHighestStackTarget_Laceration"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "SkillPowerResultAdderOnStartTurnIfUseBuff",
+              "value": 2,
+              "buffData": {
+                "buffKeyword": "Breath",
+                "buffOwner": "Self",
+                "stack": 3,
+                "turn": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 8,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 4,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "DamageFirstBreakSectionOnSuccessAttackIfUsableInDuel",
+                  "value": 10
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackIfUsableInDuel",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackIfUsableInDuel",
+                  "buffData": {
+                    "buffKeyword": "Vulnerable",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "ShortArrowMarker"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501312,
+      "skillTier": 1,
+      "textID": 145112,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145112,
+          "attributeType": "SHAMROCK",
+          "atkType": "NONE",
+          "defType": "GUARD",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 0,
+          "defaultValue": 10,
+          "range" : 8,
+          "arearange" : 2,
+          "skillMotion": "Default",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "GiveBuffOnBattleStart",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 5,
+                "turn": 5,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnUse",
+              "buffData": {
+                "buffKeyword": "CriticalDamageUp",
+                "target": "Self",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 1
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 6,
+              "abilityScriptList": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 501313,
+      "skillTier": 1,
+      "textID": 145113,
+      "skillType": "SKILL",
+      "skillData": [
+        {
+          "iconID": 145113,
+          "attributeType": "SHAMROCK",
+          "atkType": "SLASH",
+          "defType": "COUNTER",
+          "targetNum": 1,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": false,
+          "canChangeTarget": true,
+          "skillLevelCorrection": 1,
+          "defaultValue": 4,
+          "range": 8,
+          "arearange": 2,
+          "skillMotion": "S12",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "ExceptChoiSwordmanshipMarker"
+            },
+            {
+              "scriptName": "GiveBuffOnBattleStart",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 5,
+                "turn": 5,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

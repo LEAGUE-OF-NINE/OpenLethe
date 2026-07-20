@@ -1,0 +1,44 @@
+{
+  "list": [
+    {
+      "id": "ATL_Agility",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "ATLAgility",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "ATL_EndureLaceration",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "TakeSinBuffDamageMultiplierByStack",
+          "value": -0.1,
+          "buffData": {
+            "buffKeyword": "Laceration"
+          }
+        }
+      ]
+    },
+    {
+      "id": "MaxHpMultiplier",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "MaxHpMultiplierByStack",
+          "value": 0.01
+        }
+      ]
+    }
+  ]
+}

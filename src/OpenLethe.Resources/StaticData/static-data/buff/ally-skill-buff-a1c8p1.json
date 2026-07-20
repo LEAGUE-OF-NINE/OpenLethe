@@ -1,0 +1,61 @@
+{
+  "list": [
+    {
+      "id": "BurstPoison",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "BurstPoison",
+          "buffData": {
+            "buffKeyword": "",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 3
+          }
+        }
+      ],
+      "categoryKeywordList": [
+        "BURSTREACTIVE"
+      ]
+    },
+    {
+      "id": "SnakeStance",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 3,
+            "turn": 2,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnUseDefaultAttackSkillIfHasStack_Burst1",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "buffOwner": "Target",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

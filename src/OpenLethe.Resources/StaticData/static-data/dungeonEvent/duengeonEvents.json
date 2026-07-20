@@ -1,0 +1,488 @@
+{
+    "list": [
+        {
+            "id": 101001,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "mental",
+                            "value": -25
+                        },
+                        {
+                            "command": "event-trigger",
+                            "value": 0
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1001
+                        }
+                    ]
+                },
+                {
+                    "results": [
+                        {
+                            "command": "battle",
+                            "value": 100112
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1004
+                        }
+                    ]
+                },
+                {
+                    "results": [
+                        {
+                            "command": "mental",
+                            "value": -50
+                        },
+                        {
+                            "command": "event",
+                            "value": 1010011
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1010011,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "mental",
+                            "value": -25
+                        },
+                        {
+                            "command": "event-trigger",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "results": [
+                        {
+                            "command": "battle",
+                            "value": 100112
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1004
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 101002,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "coin-event",
+                            "value": 1010101
+                        }
+                    ]
+                },
+                {
+                    "results": []
+                }
+            ]
+        },
+        {
+            "id": 1010101,
+            "type": "coin_event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",                            
+                            "value": 1002
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 101003,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "mental",
+                            "value": -15
+                        },
+                        {
+                            "command": "mental",
+                            "target": 12,
+                            "value": -10
+                        }
+                    ]
+                },
+                {
+                    "results": [
+                        {
+                            "command": "mental",
+                            "target": 12,
+                            "value": -40
+                        },
+                        {
+                            "command": "battle",
+                            "value": 10118
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1003
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 102001,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1011
+                        }
+                    ]
+                },
+                {
+                    "results": [
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1012
+                        }
+                    ]
+                },
+                {
+                    "results": [
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1013
+                        }
+                    ]
+                },
+                {
+                    "results": [                        
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1011
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1012
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1013
+                        }
+                    ]
+                },
+                {
+                    "results": []
+                }
+            ]
+        },
+        {
+            "id": 102002,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [                        
+                        {
+                            "command": "coin-event",
+                            "value": 1020201
+                        }
+                    ]
+                },
+                {
+                    "results": [                        
+                        {
+                            "command": "battle",
+                            "value": 10229
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1014
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1020201,
+            "type": "coin_event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "coin-event",
+                            "requisite" : "win",
+                            "value": 1020202
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1020202,
+            "type": "coin_event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "coin-event",
+                            "requisite" : "win",
+                            "value": 1020203
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1020203,
+            "type": "coin_event",
+            "selections": [
+                {
+                    "results": [
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1014
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "defeat",
+                            "value": 1015
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 102003,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [                      
+                    ]
+                },
+                {
+                    "results": [
+                        {
+                            "command": "event",
+                            "value": 1020031
+                        },
+                        {
+                            "command": "choice-background-image",
+                            "value": 102004
+                        }
+
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1020031,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [    
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1017
+                        }
+                    ]
+                },
+                {
+                    "results": [    
+                        {
+                            "command": "battle",
+                            "value": 10230
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 103001,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [    
+                    ]
+                },
+                {
+                    "results": [    
+                        {
+                            "command": "battle",
+                            "value": 10203
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1031
+                        }
+                    ]
+                },
+                {
+                    "results": [    
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 103002,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [    
+                    ]
+                },
+                {
+                    "results": [    
+                        {
+                            "command": "battle",
+                            "value": 10203
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1031
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 103003,
+            "type": "coin_event",
+            "selections": [
+                {
+                    "results": [   
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1033
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 103004,
+            "type": "coin_event",
+            "selections": [
+                {
+                    "results": [   
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1034
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 103005,
+            "type": "coin_event",
+            "selections": [
+                {
+                    "results": [   
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1035
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 103006,
+            "type": "event",
+            "selections": [
+                {
+                    "results": [   
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "value": 1037
+                        }
+                    ]
+                },
+                {
+                    "results": [   
+                        {
+                            "command": "coin-event",
+                            "value": 10300601
+                        }
+                    ]
+                },
+                {
+                    "results": [   
+                        {
+                            "command": "battle",
+                            "value": 10203
+                        },
+                        {
+                            "command": "ego-gift",
+                            "type": "spoil",
+                            "requisite": "win",
+                            "value": 1031
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 10300601,
+            "type": "coin_event",
+            "selections": [
+                {
+                    "results": [   
+                        {
+                            "command": "battle",
+                            "value": 10203
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ]
+}

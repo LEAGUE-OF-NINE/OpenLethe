@@ -1,0 +1,65 @@
+{
+  "list": [
+    {
+      "id": 836601,
+      "canSkip": false,
+      "eventType": "COIN_EVENT",
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "adderInfo": [
+          {
+            "correctionCase": "SpecificBuff_TrainTeamCaptain",
+            "adder": 5
+          }
+        ],
+        "judgement": {
+          "upDownType": 1,
+          "inclusiveValue": 16,
+          "exclusiveValue": 18,
+          "judgementDataList": [
+            {
+              "attributeType": "AZURE"
+            },
+            {
+              "attributeType": "VIOLET"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "SUCCESS",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": 836602
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 836602,
+      "canSkip": false,
+      "eventType": "EVENT",
+      "actionEvent": {
+        "isHideHint": false,
+        "eachOptionList": [
+          {
+            "index": 0
+          },
+          {
+            "index": 1
+          },
+          {
+            "index": 2
+          }
+        ]
+      }
+    }
+  ]
+}

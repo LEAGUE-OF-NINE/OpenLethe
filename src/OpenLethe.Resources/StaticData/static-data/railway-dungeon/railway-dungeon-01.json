@@ -1,0 +1,301 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "requiredModule": 25,
+      "openChapterData": {
+        "mainChapterId": 1,
+        "subChapterId": 103,
+        "nodeId": 10322,
+        "unlockCode": 103
+      },
+      "challengeType": "CLEAR_TURN_COUNT",
+      "isSaveBattleState": false,
+      "isLoadSinFromSave": false,
+      "isNotAbleToAddSlot": false,
+      "isGiveUpNodeWhenAllDead": false,
+      "hasRestHeal": true,
+      "restHPHealRate": 100,
+      "restMPHeal": 0,
+      "isResetMPAtRestNode": false,
+      "isResetAfterLose": false,
+      "danteAbilityCategory": 1,
+      "startDate": "2023-04-06T03:00:00.000Z",
+      "endDate": "2023-05-18T00:59:59.000Z",
+      "bannerRewards": [
+        {
+          "isMinValue": true,
+          "clearTurn": 999,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_TURN_COUNT",
+              "count": 999
+            }
+          ],
+          "endDate": "2023-05-18T00:59:59.000Z",
+          "reward": {
+            "type": "USERBANNER",
+            "id": 5,
+            "num": 1
+          }
+        },
+        {
+          "clearTurn": 120,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_TURN_COUNT",
+              "count": 120
+            }
+          ],
+          "endDate": "2023-05-18T00:59:59.000Z",
+          "reward": {
+            "type": "USERBANNER",
+            "id": 6,
+            "num": 1
+          }
+        },
+        {
+          "isDateLimited": true,
+          "clearTurn": 120,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_TURN_COUNT",
+              "count": 120
+            }
+          ],
+          "endDate": "2023-04-20T00:59:59.000Z",
+          "reward": {
+            "type": "USERBANNER",
+            "id": 7,
+            "num": 1
+          }
+        }
+      ],
+      "extraRewards": [],
+      "sector": [
+        {
+          "nodeId": 1,
+          "stageId": 1,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 213,
+                "num": 15
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "1",
+          "nextNodes": [ 1, 2 ],
+          "clearRequiredNodesForEnter": []
+        },
+        {
+          "nodeId": 2,
+          "stageId": 2,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 1101,
+                "num": 20
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "2",
+          "nextNodes": [ 1, 2, 3 ],
+          "clearRequiredNodesForEnter": [ 1 ]
+        },
+        {
+          "nodeId": 3,
+          "stageId": 3,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 1201,
+                "num": 20
+              }
+            ]
+          },
+          "isAbBattleIcon": true,
+          "spriteId": "3",
+          "nextNodes": [ 1, 2, 3, 4 ],
+          "clearRequiredNodesForEnter": [ 2 ]
+        },
+        {
+          "nodeId": 4,
+          "stageId": 4,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 201,
+                "num": 75
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "4",
+          "nextNodes": [ 1, 2, 3, 4, 5 ],
+          "clearRequiredNodesForEnter": [ 3 ]
+        },
+        {
+          "nodeId": 5,
+          "stageId": 5,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 222,
+                "num": 3
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "5",
+          "nextNodes": [ 1, 2, 3, 4, 5, 6 ],
+          "clearRequiredNodesForEnter": [ 4 ]
+        },
+        {
+          "nodeId": 6,
+          "stageId": 6,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 102,
+                "num": 1
+              }
+            ]
+          },
+          "isAbBattleIcon": true,
+          "spriteId": "6",
+          "nextNodes": [ 1, 2, 3, 4, 5, 6, 7 ],
+          "clearRequiredNodesForEnter": [ 5 ]
+        },
+        {
+          "nodeId": 7,
+          "stageId": 7,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 213,
+                "num": 25
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "7",
+          "nextNodes": [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+          "clearRequiredNodesForEnter": [ 6 ]
+        },
+        {
+          "nodeId": 8,
+          "stageId": 8,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 1101,
+                "num": 40
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "8",
+          "nextNodes": [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+          "clearRequiredNodesForEnter": [ 7 ]
+        },
+        {
+          "nodeId": 9,
+          "stageId": 9,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 1201,
+                "num": 40
+              }
+            ]
+          },
+          "isAbBattleIcon": true,
+          "spriteId": "9",
+          "nextNodes": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
+          "clearRequiredNodesForEnter": [ 8 ]
+        },
+        {
+          "nodeId": 10,
+          "stageId": 10,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 201,
+                "num": 125
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "10",
+          "nextNodes": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ],
+          "clearRequiredNodesForEnter": [ 9 ]
+        },
+        {
+          "nodeId": 11,
+          "stageId": 11,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 223,
+                "num": 1
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "11",
+          "nextNodes": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+          "clearRequiredNodesForEnter": [ 10 ]
+        },
+        {
+          "nodeId": 12,
+          "stageId": 12,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 102,
+                "num": 2
+              }
+            ]
+          },
+          "isAbBattleIcon": false,
+          "spriteId": "12",
+          "nextNodes": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ],
+          "clearRequiredNodesForEnter": [ 11 ]
+        },
+        {
+          "nodeId": 13,
+          "stageId": 13,
+          "reward": {
+            "rewardList": [
+              {
+                "type": "ITEM",
+                "id": 104,
+                "num": 1
+              }
+            ]
+          },
+          "isAbBattleIcon": true,
+          "spriteId": "13",
+          "nextNodes": [],
+          "clearRequiredNodesForEnter": [ 12 ],
+          "isBossNode": true
+        }
+      ]
+    }
+  ]
+}

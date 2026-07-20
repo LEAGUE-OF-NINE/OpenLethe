@@ -1,0 +1,125 @@
+{
+  "list": [
+    {
+      "id": "VibrationAssimilation",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "VibrationAssimilation"
+        }
+      ]
+    },
+    {
+      "id": "Resonate",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBsGaugeUpMultiplier",
+          "value": 0.03
+        },
+        {
+          "ability": "GiveHpDamageOnGiveBsGaugeUp",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "Scared",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndWhenMpUnder",
+          "value": -20,
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "Stressed",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndWhenMpUnder",
+          "value": -25,
+          "buffData": {
+            "buffKeyword": "Endurance",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "Nervous",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndWhenMpUnder",
+          "value": -15,
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "Blue",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "InterlockingTime",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "InterlockingTime"
+        }
+      ]
+    },
+    {
+      "id": "TimeRental",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TimeRental"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,630 @@
+{
+  "list": [
+    {
+      "id": 90162,
+      "storyID": 8375,
+      "appearance": "8375A_Barber_Blood_RoseAppearance",
+      "unitKeywordList": [
+        "ABNORMALITY_EROSION",
+        "BLOODBAG",
+        "SMALL"
+        
+      ],
+      "associationList": [ "LA_MANCHA_LAND" ],
+      "level": 1,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 65,
+        "incrementByLevel": 2.24
+      },
+      "defCorrection": -8,
+      "minSpeedList": [
+        1
+      ],
+      "maxSpeedList": [
+        4
+      ],
+      "breakSection": {
+        "sectionList": [
+          70,
+          30,
+          0
+        ]
+      },
+      "hasMp": false,
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1031,
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 0.75
+          },
+          {
+            "type": "PENETRATE",
+            "value": 1
+          },
+          {
+            "type": "HIT",
+            "value": 1.5
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 2
+          },
+          {
+            "type": "AMBER",
+            "value": 0.75
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1.5
+          },
+          {
+            "type": "AZURE",
+            "value": 1.25
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 0.75
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "patternID": "90152Normal",
+      "maxActionSlotNum": 3,
+      "attributeList": [
+        {
+          "skillId": 9015201,
+          "number": 1
+        },
+        {
+          "skillId": 9015202,
+          "number": 1
+        },
+        {
+          "skillId": 9015203,
+          "number": 1
+        },
+        {
+          "skillId": 9015204,
+          "number": 1
+        }
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          837501,
+          837502,
+          837503,
+          9015203,
+          9015204,
+          9014502,
+          9015205,
+          9015207
+        ]
+      }
+    },
+    {
+      "id": 90166,
+      "storyID": 8375,
+      "appearance": "8375B_Barber_Vamp_RoseAppearance",
+      "unitKeywordList": [
+        "ABNORMALITY_EROSION",
+        "BLOODFIEND",
+        "DEPENDENT",
+        "SMALL"
+      ],
+      "associationList": [ "LA_MANCHA_LAND" ],
+      "unitScriptID": "BloodWraithTierNormal",
+      "level": 1,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 68,
+        "incrementByLevel": 2.34
+      },
+      "defCorrection": -5,
+      "minSpeedList": [
+        2
+      ],
+      "maxSpeedList": [
+        5
+      ],
+      "breakSection": {
+        "sectionList": [
+          60,
+          20,
+          -10
+        ]
+      },
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1031,
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 0.5
+          },
+          {
+            "type": "PENETRATE",
+            "value": 1
+          },
+          {
+            "type": "HIT",
+            "value": 1.5
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 2
+          },
+          {
+            "type": "AMBER",
+            "value": 0.75
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1.5
+          },
+          {
+            "type": "AZURE",
+            "value": 1.25
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 0.5
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "patternID": "90154Normal",
+      "maxActionSlotNum": 3,
+      "attributeList": [
+        {
+          "skillId": 9015401,
+          "number": 1
+        },
+        {
+          "skillId": 9015402,
+          "number": 1
+        },
+        {
+          "skillId": 9015403,
+          "number": 1
+        },
+        {
+          "skillId": 9015404,
+          "number": 1
+        },
+        {
+          "skillId": 9015405,
+          "number": 1
+        }
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          837501,
+          837502,
+          837503,
+          9015206,
+          9015401,
+          9015402,
+          9015403,
+          9015404,
+          9015405,
+          9999997,
+          9999996
+        ]
+      }
+    },
+    {
+      "id": 90167,
+      "storyID": 8375,
+      "appearance": "8375C_Priest_Vamp_RoseAppearance",
+      "unitKeywordList": [
+        "ABNORMALITY_EROSION",
+        "BLOODFIEND",
+        "DEPENDENT",
+        "SMALL"
+      ],
+      "associationList": [ "LA_MANCHA_LAND" ],
+      "unitScriptID": "BloodWraithTierNormal",
+      "level": 1,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 74,
+        "incrementByLevel": 2.55
+      },
+      "defCorrection": 5,
+      "minSpeedList": [
+        2
+      ],
+      "maxSpeedList": [
+        6
+      ],
+      "breakSection": {
+        "sectionList": [
+          70,
+          30,
+          0
+        ]
+      },
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1031,
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 0.5
+          },
+          {
+            "type": "PENETRATE",
+            "value": 1
+          },
+          {
+            "type": "HIT",
+            "value": 1.5
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 2
+          },
+          {
+            "type": "AMBER",
+            "value": 0.75
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1.5
+          },
+          {
+            "type": "AZURE",
+            "value": 1.25
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 0.5
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "patternID": "9017pNormal",
+      "maxActionSlotNum": 3,
+      "attributeList": [
+        {
+          "skillId": 9017101,
+          "number": 1
+        },
+        {
+          "skillId": 9017102,
+          "number": 1
+        },
+        {
+          "skillId": 9017103,
+          "number": 1
+        },
+        {
+          "skillId": 9017105,
+          "number": 1
+        }
+      ],
+      "defenseSkillIDList": [
+        9017104
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          837501,
+          837502,
+          837503,
+          9017101,
+          9015203,
+          9015402,
+          9015403,
+          9015404,
+          9999997,
+          9999996
+        ]
+      }
+    },
+    {
+      "id": 90168,
+      "storyID": 8375,
+      "appearance": "8375D_Dulcinea_Vamp_RoseAppearance",
+      "unitKeywordList": [
+        "ABNORMALITY_EROSION",
+        "BLOODFIEND",
+        "DEPENDENT",
+        "SMALL"
+      ],
+      "associationList": [ "LA_MANCHA_LAND" ],
+      "unitScriptID": "BloodWraithTierNormal",
+      "level": 1,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 102,
+        "incrementByLevel": 3.52
+      },
+      "defCorrection": 5,
+      "minSpeedList": [
+        2
+      ],
+      "maxSpeedList": [
+        6
+      ],
+      "breakSection": {
+        "sectionList": [
+          70,
+          30,
+          0
+        ]
+      },
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1031,
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 0.5
+          },
+          {
+            "type": "PENETRATE",
+            "value": 1
+          },
+          {
+            "type": "HIT",
+            "value": 1.5
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 1.5
+          },
+          {
+            "type": "AMBER",
+            "value": 0.75
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1.25
+          },
+          {
+            "type": "AZURE",
+            "value": 1.25
+          },
+          {
+            "type": "INDIGO",
+            "value": 0.75
+          },
+          {
+            "type": "VIOLET",
+            "value": 0.5
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "patternID": "9017xNormal",
+      "maxActionSlotNum": 3,
+      "attributeList": [
+        {
+          "skillId": 9017501,
+          "number": 1
+        },
+        {
+          "skillId": 9017502,
+          "number": 1
+        },
+        {
+          "skillId": 9017503,
+          "number": 1
+        },
+        {
+          "skillId": 9017505,
+          "number": 1
+        }
+      ],
+      "defenseSkillIDList": [
+        9017504
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          837501,
+          837502,
+          837503,
+          9017501,
+          9017502,
+          9017503,
+          9017504,
+          9017505,
+          9017506,
+          9999997,
+          9999996
+        ]
+      }
+    }
+  ]
+}
