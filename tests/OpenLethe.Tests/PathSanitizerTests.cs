@@ -1,13 +1,25 @@
 using System.Net;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-public class PathSanitizerTests : IClassFixture<WebApplicationFactory<Program>>
+public class PathSanitizerTests : IClassFixture<PathSanitizerTests.Factory>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    public sealed class Factory : WebApplicationFactory<Program>
+    {
+        protected override void ConfigureWebHost(Microsoft.AspNetCore.Hosting.IWebHostBuilder b) =>
+            b.UseSetting("Auth:JwtSecret", "path-sanitizer-test-secret-path-sanitizer-test-secret");
+    }
 
-    public PathSanitizerTests(WebApplicationFactory<Program> factory) => _factory = factory;
+    private readonly Factory _factory;
+    private readonly string _token;
+
+    public PathSanitizerTests(Factory factory)
+    {
+        _factory = factory;
+        _token = factory.Services.GetRequiredService<OpenLethe.Server.Auth.JwtService>().Mint("test");
+    }
 
     [Theory]
     [InlineData("//api/AcquireAttendanceReward")]
@@ -32,7 +44,7 @@ public class PathSanitizerTests : IClassFixture<WebApplicationFactory<Program>>
 
         var resp = await client.PostAsJsonAsync(requestUri, new
         {
-            userAuth = new { uid = 1, dbid = 1, authCode = "t", version = "1", synchronousDataVersion = 0 },
+            userAuth = new { uid = 1, dbid = 1, authCode = _token, version = "1", synchronousDataVersion = 0 },
             parameters = new { },
         });
 

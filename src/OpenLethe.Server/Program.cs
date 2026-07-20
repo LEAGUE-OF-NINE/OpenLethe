@@ -33,6 +33,8 @@ app.UsePathSanitizer();
 // regardless of the source-order of app.Use() calls relative to Map* calls.
 app.UseRouting();
 
+app.UseJwtAuth();   // 401s protected routes lacking a valid token; exempts /login,/auth,/health
+
 app.MapGet("/health", () => "ok");
 app.MapAuth();
 app.MapSignInAsSteam();

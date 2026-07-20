@@ -2,13 +2,25 @@ using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-public class StaticRouteCoverageTests : IClassFixture<WebApplicationFactory<Program>>
+public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.Factory>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    public sealed class Factory : WebApplicationFactory<Program>
+    {
+        protected override void ConfigureWebHost(Microsoft.AspNetCore.Hosting.IWebHostBuilder b) =>
+            b.UseSetting("Auth:JwtSecret", "static-route-coverage-test-secret-static-route-coverage-test-secret");
+    }
 
-    public StaticRouteCoverageTests(WebApplicationFactory<Program> factory) => _factory = factory;
+    private readonly Factory _factory;
+    private readonly string _token;
+
+    public StaticRouteCoverageTests(Factory factory)
+    {
+        _factory = factory;
+        _token = factory.Services.GetRequiredService<OpenLethe.Server.Auth.JwtService>().Mint("test");
+    }
 
     [Fact]
     public void AllStatelessRoutes_AreRegistered()
@@ -47,7 +59,7 @@ public class StaticRouteCoverageTests : IClassFixture<WebApplicationFactory<Prog
 
         var resp = await client.PostAsJsonAsync(route, new
         {
-            userAuth = new { uid = 1, dbid = 1, authCode = "t", version = "1", synchronousDataVersion = 0 },
+            userAuth = new { uid = 1, dbid = 1, authCode = _token, version = "1", synchronousDataVersion = 0 },
             parameters = new { },
         });
 

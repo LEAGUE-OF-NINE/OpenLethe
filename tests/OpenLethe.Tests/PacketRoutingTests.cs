@@ -2,13 +2,25 @@ using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-public class PacketRoutingTests : IClassFixture<WebApplicationFactory<Program>>
+public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    public sealed class Factory : WebApplicationFactory<Program>
+    {
+        protected override void ConfigureWebHost(Microsoft.AspNetCore.Hosting.IWebHostBuilder b) =>
+            b.UseSetting("Auth:JwtSecret", "packet-routing-test-secret-packet-routing-test-secret");
+    }
 
-    public PacketRoutingTests(WebApplicationFactory<Program> factory) => _factory = factory;
+    private readonly Factory _factory;
+    private readonly string _token;
+
+    public PacketRoutingTests(Factory factory)
+    {
+        _factory = factory;
+        _token = factory.Services.GetRequiredService<OpenLethe.Server.Auth.JwtService>().Mint("test");
+    }
 
     [Fact]
     public void ResolvePacketId_StripsResPacketPrefix()
@@ -43,7 +55,7 @@ public class PacketRoutingTests : IClassFixture<WebApplicationFactory<Program>>
 
         var body = new
         {
-            userAuth = new { uid = 1, dbid = 1, authCode = "test", version = "1", synchronousDataVersion = 0 },
+            userAuth = new { uid = 1, dbid = 1, authCode = _token, version = "1", synchronousDataVersion = 0 },
             parameters = new { raidId = 3, difficulty = 1 },
         };
 
@@ -70,7 +82,7 @@ public class PacketRoutingTests : IClassFixture<WebApplicationFactory<Program>>
 
         var resp = await client.PostAsJsonAsync("/api/EnterBossRaid", new
         {
-            userAuth = new { uid = 0, dbid = 0, authCode = "", version = "", synchronousDataVersion = 0 },
+            userAuth = new { uid = 0, dbid = 0, authCode = _token, version = "", synchronousDataVersion = 0 },
         });
 
         Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
@@ -83,7 +95,7 @@ public class PacketRoutingTests : IClassFixture<WebApplicationFactory<Program>>
 
         var resp = await client.PostAsJsonAsync("/api/EnterBossRaid", new
         {
-            userAuth = new { uid = 0, dbid = 0, authCode = "", version = "", synchronousDataVersion = 0 },
+            userAuth = new { uid = 0, dbid = 0, authCode = _token, version = "", synchronousDataVersion = 0 },
             parameters = new { raidId = 1, unknownFutureField = "x" },
         });
 
