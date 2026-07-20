@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Client-extracted code: unused fields, missing XML docs, non-nullable warnings. -->
+    <NoWarn>$(NoWarn);CS0649;CS0169;CS8618</NoWarn>
+  </PropertyGroup>
+
+  <!-- Compiled in place, never copied. Regenerating /packets needs no project change. -->
+  <ItemGroup>
+    <Compile Include="../../packets/**/*.cs" LinkBase="Packets" />
+  </ItemGroup>
+
+</Project>
