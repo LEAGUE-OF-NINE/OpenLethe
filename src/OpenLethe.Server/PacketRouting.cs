@@ -13,6 +13,9 @@ public static class PacketRouting
 
     /// Derives the packet ID from the response type name.
     /// ResPacket_EnterBossRaid -> PacketIds.For("EnterBossRaid") -> 1696.
+    /// A miss returns 0 rather than throwing: the game client ignores the
+    /// envelope's packetId value entirely, so an unresolved name can never be
+    /// allowed to block the server from booting.
     public static long ResolvePacketId<TRes>()
     {
         var name = typeof(TRes).Name;
@@ -23,7 +26,8 @@ public static class PacketRouting
                 $"Expected a type named {ResPrefix}*, got '{name}'.");
         }
 
-        return PacketIds.For(name[ResPrefix.Length..]);
+        PacketIds.TryGet(name[ResPrefix.Length..], out var id);
+        return id;
     }
 
     /// Registers a stateless POST endpoint that echoes back a default response.
@@ -32,8 +36,8 @@ public static class PacketRouting
         string route)
         where TRes : new()
     {
-        // Resolved once at startup, not per request: a missing packet ID becomes a
-        // boot failure rather than a runtime 500 on a rarely-hit endpoint.
+        // Resolved once at startup, not per request. A miss defaults to 0 - the
+        // client ignores packetId, so this can never block the server from booting.
         var packetId = ResolvePacketId<TRes>();
 
         app.MapPost(route, async (HttpContext ctx) =>

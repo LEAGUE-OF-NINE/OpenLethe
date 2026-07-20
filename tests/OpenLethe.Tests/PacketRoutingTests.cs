@@ -27,10 +27,13 @@ public class PacketRoutingTests : IClassFixture<WebApplicationFactory<Program>>
     private sealed class ResPacket_NoSuchPacket;
 
     [Fact]
-    public void ResolvePacketId_ThrowsForUnknownPacketName()
+    public void ResolvePacketId_DefaultsToZeroForUnknownPacketName()
     {
-        Assert.Throws<KeyNotFoundException>(
-            () => PacketRouting.ResolvePacketId<ResPacket_NoSuchPacket>());
+        // The game client ignores the envelope's packetId value entirely, so an
+        // unresolved name (route/client packet name drift, or a genuinely new
+        // constant not yet extracted) must never be a fatal boot error - it
+        // defaults to 0 and the endpoint still serves traffic normally.
+        Assert.Equal(0, PacketRouting.ResolvePacketId<ResPacket_NoSuchPacket>());
     }
 
     [Fact]
