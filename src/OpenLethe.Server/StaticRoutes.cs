@@ -21,7 +21,9 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_BattlePassMissionReward, ResPacket_BattlePassMissionReward>("/api/BattlePassMissionReward");
         app.MapPacket<ReqPacket_BattlePassMissionRewardAll, ResPacket_BattlePassMissionRewardAll>("/api/BattlePassMissionRewardAll");
         app.MapPacket<ReqPacket_BattlePassReward, ResPacket_BattlePassReward>("/api/BattlePassReward");
+        app.MapPacket<ReqPacket_CancelSecession, ResPacket_CancelSecession>("/login/CancelSecession");
         app.MapPacket<ReqPacket_CancelSentFriendRequest, ResPacket_CancelSentFriendRequest>("/api/CancelSentFriendRequest");
+        app.MapPacket<ReqPacket_CheckClientVersion, ResPacket_CheckClientVersion>("/login/CheckClientVersion");
         app.MapPacket<ReqPacket_CheckSeasonLog, ResPacket_CheckSeasonLog>("/api/CheckSeasonLog");
         app.MapPacket<ReqPacket_ClaimClosedGachaRewards, ResPacket_ClaimClosedGachaRewards>("/api/ClaimClosedGachaRewards");
         app.MapPacket<ReqPacket_ClaimEventReward, ResPacket_ClaimEventReward>("/api/ClaimEventReward");
@@ -45,22 +47,28 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_FindFriend, ResPacket_FindFriend>("/api/FindFriend");
         app.MapPacket<ReqPacket_GetAbnormalityLogData, ResPacket_GetAbnormalityLogData>("/api/GetAbnormalityLogData");
         app.MapPacket<ReqPacket_GetAttendanceState, ResPacket_GetAttendanceState>("/api/GetAttendanceState");
+        app.MapPacket<ReqPacket_GetBanDetails, ResPacket_GetBanDetails>("/login/GetBanDetails");
         app.MapPacket<ReqPacket_GetDailyDungeonInfo, ResPacket_GetDailyDungeonInfo>("/api/GetDailyDungeonInfo");
         app.MapPacket<ReqPacket_GetDailyLoginState, ResPacket_GetDailyLoginState>("/api/GetDailyLoginState");
         app.MapPacket<ReqPacket_GetDanteNoteState, ResPacket_GetDanteNoteState>("/api/GetDanteNoteState");
         app.MapPacket<ReqPacket_GetFriendSupportPersonalities, ResPacket_GetFriendSupportPersonalities>("/api/GetFriendSupportPersonalities");
         app.MapPacket<ReqPacket_GetFriendSupportPersonalitiesByCharacterId, ResPacket_GetFriendSupportPersonalitiesByCharacterId>("/api/GetFriendSupportPersonalitiesByCharacterId");
         app.MapPacket<ReqPacket_GetHellsChickenState, ResPacket_GetHellsChickenState>("/api/GetHellsChickenState");
+        app.MapPacket<ReqPacket_GetInfoOfLinkWith, ResPacket_GetInfoOfLinkWith>("/login/GetInfoOfLinkWith");
         app.MapPacket<ReqPacket_GetMirrorDungeonEgoGiftRecord, ResPacket_GetMirrorDungeonEgoGiftRecord>("/api/GetMirrorDungeonEgoGiftRecord");
         app.MapPacket<ReqPacket_GetProfileTicketDecoDatas, ResPacket_GetProfileTicketDecoDatas>("/api/GetProfileTicketDecoDatas");
         app.MapPacket<ReqPacket_GetRecommendFriends, ResPacket_GetRecommendFriends>("/api/GetRecommendFriends");
         app.MapPacket<ReqPacket_GetStageProgressRateReward, ResPacket_GetStageProgressRateReward>("/api/GetStageProgressRateReward");
         app.MapPacket<ReqPacket_GetStartBuffFInfoMirrorDungeon, ResPacket_GetStartBuffFInfoMirrorDungeon>("/api/GetStartBuffFInfoMirrorDungeon");
         app.MapPacket<ReqPacket_GetStoryDungeonSaveInfo, ResPacket_GetStoryDungeonSaveInfo>("/api/GetStoryDungeonSaveInfo");
+        app.MapPacket<ReqPacket_GetTermsOfUseStateAll, ResPacket_GetTermsOfUseStateAll>("/login/GetTermsOfUseStateAll");
         app.MapPacket<ReqPacket_GetTheaterInfo, ResPacket_GetTheaterInfo>("/api/GetTheaterInfo");
         app.MapPacket<ReqPacket_GetUserBanners, ResPacket_GetUserBanners>("/api/GetUserBanners");
         app.MapPacket<ReqPacket_GiveUpRailwayDungeonNode, ResPacket_GiveUpRailwayDungeonNode>("/api/GiveUpRailwayDungeonNode");
         app.MapPacket<ReqPacket_GiveUpRailwayDungeonNodeInBattle, ResPacket_GiveUpRailwayDungeonNodeInBattle>("/api/GiveUpRailwayDungeonNodeInBattle");
+        app.MapPacket<ReqPacket_LinkWithAnother, ResPacket_LinkWithAnother>("/login/LinkWithAnother");
+        app.MapPacket<ReqPacket_LinkWithApple, ResPacket_LinkWithApple>("/login/LinkWithApple");
+        app.MapPacket<ReqPacket_LinkWithGoogle, ResPacket_LinkWithGoogle>("/login/LinkWithGoogle");
         app.MapPacket<ReqPacket_PersonalityGacksungWithItems, ResPacket_PersonalityGacksungWithItems>("/api/PersonalityGacksungWithItems");
         app.MapPacket<ReqPacket_PlayGacha, ResPacket_PlayGacha>("/api/PlayGacha");
         app.MapPacket<ReqPacket_PlayVendingMachine, ResPacket_PlayVendingMachine>("/api/PlayVendingMachine");
@@ -77,6 +85,7 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_PurchaseUpgradePersonalityMirrorDungeon, ResPacket_PurchaseUpgradePersonalityMirrorDungeon>("/api/PurchaseUpgradePersonalityMirrorDungeon");
         app.MapPacket<ReqPacket_PurchaseUpgradePersonalityStoryMirrorDungeon, ResPacket_PurchaseUpgradePersonalityStoryMirrorDungeon>("/api/PurchaseUpgradePersonalityStoryMirrorDungeon");
         app.MapPacket<ReqPacket_ReEnterStoryMirrorDungeon, ResPacket_ReEnterStoryMirrorDungeon>("/api/ReEnterStoryMirrorDungeon");
+        app.MapPacket<ReqPacket_RefreshLinkAuth, ResPacket_RefreshLinkAuth>("/login/RefreshLinkAuth");
         app.MapPacket<ReqPacket_RefreshMailbox, ResPacket_RefreshMailbox>("/api/RefreshMailbox");
         app.MapPacket<ReqPacket_RefreshStartEgoGiftsMirrorDungeon, ResPacket_RefreshStartEgoGiftsMirrorDungeon>("/api/RefreshStartEgoGiftsMirrorDungeon");
         app.MapPacket<ReqPacket_RefreshStartEgoGiftsStoryMirrorDungeon, ResPacket_RefreshStartEgoGiftsStoryMirrorDungeon>("/api/RefreshStartEgoGiftsStoryMirrorDungeon");
@@ -92,9 +101,15 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_SendMirrorDungeonLogError, ResPacket_SendMirrorDungeonLogError>("/api/SendMirrorDungeonLogError");
         app.MapPacket<ReqPacket_SendMirrorDungeonShopExit, ResPacket_SendMirrorDungeonShopExit>("/api/SendMirrorDungeonShopExit");
         app.MapPacket<ReqPacket_SetPersonalityGacksungIllust, ResPacket_SetPersonalityGacksungIllust>("/api/SetPersonalityGacksungIllust");
+        app.MapPacket<ReqPacket_SignInAsApple, ResPacket_SignInAsApple>("/login/SignInAsApple");
+        app.MapPacket<ReqPacket_SignInAsGoogle, ResPacket_SignInAsGoogle>("/login/SignInAsGoogle");
+        app.MapPacket<ReqPacket_SignInAsGuest, ResPacket_SignInAsGuest>("/login/SignInAsGuest");
+        app.MapPacket<ReqPacket_SignInAsNewGuest, ResPacket_SignInAsNewGuest>("/login/SignInAsNewGuest");
         app.MapPacket<ReqPacket_SkipExpDungeon, ResPacket_SkipExpDungeon>("/api/SkipExpDungeon");
         app.MapPacket<ReqPacket_SkipThreadDungeon, ResPacket_SkipThreadDungeon>("/api/SkipThreadDungeon");
         app.MapPacket<ReqPacket_SkipTutorial, ResPacket_SkipTutorial>("/api/SkipTutorial");
+        app.MapPacket<ReqPacket_TryToSecede, ResPacket_TryToSecede>("/login/TryToSecede");
+        app.MapPacket<ReqPacket_UnLinkWithAnother, ResPacket_UnLinkWithAnother>("/login/UnLinkWithAnother");
         app.MapPacket<ReqPacket_UnsealMails, ResPacket_UnsealMails>("/api/UnsealMails");
         app.MapPacket<ReqPacket_UpdateAbnormalityLogData, ResPacket_UpdateAbnormalityLogData>("/api/UpdateAbnormalityLogData");
         app.MapPacket<ReqPacket_UpdateLobbyCg, ResPacket_UpdateLobbyCg>("/api/UpdateLobbyCg");
@@ -103,6 +118,7 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_UpdateProfileTicketDeco, ResPacket_UpdateProfileTicketDeco>("/api/UpdateProfileTicketDeco");
         app.MapPacket<ReqPacket_UpdateStoryDungeonUnits, ResPacket_UpdateStoryDungeonUnits>("/api/UpdateStoryDungeonUnits");
         app.MapPacket<ReqPacket_UpdateStoryMirrorDungeonUnits, ResPacket_UpdateStoryMirrorDungeonUnits>("/api/UpdateStoryMirrorDungeonUnits");
+        app.MapPacket<ReqPacket_UpdateTermsOfUseState, ResPacket_UpdateTermsOfUseState>("/login/UpdateTermsOfUseState");
         app.MapPacket<ReqPacket_UpdateUserProfile, ResPacket_UpdateUserProfile>("/api/UpdateUserProfile");
         app.MapPacket<ReqPacket_UseEgoGacksungItem, ResPacket_UseEgoGacksungItem>("/api/UseEgoGacksungItem");
         app.MapPacket<ReqPacket_UseGachaPityPoint, ResPacket_UseGachaPityPoint>("/api/UseGachaPityPoint");
@@ -121,6 +137,6 @@ public static class StaticRoutes
         return app;
     }
 
-    public static int RegisteredCount => 97;
+    public static int RegisteredCount => 113;
 }
 

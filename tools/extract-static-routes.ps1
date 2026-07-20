@@ -2,7 +2,7 @@
 # A handler is "static" iff it uses static_response and never touches UserRepository.
 # Re-run when the Rust server adds endpoints; output is committed.
 #
-# Scope is /api/* routes only (matches the brief's regex) - the /login, /iap,
+# Scope is /api/* and /login/* routes (matches the brief's regex) - the /iap
 # and /log route groups use the same static_response/UserRepository idiom but
 # are a separate subsystem and out of scope for this task.
 #
@@ -24,7 +24,7 @@ $routerText = Get-Content "$RustRoot\server\src\router.rs" -Raw
 # router.route("/api/Name", post(path::to::handler_fn)) - handler may be
 # wrapped across lines and/or have a trailing comma before the closing paren,
 # e.g. BattlePassExLevelReward's post(\n    crate::...::handle_x,\n),
-$routePattern = 'route\(\s*"(?<route>/api/[^"]+)"\s*,\s*post\(\s*(?<handler>[\w:]+)\s*,?\s*\)'
+$routePattern = 'route\(\s*"(?<route>/(?:api|login)/[^"]+)"\s*,\s*post\(\s*(?<handler>[\w:]+)\s*,?\s*\)'
 $routeMatches = [regex]::Matches($routerText, $routePattern)
 if ($routeMatches.Count -eq 0) { throw "No routes matched - check regex against router.rs" }
 
@@ -63,8 +63,8 @@ foreach ($m in $routeMatches) {
     $isStatic = ($body -match 'static_response') -and ($body -notmatch 'UserRepository')
     if (-not $isStatic) { $skipped += "$route (stateful)"; continue }
 
-    # /api/EnterBossRaid -> EnterBossRaid
-    $name = $route -replace '^/api/', ''
+    # /api/EnterBossRaid -> EnterBossRaid; /login/CheckClientVersion -> CheckClientVersion
+    $name = $route -replace '^/(?:api|login)/', ''
 
     $reqType = "ReqPacket_$name"
     $resType = "ResPacket_$name"

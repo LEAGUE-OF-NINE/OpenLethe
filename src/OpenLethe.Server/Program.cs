@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
+using OpenLethe.Server.Login;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,7 @@ app.UseRouting();
 
 app.MapGet("/health", () => "ok");
 app.MapAuth();
+app.MapSignInAsSteam();
 app.MapStaticPackets();
 
 // EnterBossRaid is genuinely stateful (its Rust handler touches UserRepository,
