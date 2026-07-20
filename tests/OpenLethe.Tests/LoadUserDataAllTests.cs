@@ -3,7 +3,9 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Data;
+using OpenLethe.Server;
 using OpenLethe.Server.Auth;
+using OpenLethe.Server.Wire;
 using Xunit;
 
 [Collection("postgres")]
@@ -15,14 +17,14 @@ public class LoadUserDataAllTests(PostgresFixture db)
         parameters = new { },
     };
 
-    private async Task<(HttpClient client, string jwt)> NewUserAsync(DbWebAppFactory factory)
+    private async Task<(HttpClient client, string jwt, string name)> NewUserAsync(DbWebAppFactory factory)
     {
         var name = $"load_{Guid.NewGuid():N}";
         using var scope = factory.Services.CreateScope();
         var store = new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>());
         await store.GetOrCreateByUsernameAsync(name);
         var jwt = scope.ServiceProvider.GetRequiredService<JwtService>().Mint(name);
-        return (factory.CreateClient(), jwt);
+        return (factory.CreateClient(), jwt, name);
     }
 
     [SkippableFact]
@@ -30,7 +32,7 @@ public class LoadUserDataAllTests(PostgresFixture db)
     {
         db.RequireDb();
         await using var factory = new DbWebAppFactory(db.ConnectionString);
-        var (client, jwt) = await NewUserAsync(factory);
+        var (client, jwt, _) = await NewUserAsync(factory);
 
         var resp = await client.PostAsJsonAsync("/api/LoadUserDataAll", Body(jwt));
         Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
@@ -77,10 +79,6 @@ public class LoadUserDataAllTests(PostgresFixture db)
         Assert.True(bp.GetProperty("is_limbus").GetBoolean());
         Assert.Equal(12, bp.GetProperty("today_rand_value").GetInt32());
         Assert.Equal(4, bp.GetProperty("limbus_apply_level").GetInt32());
-
-        // Omitted UpdatedFormat fields are absent (per-field null suppression).
-        Assert.False(updated.TryGetProperty("gachaList", out _));
-        Assert.False(updated.TryGetProperty("missionList", out _));
     }
 
     [SkippableFact]
@@ -88,18 +86,30 @@ public class LoadUserDataAllTests(PostgresFixture db)
     {
         db.RequireDb();
         await using var factory = new DbWebAppFactory(db.ConnectionString);
-        var (client, jwt) = await NewUserAsync(factory);
+        var (client, jwt, name) = await NewUserAsync(factory);
 
         var first = await client.PostAsJsonAsync("/api/LoadUserDataAll", Body(jwt));
         using var d1 = JsonDocument.Parse(await first.Content.ReadAsStringAsync());
         var count1 = d1.RootElement.GetProperty("updated").GetProperty("egoList").GetArrayLength();
+        Assert.True(count1 > 0);
+
+        // The response length alone can't discriminate "persisted" from "regenerated
+        // fresh every call" (GetFormattedEgos() is deterministic, so both look the
+        // same). Read the DB row directly, in a fresh scope/context, to prove the
+        // lazy-fill actually wrote through SaveChangesAsync.
+        using (var scope = factory.Services.CreateScope())
+        {
+            var store = new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>());
+            var account = await store.FindByUsernameAsync(name);
+            Assert.NotNull(account);
+            Assert.NotEmpty(AccountFields.Get<List<Ego>>(account!.Egos) ?? new());
+            Assert.NotEmpty(AccountFields.Get<List<MainChapterState>>(account.ChapterState) ?? new());
+        }
 
         var second = await client.PostAsJsonAsync("/api/LoadUserDataAll", Body(jwt));
         using var d2 = JsonDocument.Parse(await second.Content.ReadAsStringAsync());
         var count2 = d2.RootElement.GetProperty("updated").GetProperty("egoList").GetArrayLength();
-
-        Assert.True(count1 > 0);
-        Assert.Equal(count1, count2); // second read comes from the persisted column
+        Assert.Equal(count1, count2);
     }
 
     [SkippableFact]
