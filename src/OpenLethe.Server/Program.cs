@@ -1,5 +1,28 @@
+using Microsoft.EntityFrameworkCore;
+using OpenLethe.Data;
+using OpenLethe.Server.Auth;
+using OpenLethe.Server.Login;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connString = builder.Configuration.GetConnectionString("Postgres");
+builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(connString));
+builder.Services.AddScoped<AccountStore>();
+
+// HS256 secret from config; generated ephemeral default so localhost needs no setup.
+var jwtSecret = builder.Configuration["Auth:JwtSecret"]
+    ?? Convert.ToBase64String(System.Security.Cryptography.RandomNumberGenerator.GetBytes(32));
+builder.Services.AddSingleton(new JwtService(jwtSecret, TimeSpan.FromHours(72)));
+
 var app = builder.Build();
+
+// Migrate on startup only when a database is actually configured, so tests that
+// exercise DB-free routes can boot without Postgres. (Rust migrates unconditionally.)
+if (!string.IsNullOrWhiteSpace(connString))
+{
+    using var scope = app.Services.CreateScope();
+    scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.Migrate();
+}
 
 // Must precede routing: collapses "//api//Foo" so it matches "/api/Foo".
 app.UsePathSanitizer();
@@ -10,7 +33,11 @@ app.UsePathSanitizer();
 // regardless of the source-order of app.Use() calls relative to Map* calls.
 app.UseRouting();
 
+app.UseJwtAuth();   // 401s protected routes lacking a valid token; exempts /login,/auth,/health
+
 app.MapGet("/health", () => "ok");
+app.MapAuth();
+app.MapSignInAsSteam();
 app.MapStaticPackets();
 
 // EnterBossRaid is genuinely stateful (its Rust handler touches UserRepository,
