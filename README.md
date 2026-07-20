@@ -1,2 +1,2 @@
 # Lethe Server C# Port
-Go make md
+Go make md stop asking me
