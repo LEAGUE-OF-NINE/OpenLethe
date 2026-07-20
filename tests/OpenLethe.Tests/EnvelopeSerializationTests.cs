@@ -64,6 +64,22 @@ public class EnvelopeSerializationTests
     }
 
     [Fact]
+    public void ResultLevelNulls_AreEmittedNotDropped()
+    {
+        // Rust (lethe-server/models/src/packets.rs) has zero skip_serializing_if
+        // attributes, so every Option field inside `result` serializes as `null`
+        // rather than being omitted. Only the envelope's `updated`/`synchronized`
+        // skip when absent - that's the opposite, narrower behaviour covered by
+        // Envelope_OmitsNullOptionalMembers above.
+        var env = ResponsePacket<ResPacket_EnterBossRaid>.Ok(
+            new ResPacket_EnterBossRaid { saveInfo = null }, 1696);
+
+        var json = JsonSerializer.Serialize(env, PacketJson.Options);
+
+        Assert.Contains("\"saveInfo\":null", json);
+    }
+
+    [Fact]
     public void Envelope_CarriesRequiredConstants()
     {
         var env = ResponsePacket<ResPacket_EnterBossRaid>.Ok(

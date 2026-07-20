@@ -11,8 +11,15 @@ public static class PacketJson
         // response serializes as "{}" - verified, not theoretical.
         IncludeFields = true,
 
-        // Rust omits `updated` and `synchronized` when absent (skip_serializing_if).
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        // No DefaultIgnoreCondition here, deliberately. The Rust reference
+        // (lethe-server/models/src/packets.rs) has ZERO skip_serializing_if
+        // attributes - every Option field in every result type serializes as
+        // `null`. Only the envelope's `updated`/`synchronized`
+        // (lethe-server/models/src/server.rs) skip when absent, and that's
+        // opted into per-field with [JsonIgnore(Condition = WhenWritingNull)]
+        // on those two members in Envelope.cs. Do NOT re-add a global
+        // DefaultIgnoreCondition here - it silently drops nulls from every
+        // response's `result` and breaks wire-compat diffing against Rust.
 
         // No PropertyNamingPolicy: packet field names are already camelCase and
         // must reach the client byte-identical.

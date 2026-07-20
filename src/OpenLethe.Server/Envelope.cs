@@ -29,11 +29,16 @@ public class ResponsePacket<T>
     public ServerInfo serverInfo = new();
     public string state = "ok";
 
-    // Null members are omitted via WhenWritingNull. Cycles 2-4 populate these;
-    // object? keeps cycle 1 free of the types they need.
+    // Rust skips these two specifically (skip_serializing_if = "Option::is_none"
+    // in lethe-server/models/src/server.rs) - unlike `result` fields, which Rust
+    // always emits even when null. Cycles 2-4 populate these; object? keeps
+    // cycle 1 free of the types they need.
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public object? updated;
 
     public T result = default!;
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public object? synchronized;
     public long packetId;
 
