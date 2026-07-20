@@ -17,6 +17,23 @@ public class PacketRoutingTests : IClassFixture<WebApplicationFactory<Program>>
     }
 
     [Fact]
+    public void ResolvePacketId_ThrowsForWrongPrefix()
+    {
+        var ex = Assert.Throws<InvalidOperationException>(
+            () => PacketRouting.ResolvePacketId<string>());
+        Assert.Contains("ResPacket_", ex.Message);
+    }
+
+    private sealed class ResPacket_NoSuchPacket;
+
+    [Fact]
+    public void ResolvePacketId_ThrowsForUnknownPacketName()
+    {
+        Assert.Throws<KeyNotFoundException>(
+            () => PacketRouting.ResolvePacketId<ResPacket_NoSuchPacket>());
+    }
+
+    [Fact]
     public async Task StaticEndpoint_ReturnsWellFormedEnvelope()
     {
         var client = _factory.CreateClient();
@@ -68,5 +85,28 @@ public class PacketRoutingTests : IClassFixture<WebApplicationFactory<Program>>
         });
 
         Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+    }
+
+    [Fact]
+    public async Task StaticEndpoint_EmptyBody_ReturnsBadRequest()
+    {
+        var client = _factory.CreateClient();
+
+        var resp = await client.PostAsync(
+            "/api/EnterBossRaid", new StringContent(string.Empty));
+
+        Assert.Equal(HttpStatusCode.BadRequest, resp.StatusCode);
+    }
+
+    [Fact]
+    public async Task StaticEndpoint_MalformedJson_ReturnsBadRequest()
+    {
+        var client = _factory.CreateClient();
+
+        var resp = await client.PostAsync(
+            "/api/EnterBossRaid",
+            new StringContent("{not valid json", System.Text.Encoding.UTF8, "application/json"));
+
+        Assert.Equal(HttpStatusCode.BadRequest, resp.StatusCode);
     }
 }

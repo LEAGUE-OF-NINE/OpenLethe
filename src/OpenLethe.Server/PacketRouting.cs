@@ -40,8 +40,18 @@ public static class PacketRouting
         {
             // Body is read and discarded. Stateless endpoints ignore their input,
             // but we must still drain it so the client sees a clean request cycle.
-            _ = await System.Text.Json.JsonSerializer
-                .DeserializeAsync<RequestPacket<TReq>>(ctx.Request.Body, PacketJson.Options);
+            try
+            {
+                _ = await System.Text.Json.JsonSerializer
+                    .DeserializeAsync<RequestPacket<TReq>>(ctx.Request.Body, PacketJson.Options);
+            }
+            catch (System.Text.Json.JsonException)
+            {
+                // Mirrors axum's Json<T> extractor: an unparseable body (empty,
+                // absent, or malformed) is rejected with 400 before any handler
+                // logic runs, never a 500 with a leaked stack trace.
+                return Results.BadRequest();
+            }
 
             return Results.Json(
                 ResponsePacket<TRes>.Ok(new TRes(), packetId),
