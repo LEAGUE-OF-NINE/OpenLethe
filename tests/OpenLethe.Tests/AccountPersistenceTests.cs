@@ -24,9 +24,6 @@ public class AccountPersistenceTests(PostgresFixture db)
         {
             var loaded = await ctx.Accounts.SingleAsync(a => a.Id == id);
             // jsonb normalizes whitespace but preserves structure/values; compare parsed.
-            Assert.Equal(
-                System.Text.Json.JsonDocument.Parse(doc).RootElement.GetRawText().Length > 0,
-                true);
             using var got = System.Text.Json.JsonDocument.Parse(loaded.MdSaveInfo);
             Assert.Equal(1, got.RootElement.GetProperty("nested").GetProperty("a").GetInt32());
             Assert.Equal(3, got.RootElement.GetProperty("list")[2].GetInt32());

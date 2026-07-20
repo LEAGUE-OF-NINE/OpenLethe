@@ -27,7 +27,7 @@ public sealed class PostgresFixture : IAsyncLifetime
         {
             try
             {
-                _container = new PostgreSqlBuilder().WithImage("postgres:16-alpine").Build();
+                _container = new PostgreSqlBuilder("postgres:16-alpine").Build();
                 await _container.StartAsync();
                 ConnectionString = _container.GetConnectionString();
                 Available = true;
