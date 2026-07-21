@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Text.Json;
-using System.Text.Json.Nodes;
 using OpenLethe.Server.Wire;
 using Xunit;
 
@@ -22,7 +21,7 @@ public class MirrorDungeonWireTests
                 seps = new List<StartEgoGiftPoolSets> { new() { setId = 0, keyword = "Combustion", pool = new() { 9001 } } },
                 ess = new List<EgoSkillStock> { new() { t = "CR", n = 0 } },
                 cfs = new List<Cfs> { new() { floor = -1, difficulty = 0 } },
-                dul = new List<JsonNode> { JsonNode.Parse("{\"pid\":7}")! },
+                dul = new List<Dungeonunitlist1> { new() { pid = 7 } },
                 shop = new ShopInfo(),
             },
             dungeonMap = new DungeonMap { ns = new List<Ns> { new() { nid = 5, e = 10 } } },
@@ -37,7 +36,7 @@ public class MirrorDungeonWireTests
         Assert.Equal("None", ci.GetProperty("startKeyword").GetString());
         Assert.Equal("Combustion", ci.GetProperty("seps")[0].GetProperty("keyword").GetString());
         Assert.Equal(-1, ci.GetProperty("cfs")[0].GetProperty("floor").GetInt64());
-        Assert.Equal(7, ci.GetProperty("dul")[0].GetProperty("pid").GetInt64()); // passthrough
+        Assert.Equal(7, ci.GetProperty("dul")[0].GetProperty("pid").GetInt64());
         Assert.Equal(JsonValueKind.Array, ci.GetProperty("egs").ValueKind); // [] not null
         Assert.Equal(5, root.GetProperty("dungeonMap").GetProperty("ns")[0].GetProperty("nid").GetInt64());
 

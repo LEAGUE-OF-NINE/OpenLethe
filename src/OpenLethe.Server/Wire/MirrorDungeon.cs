@@ -1,11 +1,24 @@
 using System.Collections.Generic;
-using System.Text.Json.Nodes;
 
 namespace OpenLethe.Server.Wire;
 
 // Server-authored ports of the Rust mirror-dungeon save-graph structs. Field names
 // match Rust serde exactly. No [JsonIgnore]; lists init empty. Reuses Wire.{Currentnode,
-// AcquiredEgogifts, ChoiceEventData, Element}. Client-authored dul is JsonNode passthrough.
+// AcquiredEgogifts, ChoiceEventData, Element, Egos}.
+
+public sealed class Dungeonunitlist1
+{
+    public List<long> upidx = new();
+    public long mlos;
+    public long pid;
+    public long ch;
+    public long cm;
+    public long mhos;
+    public long g;
+    public long l;
+    public List<Egos> es = new();
+    public long isp;
+}
 
 public sealed class MdStatistics // Rust `Statistics`; renamed to avoid ambiguity (wire field name is unaffected)
 {
@@ -110,7 +123,7 @@ public sealed class PrevUnitInfo
 public sealed class CurrentInfo
 {
     public long eid;
-    public List<JsonNode> dul = new();
+    public List<Dungeonunitlist1> dul = new();
     public long sepsId;
     public List<StartEgoGiftPoolSets> seps = new();
     public long sepsCreated;
@@ -153,12 +166,83 @@ public sealed class MirrorOriginSaveInfo
     public long version;
 }
 
+public sealed class Egos2
+{
+    public long prevEgoId;
+    public long nextEgoId;
+}
+
+public sealed class Formation
+{
+    // Rust field name typo `perv` (not `prev`) - kept verbatim, it's the wire contract.
+    public long pervPersonalityId;
+    public long nextPersonalityId;
+    public List<Egos2> egos = new();
+}
+
+public sealed class MirrorDungeonHistories
+{
+    public long dungeonid;
+    public List<object> restStatuses = new();
+    public PrevPlayRecord prevPlayRecord = new();
+}
+
+public sealed class PrevPlayRecord
+{
+    public List<long> pids = new();
+    public long epsId;
+    public List<long> prevtfids = new();
+}
+
+public sealed class StartBuffInfo
+{
+    public long dungeonid;
+    public List<long> bufstate = new();
+    public List<long> enabled = new();
+}
+
 // ---- request params ----
 
 public sealed class EnterMirrorDungeonParams
 {
     public long dungeonid;
     public long idx;
+}
+
+public sealed class PurchaseHealMirrorDungeonParams
+{
+    public long idx;
+    public long pid;
+}
+
+public sealed class PurchaseEgoGiftMirrorDungeonParams
+{
+    public long idx;
+}
+
+public sealed class SellEgoGiftMirrorDungeonParams
+{
+    public long id;
+}
+
+public sealed class UpgradeEgoGiftMirrorDungeonParams
+{
+    public long egoGiftId;
+}
+
+public sealed class AcquireRewardEgoGiftsMirrorDungeonParams
+{
+    public List<long> selectIndexList = new();
+}
+
+public sealed class SelectFormationMirrorDungeonParams
+{
+    public List<Formation> formation = new();
+}
+
+public sealed class PurchaseFormationMirrorDungeonParams
+{
+    public List<Formation> formation = new();
 }
 
 // ---- response results ----
@@ -172,4 +256,73 @@ public sealed class EnterMirrorDungeonResult
 public sealed class ReEnterMirrorDungeonResult
 {
     public MirrorOriginSaveInfo saveInfo = new();
+}
+
+public sealed class PurchaseHealMirrorDungeonResult
+{
+    public long cost;
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+    public ShopInfo shopInfo = new();
+    public long usedcost;
+}
+
+public sealed class PurchaseEgoGiftMirrorDungeonResult
+{
+    public long cost;
+    public List<AcquiredEgogifts> egogifts = new();
+    public ShopInfo shopInfo = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+    public long usedcost;
+}
+
+public sealed class SellEgoGiftMirrorDungeonResult
+{
+    public long cost;
+    public List<AcquiredEgogifts> egogifts = new();
+    public ShopInfo shopInfo = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+}
+
+public sealed class UpgradeEgoGiftMirrorDungeonResult
+{
+    public long cost;
+    public AcquiredEgogifts egoGift = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+    public long usedcost;
+}
+
+public sealed class AcquireRewardEgoGiftsMirrorDungeonResult
+{
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<RemainRewardEvent> remainRewardEvent = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+    public MirrorOriginSaveInfo saveinfo = new();
+}
+
+public sealed class RejectRewardEgoGiftsMirrorDungeonResult
+{
+    public List<RemainRewardEvent> remainRewardEvent = new();
+    public MirrorOriginSaveInfo saveinfo = new();
+}
+
+public sealed class AcquireMirrorDungeonExitRewardResult
+{
+    public List<Element> rewardList = new();
+    public MirrorOriginSaveInfo saveInfo = new();
+    public MirrorDungeonHistories history = new();
+    public StartBuffInfo startBuffInfo = new();
+}
+
+public sealed class SelectFormationMirrorDungeonResult
+{
+    public MirrorOriginSaveInfo saveInfo = new();
+}
+
+public sealed class PurchaseFormationMirrorDungeonResult
+{
+    public long cost;
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+    public ShopInfo shopInfo = new();
+    public PrevUnitInfo prevUnitInfo = new();
+    public long usedcost;
 }
