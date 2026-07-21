@@ -53,6 +53,7 @@ app.MapGetDungeonSaveInfoAll();
 app.MapRailway();
 app.MapStoryDungeon();
 app.MapMirrorDungeon();
+app.MapMirrorDungeonShop();
 
 app.Run();
 
