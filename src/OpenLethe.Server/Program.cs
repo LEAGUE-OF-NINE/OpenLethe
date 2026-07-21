@@ -54,6 +54,7 @@ app.MapRailway();
 app.MapStoryDungeon();
 app.MapMirrorDungeon();
 app.MapMirrorDungeonShop();
+app.MapMirrorDungeonMap();
 
 app.Run();
 

@@ -245,6 +245,33 @@ public sealed class PurchaseFormationMirrorDungeonParams
     public List<Formation> formation = new();
 }
 
+public sealed class AcquireStartEgoGiftsAndCreateThemePoolMirrorDungeonParams
+{
+    public List<long> selectedEgoGiftIds = new();
+}
+
+public sealed class SelectThemeFloorMirrorDungeonParams
+{
+    public long selectedIdx;
+    // Rust field name typo "Foor" (not "Floor") - kept verbatim, it's the wire contract.
+    public long selectedThemeFoorId;
+}
+
+public sealed class EnterMirrorDungeonMapNodeParams
+{
+    public Currentnode currentnode = new();
+}
+
+public sealed class ExitMirrorDungeonMapNodeParams
+{
+    public Currentnode currentnode = new();
+    public List<Dungeonunitlist1> dungeonunitlist = new();
+    public long noderesult;
+    public ChoiceEventData choiceEventData = new();
+    public long isupdatedEgoSkillStock;
+    public List<EgoSkillStock> egoSkillStockList = new();
+}
+
 // ---- response results ----
 
 public sealed class EnterMirrorDungeonResult
@@ -325,4 +352,38 @@ public sealed class PurchaseFormationMirrorDungeonResult
     public ShopInfo shopInfo = new();
     public PrevUnitInfo prevUnitInfo = new();
     public long usedcost;
+}
+
+public sealed class AcquireStartEgoGiftsAndCreateThemePoolMirrorDungeonResult
+{
+    public MirrorOriginSaveInfo saveInfo = new();
+}
+
+public sealed class RecreateThemeFloorPoolMirrorDungeonResult
+{
+    public MirrorOriginSaveInfo saveInfo = new();
+}
+
+public sealed class SelectThemeFloorMirrorDungeonResult
+{
+    public MirrorOriginSaveInfo saveInfo = new();
+}
+
+public sealed class EnterMirrorDungeonMapNodeResult
+{
+    public List<object> abnormalityLogs = new();
+    public List<long> passingNodeIds = new();
+    public Currentnode currentNode = new();
+    public ShopInfo shopInfo = new();
+    public List<AcquiredEgogifts> egogifts = new();
+    public List<PrevUnitInfo> prevdul = new();
+    public List<long> preves = new();
+    public long nr;
+    public long cost;
+}
+
+public sealed class ExitMirrorDungeonMapNodeResult
+{
+    public CurrentInfo currentInfo = new();
+    public List<object> abnormalityLogs = new();
 }
