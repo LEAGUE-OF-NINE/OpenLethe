@@ -50,13 +50,13 @@ public static class LoadUserDataAllEndpoint
 
             // personalities: re-derive each read (defaults overlaid by stored edits),
             // ordered by personality_id (Rust BTreeMap).
-            var personalities = DerivePersonalities(account.Personalities);
+            var personalities = AccountDefaults.DerivePersonalities(account.Personalities);
 
             // user_info: fixed default when absent or uid==0; persist the reset.
             var userInfo = AccountFields.Get<UserInfo>(account.UserInfo);
             if (userInfo is null || userInfo.uid == 0)
             {
-                userInfo = DefaultUserInfo();
+                userInfo = AccountDefaults.DefaultUserInfo();
                 account.UserInfo = AccountFields.Set(userInfo);
                 dirty = true;
             }
@@ -147,18 +147,6 @@ public static class LoadUserDataAllEndpoint
         return app;
     }
 
-    private static List<ResultPersonality> DerivePersonalities(string? stored)
-    {
-        var map = new SortedDictionary<long, ResultPersonality>();
-        foreach (var p in DefaultData.GetFormattedPersonalities()) map[p.personality_id] = p;
-
-        // Overlay stored edits, but only for ids already in the default set.
-        foreach (var p in AccountFields.Get<List<ResultPersonality>>(stored) ?? new())
-            if (map.ContainsKey(p.personality_id)) map[p.personality_id] = p;
-
-        return map.Values.ToList();
-    }
-
     private static List<global::UserPublicBannerFormat> BuildBanners()
     {
         var banners = new List<global::UserPublicBannerFormat>
@@ -173,14 +161,4 @@ public static class LoadUserDataAllEndpoint
             });
         return banners;
     }
-
-    private static UserInfo DefaultUserInfo() => new()
-    {
-        uid = 1234,
-        level = 200,
-        exp = 0,
-        stamina = 99999,
-        last_stamina_recover = StaminaRecover,
-        first_login_today = StaminaRecover,
-    };
 }

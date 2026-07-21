@@ -42,6 +42,8 @@ app.MapSignInAsSteam();
 app.MapStaticPackets();
 app.MapLoadUserDataAll();
 app.MapBossRaid();
+app.MapUpdateFormation();
+app.MapUseCoupon();
 
 app.Run();
 
