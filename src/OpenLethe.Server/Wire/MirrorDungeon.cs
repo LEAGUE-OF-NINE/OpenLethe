@@ -387,3 +387,18 @@ public sealed class ExitMirrorDungeonMapNodeResult
     public CurrentInfo currentInfo = new();
     public List<object> abnormalityLogs = new();
 }
+
+public sealed class UpdateMirrorDungeonMapNodeParams
+{
+    public Currentnode currentnode = new();
+    public ChoiceEventData choiceEventData = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+    public List<AcquiredEgogifts> updatedEgoGifts = new();
+}
+
+public sealed class UpdateMirrorDungeonMapNodeResult
+{
+    public List<ChoiceEventData> prevChoiceEvent = new();
+    public List<AcquiredEgogifts> currentEgoGifts = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+}
