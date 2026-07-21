@@ -97,6 +97,73 @@ public class StoryDungeonHandlerTests(PostgresFixture db)
         Assert.Equal(1, stored.currentinfo.nr);
     }
 
+    private static async Task SeedSave(DbWebAppFactory f, string name, StorySaveInfo save)
+    {
+        using var scope = f.Services.CreateScope();
+        var ctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        var acc = await new AccountStore(ctx).FindByUsernameAsync(name);
+        acc!.StorySaveInfo = AccountFields.Set(save);
+        await ctx.SaveChangesAsync();
+    }
+
+    [SkippableFact]
+    public async Task ExitStoryDungeonMapNode_Chapter3_RemovesTorchAndPowerUp_ClearsPce()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        // chapter-3 dungeon (10301); seed egs containing torch(991008) + powerup(1032) + keeper(5)
+        await SeedSave(f, name, new StorySaveInfo
+        {
+            dungeonid = 10301,
+            currentinfo = new Currentinfo
+            {
+                cn = new Currentnode { f = 0, s = 0, nid = 0 },
+                egs = new() { new AcquiredEgogifts { id = 991008 }, new AcquiredEgogifts { id = 1032 }, new AcquiredEgogifts { id = 5 } },
+                pce = new() { new ChoiceEventData { cs = 1 } },
+            },
+        });
+
+        var resp = await client.PostAsJsonAsync("/api/ExitStoryDungeonMapNode",
+            Body(jwt, new { updatedEgoGifts = new object[0], dungeonunitlist = new object[0], egoSkillStockList = new object[0] }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var stored = AccountFields.Get<StorySaveInfo>(acc!.StorySaveInfo)!;
+        Assert.DoesNotContain(stored.currentinfo.egs, e => e.id == 991008 || e.id == 1032);
+        Assert.Contains(stored.currentinfo.egs, e => e.id == 5);
+        Assert.Empty(stored.currentinfo.pce);
+    }
+
+    [SkippableFact]
+    public async Task ReturnSavePointStoryDungeonMap_RewindsToSaveNode()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        // map 10501 has a save-encounter node id 10506; seed pnids ending in it
+        await SeedSave(f, name, new StorySaveInfo
+        {
+            dungeonid = 10501,
+            currentinfo = new Currentinfo
+            {
+                cn = new Currentnode { f = 3, s = 3, nid = 10510 },
+                pnids = new() { 10501, 10506 },
+            },
+        });
+
+        var resp = await client.PostAsJsonAsync("/api/ReturnSavePointStoryDungeonMap", Body(jwt, new { }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var cn = doc.RootElement.GetProperty("result").GetProperty("currentInfo").GetProperty("cn");
+        Assert.Equal(10506, cn.GetProperty("nid").GetInt64());
+    }
+
     [SkippableFact]
     public async Task ExitStoryDungeon_RegistersWonNode()
     {

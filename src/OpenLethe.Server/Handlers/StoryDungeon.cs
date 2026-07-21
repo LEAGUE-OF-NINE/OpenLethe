@@ -90,6 +90,90 @@ public static class StoryDungeonEndpoints
             return Results.Json(response, global::PacketJson.Options);
         });
 
+        var exitNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitStoryDungeonMapNode>();
+        app.MapPost("/api/ExitStoryDungeonMapNode", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+            var p = await HandlerContext.ReadParamsAsync<ExitStoryDungeonMapNodeParams>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var save = OpenLethe.Server.AccountFields.Get<StorySaveInfo>(account.StorySaveInfo) ?? new StorySaveInfo();
+            var ci = save.currentinfo;
+            ci.egs.AddRange(p.updatedEgoGifts);
+            ci.dul = p.dungeonunitlist;
+            ci.ess = p.egoSkillStockList;
+
+            var rewards = OpenLethe.Server.StoryMapData.GetAbRewardsByNodeId(save.dungeonid, ci.cn.nid.ToString());
+            if (rewards is not null)
+                foreach (var r in rewards)
+                    if (!ci.egs.Exists(e => e.id == r.rewardId))
+                        ci.egs.Add(new AcquiredEgogifts { id = r.rewardId });
+
+            // Remove torch + power-up egs after one turn in the chapter-3 dungeon.
+            if (save.dungeonid == 10301)
+                ci.egs.RemoveAll(e => e.id == 991008 || e.id == 1032);
+
+            // Unlock hidden next node.
+            ci.opn = new();
+            var next = (ci.cn.nid + 1).ToString();
+            var nextNode = OpenLethe.Server.StoryMapData.GetStoryNodeById(save.dungeonid, next);
+            if (nextNode is not null && nextNode.isHidden.ToLowerInvariant() == "true")
+            {
+                if (!long.TryParse(nextNode.id, out var hiddenId)) return Results.StatusCode(500);
+                ci.opn = new() { hiddenId };
+            }
+
+            ci.pce.Clear();
+            account.StorySaveInfo = OpenLethe.Server.AccountFields.Set(save);
+            await HandlerContext.SaveAsync(ctx);
+
+            var result = new ExitStoryDungeonMapNodeResult { saveInfo = save };
+            return Results.Json(global::ResponsePacket<ExitStoryDungeonMapNodeResult>.Ok(result, exitNodeId), global::PacketJson.Options);
+        });
+
+        var savePointId = global::PacketRouting.ResolvePacketId<global::ResPacket_ReturnSavePointStoryDungeonMap>();
+        app.MapPost("/api/ReturnSavePointStoryDungeonMap", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+
+            var save = OpenLethe.Server.AccountFields.Get<StorySaveInfo>(account.StorySaveInfo) ?? new StorySaveInfo();
+            var ci = save.currentinfo;
+            var map = OpenLethe.Server.StoryMapData.GetStoryMapById(save.dungeonid);
+
+            while (true)
+            {
+                if (ci.pnids.Count == 0) return Results.StatusCode(500);
+                var prevId = ci.pnids[^1];
+                ci.pnids.RemoveAt(ci.pnids.Count - 1);
+
+                var found = false;
+                if (map is not null)
+                    foreach (var floor in map.floors)
+                    {
+                        foreach (var sector in floor.sectors)
+                            foreach (var node in sector.nodes)
+                                if (node.encounter == "save" && node.id == prevId.ToString())
+                                {
+                                    ci.cn = new Currentnode { f = floor.count, s = sector.sectorNumber, nid = prevId };
+                                    ci.pnids.Add(prevId);
+                                    found = true;
+                                    break;
+                                }
+                        if (found) break;
+                    }
+
+                if (found)
+                {
+                    account.StorySaveInfo = OpenLethe.Server.AccountFields.Set(save);
+                    await HandlerContext.SaveAsync(ctx);
+                    var result = new ReturnSavePointStoryDungeonMapResult { currentInfo = ci };
+                    return Results.Json(global::ResponsePacket<ReturnSavePointStoryDungeonMapResult>.Ok(result, savePointId), global::PacketJson.Options);
+                }
+            }
+        });
+
         return app;
     }
 }
