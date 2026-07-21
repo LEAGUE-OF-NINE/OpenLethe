@@ -70,4 +70,20 @@ public class MirrorDungeonHandlerTests(PostgresFixture db)
         Assert.Equal(4, save.GetProperty("dungeonId").GetInt64());
         Assert.Equal(500, save.GetProperty("currentInfo").GetProperty("cost").GetInt64());
     }
+
+    [SkippableFact]
+    public async Task GetDungeonSaveInfoAll_AfterEnterMirrorDungeon_ReturnsRealDungeonId()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = await NewAccount(f);
+        var client = f.CreateClient();
+        await client.PostAsJsonAsync("/api/EnterMirrorDungeon", Body(jwt, new { dungeonid = 4, idx = 1 }));
+
+        var resp = await client.PostAsJsonAsync("/api/GetDungeonSaveInfoAll", Body(jwt, new { }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var result = doc.RootElement.GetProperty("result");
+        Assert.Equal(4, result.GetProperty("mirrorOriginSaveInfo").GetProperty("dungeonId").GetInt32());
+    }
 }
