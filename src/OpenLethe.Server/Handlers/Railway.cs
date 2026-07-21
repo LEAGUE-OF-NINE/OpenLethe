@@ -104,6 +104,77 @@ public static class RailwayEndpoints
             return Results.Json(global::ResponsePacket<ExitRailwayDungeonRestNodeResult>.Ok(result, restNodeId), global::PacketJson.Options);
         });
 
+        var exitNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitRailwayDungeonNode>();
+        app.MapPost("/api/ExitRailwayDungeonNode", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+            var p = await HandlerContext.ReadParamsAsync<ExitRailwayDungeonNodeParams>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var save = OpenLethe.Server.AccountFields.Get<RailwaySaveInfo>(account.RailwaySaveInfo) ?? new RailwaySaveInfo();
+            var nodeData = OpenLethe.Server.AccountFields.Get<List<UpdateNodeDatas>>(account.RailwayNodeData) ?? new();
+
+            var newNode = new UpdateNodeDatas
+            {
+                nodeid = p.nodeid, egostocks = p.egoSkillStockList, status = p.unitStatusList,
+                clearturn = p.clearTurn, playturn = 0, statistics = p.statistics, enemy = p.enemy, nodestate = 1,
+            };
+            if (p.iswin)
+            {
+                save.currentnode = p.nodeid;
+                save.prevclearnode = p.nodeid;
+                var buffs = OpenLethe.Server.AccountFields.Get<List<Buffsetsbyegogift>>(account.RailwayBuffs) ?? new();
+                RailwayHelpers.UpsertBuff(buffs, p.buffsetbyegogift);
+                account.RailwayBuffs = OpenLethe.Server.AccountFields.Set(buffs);
+                account.RailwaySaveInfo = OpenLethe.Server.AccountFields.Set(save);
+            }
+            else
+            {
+                newNode.nodestate = -1;
+            }
+            RailwayHelpers.UpsertNode(nodeData, newNode);
+            account.RailwayNodeData = OpenLethe.Server.AccountFields.Set(nodeData);
+            await HandlerContext.SaveAsync(ctx);
+
+            var result = new ExitRailwayDungeonNodeResult
+            {
+                saveInfo = save, abnormalityLogs = new(), nodeData = newNode,
+                updateNodeDatas = new List<UpdateNodeDatas> { newNode },
+            };
+            return Results.Json(global::ResponsePacket<ExitRailwayDungeonNodeResult>.Ok(result, exitNodeId), global::PacketJson.Options);
+        });
+
+        var exitId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitRailwayDungeon>();
+        app.MapPost("/api/ExitRailwayDungeon", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+            var p = await HandlerContext.ReadParamsAsync<ExitRailwayDungeonParams>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var save = OpenLethe.Server.AccountFields.Get<RailwaySaveInfo>(account.RailwaySaveInfo) ?? new RailwaySaveInfo();
+            account.RailwayBuffs = OpenLethe.Server.AccountFields.Set(new List<Buffsetsbyegogift>()); // clear buffs
+            await HandlerContext.SaveAsync(ctx);
+
+            var log = new CurrentLog
+            {
+                idx = -1,
+                personalities = save.personalities,
+                turnspernode = Enumerable.Range(0, 8).Select(nid => new Turnspernode { nid = nid, turn = 0 }).ToList(),
+                detailstatistics = Enumerable.Range(0, 5).Select(id => new Detailstatistics { collectionId = id, personalities = new(), statistics = new() }).ToList(),
+                date = "2024-07-04T14:19:11.000Z",
+            };
+            var result = new ExitRailwayDungeonResult
+            {
+                isclear = p.isClear,
+                saveInfo = new RailwaySaveInfo { id = 5, prevclearnode = -1, lastenternodeid = -1 },
+                currentLog = log,
+                rewards = new(),
+            };
+            return Results.Json(global::ResponsePacket<ExitRailwayDungeonResult>.Ok(result, exitId), global::PacketJson.Options);
+        });
+
         return app;
     }
 

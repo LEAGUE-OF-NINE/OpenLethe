@@ -128,5 +128,87 @@ public class RailwayHandlerTests(PostgresFixture db)
         Assert.Equal(2, save.currentnode);
     }
 
+    [SkippableFact]
+    public async Task ExitRailwayDungeonNode_Win_AdvancesSave_UpsertsNode()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+        await client.PostAsJsonAsync("/api/EnterRailwayDungeon",
+            Body(jwt, new { dungeonId = 5, personalities = new[] { new { pid = 1, g = 0, l = 0, es = new object[0], sp = 0, gi = 0, pord = 0 } } }));
+
+        var resp = await client.PostAsJsonAsync("/api/ExitRailwayDungeonNode",
+            Body(jwt, new
+            {
+                dungeonId = 5, nodeid = 3, clearTurn = 4, iswin = true,
+                unitStatusList = new object[0], egoSkillStockList = new object[0], statistics = new object[0],
+                enemy = new { lastWave = 0, lastTurn = 0, abnoSaveDataList = new object[0] },
+                buffsetbyegogift = new { nid = 3, buffs = new object[0] },
+            }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var result = doc.RootElement.GetProperty("result");
+        Assert.Equal(3, result.GetProperty("saveInfo").GetProperty("prevclearnode").GetInt64());
+        Assert.Equal(3, result.GetProperty("nodeData").GetProperty("nodeid").GetInt64());
+        Assert.Equal(1, result.GetProperty("nodeData").GetProperty("nodestate").GetInt64());
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var buffs = AccountFields.Get<List<Buffsetsbyegogift>>(acc!.RailwayBuffs)!;
+        Assert.Contains(buffs, b => b.nid == 3);
+    }
+
+    [SkippableFact]
+    public async Task ExitRailwayDungeonNode_Loss_MarksNodeState_DoesNotAdvanceSave()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+        await client.PostAsJsonAsync("/api/EnterRailwayDungeon",
+            Body(jwt, new { dungeonId = 5, personalities = new[] { new { pid = 1, g = 0, l = 0, es = new object[0], sp = 0, gi = 0, pord = 0 } } }));
+
+        var resp = await client.PostAsJsonAsync("/api/ExitRailwayDungeonNode",
+            Body(jwt, new
+            {
+                dungeonId = 5, nodeid = 3, clearTurn = 4, iswin = false,
+                unitStatusList = new object[0], egoSkillStockList = new object[0], statistics = new object[0],
+                enemy = new { lastWave = 0, lastTurn = 0, abnoSaveDataList = new object[0] },
+                buffsetbyegogift = new { nid = 3, buffs = new object[0] },
+            }));
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var result = doc.RootElement.GetProperty("result");
+        Assert.Equal(0, result.GetProperty("saveInfo").GetProperty("prevclearnode").GetInt64()); // not advanced
+        Assert.Equal(-1, result.GetProperty("nodeData").GetProperty("nodestate").GetInt64());
+    }
+
+    [SkippableFact]
+    public async Task ExitRailwayDungeon_ClearsBuffs_ReturnsSentinelLog()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+        await client.PostAsJsonAsync("/api/EnterRailwayDungeon",
+            Body(jwt, new { dungeonId = 5, personalities = new[] { new { pid = 1, g = 0, l = 0, es = new object[0], sp = 0, gi = 0, pord = 0 } } }));
+
+        var resp = await client.PostAsJsonAsync("/api/ExitRailwayDungeon", Body(jwt, new { dungeonId = 5, isClear = true }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var result = doc.RootElement.GetProperty("result");
+        Assert.True(result.GetProperty("isclear").GetBoolean());
+        Assert.Equal(-1, result.GetProperty("saveInfo").GetProperty("prevclearnode").GetInt64());
+        Assert.Equal(-1, result.GetProperty("currentLog").GetProperty("idx").GetInt64());
+        Assert.Equal(8, result.GetProperty("currentLog").GetProperty("turnspernode").GetArrayLength()); // 0..=7
+        Assert.Equal(5, result.GetProperty("currentLog").GetProperty("detailstatistics").GetArrayLength()); // 0..=4
+        Assert.Equal("2024-07-04T14:19:11.000Z", result.GetProperty("currentLog").GetProperty("date").GetString());
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var buffs = AccountFields.Get<List<Buffsetsbyegogift>>(acc!.RailwayBuffs);
+        Assert.True(buffs is null || buffs.Count == 0); // cleared to []
+    }
+
     private static (string jwt, string name) Split(string s) { var p = s.Split('|'); return (p[0], p[1]); }
 }
