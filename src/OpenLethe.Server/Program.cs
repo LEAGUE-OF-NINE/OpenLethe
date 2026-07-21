@@ -41,6 +41,7 @@ app.MapAuth();
 app.MapSignInAsSteam();
 app.MapStaticPackets();
 app.MapLoadUserDataAll();
+app.MapBossRaid();
 
 // EnterBossRaid is genuinely stateful (its Rust handler touches UserRepository,
 // so it's correctly excluded from StaticRoutes.cs) but Task 4's regression
