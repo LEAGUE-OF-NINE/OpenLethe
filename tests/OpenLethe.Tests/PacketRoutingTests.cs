@@ -59,7 +59,7 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
             parameters = new { raidId = 3, difficulty = 1 },
         };
 
-        var resp = await client.PostAsJsonAsync("/api/EnterBossRaid", body);
+        var resp = await client.PostAsJsonAsync("/api/AcquireAttendanceReward", body);
         Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
 
         using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
@@ -67,7 +67,9 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
 
         Assert.Equal("ok", root.GetProperty("state").GetString());
         Assert.Equal("product", root.GetProperty("serverInfo").GetProperty("version").GetString());
-        Assert.Equal(1696, root.GetProperty("packetId").GetInt64());
+        Assert.Equal(
+            PacketRouting.ResolvePacketId<ResPacket_AcquireAttendanceReward>(),
+            root.GetProperty("packetId").GetInt64());
         Assert.True(root.TryGetProperty("result", out _));
 
         // Optional envelope members must be absent, not null.
@@ -80,7 +82,7 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
     {
         var client = _factory.CreateClient();
 
-        var resp = await client.PostAsJsonAsync("/api/EnterBossRaid", new
+        var resp = await client.PostAsJsonAsync("/api/AcquireAttendanceReward", new
         {
             userAuth = new { uid = 0, dbid = 0, authCode = _token, version = "", synchronousDataVersion = 0 },
         });
@@ -93,7 +95,7 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
     {
         var client = _factory.CreateClient();
 
-        var resp = await client.PostAsJsonAsync("/api/EnterBossRaid", new
+        var resp = await client.PostAsJsonAsync("/api/AcquireAttendanceReward", new
         {
             userAuth = new { uid = 0, dbid = 0, authCode = _token, version = "", synchronousDataVersion = 0 },
             parameters = new { raidId = 1, unknownFutureField = "x" },
@@ -108,7 +110,7 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
         var client = _factory.CreateClient();
 
         var resp = await client.PostAsync(
-            "/api/EnterBossRaid", new StringContent(string.Empty));
+            "/api/AcquireAttendanceReward", new StringContent(string.Empty));
 
         Assert.Equal(HttpStatusCode.BadRequest, resp.StatusCode);
     }
@@ -119,7 +121,7 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
         var client = _factory.CreateClient();
 
         var resp = await client.PostAsync(
-            "/api/EnterBossRaid",
+            "/api/AcquireAttendanceReward",
             new StringContent("{not valid json", System.Text.Encoding.UTF8, "application/json"));
 
         Assert.Equal(HttpStatusCode.BadRequest, resp.StatusCode);
