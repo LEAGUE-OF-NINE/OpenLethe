@@ -52,6 +52,25 @@ public sealed class JwtService(string secret, TimeSpan lifetime)
         return true;
     }
 
+    /// Reads the `sub` claim WITHOUT verifying the signature or expiry. Dev-only:
+    /// lets SignInAsSteam accept any JWT (e.g. a token from another server) as an
+    /// identity. Never use for real authorization - the signature is the trust.
+    public static bool TryReadSubjectUnverified(string token, out string sub)
+    {
+        sub = "";
+        if (string.IsNullOrEmpty(token)) return false;
+        var parts = token.Split('.');
+        if (parts.Length != 3) return false;
+        try
+        {
+            var payload = JsonSerializer.Deserialize<PayloadDto>(Base64Url.DecodeFromChars(parts[1]));
+            if (string.IsNullOrEmpty(payload?.sub)) return false;
+            sub = payload.sub;
+            return true;
+        }
+        catch { return false; }
+    }
+
     private byte[] Sign(string signingInput) =>
         HMACSHA256.HashData(_key, Encoding.UTF8.GetBytes(signingInput));
 

@@ -2,6 +2,7 @@ using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Configuration;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
 
@@ -13,7 +14,7 @@ public static class SignInAsSteamEndpoint
     {
         var packetId = global::PacketRouting.ResolvePacketId<global::ResPacket_SignInAsSteam>();
 
-        app.MapPost("/login/SignInAsSteam", async (HttpContext ctx, AccountStore store, JwtService jwt, CancellationToken ct) =>
+        app.MapPost("/login/SignInAsSteam", async (HttpContext ctx, AccountStore store, JwtService jwt, IConfiguration cfg, CancellationToken ct) =>
         {
             var req = await System.Text.Json.JsonSerializer.DeserializeAsync<
                 global::RequestPacket<global::ReqPacket_SignInAsSteam>>(ctx.Request.Body, global::PacketJson.Options, ct);
@@ -26,10 +27,27 @@ public static class SignInAsSteamEndpoint
             catch { return Results.BadRequest(); }
 
             var token = Encoding.UTF8.GetString(raw);
-            if (!jwt.TryVerify(token, out var sub)) return Results.BadRequest();
 
-            var account = await store.FindByUsernameAsync(sub, ct);
-            if (account is null) return Results.BadRequest();
+            // Dev mode (Auth:DevAcceptAnyToken): accept ANY jwt as an identity -
+            // read its subject without verifying the signature, auto-create that
+            // account, and hand back a token WE signed so later /api/ calls (which
+            // the middleware verifies for real) keep working. Off by default.
+            string sub;
+            OpenLethe.Data.Account? account;
+            string authCode;
+            if (cfg.GetValue("Auth:DevAcceptAnyToken", false))
+            {
+                if (!JwtService.TryReadSubjectUnverified(token, out sub)) return Results.BadRequest();
+                account = await store.GetOrCreateByUsernameAsync(sub, ct);
+                authCode = jwt.Mint(sub);
+            }
+            else
+            {
+                if (!jwt.TryVerify(token, out sub)) return Results.BadRequest();
+                account = await store.FindByUsernameAsync(sub, ct);
+                if (account is null) return Results.BadRequest();
+                authCode = token;
+            }
 
             var result = new global::ResPacket_SignInAsSteam
             {
@@ -38,7 +56,7 @@ public static class SignInAsSteamEndpoint
                     uid = account.IngameId,
                     public_id = account.IngameId,
                     db_id = 0,
-                    auth_code = token,
+                    auth_code = authCode,
                     last_login_date = "2025-03-31T15:10:00.000Z",
                     last_update_date = "2025-03-31T15:10:00.000Z",
                     data_version = 16,
