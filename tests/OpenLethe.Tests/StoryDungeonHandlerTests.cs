@@ -1,0 +1,127 @@
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http.Json;
+using System.Text.Json;
+using Microsoft.Extensions.DependencyInjection;
+using OpenLethe.Data;
+using OpenLethe.Server;
+using OpenLethe.Server.Auth;
+using OpenLethe.Server.Wire;
+using Xunit;
+
+[Collection("postgres")]
+public class StoryDungeonHandlerTests(PostgresFixture db)
+{
+    private static object Body(string jwt, object p) => new { userAuth = new { authCode = jwt }, parameters = p };
+
+    private static async Task<(string jwt, string name)> NewAccount(DbWebAppFactory f)
+    {
+        var name = $"sd_{Guid.NewGuid():N}";
+        using var scope = f.Services.CreateScope();
+        await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).GetOrCreateByUsernameAsync(name);
+        var jwt = scope.ServiceProvider.GetRequiredService<JwtService>().Mint(name);
+        return (jwt, name);
+    }
+
+    [SkippableFact]
+    public async Task EnterStoryDungeon_LoadsMap_PersistsStartNode()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var resp = await client.PostAsJsonAsync("/api/EnterStoryDungeon",
+            Body(jwt, new { stageid = 10501, personalities = new object[0] }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var save = doc.RootElement.GetProperty("result").GetProperty("saveInfo");
+        Assert.Equal(10501, save.GetProperty("dungeonid").GetInt64());
+        Assert.Equal(10501, save.GetProperty("currentinfo").GetProperty("cn").GetProperty("nid").GetInt64());
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var stored = AccountFields.Get<StorySaveInfo>(acc!.StorySaveInfo)!;
+        Assert.Equal(10501, stored.currentinfo.cn.nid);
+    }
+
+    [SkippableFact]
+    public async Task EnterStoryDungeon_UnknownMap_500()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = await NewAccount(f);
+        var client = f.CreateClient();
+        var resp = await client.PostAsJsonAsync("/api/EnterStoryDungeon", Body(jwt, new { stageid = 999999, personalities = new object[0] }));
+        Assert.Equal(HttpStatusCode.InternalServerError, resp.StatusCode);
+    }
+
+    [SkippableFact]
+    public async Task ReEnterStoryDungeon_EchoesStoredSave()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = await NewAccount(f);
+        var client = f.CreateClient();
+        await client.PostAsJsonAsync("/api/EnterStoryDungeon", Body(jwt, new { stageid = 10501, personalities = new object[0] }));
+
+        var resp = await client.PostAsJsonAsync("/api/ReEnterStoryDungeon", Body(jwt, new { }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var result = doc.RootElement.GetProperty("result");
+        Assert.Equal(10501, result.GetProperty("saveInfo").GetProperty("dungeonid").GetInt64());
+        Assert.Equal(0, result.GetProperty("isAllDie").GetInt64());
+    }
+
+    [SkippableFact]
+    public async Task EnterStoryDungeonMapNode_UpdatesCurrentNode()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+        await client.PostAsJsonAsync("/api/EnterStoryDungeon", Body(jwt, new { stageid = 10501, personalities = new object[0] }));
+
+        var resp = await client.PostAsJsonAsync("/api/EnterStoryDungeonMapNode",
+            Body(jwt, new { floornumber = 1, sectornumber = 2, nodeid = 10505 }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var result = doc.RootElement.GetProperty("result");
+        Assert.Equal(10505, result.GetProperty("node").GetProperty("nid").GetInt64());
+        Assert.Equal(3, result.GetProperty("nr").GetInt64());
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var stored = AccountFields.Get<StorySaveInfo>(acc!.StorySaveInfo)!;
+        Assert.Contains(10505L, stored.currentinfo.pnids);
+        Assert.Equal(1, stored.currentinfo.nr);
+    }
+
+    [SkippableFact]
+    public async Task ExitStoryDungeon_RegistersWonNode()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var name = $"sd_{Guid.NewGuid():N}";
+        string jwt;
+        using (var scope = f.Services.CreateScope())
+        {
+            var ctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            var acc = await new AccountStore(ctx).GetOrCreateByUsernameAsync(name);
+            acc.ChapterState = AccountFields.Set(new List<MainChapterState>
+            {
+                new() { id = 1, subcss = new() { new Subcss { id = 1, nss = new() { new Nss { id = 500 } }, rss = new() } } },
+            });
+            await ctx.SaveChangesAsync();
+            jwt = scope.ServiceProvider.GetRequiredService<JwtService>().Mint(name);
+        }
+        var client = f.CreateClient();
+
+        var resp = await client.PostAsJsonAsync("/api/ExitStoryDungeon", Body(jwt, new { nodeid = 500 }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var node = doc.RootElement.GetProperty("updated").GetProperty("mainChapterStateList")[0]
+            .GetProperty("subcss")[0].GetProperty("nss")[0];
+        Assert.Equal(2, node.GetProperty("ct").GetInt64());
+    }
+}
