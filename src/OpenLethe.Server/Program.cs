@@ -49,6 +49,7 @@ app.MapUseCoupon();
 app.MapExitStageBattle();
 app.MapExitStory();
 app.MapUpdateAnnouncerPreset();
+app.MapGetDungeonSaveInfoAll();
 
 app.Run();
 
