@@ -10,14 +10,26 @@ public static class DefaultData
     public const string AcquireTime = "2023-09-27T01:00:00.000Z";
     public const long DefaultPersonalityLevel = 60;
 
+    // Memoized builders: Lazy<T> defers the expensive scan/parse on first call.
+    // Public methods return shallow copies to prevent mutation of the cache.
+    private static readonly Lazy<List<Ego>> _egos = new(BuildFormattedEgos);
+    private static readonly Lazy<List<ResultPersonality>> _personalities = new(BuildFormattedPersonalities);
+    private static readonly Lazy<List<UserUnlockCode>> _userCodes = new(BuildFormattedUserCodes);
+    private static readonly Lazy<List<long>> _danteIds = new(BuildDanteAbilityIds);
+    private static readonly Lazy<List<MainChapterState>> _chapterState = new(BuildMainChapterState);
+
     // static-data/ego/ -> owned-ego defaults.
-    public static List<Ego> GetFormattedEgos() =>
+    public static List<Ego> GetFormattedEgos() => new(_egos.Value);
+
+    private static List<Ego> BuildFormattedEgos() =>
         StaticData.GetList<IdStruct>("static-data/ego/")
             .Select(e => new Ego { ego_id = e.id, gacksung = 4, acquire_time = AcquireTime })
             .ToList();
 
     // static-data/personality/ -> personality defaults; order_id is the index.
-    public static List<ResultPersonality> GetFormattedPersonalities() =>
+    public static List<ResultPersonality> GetFormattedPersonalities() => new(_personalities.Value);
+
+    private static List<ResultPersonality> BuildFormattedPersonalities() =>
         StaticData.GetList<IdStruct>("static-data/personality/")
             .Select((p, i) => new ResultPersonality
             {
@@ -32,13 +44,17 @@ public static class DefaultData
             .ToList();
 
     // static-data/unlockcode/ -> user unlock codes.
-    public static List<UserUnlockCode> GetFormattedUserCodes() =>
+    public static List<UserUnlockCode> GetFormattedUserCodes() => new(_userCodes.Value);
+
+    private static List<UserUnlockCode> BuildFormattedUserCodes() =>
         StaticData.GetList<IdStruct>("static-data/unlockcode/")
             .Select(c => new UserUnlockCode { unlockcode = c.id, expireDate = "" })
             .ToList();
 
     // static-data/dante-ability/ -> ability id list.
-    public static List<long> GetDanteAbilityIds() =>
+    public static List<long> GetDanteAbilityIds() => new(_danteIds.Value);
+
+    private static List<long> BuildDanteAbilityIds() =>
         StaticData.GetList<IdStruct>("static-data/dante-ability/")
             .Select(d => d.id)
             .ToList();
@@ -47,7 +63,9 @@ public static class DefaultData
     // MainChapterState.id = nodeid / 10000; Subcss.id = nodeid / 100; Nss.id = nodeid.
     // ponytail: sort node ids then group (canonical, deterministic). Rust groups
     // consecutive over unsorted iteration order; identical for ordered data.
-    public static List<MainChapterState> LoadMainChapterState()
+    public static List<MainChapterState> LoadMainChapterState() => new(_chapterState.Value);
+
+    private static List<MainChapterState> BuildMainChapterState()
     {
         var nodeIds = StaticData.GetList<NodeIdStruct>("static-data/stagenodereward/")
             .Select(n => n.nodeid)
