@@ -93,4 +93,35 @@ public class BossRaidHandlerTests(PostgresFixture db)
         using var doc = JsonDocument.Parse(await get.Content.ReadAsStringAsync());
         Assert.Equal(JsonValueKind.Null, doc.RootElement.GetProperty("result").GetProperty("saveInfo").ValueKind);
     }
+
+    [SkippableFact]
+    public async Task Exit_Win_ClearsSave()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (client, jwt) = await NewUserAsync(f);
+
+        await client.PostAsJsonAsync("/api/EnterBossRaid", Body(jwt, new { raidId = 10001, difficulty = 1 }));
+        var exit = await client.PostAsJsonAsync("/api/ExitBossRaidBattle", Body(jwt, new { raidId = 10001, isWin = true, clearTurn = 3 }));
+        Assert.Equal(HttpStatusCode.OK, exit.StatusCode);
+        using var doc = JsonDocument.Parse(await exit.Content.ReadAsStringAsync());
+        Assert.Equal(JsonValueKind.Null, doc.RootElement.GetProperty("result").GetProperty("saveInfo").ValueKind);
+
+        var get = await client.PostAsJsonAsync("/api/GetBossRaidSaveInfo", Body(jwt, new { raidId = 10001 }));
+        using var d2 = JsonDocument.Parse(await get.Content.ReadAsStringAsync());
+        Assert.Equal(JsonValueKind.Null, d2.RootElement.GetProperty("result").GetProperty("saveInfo").ValueKind);
+    }
+
+    [SkippableFact]
+    public async Task Exit_Loss_AdvancesCurrentIdx()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (client, jwt) = await NewUserAsync(f);
+
+        await client.PostAsJsonAsync("/api/EnterBossRaid", Body(jwt, new { raidId = 10001, difficulty = 1 }));
+        var exit = await client.PostAsJsonAsync("/api/ExitBossRaidBattle", Body(jwt, new { raidId = 10001, isWin = false, clearTurn = 0 }));
+        using var doc = JsonDocument.Parse(await exit.Content.ReadAsStringAsync());
+        Assert.Equal(1, doc.RootElement.GetProperty("result").GetProperty("saveInfo").GetProperty("currentIdx").GetInt32());
+    }
 }

@@ -115,6 +115,36 @@ public static class BossRaidEndpoints
             return Results.Json(global::ResponsePacket<global::ResPacket_StartBossRaidBattle>.Ok(result, startId), global::PacketJson.Options);
         });
 
+        // EXIT (client route: ExitBossRaidBattle). Win clears the save; loss advances it.
+        var exitId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitBossRaidBattle>();
+        app.MapPost("/api/ExitBossRaidBattle", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+            var p = await HandlerContext.ReadParamsAsync<global::ReqPacket_ExitBossRaidBattle>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var save = OpenLethe.Server.AccountFields.Get<global::BossRaidSaveDataFormat>(account.BossRaidSaveInfo);
+            if (save is null) return Results.BadRequest();
+
+            global::ResPacket_ExitBossRaidBattle result;
+            if (p.isWin)
+            {
+                account.BossRaidSaveInfo = "{}"; // clear on win
+                await HandlerContext.SaveAsync(ctx);
+                result = new global::ResPacket_ExitBossRaidBattle { saveInfo = null };
+            }
+            else
+            {
+                save.enemy = p.enemy ?? new();
+                save.currentIdx += 1;
+                account.BossRaidSaveInfo = OpenLethe.Server.AccountFields.Set(save);
+                await HandlerContext.SaveAsync(ctx);
+                result = new global::ResPacket_ExitBossRaidBattle { saveInfo = save };
+            }
+            return Results.Json(global::ResponsePacket<global::ResPacket_ExitBossRaidBattle>.Ok(result, exitId), global::PacketJson.Options);
+        });
+
         return app;
     }
 }
