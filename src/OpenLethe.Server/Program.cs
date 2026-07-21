@@ -4,6 +4,11 @@ using OpenLethe.Server.Auth;
 using OpenLethe.Server.Handlers;
 using OpenLethe.Server.Login;
 
+// Load a .env (searching up from the CWD) into process environment BEFORE the builder
+// reads configuration, so ConnectionStrings__Postgres / Auth__JwtSecret can live in a
+// local .env. Real environment variables already set take precedence; absent file is a no-op.
+DotNetEnv.Env.NoClobber().TraversePath().Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 var connString = builder.Configuration.GetConnectionString("Postgres");
