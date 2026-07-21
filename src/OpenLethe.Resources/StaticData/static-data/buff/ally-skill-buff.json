@@ -1,0 +1,7472 @@
+{
+  "list": [
+    {
+      "id": "NailPersonality",
+      "iconId": "Nail",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 1,
+            "turn": -1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEndByRatio",
+          "value": 0.5
+        }
+      ],
+      "categoryKeywordList": [ "LACERATION" ]
+    },
+    {
+      "id": "AssemblePersonality",
+      "iconId": "Assemble",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AssemblePersonality"
+        }
+      ]
+    },
+    {
+      "id": "MarkOfHeresy",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "atk": "PENETRATE",
+          "value": 0.2
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "atk": "HIT",
+          "value": 0.2
+        },
+        {
+          "ability": "MarkOfHeresy"
+        }
+      ]
+    },
+    {
+      "id": "Thirst",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "MpTakeDamageDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "MpTakeDamageDown",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "KCorpSerum",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "InstantDeathOnRoundStart",
+          "value": 4
+        },
+        {
+          "ability": "RecoverSelfHpByMaxHpOnRoundStartFloor",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "Talisman",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 6,
+      "list": [
+        {
+          "ability": "TalismanOnSA",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Target",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 2,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "TalismanOnTAD",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 2,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "TalismanOnRE",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "id": "DuelDeclaration_DonQuixote",
+      "iconId": "DuelDeclaration",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "canBeDuplicated": true,
+      "list": [
+        {
+          "ability": "DuelDeclaration"
+        },
+        {
+          "ability": "LoseAllStackOnDie"
+        }
+      ],
+      "categoryKeywordList": [ "DUEL_DECLARATION" ]
+    },
+    {
+      "id": "DuelDeclaration_Outis",
+      "iconId": "DuelDeclaration",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "canBeDuplicated": true,
+      "list": [
+        {
+          "ability": "DuelDeclaration"
+        },
+        {
+          "ability": "LoseAllStackOnDie"
+        }
+      ],
+      "categoryKeywordList": [ "DUEL_DECLARATION" ]
+    },
+    {
+      "id": "DuelDeclaration_Sinclair",
+      "iconId": "DuelDeclaration",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "canBeDuplicated": true,
+      "list": [
+        {
+          "ability": "DuelDeclaration"
+        },
+        {
+          "ability": "LoseAllStackOnDie"
+        }
+      ],
+      "categoryKeywordList": [ "DUEL_DECLARATION" ]
+    },
+    {
+      "id": "Muckworm",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeHpDamageOnRoundEndByStack",
+          "attribute": "SHAMROCK"
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "PinkRibbon_Ishmael",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "PinkRibbonIshmael"
+        }
+      ]
+    },
+    {
+      "id": "Unjust_Enrichment",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 4,
+      "canBeDespelled": true,
+      "list": [
+      ]
+    },
+    {
+      "id": "Resentment",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 5,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Resentment"
+        }
+      ]
+    },
+    {
+      "id": "RetaliationBook",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "totalStack": 1,
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "LoseAllStackOnDie"
+        }
+      ]
+    },
+    {
+      "id": "FreischutzShotCount",
+      "buffClass": "BuffClassFreischutzShotCount",
+      "buffType": "Neutral",
+      "maxStack": 7,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+      ]
+    },
+    {
+      "id": "DarkFlame",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 7,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "DefAdderByStack",
+          "value": -1
+        },
+        {
+          "ability": "DarkFlame"
+        }
+      ],
+      "categoryKeywordList": [ "COMBUSTION" ]
+    },
+    {
+      "id": "ForwardToTheKing",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "ForwardToTheKing_2",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "ForwardToTheBoundKing",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "ForwardToTheKing_2",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "MarkOfButler",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 3,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "UnstableFeeling",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 8,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "SkillPowerResultAdderIfSatisfied",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "value": 1
+          }
+        },
+        {
+          "ability": "UnstableFeeling",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "CanvasA",
+      "buffClass": "CountableBuff",
+      "buffType": "Negative",
+      "maxTurn": 10,
+      "canBeDespelled": true,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "CanvasBase_Old",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "CompletedCanvasA",
+            "buffOwner": "Target",
+            "stack": 0,
+            "turn": 10,
+            "value": 0
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "CompletedCanvasA",
+      "buffClass": "CountableBuff",
+      "buffType": "Negative",
+      "maxTurn": 10,
+      "canBeDespelled": true,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "CantGetBuff",
+          "buffData": {
+            "buffKeyword": "CanvasA"
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ShieldManagerCryingToad",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "ShieldManagerCryingToad",
+          "value": 0.6,
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "activeRound": 0,
+            "value": 4
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SHIELD_MANAGER" ]
+    },
+    {
+      "id": "GazePersonality",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 7,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.07
+        },
+        {
+          "ability": "GazePersonality"
+        }
+      ]
+    },
+    {
+      "id": "ContemptPersonality",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "AttackDmgDown",
+            "target": "Self",
+            "stack": 7,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 7,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ContemptPersonality"
+        }
+      ]
+    },
+    {
+      "id": "KnowledgeTraining",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 6,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "KnowledgeTraining",
+          "buffData": {
+            "buffKeyword": "ParryingResultUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ChargeLoad",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 6,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "ChargeLoad",
+          "value": 0.025,
+          "buffData": {
+            "buffKeyword": "Charge",
+            "turn": 1,
+            "value": 2,
+            "limit": 6
+          }
+        }
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "BoseProjektil",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 7,
+      "list": []
+    },
+    {
+      "id": "PhotoElectricity",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 3,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "PhotoElectricity",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Charge",
+            "target": "Target",
+            "stack": 0,
+            "turn": -1,
+            "activeRound": 0,
+            "value": 3,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "Coffin",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 6
+          }
+        },
+        {
+          "ability": "MinSpeedAdderPerBuffStack",
+          "value": 4
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "ParryingResultUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "WildHunt",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "WildHunt",
+          "value": 3
+        },
+        {
+          "ability": "GetLowestSinStockOnDie",
+          "value": 1
+        },
+        {
+          "ability": "DoNotAffectAllyMpDownOnDie"
+        }
+      ]
+    },
+    {
+      "id": "NightPathfinding",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "DefAdder",
+          "value": -3
+        },
+        {
+          "ability": "AtkAdder",
+          "value": 3
+        },
+        {
+          "ability": "MinSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "NightPathfinding",
+          "value": -25,
+          "buffData": {
+            "buffKeyword": "Coffin",
+            "limit": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "SinkingWhite",
+      "buffClass": "SinkingWhite",
+      "buffType": "Negative",
+      "maxStack": 15,
+      "maxTurn": 15,
+      "destroyableOnZero": false,
+      "destroyableOnZeroTurn": false,
+      "destroyableOnBothZero": true,
+      "canBeDespelled": true,
+      "canIgnoreGiveAdder": true,
+      "list": [
+        {
+          "ability": "SinkingWhiteBase"
+        },
+        {
+          "ability": "SinkingWhiteAllInOne",
+          "value": 4,
+          "attribute": "AZURE",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "stack": 5,
+            "limit": 30
+          }
+        }
+      ],
+      "categoryKeywordList": [ "SINKING" ]
+    },
+    {
+      "id": "RedEyeFirst",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 20,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "RedEyeBase"
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 1
+          }
+        }
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "RedEyeSecond",
+      "subIdList": [ "RedEyeFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 20,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "RedEyeBase"
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 2
+          }
+        }
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "RedEyeThird",
+      "subIdList": [ "RedEyeFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 20,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "RedEyeBase"
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 3
+          }
+        }
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "PenanceFirst",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 20,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "PenanceBase",
+          "value": 0.01
+        },
+        {
+          "ability": "PenanceMpHeal",
+          "value": 2
+        }
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "PenanceSecond",
+      "subIdList": [ "PenanceFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 20,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "PenanceBase",
+          "value": 0.01
+        },
+        {
+          "ability": "PenanceMpHeal",
+          "value": 4
+        }
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "PenanceThird",
+      "subIdList": [ "PenanceFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 20,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "PenanceBase",
+          "value": 0.01
+        },
+        {
+          "ability": "PenanceMpHeal",
+          "value": 6
+        }
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "Emptiness",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Emptiness"
+        }
+      ]
+    },
+    {
+      "id": "UninvitedGuestPersonality",
+      "buffClass": "RenewalTypeBuff",
+      "buffType": "Negative",
+      "maxStack": 2,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "UninvitedGuestPersonalityMpHeal",
+          "value": 3
+        },
+        {
+          "ability": "UninvitedGuestPersonalityDmgUp",
+          "value": 0.005,
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "DevyatDimensionalSack",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "DevyatDimensionalSack",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DevyatDimensionalSack"
+        }
+      ]
+    },
+    {
+      "id": "DefensiveStance",
+      "buffClass": "RenewalTypeBuff",
+      "buffType": "Positive",
+      "maxStack": 2,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "DefensiveStance",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "CanChangeMainTargetEvenIfSlower"
+        }
+      ]
+    },
+    {
+      "id": "ConcentratedAttackMeursault",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "ConcentratedAttack"
+        },
+        {
+          "ability": "LoseAllStackOnDie"
+        }
+      ],
+      "categoryKeywordList": [ "CONCENTRATED_ATTACK" ]
+    },
+    {
+      "id": "Snare",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 3,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndBySpeed",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloodScissorPersonalityFirst",
+      "iconId": "BloodScissor",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodScissorPersonalityBase"
+        }
+      ]
+    },
+    {
+      "id": "BloodScissorPersonalitySecond",
+      "iconId": "BloodScissor",
+      "subIdList": [ "BloodScissorPersonalityFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodScissorPersonalityBase"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartFloorToInt",
+          "value": 0.2,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartFloorToInt",
+          "value": 0.2,
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "BloodScissorPersonalityThird",
+      "iconId": "BloodScissor",
+      "subIdList": [ "BloodScissorPersonalityFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodScissorPersonalityBase"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartFloorToInt",
+          "value": 0.2,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "LineCuttingPersonality",
+      "iconId": "LineCutting",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierViaBuffCheckDevideByStack",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "value": 0.005,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "LineCuttingEffect"
+        }
+      ]
+    },
+    {
+      "id": "RoseWedge",
+      "buffClass": "CountableBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "maxTurn": 4,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "RoseWedgeFirstAbility",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "RoseWedgeFirstAbility",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "RoseWedgeSecondAbility",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "RoseWedgeThirdAbility",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "RoseWedge",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "RoseWedgeFourthAbility_1000_SCARLET_200_SCARLET"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ThirstyRose",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "ThirstyRose",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 10,
+            "value": 0.01,
+            "limit": 30
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloodyHandGregFirst",
+      "iconId": "BloodyHand",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodyHandGregBase"
+        }
+      ]
+    },
+    {
+      "id": "BloodyHandGregSecond",
+      "iconId": "BloodyHand_2nd",
+      "subIdList": [ "BloodyHandGregFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodyHandGregBase"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "BloodyHandGregThird",
+      "iconId": "BloodyHand_3rd",
+      "subIdList": [ "BloodyHandGregFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodyHandGregBase"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAByDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAByDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "WornHeartGreg",
+      "iconId": "WornHeart",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "WornHeartGreg",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "WornHeartGregDefenseUp_3_1",
+          "value": 0.5
+        },
+        {
+          "ability": "WornHeartGregHealHpRatioCondition_1_30_40",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "BloomingThornsRodionFirst",
+      "iconId": "BloomingThorns",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "BloomingThornsRodionBase"
+        },
+        {
+          "ability": "BloomingThornsRodionGiveBuff",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BloomingThornsRodionDefenseUp_2_1",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "BloomingThornsRodionSecond",
+      "iconId": "BloomingThorns_2nd",
+      "subIdList": [ "BloomingThornsRodionFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "BloomingThornsRodionBase"
+        },
+        {
+          "ability": "BloomingThornsRodionGiveBuff",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BloomingThornsRodionDefenseUp_2_1",
+          "value": 5
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "stack": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "BloomingThornsRodionThird",
+      "iconId": "BloomingThorns_3rd",
+      "subIdList": [ "BloomingThornsRodionFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloomingThornsRodionBase"
+        },
+        {
+          "ability": "BloomingThornsRodionGiveBuff",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BloomingThornsRodionDefenseUp_2_1",
+          "value": 5
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 2
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "stack": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "FestivalFeverRodion",
+      "iconId": "FestivalFever",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "FestivalFeverRodion_15_30",
+          "value": 0.001
+        }
+      ]
+    },
+    {
+      "id": "DevyatDimensionalSackSinclair",
+      "iconId": "DevyatDimensionalSack",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "DevyatDimensionalSackSinclair",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DevyatDimensionalSackSinclair"
+        }
+      ]
+    },
+    {
+      "id": "SwirlingBloodPersonality",
+      "iconId": "SwirlingBlood",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 50,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "SwirlingBloodPersonality"
+        }
+      ]
+    },
+    {
+      "id": "BloodArmorPersonalityFirst",
+      "iconId": "BloodArmor",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "BloodArmorPersonalityBase"
+        }
+      ]
+    },
+    {
+      "id": "BloodArmorPersonalitySecond",
+      "iconId": "BloodArmor",
+      "subIdList": [ "BloodArmorPersonalityFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "BloodArmorPersonalityBase"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": -1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "MinSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloodArmorPersonalityThird",
+      "iconId": "BloodArmor",
+      "subIdList": [ "BloodArmorPersonalityFirst" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "BloodArmorPersonalityBase"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": -1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": -1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "MinSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "SadLamanchaland",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": 1
+        },
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.2
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "id": "FreishutzOutisEgoBullet_1st",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 0.2
+        },
+        {
+          "ability": "DamageFirstBreakSectionOnSuccessAttackByDmgRatio_30",
+          "value": 1
+        },
+        {
+          "ability": "LoseAllStackOnEndSkill"
+        }
+      ],
+      "categoryKeywordList": [ "FREISHUTZ_OUTIS_EGO_BULLET" ]
+    },
+    {
+      "id": "FreishutzOutisEgoBullet_2nd",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "FreishutzOutisEgoBulletTargetNumAdder",
+          "value": 4
+        },
+        {
+          "ability": "CanDealOnlySubTarget"
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Paralysis",
+            "target": "Target",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseAllStackOnEndSkill"
+        }
+      ],
+      "categoryKeywordList": [ "FREISHUTZ_OUTIS_EGO_BULLET" ]
+    },
+    {
+      "id": "FreishutzOutisEgoBullet_3rd",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 0.2
+        },
+        {
+          "ability": "FreishutzOutisEgoBulletTargetNumAdder",
+          "value": 2
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Reduction",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 10,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseAllStackOnEndSkill"
+        }
+      ],
+      "categoryKeywordList": [ "FREISHUTZ_OUTIS_EGO_BULLET" ]
+    },
+    {
+      "id": "FreishutzOutisEgoBullet_4th",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 0.3
+        },
+        {
+          "ability": "FreishutzOutisEgoBulletTargetNumAdder",
+          "value": 3
+        },
+        {
+          "ability": "DamageFirstBreakSectionOnSuccessAttackByDmgRatio_20",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Target",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseAllStackOnEndSkill"
+        }
+      ],
+      "categoryKeywordList": [ "FREISHUTZ_OUTIS_EGO_BULLET" ]
+    },
+    {
+      "id": "FreishutzOutisEgoBullet_5th",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 0.3
+        },
+        {
+          "ability": "FreishutzOutisEgoBulletTargetNumAdder",
+          "value": 4
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 10,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "AttackDown",
+            "target": "Target",
+            "stack": 4,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Target",
+            "stack": 4,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseAllStackOnEndSkill"
+        }
+      ],
+      "categoryKeywordList": [ "FREISHUTZ_OUTIS_EGO_BULLET" ]
+    },
+    {
+      "id": "FreishutzOutisEgoBullet_6th",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "FreishutzOutisEgoBulletTargetNumAdder",
+          "value": 6
+        },
+        {
+          "ability": "DamageFirstBreakSectionOnSuccessAttackByDmgRatio_30",
+          "value": 1
+        },
+        {
+          "ability": "FreishutzOutisEgoBulletRerollCoin",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "buffOwner": "Target",
+            "stack": 7,
+            "turn": 0,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "SkillPowerAdderAsStack",
+          "coinOperator": "ADD",
+          "value": -16
+        },
+        {
+          "ability": "SkillPowerAdderAsStack",
+          "coinOperator": "SUB",
+          "value": -22
+        },
+        {
+          "ability": "CoinScaleAdderByStack",
+          "coinOperator": "ADD",
+          "value": -8
+        },
+        {
+          "ability": "CoinScaleAdderByStack",
+          "coinOperator": "SUB",
+          "value": -12
+        },
+        {
+          "ability": "LoseAllStackOnEndSkill"
+        }
+      ],
+      "categoryKeywordList": [ "FREISHUTZ_OUTIS_EGO_BULLET" ]
+    },
+    {
+      "id": "FreishutzOutisEgoBullet_7th",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "FreishutzOutisEgoBulletTargetNumAdder",
+          "value": 0
+        },
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 2
+        },
+        {
+          "ability": "AtkDamageMultiplierByTargetLostHpRatioWithMax_200",
+          "value": 0.025
+        },
+        {
+          "ability": "FreishutzOutisEgoBulletOverwriteAtkResist",
+          "atk": "PENETRATE",
+          "value": 2.0
+        },
+        {
+          "ability": "InstantDeathOnEndSkill",
+          "value": 1
+        },
+        {
+          "ability": "LoseAllStackOnEndSkill"
+        }
+      ],
+      "categoryKeywordList": [ "FREISHUTZ_OUTIS_EGO_BULLET" ]
+    },
+    {
+      "id": "LogicAtelierAM",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 4,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "LogicAtelierAM",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "GlowingLantern",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "AggroAdderOnRoundStart",
+          "value": 1000
+        },
+        {
+          "ability": "TakeAtkDamageMultiplier",
+          "value": 0.5
+        },
+        {
+          "ability": "GlowingLantern_15",
+          "value": 0.5,
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 1,
+            "limit": 3
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "HoldingBreath",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "HoldingBreath",
+          "value": 0.04,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "",
+            "stack": 15,
+            "turn": 5,
+            "activeRound": 0,
+            "value": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "NebulizerInhale",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "NebulizerInhale"
+        }
+      ]
+    },
+    {
+      "id": "BlackCloud",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "BlackCloudAllSkill",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 1,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "BlackCloudOnLoseDuel",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "BlackCloudBlade",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderAsStack",
+          "atk": "SLASH",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "atk": "SLASH",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "EngageToBattle",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "turn": 1
+          }
+        },
+        {
+          "ability": "EngageToBattle",
+          "buffData": {
+            "buffKeyword": "SlashResultUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "EngageToBattle",
+          "buffData": {
+            "buffKeyword": "SlashDamageUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "CloudWall",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefSkillPowerResultAdderAsStack",
+          "value": 1
+        },
+        {
+          "ability": "CloudWall"
+        }
+      ]
+    },
+    {
+      "id": "NebulizerExhale",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "NebulizerExhale"
+        }
+      ]
+    },
+    {
+      "id": "ReleaseBreath",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ReleaseBreath"
+        }
+      ]
+    },
+    {
+      "id": "DianxueDonQuixote",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 3,
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "list": [
+
+      ],
+      "categoryKeywordList": [ "DIANXUE" ]
+    },
+    {
+      "id": "FirePunchFuel",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 100,
+      "list": [
+        {
+          "ability": "FirePunchFuel"
+        }
+      ]
+    },
+    {
+      "id": "FirePunchFuelOverheated",
+      "subIdList": [ "FirePunchFuel" ],
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 100,
+      "list": [
+        {
+          "ability": "FirePunchFuel"
+        }
+      ]
+    },
+    {
+      "id": "VengeanceBookSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "useTrigger": false,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.01
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "HitDamageUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "VengeanceBookSinclairMaxSpeedAdder_20_1"
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 20,
+          "buffData": {
+            "buffKeyword": "ResultEnhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 30,
+          "buffData": {
+            "buffKeyword": "HitDamageUp",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "VendettaMark",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "VendettaMarkDmgMul",
+          "value": 0.02
+        },
+        {
+          "ability": "VendettaMarkRetaliationBook",
+          "buffData": {
+            "buffKeyword": "RetaliationBookFamily",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "RetaliationBookFamily",
+      "subIdList": [ "RetaliationBook" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true
+    },
+    {
+      "id": "BirdCage",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 5,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "BirdCage",
+          "value": 0.1
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEndByRatio",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "WaitingXichun",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "maxStack": 3
+    },
+    {
+      "id": "StartXichun",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 6,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "StartXichun",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "CheerUpXichun",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ParryingResultAdderIfTargetNegativeBuffCntNotLessThan_5",
+          "value": 1
+        },
+        {
+          "ability": "AtkDmgMulIfTargetNegativeBuffCntNotLessThan_5",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "BulletPropellantAlly",
+      "iconId": "BulletPropellant",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 12,
+      "list": [
+        {
+          "ability": "CheckNormalExtendedInitBulletBase"
+        },
+        {
+          "ability": "BulletPropellantAlly"
+        }
+      ],
+      "categoryKeywordList": [ "BULLET", "RESOURCE" ]
+    },
+    {
+      "id": "BulletPropellantSpecialAlly",
+      "iconId": "BulletPropellantSpecial",
+      "subIdList": [ "BulletPropellantAlly" ],
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 8,
+      "list": [
+        {
+          "ability": "CheckNormalExtendedInitBulletBase"
+        },
+        {
+          "ability": "BulletPropellantAlly"
+        }
+      ],
+      "categoryKeywordList": [ "BULLET", "RESOURCE" ]
+    },
+    {
+      "id": "IrritationAlly",
+      "iconId": "Irritation",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "AtkDamageMultiplierIfFasterMinDiffPerSpeedDiffWithMax_3_1_20",
+          "value": 0.025
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfNotZero",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderToEnemyIfNotZero",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "turn": 1
+          }
+        },
+        {
+          "ability": "IrritationAlly",
+          "buffData": {
+            "buffKeyword": "HugeIrritationAlly",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "HugeIrritationAlly",
+      "iconId": "HugeIrritation",
+      "subIdList": [ "IrritationAlly" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 3
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 3
+        },
+        {
+          "ability": "AtkDamageMultiplierIfFasterMinDiffPerSpeedDiffWithMax_3_1_40",
+          "value": 0.05
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfNotZero",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "stack": 2
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderToEnemyIfNotZero",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "turn": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "BeastEyesAlly",
+      "iconId": "Complacency",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "BeastEyesAllyDestroy"
+        },
+        {
+          "ability": "MinSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "BeastEyesAllyParryingResultDown_10",
+          "value": 2
+        },
+        {
+          "ability": "BeastEyesAllyGiveBuffOnRoundStart_8",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 0.1,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "BeastEyesAllySuperCoinAtkDmgUp_14_150",
+          "value": 0.75
+        },
+        {
+          "ability": "BeastEyesAllyAtkDmgUp_20_50",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "FireBulletPropellant",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 15,
+      "list": [
+        {
+          "ability": "CheckNormalExtendedInitBulletBase"
+        }
+      ],
+      "categoryKeywordList": [
+        "RESOURCE",
+        "BULLET"
+      ]
+    },
+    {
+      "id": "SingBulletSupport",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 1,
+      "list": [],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "FellBulletPersonality",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "CriticalDmgUpViaBuffCheckDevideByStack",
+          "value": 0.03,
+          "buffData": {
+            "buffKeyword": "BoseProjektil",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 18
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAWithLimitCount_3",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnKillTargetWithLimitCount_2",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 3,
+            "turn": 2,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "RoseThorn",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 9,
+      "list": [
+        {
+          "ability": "RoseThorn1",
+          "value": 5
+        },
+        {
+          "ability": "RoseThorn2",
+          "value": 5
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BlessingAlly",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DespairRodionTakeBuffByMp",
+          "buffData": {
+            "buffKeyword": "ProtectiveSword",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 8,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "DespairRodionGiveBuffOnEndDuel_1",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 20,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "DespairRodionGiveBuffOnTakeAttackDamage_1",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 20,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "DespairRodionTakeBuffBySwordCutwithTear",
+          "buffData": {
+            "buffKeyword": "ParryingResultUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ProtectiveSword",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "DespairRodionTakeBuffByStack",
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 1,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "ProtectiveSwordTaunt_1500",
+          "value": 300
+        }
+      ]
+    },
+    {
+      "id": "DespairAlly",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DespairRodionTakeBuffByMp",
+          "buffData": {
+            "buffKeyword": "PenetratingSword",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": -8,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "DespairRodionGiveBuffOnEndDuel_1",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0,
+            "value": -20,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "DespairRodionGiveBuffOnSucceedAttack_1",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0,
+            "value": -20,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "DespairRodionTakeBuffBySwordCutwithTear",
+          "buffData": {
+            "buffKeyword": "PenetrateResultUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "PenetratingSword",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "DespairRodionTakeBuffByStack",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 1,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "PenetratingSwordTaunt_75",
+          "value": 15
+        }
+      ]
+    },
+    {
+      "id": "SwordCutwithTear",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartSwordCutwithTear",
+          "buffData": {
+            "buffKeyword": "BlackTearsAlly",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "value": 5,
+            "activeRound": 0,
+            "limit": 3
+          }
+        },
+        {
+          "ability": "GiveMpDmgOnRESelf",
+          "value": 15
+        },
+        {
+          "ability": "DefaultAtkSkillAtkDamageMultiplierByStackWithLimit_30",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "BlackTearsAlly",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 20,
+      "canBeDespelled": true,
+      "list": [
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "MagicalGirlResponse",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "HatredEgoDonQuixoteGiveBuff",
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "HatredEgoDonQuixoteGiveBuff",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ChargeTurnSelfAttackSkillSkillPowerResultAdder",
+          "value": 1
+        },
+        {
+          "ability": "ChargeTurnSelfAttackSkillAtkDamageMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ChoSuperCharge",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 100,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "MaxTurnAdder",
+          "buffData": {
+            "buffKeyword": "Charge",
+            "value": 10
+          }
+        },
+        {
+          "ability": "ChoSuperCharge"
+        }
+      ]
+    },
+    {
+      "id": "ShareCharge",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Neutral",
+      "maxStack": 999,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "ShareCharge"
+        }
+      ]
+    },
+    {
+      "id": "HystericGauge",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "LoseBuffStackOnRoundEndIfMpMoreThan_0",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnRoundEndIfMpLessThan_0",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "HystericGauge",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "MagicalGirlAppear",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByOtherBuffStackIfDefaultSkill",
+          "buffData": {
+            "buffKeyword": "ThePowerOfLoveAndHate",
+            "buffOwner": "Self",
+            "value": 0.03,
+            "limit": 15
+          }
+        }
+      ]
+    },
+    {
+      "id": "NoVillain",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": []
+    },
+    {
+      "id": "VillainMark",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "totalStack": 1,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierCharacterId_3",
+          "value": 0.1
+        },
+        {
+          "ability": "VillainMark"
+        }
+      ]
+    },
+    {
+      "id": "ArcanaQueenOfHate",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "DefaultAtkSkillAtkDamageMultiplierByStack",
+          "value": 0.05
+        },
+        {
+          "ability": "ArcanaQueenOfHate_-25",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "ThePowerOfLoveAndHate",
+      "subIdList": [
+        "Charge"
+      ],
+      "buffClass": "UsedTurnReportSinBuff",
+      "attributeType": "VIOLET",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "destroyableOnZeroTurn": false,
+      "destroyableOnBothZero": true,
+      "maxTurn": 20,
+      "list": [
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [
+        "SIN",
+        "CHARGE"
+      ]
+    },
+    {
+      "id": "OutisNoHat",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "list": [
+        {
+          "ability": "OutisNoHatBuffAdder",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "turn": 1
+          }
+        },
+        {
+          "ability": "AtkDamageMultiplierIfFasterMinDiffPerSpeedDiffWithMax_1_1_15",
+          "value": 0.03
+        }
+      ]
+    },
+    {
+      "id": "AccumulatedPastSinner",
+      "iconId": "AccumulatedPast",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 12,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "ParryingResultUp",
+            "target": "Self",
+            "stack": 3,
+            "activeRound": 0,
+            "value": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "activeRound": 0,
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "BurstHonglu",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "BurstHonglu"
+        }
+      ]
+    },
+    {
+      "id": "HeishouDeathCount",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 5,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRSPerStack",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByStackIfHasStack_HeishouDeathCount3",
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "HeishouCombo",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "HeishouCombo"
+        }
+      ]
+    },
+    {
+      "id": "HeishouComboCount",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 2,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "HeishouAttack",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "HeishouSupportProtect",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "SupportProtect"
+        },
+        {
+          "ability": "HeishouSupportProtectDefenseSkillOverwriter",
+          "value": 1061307
+        }
+      ],
+      "categoryKeywordList": [
+        "SUPPORTIVE_PROTECT"
+      ]
+    },
+    {
+      "id": "HeishouSupportProtectTypo",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "list": []
+    },
+    {
+      "id": "HeishouSynergy",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 11,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.01
+        },
+        {
+          "ability": "GiveBuffOnRSPerStack",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "GiveBuffOnRSPerStack",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 3
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByStackIfHasStack_HeishouSynergy5",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "HeishouSynergy_BLACK_BEAST",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "HeishouComboCountHonglu",
+      "buffClass": "OverlappingBuff",
+      "buffType": "Positive",
+      "maxStack": 11,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "list": []
+    },
+    {
+      "id": "ChickenStance",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "ChickenStance_3",
+          "value": 3
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ChickenFightlust",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierViaBuffCheckDevideByStack",
+          "value": 0.0075,
+          "buffData": {
+            "buffKeyword": "ChickenFightlust",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "LegStrengthHorseYisang",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "AggroAdderOnRoundEndByStack",
+          "value": 200
+        },
+        {
+          "ability": "LegStrengthHorseYisang",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "target": "Target",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 6
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ConcussionYisang",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "TakeSinBuffDamageMultiplier",
+          "value": 0.2,
+          "buffData": {
+            "buffKeyword": "Burst"
+          }
+        },
+        {
+          "ability": "TakeVEDmgMultiplier",
+          "value": 0.2
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "ConcussionYisangEffect"
+        }
+      ]
+    },
+    {
+      "id": "BreakthroughHorse",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "AddShieldOnRSByStack",
+          "value": 10
+        },
+        {
+          "ability": "BreakthroughHorseResultAdder",
+          "value": 2
+        },
+        {
+          "ability": "BreakthroughHorseTakeBuff",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 100,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "BattlefieldHorse",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ParryingResultAdder",
+          "value": 1
+        },
+        {
+          "ability": "DefAdder",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "GazeRyoshu",
+      "iconId": "GazeReplica",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 7,
+      "list": [
+        {
+          "ability": "GazeRyoshuAbility",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "ContemptRyoshu",
+      "iconId": "ContemptReplica",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ContemptRyoshuAbility",
+          "value": -0.5,
+          "buffData": {
+            "buffKeyword": "GazeRyoshu",
+            "target": "Self",
+            "stack": 7,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "VibrationBleeding",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration",
+          "value": 1
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "VibrationBleeding",
+          "value": 0.5
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    },
+    {
+      "id": "CuredFilm",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 3
+          }
+        },
+        {
+          "ability": "CuredFilmTakeBuff",
+          "value": 0.5,
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "CuredFilmLoseStack",
+          "value": 3
+        },
+        {
+          "ability": "CuredFilmView"
+        }
+      ]
+    },
+    {
+      "id": "MlynarWaiting",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 40,
+      "stackLimitPerTurn": 20,
+      "list": [
+        {
+          "ability": "MGBuffAggro_div8_limit5"
+        },
+        {
+          "ability": "MGBuffProtection_div20_limit2"
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "MlynarWaiting",
+            "target": "Self",
+            "stack": 10,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "MlynarWaiting"
+        }
+      ]
+    },
+    {
+      "id": "Cianjing",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "CianjingLoseCheck",
+          "value": 1
+        },
+        {
+          "ability": "CianjingView"
+        }
+      ]
+    },
+    {
+      "id": "SeniorCianjing",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "CianjingLoseCheck",
+          "value": 1
+        },
+        {
+          "ability": "SeniorCianjingView"
+        }
+      ]
+    },
+    {
+      "id": "ArrowShiFau",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "destroyableOnZero": false,
+      "canIgnoreGiveAdder": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "ArrowShiFau"
+        },
+        {
+          "ability": "ArrowShiFauOnRS"
+        }
+      ]
+    },
+    {
+      "id": "ArrowInTheEyeFau",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "GiveBuffOnRSPerStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DefAdderByStack",
+          "value": -1
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "ArrowInTheEyeFauOnDestroy",
+          "buffData": {
+            "buffKeyword": "ArrowShiFau",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 0
+          }
+        },
+        {
+          "ability": "ArrowInTheEyeFau"
+        }
+      ]
+    },
+    {
+      "id": "AimForTheGoal",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "CheckSnipeShiFau"
+        }
+      ]
+    },
+    {
+      "id": "SnipingArrowMode",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "IgnoreBreakExceptForcedCase"
+        },
+        {
+          "ability": "CantSupportiveAttack"
+        }
+      ]
+    },
+    {
+      "id": "AStrokeOfDeath",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkAdder",
+          "value": 2
+        },
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloodArmorMeursault",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "BloodArmorMeursaultVampiricAbility_healLimit40_shield0",
+          "value": 0.1
+        },
+        {
+          "ability": "BloodArmorMeursaultFamilyAbility",
+          "buffData": {
+            "buffKeyword": "FocusOnActing",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BloodArmorMeursaultEffect"
+        }
+      ]
+    },
+    {
+      "id": "FocusOnActing",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "FocusOnActingLowTierAttackBooster_adder1_per5_limit15"
+        },
+        {
+          "ability": "FocusOnActingHighTierAttackBooster_adder2_per10_limit30"
+        },
+        {
+          "ability": "FocusOnActingLoseCheckOnRoundStart"
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "ParadeConcentration",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "ParadeConcentrationTakeDmgMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "ParadeConcentrationGiveDmgMultiplier",
+          "value": -0.2
+        },
+        {
+          "ability": "ParadeConcentrationLoseCheck"
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "WOverCharge",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierViaBuffCheckDevideByStack",
+          "value": 0.05,
+          "buffData": {
+            "buffKeyword": "Charge",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "value": 0.1,
+            "limit": 25
+          }
+        },
+        {
+          "ability": "CanNotAction"
+        },
+        {
+          "ability": "AggroAdderByBuffStackToSpecificSlot",
+          "value": 0,
+          "buffData": {
+            "buffKeyword": "Charge",
+            "buffOwner": "Self",
+            "value": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "GiveBuffOnTakeAttackDamageWithLimitCount_5",
+          "buffData": {
+            "buffKeyword": "Charge",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnTakeAttackDamageWithLimitCount_5",
+          "buffData": {
+            "buffKeyword": "ChargeLoad",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByChargeStack",
+          "buffData": {
+            "buffKeyword": "ChargeForceField",
+            "target": "Self",
+            "activeRound": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Charge",
+            "target": "Self",
+            "stack": 0,
+            "turn": 10,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "DestroyBuffIfDefaultPanic"
+        },
+        {
+          "ability": "DestroyBuffIfErosionState"
+        },
+        {
+          "ability": "AddSystemAbilityWOverCharge"
+        },
+        {
+          "ability": "DestroyBuffIfDissapeared"
+        }
+      ]
+    },
+    {
+      "id": "HanafudaOne",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HanafudaOne",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "HanafudaTwo",
+      "subIdList": [ "HanafudaOne" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HanafudaTwo",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "HanafudaThree",
+      "subIdList": [ "HanafudaOne" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HanafudaThree",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "HanafudaCombo",
+      "buffClass": "CountableBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnZeroTurn": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 5,
+      "maxTurn": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRSPerStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseTurnOnRoundStart",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "HurtNightStiletto",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "NightStilettoUpgrader",
+          "buffData": {
+            "buffKeyword": "CriHurtNightStiletto",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "CriHurtNightStiletto",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndViaBuffStackPlusInfoStack",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": -1,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "NightStilettoOpenWound",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "NightStilettoBlocker",
+          "buffData": {
+            "buffKeyword": "HurtNightStiletto"
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "HorrHurtNightStiletto",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "NightStilettoOpenWound",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 3,
+            "activeRound": 0,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "NightStilettoBlocker",
+          "buffData": {
+            "buffKeyword": "HurtNightStiletto"
+          }
+        },
+        {
+          "ability": "NightStilettoBlocker",
+          "buffData": {
+            "buffKeyword": "CriHurtNightStiletto"
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "GrownHorns",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 3,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "CrushMarks",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "ProtectStanceRyoshu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": -0.1
+        },
+        {
+          "ability": "AddShieldOnRSByBuffStack",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 1,
+            "limit": 20
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 3,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AggroAdderOnRoundEnd",
+          "value": 500
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ReinforcedTattooIshmael",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "DefaultSkillPowerResultAdderDevideByStack",
+          "buffData": {
+            "stack": 5,
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "AtkDamageMultiplierByStackWithLimit_50",
+          "attribute": "VIOLET",
+          "atk": "HIT",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "ResentmentIshmael",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 15,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierViaBuffCheck",
+          "value": 0.2,
+          "buffData": {
+            "buffKeyword": "RetaliationBook",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "HeatingWireIshmael",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnSAWithDefaultSkillViaBuffCheck",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "value": 3,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "LanternGregBigBird",
+      "iconId": "LanternHohenheimBigBird",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 8,
+      "list": [
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 4
+          }
+        },
+        {
+          "ability": "LanternGregBigBird",
+          "value": 1000,
+          "buffData": {
+            "buffKeyword": "DelusionGregBigBird",
+            "target": "AbnormalityTarget",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ObedienceGregBigBird",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ObedienceGregBigBirdPlus",
+          "value": 4
+        },
+        {
+          "ability": "ObedienceGregBigBirdMinus",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "id": "DelusionGregBigBird",
+      "iconId": "DelusionHohenheimBigBird",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 3,
+      "list": [
+      ]
+    },
+    {
+      "id": "LittleFingerID",
+      "iconId": "DicipleLittleFinger",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "AddShieldOnRSByStack",
+          "value": 2
+        },
+        {
+          "ability": "CriticalDmgUpViaBuffCheckDevideByStack",
+          "value": 0.01,
+          "buffData": {
+            "buffKeyword": "LittleFingerID",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon01Hatchet",
+      "iconId": "RienWeapon01Hatchet",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnSAIfUsableInDuel",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon02Stiletto",
+      "iconId": "RienWeapon02Stiletto",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnSAIfUsableInDuel",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon03Greatsword",
+      "iconId": "RienWeapon03Greatsword",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.05
+        },
+        {
+          "ability": "GiveBuffOnSARienGreatSword",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon04Rapier",
+      "iconId": "RienWeapon04Rapier",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.05
+        },
+        {
+          "ability": "GiveBuffOnSARienRapier",
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon05Sledgehammer",
+      "iconId": "RienWeapon05Sledgehammer",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.05
+        },
+        {
+          "ability": "DamageFirstBreakSectionOnSAIfUsableInDuel",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon06Ultragreatsword",
+      "iconId": "RienWeapon06Ultragreatsword",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.15
+        },
+        {
+          "ability": "GiveBuffOnSARienUltraGreatSwordUntilNextTurn",
+          "buffData": {
+            "buffKeyword": "SlashTakeDamageUp",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon07Lance",
+      "iconId": "RienWeapon07Lance",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.15
+        },
+        {
+          "ability": "GiveBuffOnSARienLanceUntilNextTurn",
+          "buffData": {
+            "buffKeyword": "PenetrateTakeDamageUp",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon08Chain",
+      "iconId": "RienWeapon08Chain",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.15
+        },
+        {
+          "ability": "GiveBuffOnSARienChainUntilNextTurn",
+          "buffData": {
+            "buffKeyword": "HitTakeDamageUp",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "YisangWeapon09Scythe",
+      "iconId": "RienWeapon09Scythe",
+      "subIdList": [ "YisangWeaponBase" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.3
+        },
+        {
+          "ability": "ForceToCriticalIfUsableInDuel"
+        }
+      ]
+    },
+    {
+      "id": "IndexPrescriptYi_0",
+      "iconId": "IndexPrescript_Base_2nd",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": []
+    },
+    {
+      "id": "IndexPrescriptYi_1",
+      "iconId": "IndexPrescript_Base_2nd",
+      "subIdList": [ "IndexPrescriptYi_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": []
+    },
+    {
+      "id": "IndexPrescriptYi_2",
+      "iconId": "IndexPrescript_Base_2nd",
+      "subIdList": [ "IndexPrescriptYi_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": []
+    },
+    {
+      "id": "IndexPrescriptYi_3",
+      "iconId": "IndexPrescript_Base_2nd",
+      "subIdList": [ "IndexPrescriptYi_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": []
+    },
+    {
+      "id": "StackYisangSpecialSkill",
+      "buffClass": "StackYisangSpecialSkill",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 9,
+      "list": []
+    },
+    {
+      "id": "Shin_IndexFingerYisang",
+      "iconId": "Sin_Default",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "turn": 1
+          }
+        },
+        {
+          "ability": "AttackDmgMultiplierViaMpDiffExceptHasNotMpIfGreaterThen_div3_per1_limit15"
+        },
+        {
+          "ability": "ShinEffect"
+        }
+      ]
+    },
+    {
+      "id": "BurningWoundYisangMask",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "AtkAdder",
+          "value": 2
+        },
+        {
+          "ability": "DefAdder",
+          "value": -2
+        },
+        {
+          "ability": "TakeDmgMultiplierIfOneSideAttack",
+          "value": -0.1
+        }
+      ]
+    },
+    {
+      "id": "BurningWoundYisang",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "AtkAdder",
+          "value": 3
+        },
+        {
+          "ability": "DefAdder",
+          "value": -3
+        },
+        {
+          "ability": "TakeDmgMultiplierIfOneSideAttack",
+          "value": -0.25
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AttackDmgMultiplierIfDefaultAttackAndSuperCoin",
+          "value": 0.15
+        }
+      ]
+    },
+    {
+      "id": "BlackNightmareYisang",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 5
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 5
+        },
+        {
+          "ability": "BlackNightmareYisangOSABuffBooster",
+          "buffData": {
+            "stack": 1
+          }
+        },
+        {
+          "ability": "BlackNightmareYisangGiveBuffOSA",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 0,
+            "turn": 3,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BlackNightmareYisangPowerUp_adder0",
+          "value": 0.3
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "SatisfyingEsteemNeeds",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AttackDmgUpIfIndexMarkSkill",
+          "value": 0.075
+        },
+        {
+          "ability": "AtkDamageMultiplierViaBuffCheck",
+          "value": 0.075,
+          "buffData": {
+            "buffKeyword": "IndexPrescriptTargetToEnemy",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "AlriuneEGOThey",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "GiveBuffOnTakeSinBuffDamage_Sinking",
+          "buffData": {
+            "buffKeyword": "AlriuneEGOThey",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnVibrationExplosion10414",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "AlriuneEGOThey",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "VibrationExplosion10414",
+          "attribute": "AZURE",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 0,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffToAlliesOnDie10414",
+          "value": 0.5,
+          "buffData": {
+            "buffKeyword": "AlriuneEGOThey",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AlriuneEGOTheyEffect"
+        }
+      ]
+    },
+    {
+      "id": "AlriuneEGOWe",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "stackLimitPerTurn": 15,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "AtkAdderPerStack",
+          "value": 10
+        },
+        {
+          "ability": "AlriuneEGOWeEffect"
+        }
+      ]
+    },
+    {
+      "id": "GodokPanicType",
+      "iconId": "Godok_Panic",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+      ]
+    },
+    {
+      "id": "MeursaultBeeSpore",
+      "iconId": "MeursaultBeeSpore",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 15,
+      "list": [
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "MeursaultBeeSporeDie"
+        },
+        {
+          "ability": "MeursaultBeeSporeEffect"
+        }
+      ]
+    },
+    {
+      "id": "MeursaultWorkerBee",
+      "iconId": "MeursaultWorkerBee",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "ParryingResultUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ThatIsRhythm",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStackWithLimit_10",
+          "value": 0.02
+        },
+        {
+          "ability": "AtkAdderPerStackWithMax_5",
+          "value": 1
+        },
+        {
+          "ability": "DefReducerPerStackWithMax_5",
+          "value": 1
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "MeursaultBeeGunLong",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": []
+    },
+    {
+      "id": "MeursaultBeeGunShort",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": []
+    },
+    {
+      "id": "SelfChargeAlly",
+      "buffClass": "NonvolatileBuff",
+      "iconId": "SelfCharge",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 2
+        },
+        {
+          "ability": "LoseStackOnEndEnemyAttack",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnEndAttack",
+          "value": 3
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 5
+        },
+        {
+          "ability": "SelfChargeAllyWhenLoseStack",
+          "buffData": {
+            "buffKeyword": "Charge",
+            "target": "Self",
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "Immortal"
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "HighVoltageExoshell",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "HighVoltageExoshell"
+        }
+      ]
+    },
+    {
+      "id": "ChargedSting",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "ChargedSting"
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "FaustFlameMothEmber",
+      "buffClass": "CountableBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnZero": true,
+      "destroyableOnZeroTurn": false,
+      "maxStack": 3,
+      "maxTurn": 6,
+      "list": [
+        {
+          "ability": "FaustFlameMothEmber",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 0,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "FaustFlameMothEmberEffect"
+        }
+      ]
+    },
+    {
+      "id": "ArtworkBodyArt01",
+      "buffClass": "CountableBuffWithCustomDescParams",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnZero": false,
+      "maxTurn": 1,
+      "list": [
+        {
+          "ability": "CanvasBody",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "ArtworkBodyArt02",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "SetAsMaxStackWhenGet"
+        },
+        {
+          "ability": "TakeDmgMulAgainstEnemyInAsso_RING_FINGER",
+          "value": 0.1
+        },
+        {
+          "ability": "ArtworkBodyArt02TakeRandomBuff_1",
+          "value": 1
+        },
+        {
+          "ability": "CantGetBuff",
+          "buffData": {
+            "buffKeyword": "ArtworkBodyArt01"
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ArtworkBodyArt03",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAgainstEnemyInAsso_RING_FINGER",
+          "value": -1
+        },
+        {
+          "ability": "TakeDmgMulAgainstEnemyInAsso_RING_FINGER",
+          "value": 0.2
+        },
+        {
+          "ability": "ArtworkBodyArt03AllyMpHeal",
+          "value": 10
+        },
+        {
+          "ability": "ArtworkBodyArt03AllyBuff",
+          "buffData": {
+            "buffKeyword": "MelodyBodyArt",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ArtworkBodyArt02TakeRandomBuff_2",
+          "value": 1
+        },
+        {
+          "ability": "CantGetBuff",
+          "buffData": {
+            "buffKeyword": "ArtworkBodyArt01"
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "TouchBodyArt01",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAgainstEnemyInAsso_RING_FINGER",
+          "value": -1
+        },
+        {
+          "ability": "TouchBodyArt01Change",
+          "value": 3
+        },
+        {
+          "ability": "TouchBodyArt01Destroy"
+        }
+      ]
+    },
+    {
+      "id": "TibiaPersonality",
+      "iconId": "MineTheRings",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TibiaFasciaSkillPowerAdder",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "TibiaFasciaAtkMultiplierIfHasLacerationCategory",
+          "value": 0.1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 2,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "TibiaFasciaLacerationAdder",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 3,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "TibiaFasciaSkillPowerAdder",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 4,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "TibiaFasciaSkillPowerAdder",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 5,
+            "turn": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "MelodyBodyArt",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MelodyBodyArt_1_1_10"
+        }
+      ]
+    },
+    {
+      "id": "MelodyBodyArtChebello",
+      "iconId": "MelodyBodyArt",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MelodyBodyArtChebello_2_2_20"
+        }
+      ]
+    },
+    {
+      "id": "ChargeBodyArt",
+      "subIdList": [
+        "Charge"
+      ],
+      "buffClass": "UsedTurnReportSinBuff",
+      "attributeType": "VIOLET",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "destroyableOnZeroTurn": false,
+      "destroyableOnBothZero": true,
+      "maxTurn": 20,
+      "list": [
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [
+        "SIN",
+        "CHARGE"
+      ]
+    },
+    {
+      "id": "IronMaidenPersonality",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [        
+        {
+          "ability": "AggroAdderOnRoundStart",
+          "value": 400
+        },        
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AddShieldOnRoundStartByCurrentHpRatio",
+          "value": 0.05
+        },
+        {
+          "ability": "IronMaidenPersonality",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0,
+            "value": 0.2,
+            "limit": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "SilverOpportunity",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "SilverOpportunity",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "FasciaPersonality",
+      "iconId": "BoneBladeTheRings",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TibiaFasciaSkillPowerAdder",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "TibiaFasciaAtkMultiplierIfHasLacerationCategory",
+          "value": 0.1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 2,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "TibiaFasciaLacerationAdder",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 3,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "TibiaFasciaSkillPowerAdder",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "ChargeBodyArt",
+            "buffOwner": "Self",
+            "stack": 4,
+            "turn": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "LivingSpecimenPersonality",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "iconId": "LivingSpecimenTheRings",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "SetAsMaxStackWhenGet"
+        },
+        {
+          "ability": "LivingSpecimenPersonality"
+        },
+        {
+          "ability": "LivingSpecimenPersonalityEffect"
+        }
+      ]
+    },
+    {
+      "id": "GoldenOpportunity",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 21,
+      "list": [
+        {
+          "ability": "GoldenOpportunity",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "FaubismWolfMaskRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAIfBuffOwnerHasStack_EagleClawWoundAlly3",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "buffOwner": "Target",
+            "target": "Target",
+            "stack": 0,
+            "turn": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAIfBuffOwnerHasStack_BearClawWoundAlly3",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "buffOwner": "Target",
+            "target": "Target",
+            "stack": 0,
+            "turn": 1,
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "BoldBrushstrokesRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "BoldBrushstrokesRodion_20",
+          "value": 0.1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "IntenseColorsRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "IntenseColorsRodionTakeDmgMul",
+          "value": 0.025
+        },
+        {
+          "ability": "IntenseColorsRodionOnBS"
+        },
+        {
+          "ability": "IntenseColorsRodionOnBE"
+        }
+      ]
+    },
+    {
+      "id": "ThankyouDocentRodion",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "ThankyouDocentRodionOnRS"
+        }
+      ]
+    },
+    {
+      "id": "TestWaitDocentRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnRoundStart",
+          "value": 5
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "TestWaitDocentRodionOnDestroy"
+        }
+      ]
+    },
+    {
+      "id": "FaubismMaskMeursault",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierViaDivideStackCategory_FAUVISM_CLAW_WOUND",
+          "value": 0.05,
+          "buffData": {
+            "buffOwner": "Target",
+            "stack": 3,
+            "turn": 0,
+            "limit": 15
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "FaubismMaskMeursaultGiveBuffOnBGAD",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "buffOwner": "Target",
+            "target": "Target",
+            "stack": 0,
+            "turn": 2,
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "TestWaitingMeursault",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "TestWaitingMeursaultMpRecover",
+          "value": 3
+        },
+        {
+          "ability": "TestWaitingMeursaultEndCheck"
+        }
+      ]
+    },
+    {
+      "id": "BearClawWoundAlly",
+      "iconId": "BearClawWound",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 9,
+      "list": [
+        {
+          "ability": "GiveBuffOnTakeAttackDamagePerStackWithRoundLimitAndSkillLimit_1_1",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnREBearClawWound",
+          "value": 4,
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "BearClawWoundAllyEffect"
+        }
+      ],
+      "categoryKeywordList": [ "FAUVISM_CLAW_WOUND" ]
+    },
+    {
+      "id": "EagleClawWoundAlly",
+      "iconId": "EagleClawWound",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 9,
+      "list": [
+        {
+          "ability": "GiveBuffOnTakeAttackDamagePerStackWithRoundLimitAndSkillLimit_1_1",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TakeMpDmgSelfByValueCheckBuffOnRoundEnd",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "EagleClawWoundAlly",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "EagleClawWoundAllyEffect"
+        }
+      ],
+      "categoryKeywordList": [ "FAUVISM_CLAW_WOUND" ]
+    },
+    {
+      "id": "VengeanceBookHeathcliff",
+      "iconId": "VengeanceBookSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "AtkAdderPerStack",
+          "value": 5
+        },
+        {
+          "ability": "DefAdderPerStack",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "MiddleFingerTattooID",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 20,
+      "list": [        
+        {
+          "ability": "DefaultSkillDmgMultiplierViaBuffCheckDevideByStack",
+          "value": 0.01,
+          "buffData": {
+            "buffKeyword": "MiddleFingerTattooID",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ScarletMothRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "ScarletMothRodionRecoverHp",
+          "value": 0.01
+        },
+        {
+          "ability": "ScarletMothRodionRecoverMp",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "SojiRyoshuEchoPast",
+      "iconId": "TimeEntangleUnstable",
+      "buffClass": "SojiRyoshuEchoPast",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "SojiRyoshuEchoPastMinMaxStack"
+        }
+      ]
+    },
+    {
+      "id": "SojiRyoshuEchoFuture",
+      "iconId": "SojiAbiBuffOne",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SojiRyoshuEchoFutureTakeDmgMul",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "SojiRyoshuEntangle",
+      "buffClass": "OverlappingBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": -0.075
+        },
+        {
+          "ability": "SojiRyoshuEntangleAddText"
+        },
+        {
+          "ability": "SojiRyoshuEntangleRemoveText"
+        }
+      ]
+    },
+    {
+      "id": "SojiRyoshuShin",
+      "iconId": "LittleFingerBoss_Shin",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "GiveBuffOnUseDefaultAttackSkill",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 2,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DefaultAtkSkillCriticalAtkDamageMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "TakeDmgMultiplierIfOneSideAttackOrSuperCoin",
+          "value": -0.2
+        },
+        {
+          "ability": "ShinEffect"
+        }
+      ]
+    },
+    {
+      "id": "FireField",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 999,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "MatchesPersonality",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "MatchesPersonality_2_2_10"
+        }
+        
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "PhantomIncisionID",
+      "iconId": "PhantomIncision",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 100,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierViaBuffCheckDevideByStack",
+          "atk": "SLASH",
+          "value": 0.01,
+          "buffData": {
+            "buffKeyword": "PhantomIncisionID",
+            "target": "Self",
+            "buffOwner": "Self",
+            "stack": 10,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "ActivateBuffEffectSkin_Center"
+        }
+      ]
+    },
+    {
+      "id": "PhantomIncisionTotalID",
+      "iconId": "PhantomIncisionTotal",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "stackLimitPerTurn": 25,
+      "maxStack": 70,
+      "list": [
+        {
+          "ability": "PhantomIncisionTotalID",
+          "buffData": {
+            "buffKeyword": "PhantomIncisionTotalID",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "RetaliationBookSpiderOutis",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "RecoverMpRetaliationBookSpiderOutis_2",
+          "value": 5
+        },
+        {
+          "ability": "GiveBuffRetaliationBookSpiderOutis_2",
+          "buffData": {
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ResentmentSpiderOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 15,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierViaBuffCheck",
+          "value": 0.2,
+          "buffData": {
+            "buffKeyword": "RetaliationBook",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ReinforcedTattooSpiderOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "DefaultSkillPowerResultAdderDevideByStack",
+          "buffData": {
+            "stack": 5,
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "AtkDamageMultiplierByStackWithLimit_50",
+          "attribute": "VIOLET",
+          "atk": "HIT",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "DaughterEducationSpiderOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "LoseStackOnTakeAttackDamageBySkill_2",
+          "value": 1
+        },
+        {
+          "ability": "SkillPowerResultAdderIfSatisfied",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "DaughterEducationSpiderOutis",
+            "buffOwner": "Self",
+            "stack": 5,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "AtkDamageMultiplierByStackWithLimit_10",
+          "atk": "HIT",
+          "value": 0.01
+        }
+      ]
+    },
+    {
+      "id": "GotAComplimentIshmael",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "LoseStackOnTakeAttackDamageBySkill_2",
+          "value": 1
+        },
+        {
+          "ability": "SkillPowerResultAdderIfSatisfied",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "GotAComplimentIshmael",
+            "buffOwner": "Self",
+            "stack": 5,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "AtkDamageMultiplierByStackWithLimit_10",
+          "atk": "HIT",
+          "value": 0.01
+        }
+      ]
+    },
+    {
+      "id": "MiddleFatherGutsOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "OverwriteAtkResistResultIfHigherAndNotBreak",
+          "value": 1
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierMiddleFatherGutsOutis",
+          "value": -0.04,
+          "buffData": {
+            "buffKeyword": "ReinforcedTattooSpiderOutis",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "value": -0.3,
+            "limit": -50
+          }
+        },
+        {
+          "ability": "RecoverSelfMpOnWinDuelDivideByParryingCount_15",
+          "value": 5
+        },
+        {
+          "ability": "AttackDmgMultiplierMiddleFatherGutsOutis",
+          "value": 0.1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "MiddleFatherSwordOneOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [        
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "DefaultSkillDmgMultiplierViaBuffCheckDevideByStack",
+          "atk": "HIT",
+          "value": 0.02,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "buffOwner": "Target",
+            "stack": 4,
+            "turn": 0,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "AdditionalDmgMiddleFatherSwordOneOutis",
+          "atk": "HIT",
+          "value": 0.1,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "MiddleFatherSwordTwoOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "AttackDmgMultiplierMiddleFatherSwordTwoOutis",
+          "atk": "HIT",
+          "value": 0.02,
+          "buffData": {
+            "buffOwner": "Target",
+            "stack": 4,
+            "turn": 0,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "AdditionalDmgMiddleFatherSwordTwoOutis",
+          "atk": "HIT",
+          "value": 0.1,
+          "buffData": {
+            "stack": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "MiddleFatherSwordThreeOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "AttackDmgMultiplierMiddleFatherSwordTwoOutis",
+          "atk": "HIT",
+          "value": 0.02,
+          "buffData": {
+            "buffOwner": "Target",
+            "stack": 4,
+            "turn": 0,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "AdditionalDmgMiddleFatherSwordTwoOutis",
+          "atk": "SLASH",
+          "value": 0.1,
+          "buffData": {
+            "stack": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "MiddleFatherSwordFourOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Every",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AttackDmgMultiplierMiddleFatherSwordTwoOutis",
+          "atk": "HIT",
+          "value": 0.02,
+          "buffData": {
+            "buffOwner": "Target",
+            "stack": 4,
+            "turn": 0,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "AdditionalDmgMiddleFatherSwordTwoOutis",
+          "atk": "PENETRATE",
+          "value": 0.1,
+          "buffData": {
+            "stack": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "MidFamilyOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultSkillAtkDamageMultiplier",
+          "attribute": "VIOLET",
+          "value": 0.2
+        },
+        {
+          "ability": "DefaultSkillPowerResultAdderDevideByStack",
+          "buffData": {
+            "stack": 1,
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "CountSkillMidOutis",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "maxStack": 10,
+      "list": [
+        
+      ]
+    },
+    {
+      "id": "AlcoholKimPersonal",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "AcummulateAlcoholKimPersonal"
+        },
+        {
+          "ability": "GiveBuffOnRSAlcoholKimPersonal",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 2
+          }
+        },
+        {
+          "ability": "DefaultSkillCriticalDmgMultiplierViaBuffCheckDevideByStack",
+          "value": 0.015,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "limit": 15
+          }
+        },
+        {
+          "ability": "ParryingResultAdderAlcoholKimPersonal",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "GrudgePersonal",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 999,
+      "list": [
+        {
+          "ability": "GoldanResultUpGrudgePersonal_6",
+          "value": 100
+        },
+        {
+          "ability": "LastCoinDmgUpGrudgePersonal",
+          "value": 0.001
+        }
+      ]
+    },
+    {
+      "id": "GhostKimPersonal",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "HealHpOnSAGhostKimPersonal_50",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "RootSoupKimPersonal",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeBuffGhostKimPersonal",
+          "buffData": {
+            "buffKeyword": "GrudgePersonal",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnBSRootSoupKimPersonal",
+          "buffData": {
+            "buffKeyword": "RootSoupKimSatgat",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ImmortalRootSoupKimPersonal_1",
+          "value": 10
+        },
+        {
+          "ability": "ParryingResultDownRootSoupKimPersonal",
+          "value": 2
+        },
+        {
+          "ability": "GiveBuffOnUseRootSoupKimPersonal",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 4,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "RootSoupKimSatgat",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "ResultAdderRootSoupKimSatgat_2",
+          "value": 3
+        },
+        {
+          "ability": "ResultAdderSalsooRootSoupKimSatgat",
+          "value": 1
+        },
+        {
+          "ability": "DmgMulRootSoupKimSatgat",
+          "value": 1.2
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ScratchesHurtID",
+      "iconId": "ScratchesHurt",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "TiedRopeHonglu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": -2
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": -2
+        },
+        {
+          "ability": "TakeAtkDamageMultiplier",
+          "attribute": "INDIGO",
+          "value": 0.1
+        },
+        {
+          "ability": "DestroyOtherBuffIfHasSameBuffTiedRopeHonglu"
+        },
+        {
+          "ability": "DestroyEachOtherBuffTiedRopeHonglu"
+        },
+        {
+          "ability": "LoseBuffStackOnRoundEndIfNotAttackedToTiedWithRopeID",
+          "value": 1
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "TiedWithRopeID",
+      "buffClass": "NonVolatileWithCustomDesc",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TiedRopeHongluTargetToTextTiedWithRopeID"
+        },
+        {
+          "ability": "ParryingResultAdderViaBuffCheck",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "TiedRopeHonglu",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSucceedAttackTiedWithRopeID",
+          "buffData": {
+            "buffKeyword": "TiedRopeHonglu",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "DestroyEachOtherBuffTiedWithRopeID"
+        }
+      ]
+    },
+    {
+      "id": "AengduNewArmIshmael",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplier",
+          "value": -0.15
+        },
+        {
+          "ability": "GiveBuffOnSTWithLimitCount_2",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnBattleEnd",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseAllStackOnBattleEnd"
+        }
+      ]
+    },
+    {
+      "id": "BladelineagePride",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "AtkAdderByStack",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnSAWithLimitCount_2",
+          "atk": "SLASH",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseStackBladelineagePride",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "WindBladeIshmael",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 20,
+      "stackLimitPerTurn": 10,
+      "list": [
+        {
+          "ability": "DefaultAtkSkillAtkDamageMultiplierByStackWithLimit_10",
+          "atk": "SLASH",
+          "value": 0.01
+        },
+        {
+          "ability": "DefenseParryingReducerWindBladeIshmael_2_1_5"
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "DuelEdgeAlly",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": true,
+      "maxStack": 5,
+      "stackLimitPerTurn": 3,
+      "list": [        
+      ]
+    },
+    {
+      "id": "SeveredTendonAlly",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerAdder",
+          "value": -1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "EvolvingManual",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 3,
+      "stackLimitPerTurn": 2,
+      "list": [        
+        {
+          "ability": "DefaultSkillDmgMultiplierViaBuffCheckDivideByStackWithDefaultValue",
+          "value": 0.05,
+          "buffData": {
+            "buffKeyword": "EvolvingManual",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "value": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ObsessionAndGreedRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "turn": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "turn": 1
+          }
+        },
+        {
+          "ability": "AtkDamageMultiplierViaBuffCheckDevideByStack",
+          "value": 0.03,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "buffOwner": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 15
+          }
+        },
+        {
+          "ability": "ShinEffect"
+        }
+      ]
+    },
+    {
+      "id": "FutureEyeOnRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "FutureEyeOnRodionLimitPerTurn",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "FutureEyeOffRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "AttackLevelAdder",
+          "value": 3
+        },
+        {
+          "ability": "DefenseLevelAdder",
+          "value": -3
+        },
+        {
+          "ability": "GiveBuffOnRSFutureEyeOffRodion",
+          "buffData": {
+            "buffKeyword": "FutureEyeOffRodion",
+            "target": "Self",
+            "stack": 10,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "LookingFutureRodion",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "DefaultSkillDmgMultiplierViaBuffCheckDevideByStack",
+          "value": 0.03,
+          "buffData": {
+            "buffKeyword": "LookingFutureRodion",
+            "buffOwner": "Self",
+            "stack": 1,
+            "turn": 0,
+            "limit": 15
+          }
+        },
+        {
+          "ability": "DefaultSkillParryingResultAdderDevideByStack",
+          "buffData": {
+            "stack": 2,
+            "value": 1
+          }
+        },
+        {
+          "ability": "DefaultSkillCoinScaleAdderDivideByStack",
+          "buffData": {
+            "stack": 5,
+            "value": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "LoseAllStackOnEndTurn"
+        }
+      ]
+    },
+    {
+      "id": "TeachersPreyRodion",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TeachersPreyRodionTakeDmgMul",
+          "value": 0.15
+        }
+      ]
+    },
+    {
+      "id": "RunSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "EmergencyEscapeDevice"
+        }
+      ]
+    },
+    {
+      "id": "DawnGregor",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RemoveBSDawnGregor",
+          "value": 3
+        },
+        {
+          "ability": "RecoverBreakAndChangeSkillDawnGregor"
+        },
+        {
+          "ability": "RecoverMpDawnGregor",
+          "value": 5
+        },
+        {
+          "ability": "MpCutDawnGregor",
+          "value": 25
+        },
+        {
+          "ability": "ShieldDawnGregor",
+          "value": 0.15
+        },
+        {
+          "ability": "BuffOnTakeAtkDawnGregor",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "FireFieldDawnGregor"
+        }
+      ]
+    },
+    {
+      "id": "DawnFaust",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "DefaultAtkSkillSkillPowerAdderOnUse",
+          "value": 2
+        },
+        {
+          "ability": "DmgMulDawnFaust",
+          "value": 0.45
+        },
+        {
+          "ability": "SecondSkillActiveCombustionDawnFaust",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 0,
+            "turn": 1,
+            "value": 15
+          }
+        },
+        {
+          "ability": "SpecialSkillDmgMulDawnFaust",
+          "value": 1
+        },
+        {
+          "ability": "SpecialSkillSuperCoinDawnFaust"
+        },
+        {
+          "ability": "SpecialSkillActivateBuffDawnFaust",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 0,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "SpecialSkillGiveBuffDawnFaust",
+          "value": 3,
+          "buffData": {
+            "value": 0.01,
+            "limit": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "DawnGregorDying",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RemoveBSDawnGregor",
+          "value": 3
+        },
+        {
+          "ability": "RecoverBreakAndChangeSkillDawnGregor"
+        },
+        {
+          "ability": "RecoverMpDawnGregorDying",
+          "value": 8
+        },
+        {
+          "ability": "MpCutDawnGregor",
+          "value": 45
+        },
+        {
+          "ability": "RecoverGregorDying",
+          "value": 0.5
+        },
+        {
+          "ability": "ShieldDawnGregor",
+          "value": 0.2
+        },
+        {
+          "ability": "BuffOnTakeAtkDawnGregor",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "FireFieldDawnGregor"
+        }
+      ]
+    },
+    {
+      "id": "DawnFaustDying",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "DefaultAtkSkillSkillPowerAdderOnUse",
+          "value": 3
+        },
+        {
+          "ability": "DmgMulDawnFaust",
+          "value": 0.9
+        },
+        {
+          "ability": "SecondSkillActiveCombustionDawnFaust",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 0,
+            "turn": 1,
+            "value": 15
+          }
+        },
+        {
+          "ability": "SpecialSkillDmgMulDawnFaust",
+          "value": 1.5
+        },
+        {
+          "ability": "SpecialSkillSuperCoinDawnFaust"
+        },
+        {
+          "ability": "SpecialSkillActivateBuffDawnFaust",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 0,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "SpecialSkillGiveBuffDawnFaust",
+          "value": 0,
+          "buffData": {
+            "value": 0.015,
+            "limit": 100
+          }
+        },
+        {
+          "ability": "ImmortalDawnFaustDying"
+        }
+      ]
+    },
+    {
+      "id": "StigmaWorkshopCelloCaseOne",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 30,
+      "list": [       
+        {
+          "ability": "GiveBuffOnRoundEndDivideByOverStackStigmaWorkshopCelloCase_20_30",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 2,
+            "turn": 2,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GetStackOnSucceedAttackStigmaWorkshopCelloCase",
+          "buffData": {
+            "buffKeyword": "StigmaWorkshopCelloCaseOne",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GetStackRoundLimitStigmaWorkshopCelloCase",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "id": "StigmaWorkshopCelloCaseTwo",
+      "subIdList": [ "StigmaWorkshopCelloCaseOne" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndDivideByOverStackStigmaWorkshopCelloCase_20_30",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 2,
+            "turn": 2,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GetStackOnSucceedAttackStigmaWorkshopCelloCase",
+          "buffData": {
+            "buffKeyword": "StigmaWorkshopCelloCaseOne",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GetStackRoundLimitStigmaWorkshopCelloCase",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "id": "StigmaWorkshopCelloCaseThree",
+      "subIdList": [ "StigmaWorkshopCelloCaseOne" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndDivideByOverStackStigmaWorkshopCelloCase_20_30",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 2,
+            "turn": 2,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GetStackOnSucceedAttackStigmaWorkshopCelloCase",
+          "buffData": {
+            "buffKeyword": "StigmaWorkshopCelloCaseOne",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GetStackRoundLimitStigmaWorkshopCelloCase",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "id": "Firstlight",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "turn": 1
+          }
+        },
+        {
+          "ability": "AttackDmgUpSpecificSkillsFirstlight_1021603",
+          "value": 0.05
+        },
+        {
+          "ability": "AttackDmgUpSpecificSkillsFirstlight_1021606",
+          "value": 0.10
+        },
+        {
+          "ability": "AttackDmgUpSpecificSkillsFirstlight_1021607",
+          "value": 0.10
+        }
+      ]
+    },
+    {
+      "id": "CaseOverheating",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndCaseOverheating",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "StigmaWorkshopHandStep1",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "StigmaHandStackLimitRoundUnion",
+          "value": 20
+        },
+        {
+          "ability": "StigmaHandCombustionSelf_stackDiv5_turnDiv10"
+        },
+        {
+          "ability": "GetStigmaHandOSA_div3_limit3"
+        }
+      ]
+    },
+    {
+      "id": "StigmaWorkshopHandStep2",
+      "subIdList": [ "StigmaWorkshopHandStep1" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "StigmaHandStackLimitRoundUnion",
+          "value": 20
+        },
+        {
+          "ability": "StigmaHandCombustionSelf_stackDiv5_turnDiv10"
+        },
+        {
+          "ability": "GetStigmaHandOSA_div3_limit3"
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "StigmaWorkshopHandStep3",
+      "subIdList": [ "StigmaWorkshopHandStep1" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "StigmaHandStackLimitRoundUnion",
+          "value": 20
+        },
+        {
+          "ability": "StigmaHandCombustionSelf_stackDiv5_turnDiv10"
+        },
+        {
+          "ability": "GetStigmaHandOSA_div3_limit3"
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderToEnemyIfDefaultSkillNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "turn": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "DawnLight",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "DawnLightAttackDamageMultiplier_attribute15_combustion10",
+          "attribute": "CRIMSON"
+        },
+        {
+          "ability": "DawnLightSkillPowerParryingAdder",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "DawnTeam",
+      "buffClass": "StaticNonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "AtkAdderByStack",
+          "value": 1
+        },
+        {
+          "ability": "DawnTeamMpRecover",
+          "value": 5,
+          "buffData": {
+            "stack": 3
+          }
+        },
+        {
+          "ability": "LoseStackDawnTeam"
+        }
+      ]
+    }
+  ]
+}

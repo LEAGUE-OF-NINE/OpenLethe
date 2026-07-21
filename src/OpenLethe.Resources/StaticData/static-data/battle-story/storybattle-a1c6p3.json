@@ -1,0 +1,926 @@
+{
+  "list": [
+    {
+      "id": 10635,
+      "stageLevel": 45,
+      "stageType": "Abnormality",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": 20
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_Heathcliff",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 8166,
+              "unitCount": 1,
+              "unitLevel": 45
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_HeathDist"
+          ],
+          "allyPositionID": 69,
+          "enemyPositionID": 70
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 45,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "story": {
+        "others": [
+          {
+            "phase": "BEFORE_ROUND_END",
+            "storyID": "S635I",
+            "storyIndex": 0
+          }
+        ],
+        "enter": [
+          "S635B"
+        ],
+        "exit": [
+          "S635A"
+        ]
+      },
+      "stageScriptList": ["8166"],
+      "eventScriptName": "8166",
+      "abnormalityEventList": [
+        816601,
+        816602
+      ]
+    },
+    {
+      "id": 10637,
+      "stageLevel": 44,
+      "stageType": "Normal",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": 20
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_BrokenLaboratory",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 90123,
+              "unitCount": 2,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90124,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90122,
+              "unitCount": 1,
+              "unitLevel": 44
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Ally_2",
+            "Battle_Cp6_Enemy_2"
+          ],
+          "allyPositionID": 69,
+          "enemyPositionID": 71,
+          "subUnitList": [
+            {
+              "unitID": 90121,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90123,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90124,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90122,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90125,
+              "unitCount": 1,
+              "unitLevel": 44
+            }
+          ]
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 44,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "story": {
+        "enter": [
+          "S637B"
+        ],
+        "exit": [
+          "S637A"
+        ]
+      },
+      "stageScriptList": ["a1c6p3_Buff_Normal_Filter", "Refill", "SubUnitDefaultSlotAdder"]
+    },
+    {
+      "id": 10638,
+      "stageLevel": 44,
+      "stageType": "Normal",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": 20
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_BrokenLaboratory_v1",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 90118,
+              "unitCount": 2,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90119,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90137,
+              "unitCount": 1,
+              "unitLevel": 44
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Enemy_6"
+          ],
+          "allyPositionID": 69,
+          "enemyPositionID": 71,
+          "subUnitList": [
+            {
+              "unitID": 90118,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90119,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90118,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90119,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 90136,
+              "unitCount": 1,
+              "unitLevel": 44
+            }
+          ]
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 44,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "story": {
+        "enter": [
+          "S638B"
+        ]
+      },
+      "stageScriptList": ["a1c6p3_EnemyFiltered", "Refill", "SubUnitDefaultSlotAdder"]
+    },
+    {
+      "id": 10639,
+      "stageLevel": 44,
+      "stageType": "Abnormality",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": 20
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_BrokenLaboratory_v1",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 8159,
+              "unitCount": 2,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8160,
+              "unitCount": 2,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8163,
+              "unitCount": 1,
+              "unitLevel": 44
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Enemy_5"
+          ],
+          "allyPositionID": 69,
+          "enemyPositionID": 71
+        },
+        {
+            "unitList": [
+            {
+              "unitID": 8159,
+              "unitCount": 2,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8162,
+              "unitCount": 2,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8163,
+              "unitCount": 2,
+              "unitLevel": 44
+            }
+          ]
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 44,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "story": {
+        "enter": [
+          "S639B"
+        ]
+      },
+      "stageScriptList": ["a1c6p3_EnemyFiltered"]
+    },
+    {
+      "id": 10640,
+      "stageLevel": 44,
+      "stageType": "Abnormality",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": 20
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_BrokenLaboratory_v1",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 8159,
+              "unitCount": 2,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8160,
+              "unitCount": 3,
+              "unitLevel": 44
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Enemy_5"
+          ],
+          "allyPositionID": 69,
+          "enemyPositionID": 71
+        },
+        {
+          "unitList": [
+            {
+              "unitID": 8159,
+              "unitCount": 3,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8160,
+              "unitCount": 3,
+              "unitLevel": 44
+            }
+          ]
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 44,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "stageScriptList": ["a1c6p3_EnemyFiltered"]
+    },
+    {
+      "id": 10641,
+      "stageLevel": 44,
+      "stageType": "Abnormality",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": -10
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_BrokenLaboratory_v1",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 8159,
+              "unitCount": 2,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8160,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8169,
+              "unitCount": 1,
+              "unitLevel": 44
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Enemy_6",
+            "Battle_Cp6_Leviathan" ,
+            "Battle_Cp6_Ally_3"
+          ],
+          "allyPositionID": 69,
+          "enemyPositionID": 75
+        },
+        {
+          "unitList": [
+            {
+              "unitID": 8220,
+              "unitCount": 1,
+              "unitLevel": 44
+            }
+          ],
+          "allyPositionID": 69,
+          "enemyPositionID": 70
+        },
+        {
+          "unitList": [
+            {
+              "unitID": 8167,
+              "unitCount": 1,
+              "unitLevel": 48
+            },
+            {
+              "unitID": 8168,
+              "unitCount": 1,
+              "unitLevel": 48
+            },
+            {
+              "unitID": 8169,
+              "unitCount": 1,
+              "unitLevel": 48
+            },
+            {
+              "unitID": 8170,
+              "unitCount": 1,
+              "unitLevel": 48
+            }
+          ],
+          "subUnitList": [
+            {
+              "unitID": 8414,
+              "unitCount": 1,
+              "unitLevel": 50,
+              "isHide": true
+            },
+            {
+              "unitID": 8160,
+              "unitCount": 1,
+              "unitLevel": 45,
+              "isHide": true
+            },
+            {
+              "unitID": 8151,
+              "unitCount": 1,
+              "unitLevel": 45,
+              "isHide": true
+            },
+            {
+              "unitID": 8170,
+              "unitCount": 1,
+              "unitLevel": 48,
+              "isHide": true
+            },
+            {
+              "unitID": 8167,
+              "unitCount": 1,
+              "unitLevel": 48,
+              "isHide": true
+            },
+            {
+              "unitID": 8168,
+              "unitCount": 1,
+              "unitLevel": 48,
+              "isHide": true
+            },
+            {
+              "unitID": 8169,
+              "unitCount": 1,
+              "unitLevel": 48,
+              "isHide": true
+            }
+          ],
+          "allyPositionID": 69,
+          "enemyPositionID": 78
+        }
+      ],
+      "story": {
+        "others": [
+          {
+            "phase": "BEFORE_ROUND_END",
+            "storyID": "S641I",
+            "storyIndex": 0
+          },
+          {
+            "phase": "BEFORE_ROUND_END",
+            "storyID": "S641I2",
+            "storyIndex": 1
+          },
+          {
+            "phase": "BEFORE_ROUND_END",
+            "storyID": "S641I3",
+            "storyIndex": 2
+          }
+        ]
+      },
+      "staminaCost": 20,
+      "recommendedLevel": 44,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "stageScriptList": ["WH", "CantRetreatHeathcliff_Abnormality", "RageResonance_Abnormality", "WH_Announcer", "WH_Passive"]
+    },
+    {
+      "id": 10642,
+      "stageLevel": 44,
+      "stageType": "Abnormality",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": 20
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_Mansion_Hall",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 8159,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8160,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8162,
+              "unitCount": 2,
+              "unitLevel": 44
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Ally_4"
+          ],
+          "allyPositionID": 73,
+          "enemyPositionID": 72
+        },
+        {
+          "unitList": [
+            {
+              "unitID": 8159,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8160,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8202,
+              "unitCount": 1,
+              "unitLevel": 44
+            },
+            {
+              "unitID": 8162,
+              "unitCount": 2,
+              "unitLevel": 44
+            }
+          ]
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 44,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "stageScriptList": ["a1c6p3_EnemyFiltered"]
+    },
+    {
+      "id": 10644,
+      "stageLevel": 45,
+      "stageType": "Abnormality",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": 20
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_Mansion_Hall",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 8172,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8208,
+              "unitCount": 3,
+              "unitLevel": 45
+            }
+          ],
+          "subUnitList": [
+            {
+              "unitID": 8209,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8208,
+              "unitCount": 2,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8210,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8221,
+              "unitCount": 1,
+              "unitLevel": 45,
+              "isHide": true
+            },
+            {
+              "unitID": 8211,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8212,
+              "unitCount": 2,
+              "unitLevel": 45,
+              "isHide": true
+            },
+            {
+              "unitID": 8213,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8208,
+              "unitCount": 4,
+              "unitLevel": 45
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Heathcliff_1"
+          ],
+          "allyPositionID": 73,
+          "enemyPositionID": 77
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 45,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "story": {
+        "others": [
+          {
+            "phase": "BEFORE_ROUND_END",
+            "storyID": "S644I"
+          }
+        ],
+        "enter": [
+          "S644B"
+        ],
+        "exit": [
+          "S644A"
+        ]
+      },
+      "stageScriptList": ["8172", "CantRetreatHeathcliff_Abnormality"]
+    },
+    {
+      "id": 10645,
+      "stageLevel": 45,
+      "stageType": "Abnormality",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "battleCameraInfo": {
+        "defaultPosX": 0,
+        "defaultPosY": 0,
+        "defaultPosZ": 20
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_Mansion_Hall_v1",
+            "mapSize": 20.0
+          },
+          "unitList": [
+            {
+              "unitID": 8171,
+              "unitCount": 1,
+              "unitLevel": 45
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Ally_5"
+          ],
+          "allyPositionID": 73,
+          "enemyPositionID": 74
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 45,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "story": {
+        "enter": [
+          "S645B"
+        ],
+        "exit": [
+          "S645A"
+        ]
+      },
+      "stageScriptList": ["8171", "CantRetreatHeathcliff_Abnormality"],
+      "eventScriptName": "8171",
+      "abnormalityEventList": [
+        817101
+      ]
+    },
+    {
+      "id": 10648,
+      "stageLevel": 45,
+      "stageType": "Abnormality",
+      "participantInfo": {
+        "min": 6,
+        "max": 6
+      },
+      "waveList": [
+        {
+          "battleMapInfo": {
+            "mapName": "Cp6_BossBattle"
+          },
+          "unitList": [
+            {
+              "unitID": 8173,
+              "unitCount": 1,
+              "unitLevel": 45
+            }
+          ],
+          "subUnitList": [
+            {
+              "unitID": 8173,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8174,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8192,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8193,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8214,
+              "unitCount": 1,
+              "unitLevel": 45,
+              "isHide": true
+            },
+            {
+              "unitID": 8215,
+              "unitCount": 1,
+              "unitLevel": 45,
+              "isHide": true
+            },
+            {
+              "unitID": 8217,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8219,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8218,
+              "unitCount": 1,
+              "unitLevel": 45
+            },
+            {
+              "unitID": 8216,
+              "unitCount": 1,
+              "unitLevel": 45
+            }
+          ],
+          "bgmList": [
+            "Battle_Cp6_Heathcliff_2"
+          ],
+          "enemyPositionID": 79
+        }
+      ],
+      "staminaCost": 20,
+      "recommendedLevel": 45,
+      "turnLimit": 99,
+      "questlist": [
+        {
+          "args": [
+            "10"
+          ],
+          "localizeId": 1
+        }
+      ],
+      "rewardList": [],
+      "story": {
+        "others": [
+          {
+            "phase": "BEFORE_ROUND_END",
+            "storyID": "S648I"
+          }
+        ],
+        "enter": [
+          "S648B"
+        ],
+        "exit": [
+          "S648A"
+        ]
+      },
+      "stageScriptList": ["8173", "CantRetreatHeathcliff_Abnormality"],
+      "eventScriptName": "8173",
+      "includeBoss": 1,
+      "abnormalityEventList": [
+        817301,
+        817302,
+        817303,
+        817304,
+        817305
+      ]
+    }
+  ]
+}

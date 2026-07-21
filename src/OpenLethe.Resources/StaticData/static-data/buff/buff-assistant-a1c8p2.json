@@ -1,0 +1,27 @@
+{
+  "list": [
+    {
+      "id": "ProtectStance",
+      "buffClass": "StaticNonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "ProtectStanceAbility",
+          "value": 500,
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

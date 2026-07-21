@@ -1,0 +1,1127 @@
+{
+  "dataList": [
+    {
+      "id": 2010611,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "過ぎし日",
+          "abName": "在りし日の肖像",
+          "desc": "[EndSkill] [Sinking]6 + (憂鬱共鳴数)を、ランダムに攻撃対象へ分けて付与",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] 対象の[Sinking]が6以上なら、次のターンに[Binding]1を付与"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "過ぎし日",
+          "abName": "在りし日の肖像",
+          "desc": "[EndSkill] [Sinking]6 + (憂鬱共鳴数)を、ランダムに攻撃対象へ分けて付与",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] 対象の[Sinking]が6以上なら、次のターンに[Binding]2を付与"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "過ぎし日",
+          "abName": "在りし日の肖像",
+          "desc": "[EndSkill] [Sinking]6 + (憂鬱共鳴数 × <style=\"highlight\">1.5</style>)を、ランダムに攻撃対象へ分けて付与",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] 対象の[Sinking]が6以上なら、次のターンに[Binding]2を付与"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010621,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "過ぎし日",
+          "abName": "在りし日の肖像",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]2を付与。次のターンに[Binding]2を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] 対象の[Sinking]が6以上なら、次のターンに[Binding]1を付与"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "過ぎし日",
+          "abName": "在りし日の肖像",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃\n[BeforeAttack] 憂鬱共鳴数が3以上なら、攻撃加重値 +1",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]2を付与。次のターンに[Binding]2を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] 対象の[Sinking]が6以上なら、次のターンに[Binding]1を付与"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "過ぎし日",
+          "abName": "在りし日の肖像",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃\n[BeforeAttack] 憂鬱共鳴数が3以上なら、攻撃加重値 +1\n[BeforeAttack] 憂鬱共鳴数が5以上なら、攻撃加重値 +1",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]2を付与。次のターンに[Binding]2を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] 対象の[Sinking]が6以上なら、次のターンに[Binding]2を付与"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010711,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "凶弾",
+          "abName": "凶弾の射手",
+          "desc": "体力が最も低い対象を優先して攻撃(味方を優先指定)\n[BeforeAttack] (最大共鳴数 +1)だけ[BoseProjektil]を得る(最大7)\n[BeforeAttack] [BoseProjektil]1につき[Breath]を1得る(最大7)\n[EndSkill] [BoseProjektil]を全て消耗",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはメインターゲットにのみダメージを与える。"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、[BoseProjektil]1につきダメージ量 +8%(最大56%)"
+                },
+                {
+                  "desc": "[AllyKill] 自分とランダムな味方2名へ[Breath]2を付与"
+                },
+                {
+                  "desc": "[AllyKillFail] [Breath]1を得る"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはサブターゲットにのみダメージを与える。\n- 最初のコインで味方を倒せなかった場合、サブターゲットのうちランダムな1名がダメージを受ける"
+                },
+                {
+                  "desc": "[BoseProjektil]1につき、クリティカルダメージ量 +2%(最大14%)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Laceration]2を付与"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "凶弾",
+          "abName": "凶弾の射手",
+          "desc": "体力が最も低い対象を優先して攻撃(味方を優先指定)\n[BeforeAttack] (最大共鳴数 +1)だけ[BoseProjektil]を得る(最大7)\n[BeforeAttack] [BoseProjektil]1につき[Breath]を1得る(最大7)\n[EndSkill] [BoseProjektil]を全て消耗<style=\"highlight\"></style>",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはメインターゲットにのみダメージを与える。<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、[BoseProjektil]1につきダメージ量 <style=\"highlight\">+10%(最大70%)</style>"
+                },
+                {
+                  "desc": "[AllyKill] 自分とランダムな味方2名へ[Breath]3を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[AllyKill] 倒した味方のスキル1属性のE.G.O資源 +1</style>"
+                },
+                {
+                  "desc": "[AllyKillFail] [Breath]<style=\"highlight\">3</style>を得る"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはサブターゲットにのみダメージを与える。\n- 最初のコインで味方を倒せなかった場合、サブターゲットのうちランダムな1名がダメージを受ける<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[BoseProjektil]1につき、クリティカルダメージ量 <style=\"highlight\">+5%(最大35%)</style>"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Laceration]2を付与<style=\"highlight\"></style>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "凶弾",
+          "abName": "凶弾の射手",
+          "desc": "体力が最も低い対象を優先して攻撃(味方を優先指定)\n[BeforeAttack] (最大共鳴数 +1)だけ[BoseProjektil]を得る(最大7)\n<style=\"highlight\">- 該当共鳴が傲慢共鳴なら、この効果の代わりに(最大共鳴数 × 2)だけ[BoseProjektil]を得る(最大7)</style>\n[BeforeAttack] [BoseProjektil]1につき[Breath]を1得る(最大7)\n[EndSkill] [BoseProjektil]を全て消耗",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはメインターゲットにのみダメージを与える。<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、[BoseProjektil]1につきダメージ量 <style=\"highlight\">+15%(最大105%)</style>"
+                },
+                {
+                  "desc": "[AllyKill] 自分とランダムな味方2名へ[Breath]3を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[AllyKill] 倒した味方のスキル1,2属性のE.G.O資源 +1</style>"
+                },
+                {
+                  "desc": "[AllyKillFail] [Breath]<style=\"highlight\">3</style>を得る"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはサブターゲットにのみダメージを与える。\n- 最初のコインで味方を倒せなかった場合、サブターゲットのうちランダムな1名がダメージを受ける<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[BoseProjektil]1につき、クリティカルダメージ量 <style=\"highlight\">+9%(最大63%)</style>"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Laceration]<style=\"highlight\">3</style>を付与"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010721,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "凶弾",
+          "abName": "凶弾の射手",
+          "desc": "[CantIdentify]\n体力が最も低い対象を優先して攻撃(味方を優先指定)\n[BeforeAttack] (最大共鳴数 +1)だけ[BoseProjektil]を得る(最大7)\n[BeforeAttack] [BoseProjektil]1につきダメージ量 +2%(最大14%)\n[BeforeAttack] [BoseProjektil]1につき[Breath]を1得る(最大7)\n[EndSkill] [BoseProjektil]を全て消耗",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはメインターゲットにのみダメージを与える。"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、[BoseProjektil]1につきダメージ量 +10%(最大70%)"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、自分の[Breath]1につきダメージ量 +2%(最大50%)"
+                },
+                {
+                  "desc": "[AllyKill] 自分とランダムな味方3名へ[Breath]2を付与"
+                },
+                {
+                  "desc": "[AllyKill] [BoseProjektil]1につき次のコインのダメージ量 +2%(最大14%)"
+                },
+                {
+                  "desc": "[AllyKill] 倒した味方のスキル1, 2属性のE.G.O資源 +1"
+                },
+                {
+                  "desc": "[AllyKillFail] [Breath]1を得る"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはサブターゲットにのみダメージを与える。\n- 最初のコインで味方を倒せなかった場合、サブターゲットのうちランダムな1名がダメージを受ける"
+                },
+                {
+                  "desc": "[BoseProjektil]1につき、クリティカルダメージ量 +2%(最大14%)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Laceration]3を付与"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "凶弾",
+          "abName": "凶弾の射手",
+          "desc": "[CantIdentify]\n体力が最も低い対象を優先して攻撃(味方を優先指定)\n[BeforeAttack] (最大共鳴数 +1)だけ[BoseProjektil]を得る(最大7)\n[BeforeAttack] [BoseProjektil]1につきダメージ量 <style=\"highlight\">+3%(最大21%)</style>\n[BeforeAttack] [BoseProjektil]1につき[Breath]を1得る(最大7)\n[EndSkill] [BoseProjektil]を全て消耗",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはメインターゲットにのみダメージを与える。<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、[BoseProjektil]1につきダメージ量 <style=\"highlight\">+12%(最大84%)</style>"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、自分の[Breath]1につきダメージ量 +2%(最大50%)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[AllyKill] 自分とランダムな味方3名へ[Breath]<style=\"highlight\">3</style>を付与"
+                },
+                {
+                  "desc": "[AllyKill] [BoseProjektil]1につき次のコインのダメージ量 <style=\"highlight\">+5%(最大35%)</style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[AllyKill] 倒した味方のスキル1,2,3属性のE.G.O資源 +1</style>"
+                },
+                {
+                  "desc": "[AllyKillFail] [Breath]<style=\"highlight\">2</style>を得る"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはサブターゲットにのみダメージを与える。\n- 最初のコインで味方を倒せなかった場合、サブターゲットのうちランダムな1名がダメージを受ける<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[BoseProjektil]1につき、クリティカルダメージ量 <style=\"highlight\">+3%(最大21%)</style>"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Laceration]<style=\"highlight\">4</style>を付与"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "凶弾",
+          "abName": "凶弾の射手",
+          "desc": "[CantIdentify]\n体力が最も低い対象を優先して攻撃(味方を優先指定)\n[BeforeAttack] (最大共鳴数 +1)だけ[BoseProjektil]を得る(最大7)\n<style=\"highlight\">- 該当共鳴が傲慢共鳴なら、この効果の代わりに(最大共鳴数 × 2)だけ[BoseProjektil]を得る(最大7)</style>\n[BeforeAttack] [BoseProjektil]1につきダメージ量 <style=\"highlight\">+4%(最大28%)</style>\n[BeforeAttack] [BoseProjektil]1につき[Breath]を1得る(最大7)\n[EndSkill] [BoseProjektil]を全て消耗",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはメインターゲットにのみダメージを与える。<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、[BoseProjektil]1につきダメージ量 +15%(最大105%)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "メインターゲットが味方なら、自分の[Breath]1につきダメージ量 +2%(最大50%)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">クリティカルダメージ量 +30%</style>"
+                },
+                {
+                  "desc": "[AllyKill] 自分とランダムな味方3名へ[Breath]<style=\"highlight\">4</style>を付与"
+                },
+                {
+                  "desc": "[AllyKill] [BoseProjektil]1につき次のコインのダメージ量 <style=\"highlight\">+7%(最大49%)</style>"
+                },
+                {
+                  "desc": "[AllyKill] 倒した味方のスキル1,2,3属性のE.G.O資源 +1<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[AllyKillFail] [Breath]<style=\"highlight\">3</style>を得る"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "このコインはサブターゲットにのみダメージを与える。\n- 最初のコインで味方を倒せなかった場合、サブターゲットのうちランダムな1名がダメージを受ける<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[BoseProjektil]1につき、クリティカルダメージ量 +4%(最大28%)</style>"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Laceration]<style=\"highlight\">5</style>を付与"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010811,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "三千大世界",
+          "abName": "羅生蝶",
+          "desc": "[BeforeAttack] (最大共鳴数)だけ[Breath]を得る (最大7)\n- 当該共鳴が完全共鳴なら、(最大共鳴数) ÷ 3だけ追加で[Breath]回数が増加 (最大2, 小数点切り捨て)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]1を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]回数が1増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] このターンと次のターンに[ThreeMirrorpartYiSang]1を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] (対象の[Sinking] ÷ 3)だけ[Combustion]を付与 (最大5, 小数点切り捨て)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Combustion]回数が1増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] [Combustion]が1回発動。[Combustion]回数が1減少"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "三千大世界",
+          "abName": "羅生蝶",
+          "desc": "<style=\"highlight\">[BeforeAttack] メインターゲットの[Combustion]と[Sinking]の合計が15以上なら、コイン威力 +1</style>\n[BeforeAttack] (最大共鳴数)だけ[Breath]を得る (最大7)\n- 当該共鳴が完全共鳴なら、(最大共鳴数) ÷ 3だけ追加で[Breath]回数が増加 (最大2, 小数点切り捨て)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]<style=\"highlight\">2</style>を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]回数が<style=\"highlight\">2</style>増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] このターンと次のターンに[ThreeMirrorpartYiSang]1を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] (対象の[Sinking] ÷ 3)だけ[Combustion]を付与 (最大5, 小数点切り捨て)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Combustion]回数が1増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] [Combustion]が1回発動。[Combustion]回数が1減少"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "三千大世界",
+          "abName": "羅生蝶",
+          "desc": "[BeforeAttack] メインターゲットの[Combustion]と[Sinking]の合計が<style=\"highlight\">10</style>以上なら、コイン威力 +1\n[BeforeAttack] (最大共鳴数)だけ[Breath]を得る (最大7)\n- 当該共鳴が完全共鳴なら、(最大共鳴数) ÷ 3だけ追加で[Breath]回数が増加 (最大2, 小数点切り捨て)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]2を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]回数が<style=\"highlight\">3</style>増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] このターンと次のターンに[ThreeMirrorpartYiSang]1を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] (対象の[Sinking] ÷ 3)だけ[Combustion]を付与 (最大5, 小数点切り捨て)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Combustion]回数が1増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] [Combustion]が1回発動。[Combustion]回数が1減少"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010821,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "三千大世界",
+          "abName": "羅生蝶",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃\nコインが的中するたびに[Combustion]5を得て、最終コイン使用時に最終威力 +1 (最大3, コインごとに1回)\n[BeforeAttack] (最大共鳴数)だけ[Breath]を得る (最大7)\n- 当該共鳴が完全共鳴なら、(最大共鳴数) ÷ 3だけ追加で[Breath]回数が増加 (最大2, 小数点切り捨て)\n[BeforeAttack] 破壊されたコイン数1枚ごとに、基本威力 -1 (最大 -4)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]1を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]回数が1増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] このターンと次のターンに[ThreeMirrorpartYiSang]1を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]2を付与"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Combustion]回数が1増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnStartCoin] (全対象の[Combustion]威力と[Sinking]威力の合計)10につき、ダメージ量 +10% (最大40%)",
+                  "summary": "[OnStartCoin] (全対象の[Combustion]と[Sinking]の合計)10につき、<noparse>ダメージ量増加</noparse>"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] [Combustion]が1回発動。[Combustion]回数が1減少"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "三千大世界",
+          "abName": "羅生蝶",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃\nコインが的中するたびに[Combustion]<style=\"highlight\">4</style>を得て、最終コイン使用時に最終威力 +1 (最大3, コインごとに1回)\n[BeforeAttack] (最大共鳴数)だけ[Breath]を得る (最大7)\n- 当該共鳴が完全共鳴なら、(最大共鳴数) ÷ 3だけ追加で[Breath]回数が増加 (最大2, 小数点切り捨て)\n[BeforeAttack] 破壊されたコイン数1枚ごとに、基本威力 -1 (最大 -4)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]<style=\"highlight\">2</style>を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]回数が<style=\"highlight\">2</style>増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] このターンと次のターンに[ThreeMirrorpartYiSang]1を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]<style=\"highlight\">3</style>を付与"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Combustion]回数が1増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnStartCoin] (全対象の[Combustion]威力と[Sinking]威力の合計)10につき、ダメージ量 +10% (最大<style=\"highlight\">50%</style>)",
+                  "summary": "[OnStartCoin] (全対象の[Combustion]と[Sinking]の合計)10につき、<noparse>ダメージ量増加</noparse>"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] [Combustion]が1回発動。[Combustion]回数が1減少"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "三千大世界",
+          "abName": "羅生蝶",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃\nコインが的中するたびに[Combustion]<style=\"highlight\">3</style>を得て、最終コイン使用時に最終威力 +1 (最大3, コインごとに1回)\n[BeforeAttack] (最大共鳴数)だけ[Breath]を得る (最大7)\n- 当該共鳴が完全共鳴なら、(最大共鳴数) ÷ 3だけ追加で[Breath]回数が増加 (最大2, 小数点切り捨て)\n[BeforeAttack] 破壊されたコイン数1枚ごとに、基本威力 -1 (最大 -4)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]2を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]回数が<style=\"highlight\">3</style>増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] このターンと次のターンに[ThreeMirrorpartYiSang]1を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Combustion]<style=\"highlight\">4</style>を付与"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] [Combustion]回数が1増加"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnStartCoin] (全対象の[Combustion]威力と[Sinking]威力の合計)10につき、ダメージ量 +10% (最大<style=\"highlight\">60%</style>)",
+                  "summary": "[OnStartCoin] (全対象の[Combustion]と[Sinking]の合計)10につき、<noparse>ダメージ量増加</noparse>"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] [Combustion]が1回発動。[Combustion]回数が1減少"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010911,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "厳粛な哀悼",
+          "abName": "死んだ蝶たちの葬儀",
+          "desc": "[WideAreaRampage]\nこのスキルの効果でランダムに[SinkingWhite]を付与時、表面が出る確率で死んだ蝶を付与。付与しなかった場合、生きた蝶を付与。 (蝶1につき個別判定)\n\nロボトミーE.G.O::厳粛な哀悼 イサンなら、\n- [BeforeAttack] (憂鬱共鳴数 + 1)だけランダムに[BulletLament]を得る (最大7)\n- [EndSkill] [ReloadLament]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]1を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]2を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]2を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]3を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "保有した[BulletLament]を全て消耗"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]3を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Vibration]3を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](生きた蝶)2を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](死んだ蝶)2を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [VibrationExplosion]。[Vibration]回数が1減少"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "厳粛な哀悼",
+          "abName": "死んだ蝶たちの葬儀",
+          "desc": "[WideAreaRampage]\nこのスキルの効果でランダムに[SinkingWhite]を付与時、表面が出る確率で死んだ蝶を付与。付与しなかった場合、生きた蝶を付与。 (蝶1につき個別判定)\n\nロボトミーE.G.O::厳粛な哀悼 イサンなら、\n- [BeforeAttack] (憂鬱共鳴数 + 1)だけランダムに[BulletLament]を得る (最大7)\n- [EndSkill] [ReloadLament]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]1を付与<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]2を付与<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]2を付与<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]3を付与<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "保有した[BulletLament]を全て消耗<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]3を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Vibration]3を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](生きた蝶)2を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](死んだ蝶)2を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [VibrationExplosion]。[Vibration]回数が1減少<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] 対象の全[SinkingWhite]だけ憂鬱ダメージ</style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] このコインの最終ダメージ量の(このコインで消耗した[BulletLament] × 2)%だけ憂鬱ダメージ</style>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "厳粛な哀悼",
+          "abName": "死んだ蝶たちの葬儀",
+          "desc": "[WideAreaRampage]\nこのスキルの効果でランダムに[SinkingWhite]を付与時、表面が出る確率で死んだ蝶を付与。付与しなかった場合、生きた蝶を付与。 (蝶1につき個別判定)\n<style=\"highlight\">メインターゲットの[Sinking]と全[SinkingWhite]の合計4につきマッチ威力 +1 (最大4)</style>\n\nロボトミーE.G.O::厳粛な哀悼 イサンなら、\n- [BeforeAttack] (憂鬱共鳴数 + 1)だけランダムに[BulletLament]を得る (最大7)\n- [EndSkill] [ReloadLament]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]1を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] [Sinking]回数が1増加</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]2を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] [Sinking]回数が1増加</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]2を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] [Sinking]回数が1増加</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] ランダムに[SinkingWhite]3を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] [Sinking]回数が1増加</style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] このターンと次のターンに[AzureTakeDamageUp]1, [AzureResistDown]1を付与</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "保有した[BulletLament]を全て消耗<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]3を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Vibration]3を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](生きた蝶)2を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](死んだ蝶)2を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [VibrationExplosion]。[Vibration]回数が1減少<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] 対象の全[SinkingWhite]だけ憂鬱ダメージ<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] このコインの最終ダメージ量の(このコインで消耗した[BulletLament] × 2)%だけ憂鬱ダメージ<style=\"highlight\"></style>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010921,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "厳粛な哀悼",
+          "abName": "死んだ蝶たちの葬儀",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃\n[BeforeAttack] (最大共鳴数 ÷ 2)だけ攻撃加重値が増加 (最大2, 小数点切り捨て)\n[BeforeAttack] 破壊されたコイン数1枚につき基本威力 -2 (最大-6)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](生きた蝶)3を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](死んだ蝶)3を付与"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]5を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Vibration]5を付与"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [VibrationExplosion]。[Vibration]回数が1減少"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "厳粛な哀悼",
+          "abName": "死んだ蝶たちの葬儀",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃\n[BeforeAttack] (最大共鳴数 ÷ 2)だけ攻撃加重値が増加 (最大2, 小数点切り捨て)\n[BeforeAttack] 破壊されたコイン数1枚につき基本威力 -2 (最大-6)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](生きた蝶)3を付与<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](死んだ蝶)3を付与<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]5を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Vibration]5を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [VibrationExplosion]。[Vibration]回数が1減少<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] 対象の全[SinkingWhite]だけ憂鬱ダメージ</style>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "厳粛な哀悼",
+          "abName": "死んだ蝶たちの葬儀",
+          "desc": "[CantIdentify]\nランダムな対象を攻撃\n<style=\"highlight\">メインターゲットの[Sinking]と全[SinkingWhite]の合計4につきマッチ威力 +1 (最大4)</style>\n[BeforeAttack] (最大共鳴数 ÷ 2)だけ攻撃加重値が増加 (最大2, 小数点切り捨て)\n[BeforeAttack] 破壊されたコイン数1枚につき基本威力 -2 (最大-6)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](生きた蝶)3を付与<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [SinkingWhite](死んだ蝶)3を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] このターンと次のターンに[AzureTakeDamageUp]1, [AzureResistDown]1を付与</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Sinking]5を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [Vibration]5を付与<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] [VibrationExplosion]。[Vibration]回数が1減少<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] 対象の全[SinkingWhite]だけ憂鬱ダメージ<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] 対象の[Sinking]威力だけ憂鬱ダメージ</style>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

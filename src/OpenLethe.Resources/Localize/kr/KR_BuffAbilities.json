@@ -1,0 +1,510 @@
+{
+  "dataList": [
+    {
+      "id": "AtkDamageMultiplier",
+      "desc": "가하는 피해량 {0}%",
+      "variation": "가하는 {0} 피해량 {1}%"
+    },
+    {
+      "id": "AtkAndTakeAtkDamageMultiplier",
+      "desc": "가하는 / 받는 피해량 {0}%",
+      "variation": "{0} 속성 스킬로 가하는 / 받는 피해량 {1}%"
+    },
+    {
+      "id": "GiveBuffOnSucceedAttack",
+      "desc": "적중 시 {0} {1} 부여"
+    },
+    {
+      "id": "MaxHpMultiplierRail",
+      "desc": "최대 체력 {0}%"
+    },
+    {
+      "id": "SlotWeightAdder",
+      "desc": "슬롯 가중치 {0}"
+    },
+    {
+      "id": "AtkAdder",
+      "desc": "공격 레벨 {0}"
+    },
+    {
+      "id": "DefAdder",
+      "desc": "방어 레벨 {0}"
+    },
+    {
+      "id": "AtkAdderIfNotDamagedPrevTurn",
+      "desc": "한 턴 동안 체력 피해를 받지 않았다면 다음 턴에 공격 레벨 {0}\n(보호막 피해는 해당되지 않음)"
+    },
+    {
+      "id": "MaxSpeedAdderAsStack",
+      "desc": "속도 최댓값 {0}"
+    },
+    {
+      "id": "MaxSpeedAdder",
+      "desc": "속도 최댓값 {0}"
+    },
+    {
+      "id": "MinSpeedAdder",
+      "desc": "속도 최솟값 {0}"
+    },
+    {
+      "id": "TakeHpHealMultiplier",
+      "desc": "스킬, 코인 효과를 통한 체력 회복량 {0}%"
+    },
+    {
+      "id": "RecoverSelfHpOnSucceedAttackByDmg",
+      "desc": "가한 피해량의 {0}%만큼 체력 회복"
+    },
+    {
+      "id": "RailEnemyBuffF",
+      "desc": "수감자가 E.G.O 스킬을 사용할 때 소모하는 E.G.O 자원 수량 {0}"
+    },
+    {
+      "id": "MaxHpMultiplier",
+      "desc": "최대 체력 {0}%"
+    },
+    {
+      "id": "AtkAndDefAdder",
+      "desc": "공격 레벨 {0}, 방어 레벨 {0}"
+    },
+    {
+      "id": "GiveBuffOnRoundStartToAllAlly",
+      "desc": "턴 시작 시 아군 전체에게 {0} {1}, {0} 횟수 {2} 부여",
+      "variation": "턴 시작 시 아군 전체에게 {0} {1} 부여",
+      "variation2": "턴 시작 시 아군 전체에게 {0} 횟수 {1} 부여"
+    },
+    {
+      "id": "GiveBuffOnRoundStartToAllAllyExtra",
+      "desc": "턴 시작 시 아군 전체에게 {0} {1} 부여, {0} 상태인 아군에게는 {0} 횟수 {2} 추가로 부여"
+    },
+    {
+      "id": "GiveBuffOnRoundStartToAllEnemyExtra",
+      "desc": "턴 시작 시 적 전체에게 {0} {1} 부여, {0} 상태인 적에게는 {0} 횟수 {2} 추가로 부여"
+    },
+    {
+      "id": "LoseTurnOnRoundEnd",
+      "desc": "턴 종료 시 횟수 {0} 감소"
+    },
+    {
+      "id": "Vibration",
+      "desc": "{1}턴 동안 진동 폭발 스킬로 피격 시 {0}만큼 흐트러짐 손상"
+    },
+    {
+      "id": "DefAdderByStackCeilToInt",
+      "desc": "진동 위력 4 당 방어 레벨 1 감소"
+    },
+    {
+      "id": "Crack",
+      "desc": "흐트러짐 상태가 되었을 때, 자신의 진동 위력과 횟수의 합이 20 이상이면, 흐트러짐 단계 1 증가\n해당 효과로 최대 흐트러짐 단계를 초과할 수 없음"
+    },
+    {
+      "id": "VibrationEcho",
+      "desc": "{1} 턴 동안 진동 폭발 시 {0}만큼 나태 피해를 입음."
+    },
+    {
+      "id": "VibrationDistribution",
+      "desc": "턴 종료 시 (아군 전체의 진동 - 분배 횟수의 합 / (인원 수(진동 - 분배가 있는 아군 수))만큼 다음 턴에 공격 레벨 증가를 얻음 (최대 5)"
+    },
+    {
+      "id": "VibrationChain",
+      "desc": "대상의 진동 위력 10 당 합 위력 1 감소 (최대 3)"
+    },
+    {
+      "id": "VibrationContinue",
+      "desc": "스킬, 코인 효과로 진동 폭발 시 자신의 {0}% 확률로 진동 폭발 1회 추가 발동. (최대 50%)\n- 스킬, 코인 효과로 진동 폭발 시 자신의 {1}% 확률로 진동 폭발 1회 추가 발동. (최대 50%)"
+    },
+    {
+      "id": "TimeSuspend",
+      "desc": "효과 발동 시 {3}만큼 나태 피해를 입히고 진동 폭발 {0}회 발동"
+    },
+    {
+      "id": "TimeRentalTwoPersonality",
+      "name": "시간 대여",
+      "desc": "턴 종료시 다음 턴에 신속, 합 위력 증가, 취약 {1} 만큼 얻음\n횟수가 1이면, 턴 종료시 효과를 대신하여 다음 턴에 속박 {0} 얻음",
+      "summary": ""
+    },
+    {
+      "id": "VibrationChainPersonality",
+      "name": "진동 - 사슬",
+      "desc": "진동 위력 10 당 합 위력 1 감소 (최대 3)",
+      "summary": ""
+    },
+    {
+      "id": "DefSkillPowerResultAdder",
+      "desc": "수비 스킬 최종 위력 {0}"
+    },
+    {
+      "id": "TakeAtkDamageMultiplier",
+      "desc": "받는 피해량 {0}%"
+    },
+    {
+      "id": "ParryingResultAdder",
+      "desc": "합 위력 {0}"
+    },
+    {
+      "id": "SkillPowerResultAdder",
+      "desc": "최종 위력 {0}"
+    },
+    {
+      "id": "SkillPowerAdder",
+      "desc": "기본 위력 {0}"
+    },
+    {
+      "id": "PlusCoinScaleAdder",
+      "desc": "더하기 코인 위력 {0}"
+    },
+    {
+      "id": "MinusCoinScaleAdder",
+      "desc": "빼기 코인 위력 {0}"
+    },
+    {
+      "id": "DefaultMaxHpMultiplier",
+      "desc": "최대 체력 {0}%"
+    },
+    {
+      "id": "ResistAdderForLastBoss",
+      "desc": "3구간 마지막 보스의 {0} 내성 {1}"
+    },
+    {
+      "id": "MRR519P",
+      "desc": "아군이 사망할 때마다 적 전체에게 사망한 아군의 최대 체력의 20%만큼 고정 피해를 입힘"
+    },
+    {
+      "id": "HealSelfOnSucceedAttackByDmgRatio",
+      "desc": "공격 적중시 적의 체력이 감소했으면, 가한 피해량의 {0}% 만큼 체력 회복"
+    },
+    {
+      "id": "MRR524P",
+      "desc": "자신의 {0} 10 당 모든 스킬 피해량 +1% (최대 30%)"
+    },
+    {
+      "id": "MRR525",
+      "desc": "턴 종료시 {0} 횟수 {1} 감소"
+    },
+    {
+      "id": "CoinScaleAdderByAtkType",
+      "desc": "{0} 스킬의 더하기 코인 위력 +{1}, 빼기 코인 위력 -{1}"
+    },
+    {
+      "id": "GiveBuffOnReleaseStandBy",
+      "desc": "대기 해제 시 {0} {1} 얻음"
+    },
+    {
+      "id": "MRR532",
+      "desc": "각성 E.G.O 스킬 공격 종료시 보유한 E.G.O 자원 중 1개 이상인 무작위 속성 자원을 1개씩, 총 2개 소모"
+    },
+    {
+      "id": "LacerationStackAndTurnAdder",
+      "desc": "스킬, 코인 효과로 부여하는 {1} 위력, 횟수 {0}"
+    },
+    {
+      "id": "MRR536",
+      "desc": "스킬로 피격 시 마다 다음 턴에 {0} 1, {1} 1 중 무작위 1개를 얻음 (최대 4회)"
+    },
+    {
+      "id": "MRR540",
+      "desc": "{0}을 소모하는 스킬의 최종 위력 +1, 가하는 피해량 10% 증가"
+    },
+    {
+      "id": "MRR541",
+      "desc": "{1}이 가장 낮은 대상이 메인 타겟이면, 스킬 최종 위력 +{0}"
+    },
+    {
+      "id": "MRR518P",
+      "desc": "전투 시작 시 현재 편성 순서가 가장 빠른 아군 3명이 호흡 위력 10 얻음"
+    },
+    {
+      "id": "MRR520P",
+      "desc": "사망할 때, 적 전체에게 사망자 최대 체력의 {0}% 만큼 고정 피해를 입힘 (집중 전투인 경우 부위에 적용 됨)"
+    },
+    {
+      "id": "MRR517",
+      "desc": "스킬로 피격 시마다 다음 턴에 공격 레벨 증가 2 얻음. (최대 6)"
+    },
+    {
+      "id": "MRR5051",
+      "desc": "{0} 횟수를 8 이상 소모한 스킬 적중 시 이번 전투동안 대상의 {1} 내성 +0.1\n- 적 1명 당 1개의 스킬로 1회만 적용 가능\n- 이 효과로 적 1명의 내성은 최대 0.3 까지 증가시킬 수 있음"
+    },
+    {
+      "id": "MRR5052",
+      "desc": "{0} 횟수를 획득하거나 소모하는 스킬의 피해량 +(10 + 소모한 값 x 2)% (최대 50%)"
+    },
+    {
+      "id": "MRR506",
+      "desc": "턴 종료 시 각 키워드의 횟수가 2 이상이면, 모든 부위에 {0} 위력만큼 {1} 피해를 주고, {0} 횟수 1 감소, {2}을 1회 발동시키고, {3} 횟수 1 감소"
+    },
+    {
+      "id": "MRR507",
+      "desc": "{0} 위력이나 횟수를 부여하는 스킬의 최종 위력 +2"
+    },
+    {
+      "id": "MRR508",
+      "desc": "정신력이 없거나 0 미만인 적에게 입히는 피해량 + (대상의 {0} 위력)% (최대 45%)"
+    },
+    {
+      "id": "MRR509P",
+      "desc": "파괴되었거나, 흐트러짐 상태인 부위에 가하는 피해량 {0}%"
+    },
+    {
+      "id": "GiveBuffOnFirstRoundStartPerWave",
+      "desc": "웨이브 첫 턴 시작시 {0} 위력 {1} 얻고 {0} 횟수 {2} 증가"
+    },
+    {
+      "id": "GiveBuffOnBattleStartAR",
+      "desc": "{0} 공명을 발동하였다면 전투 시작 시, 모든 아군이 {1} 위력 {2} 얻고 {1} 횟수 {3} 증가"
+    },
+    {
+      "id": "MRR511PMaxSpeedAdder",
+      "desc": "편성 순서 1번인 아군의 속도 최댓값 +1"
+    },
+    {
+      "id": "MRR511PMinSpeedAdder",
+      "desc": "편성 순서 1번인 아군의 속도 최솟값 +1"
+    },
+    {
+      "id": "MRR511PMinSpeedChangeSkill",
+      "desc": "편성 순서 1번인 아군의 1스킬 1개 감소. 3스킬 1개 증가"
+    },
+    {
+      "id": "MRR512",
+      "desc": "7번째 편성 순서부터 대기 해제된 턴 시작시 정신력 {0} 회복, 이번 전투동안 {1} {2}를 얻고, 자신의 스킬 1, 2, 3 속성의 E.G.O 자원을 {3}개씩 얻음"
+    },
+    {
+      "id": "AddSinStockOnKillTargetByUsedSkillAttribute",
+      "desc": "공격, 반격 스킬 종료 시 적이 사망한 경우, 사용한 스킬 속성의 E.G.O 자원 +{0} (스킬당 1회, E.G.O 스킬 포함)"
+    },
+    {
+      "id": "MRR514",
+      "desc": "새로운 적이 증원되면, 전투 시작 시 해당 적에게 출혈 5, 출혈 횟수 3 부여. 아군에 <혈귀>가 있다면, 위 조건 만족 시 모든 적의 출혈을 1회 발동시키고, 모든 적의 출혈 횟수 1 감소"
+    },
+    {
+      "id": "EnemyLevelTextOnly",
+      "desc": "적 레벨 {0}"
+    },
+    {
+      "id": "MRR501",
+      "desc": "적에게 스킬, 코인 효과로 부여하는 화상, 출혈, 진동, 파열, 침잠 위력 {0}"
+    },
+    {
+      "id": "TakeBuffTurnAdder",
+      "desc": "아군이 스킬, 코인 효과로 얻는 {0} 횟수 {1} "
+    },
+    {
+      "id": "MRR503",
+      "desc": "턴 종료 시 정신력이 가장 낮은 아군 {0}명 정신력 {1} 회복 (패닉, 침식 상태인 아군 제외)"
+    },
+    {
+      "id": "CriticalDamageBoostWithBuffUse",
+      "desc": "크리티컬 발동 시 보유한 {0} 위력이 {1}을 초과했으면, 초과한 {0} 위력을 최대 {1} 소모하여 크리티컬 피해량 + (소모한 값 x {2})% (최대 {3}%)"
+    },
+    {
+      "id": "GainSinStockOnDieByDefaultSkill",
+      "desc": "사망 시 보유한 기본 공격 스킬의 속성과 동일한 E.G.O 자원을 등급만큼 얻음"
+    },
+    {
+      "id": "MRR547",
+      "desc": "턴 시작 시 적의 스킬 최종 위력 +1 ~ 3"
+    },
+    {
+      "id": "MRR544",
+      "desc": "턴 시작 시 모든 아군의 스킬 최종 위력 +1 ~ 3"
+    },
+    {
+      "id": "MRR551",
+      "desc": "턴 시작 시 체력이 최대라면 {0} 위력 {1} 얻음, 횟수 {2} 증가 (적 1명당 부위별 전투당 1회 발동)"
+    },
+    {
+      "id": "MRR552",
+      "desc": "사망 시, 다음 턴에 현재 체력이 가장 낮은 아군 1명이 {0} {1} 얻음"
+    },
+    {
+      "id": "MRR553",
+      "desc": "E.G.O 스킬의 피해량 {0}%"
+    },
+    {
+      "id": "MRR521",
+      "desc": "첫 번째 흐트러짐 선 제거"
+    },
+    {
+      "id": "MRR557",
+      "desc": "크리티컬 피해량 + (10 + 보유한 {0} 위력과 횟수의 합)% (최대 50%)"
+    },
+    {
+      "id": "LacerationStackAndTurnAdderIfNotZero",
+      "desc": "스킬, 코인 효과로 부여하는 {1} 위력, 횟수 {0}"
+    },
+    {
+      "id": "AttackDmgMultiplierSpecificType",
+      "desc": "{0} 속성 스킬의 피해량 +30%"
+    }  ,  
+    {
+      "id": "MRR565MaxSpeedAdder",
+      "desc": "속도 최댓값 {0}"
+    },
+    {
+      "id": "MRR565MinSpeedAdder",
+      "desc": "속도 최솟값 {0}"
+    },
+    {
+      "id": "DefaultLevelAdder",
+      "desc": "기본 공격 레벨 {0}, 기본 방어 레벨 {0}, 기본 유닛 방어 레벨 {0}"
+    },
+    {
+      "id": "VibrationIgnition",
+      "desc": "{1} 턴 동안 진동 폭발 시 ({0}+화상 위력)/2 만큼 분노 피해를 입고 화상 횟수 1 감소"
+    },
+    {
+      "id": "Heishou10212",
+      "desc": "흑수 - 묘 필두 파우스트 : 받는 스킬 피해 -5%"
+    },
+    {
+      "id": "Heishou10411",
+      "desc": "흑수 - 묘 료슈 : 자신의 속도가 대상보다 빠르면, 피해량 +5%"
+    },
+    {
+      "id": "Heishou11112",
+      "desc": "흑수 - 묘 오티스 : 일방 공격 적중 시, 파열 횟수 1 증가 (턴 당 1회)"
+    },
+    {
+      "id": "Heishou10912",
+      "desc": "흑수 - 사 로쟈 : 크리티컬 적중 시, 파열 1 부여 (턴 당 3회)"
+    },
+    {
+      "id": "Heishou11212",
+      "desc": "흑수 - 사 그레고르 : 파열 피해를 가하면, 호흡 횟수 1 얻음 (턴 당 1회)"
+    },
+    {
+      "id": "Heishou11014",
+      "desc": "흑수 - 유 싱클레어 : 스킬로 파열 부여 시, 화상 1 부여 (턴 당 3회)"
+    },
+    {
+      "id": "Heishou10114",
+      "desc": "흑수 - 오 필두 이상 : 기본 스킬의 마지막 코인 적중 시, 진동 폭발 1회 (턴 당 1회)"
+    },
+    {
+      "id": "GiveMpDmgAsValueOnRESelf",
+      "desc": "턴 종료 시, 아군 매 턴 정신력 {0} 감소"
+    },
+    {
+      "id": "GiveHpDmgAsValueAndIncreaseOnRESelf",
+      "desc": "턴 종료 시 아군이 체력 고정 {0} 피해를 받음. 턴 마다 피해량 {1} 증가(최대 {2})"
+    },
+    {
+      "id": "CantRecoverMpOverValue",
+      "desc": "정신력 {0}을 초과하여 회복 불가"
+    },
+    {
+      "id": "MD6LimitTest105",
+      "desc": "E.G.O 소모 자원 증가 {0}배로 변경됨"
+    },
+    {
+      "id": "RemoveFirstBreakSection",
+      "desc": "흐트러짐 구간 중 첫번째 흐트러짐 구간 삭제"
+    },
+    {
+      "id": "MinSpeedAdderIncludeFirstTurn",
+      "desc": "속도 최솟값 {0}"
+    },
+    {
+      "id": "MaxSpeedAdderIncludeFirstTurn",
+      "desc": "속도 최댓값 {0}"
+    },
+    {
+      "id": "DefaultMaxHpMultiplierBossRoomOnly",
+      "desc": "보스 전투 최대 체력 {0}%"
+    },
+    {
+      "id": "MaxHpReducerMirrorDungeonPersonality",
+      "desc": "최대 체력 {0}%"
+    },
+    {
+      "id": "VibrationBleeding",
+      "desc": "{1} 턴 동안 진동 폭발 시 ({0}+출혈 위력)/2 만큼 색욕 속성 피해를 입고 출혈 횟수 1 감소"
+    },
+    {
+      "id": "Heishou10714",
+      "desc": "흑수 - 유 필두 히스클리프 : 기본 스킬로 적에게 가한 탐식 피해의 5%만큼 분노 피해"
+    },
+    {
+      "id": "Heishou10313",
+      "desc": "흑수 - 미 돈키호테 : 스킬로 파열 부여 시, 침잠 1 부여 (턴 당 3회)"
+    },
+    {
+      "id": "MD7LimitGiveBuffAllyDie",
+      "desc": "아군 사망 시 다음 턴에 {0} {1}, {0} 횟수 {2} 획득 (턴 당 {3}회)",
+      "variation": "아군 사망 시 다음 턴에 {0} {1} 획득 (턴 당 {2}회)",
+      "variation2": "아군 사망 시 다음 턴에 {0} 횟수 {1} 획득 (턴 당 {2}회)"
+    },
+    {
+      "id": "MD7LimitGiveBuffAllyDieAlt",
+      "desc": "아군 사망 시 다음 턴에 {0} {1}, {0} 횟수 {2} 획득 (턴 당 {3}회)",
+      "variation": "아군 사망 시 다음 턴에 {0} {1} 획득 (턴 당 {2}회)",
+      "variation2": "아군 사망 시 다음 턴에 {0} 횟수 {1} 획득 (턴 당 {2}회)"
+    },
+    {
+      "id": "RecoverSelfMpOnRoundStart",
+      "desc": "턴 시작 시 정신력 {0} 회복"
+    },
+    {
+      "id": "MD7LimitGiveShield",
+      "desc": "보호막 {0} 획득"
+    },
+    {
+      "id": "MD7LimitSinBuffGiveBooster",
+      "desc": "스킬, 코인의 화상, 출혈, 진동, 파열, 침잠 부여량 {0} 배로 증가"
+    },
+    {
+      "id": "GiveRandomNegativeSinbuffOnRoundStart",
+      "desc": "턴 시작 시 화상, 출혈, 진동, 파열, 침잠 중 무작위로 {0} 획득"
+    },
+    {
+      "id": "MD7LimitMpAdjuster",
+      "desc": "턴 시작 시 정신력 {0} 회복\n- 모든 스킬이 빼기 코인이면 대신 정신력 {1} 감소"
+    },
+    {
+      "id": "SpiderHouse10115",
+      "desc": "거미집 검지 아비 이상 : 기본 공격 스킬 사용시 마지막 코인이 파괴 불가 코인으로 변경됨. 기본 공격 스킬의 파괴 불가 코인의 피해량 +10%"
+    },
+    {
+      "id": "SpiderHouse10314",
+      "desc": "검지 대행자 - 개화 E.G.O:: 대행 돈키호테 : 기본 공격 스킬 사용시 호흡 2 얻음. 기본 공격 스킬 크리티컬 적중시 침잠 1 부여"
+    },
+    {
+      "id": "SpiderHouse10814",
+      "desc": "거미집 중지 제자 이스마엘 : 방어 레벨 +2, 기본 스킬로 부여하는 화상 위력 +1"
+    },
+    {
+      "id": "SpiderHouse10614",
+      "desc": "거미집 약지 아비 홍루 : 신체가 울리는 선율 얻음"
+    },
+    {
+      "id": "SpiderHouse10215",
+      "desc": "거미집 약지 제자 파우스트 : 매 턴 시작시 최대 체력의 10%만큼 보호막 얻음"
+    },
+    {
+      "id": "SpiderHouse11015",
+      "desc": "거미집 소지 제자 싱클레어 : 매 턴 시작시 호흡 횟수 1, 크리티컬 피해량 증가 1 얻음"
+    },
+    {
+      "id": "SojiRyoshuEntangle",
+      "desc": "- 최댓값 : 4\n- 사망한 아군 거미집 아비 인격 1명당 수치 1 증가\n- 사망한 아군 거미집 인격에 따라 고유 효과 얻음\n- 수치당 받는 피해 -7.5%"
+    },
+    {
+      "id": "Railway6PowderBuff",
+      "desc": "- {0} 내성 +{2}, {1} 내성 +{2}",
+      "variation": "- {0} 내성 +{1}",
+      "variation2": "- 적용 효과 없음"
+    },
+    {
+      "id": "SpiderHouse11115",
+      "desc": "거미집 중지 아비 오티스 : 받는 피해 -20%. 피격 시 공격 레벨 증가 1 얻음 (턴당 2회)"
+    },
+    {
+      "id": "SpiderHouse10916",
+      "desc": "거미집 엄지 아비 로쟈 : 수비 스킬 코인 위력 +1, 보호막을 보유한 대상에게 가하는 기본 공격 스킬 피해량 +10%"
+    },
+    {
+      "id": "SpiderHouse10716",
+      "desc": "거미집 엄지 제자 히스클리프 : 기본 스킬로 합 승리시 진동 2를 부여하고 진동 폭발. 대상의 진동 횟수 1 감소 (턴당 2회)"
+    }
+  ]
+}

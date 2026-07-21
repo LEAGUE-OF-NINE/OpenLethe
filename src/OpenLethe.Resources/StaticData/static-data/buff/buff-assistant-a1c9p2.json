@@ -1,0 +1,248 @@
+{
+  "list": [
+    {
+      "id": "YellowHarpoon",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 4,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 8,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "RefreshSpeedOnRoundStart"
+        },
+        {
+          "ability": "YellowHarpoonOnRE",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 3,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "YellowHarpoonSin",
+      "iconId": "Sin_Default",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": 3
+        },
+        {
+          "ability": "YellowHarpoonSinRecoverMp",
+          "value": 3
+        },
+        {
+          "ability": "SkillPowerResultAdderViaMpDivideByValue",
+          "value": 10
+        },
+        {
+          "ability": "ShinEffect"
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "BeeSting",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkResistAdderByStack",
+          "atk": "SLASH",
+          "value": 0.2
+        },
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "AMBER",
+          "value": 0.2
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BeeStingOnTakeAtkDmg",
+          "buffData": {
+            "buffKeyword": "HornetPoison",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BeeStingOnDestroy",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 0,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "ArtifactBeeSting",
+      "subIdList": [ "BeeSting" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkResistAdderByStack",
+          "atk": "SLASH",
+          "value": 1
+        },
+        {
+          "ability": "AttributeResistAdderByStack",
+          "attribute": "AMBER",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 4,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BeeStingOnTakeAtkDmg",
+          "buffData": {
+            "buffKeyword": "HornetPoison",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BeeStingOnDestroy",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 0,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "HornetPoison",
+      "buffClass": "CountableBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "HornetPoisonOnTakeAtkDmg",
+          "value": 1
+        },
+        {
+          "ability": "HornetPoisonVibration",
+          "buffData": {
+            "buffKeyword": "HornetPoison",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "CriticalDmgUpVespa",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "CriticalAtkDamageMultiplierByStack",
+          "value": 0.1
+        }
+      ]
+    }    
+  ]
+}

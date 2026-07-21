@@ -1,0 +1,789 @@
+{
+  "list": [
+    {
+      "id": "ThornNoose",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 3,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "ThornNoose"
+        }
+      ]
+    },
+    {
+      "id": "TinyCarmilla",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffAfterGettingBuff",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TinyCarmillaBoom"
+        }
+      ]
+    },
+    {
+      "id": "OneDropNutrition",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "list": []
+    },
+    {
+      "id": "MentalIncreaseDown",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "MentalIncreaseDown"
+        }
+      ]
+    },
+    {
+      "id": "WornHeart",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "WornHeart"
+        }
+      ]
+    },
+    {
+      "id": "BloodyHand_2nd",
+      "subIdList": [
+        "BloodyHand"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BloodyHandSecondEffect"
+        }
+      ]
+    },
+    {
+      "id": "BloodyHand_3rd",
+      "subIdList": [
+        "BloodyHand"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Target",
+            "stack": 2,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BloodyHandThirdEffect"
+        }
+      ]
+    },
+    {
+      "id": "StarvingPriestTwo",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -22
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "AffectionTeddy",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 9,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "OpponentParryingResultAdderByStack",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "FaintMemory",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "FaintMemoryDefenseUp",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnLoseDuel",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "CursePackage",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Reduction",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Disarming",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackDown",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloodArmor",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 30,
+      "list": []
+    },
+    {
+      "id": "BloodArmor_2nd",
+      "iconId": "BloodArmor",
+      "subIdList": [
+        "BloodArmor"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodArmorAtkAndDefAdder_1",
+          "value": 6
+        },
+        {
+          "ability": "BloodArmorSpeedAdder",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloodArmor_3rd",
+      "iconId": "BloodArmor",
+      "subIdList": [
+        "BloodArmor"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodArmorAtkAndDefAdder_2",
+          "value": 6
+        },
+        {
+          "ability": "BloodArmorSpeedAdder",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "Dreamy",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -34
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "SwirlingBlood",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SwirlingBloodAvenger",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "SwirlingBloodShield"
+        }
+      ]
+    },
+    {
+      "id": "FerrisWheel",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 7,
+      "canBeDespelled": false,
+      "list": []
+    },
+    {
+      "id": "StarvingDonqui",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -10
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "ConfinementOfGoldenBranch",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -30
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "RegainedStrength",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 10,
+      "list": []
+    },
+    {
+      "id": "RegainedStrength_2nd",
+      "subIdList": [
+        "RegainedStrength"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": -1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": -1
+          }
+        },
+        {
+          "ability": "ParryingResultAdderWhenUsingBuff",
+          "buffData": {
+            "buffKeyword": "RegainedStrength",
+            "value": 1
+          }
+        },
+        {
+          "ability": "BurstAndLacerationStackAndTurnAdderIfUseBuffKeyword",
+          "buffData": {
+            "buffKeyword": "RegainedStrength",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "RegainedStrength_3rd",
+      "subIdList": [
+        "RegainedStrength"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": -1,
+            "value": 2
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "DefenseUp",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": -1
+          }
+        },
+        {
+          "ability": "CoinScaleAdderWhenUsingBuff",
+          "buffData": {
+            "buffKeyword": "RegainedStrength",
+            "value": 1
+          }
+        },
+        {
+          "ability": "BurstAndLacerationStackAndTurnAdderIfUseBuffKeyword",
+          "buffData": {
+            "buffKeyword": "RegainedStrength",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "Precarious",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "InstantDeathOnAttackerHasBuffAbnormalityFirst",
+          "buffData": {
+            "buffKeyword": "StarvingDonqui"
+          }
+        }
+      ]
+    },
+    {
+      "id": "Penetration",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 2,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Penetration"
+        }
+      ]
+    },
+    {
+      "id": "DecreamentalDefense",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DecreamentalDefense",
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 15
+          }
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "UnfinishedDream",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "RighteousFeeling"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "UnfinishedDreamTwo",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "UnfinishedDreamTwo"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "FragmentOfHope",
+      "iconId": "RecklessDuel",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": 1
+        },
+        {
+          "ability": "FragmentOfHope"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "FragmentOfHopeTwo",
+      "iconId": "RecklessDuel",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": 4
+        },
+        {
+          "ability": "FragmentOfHopeTwo",
+          "value": 30
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "RighteousFeelingSancho",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeBuffStackAddLimitedCountInRound",
+          "buffData": {
+            "buffKeyword": "BloodArmorPersonalityFirst",
+            "stack": 1
+          },
+          "value": 5
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "RighteousFeeling"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "UnfinishedDreamSancho",
+      "subIdList": [ "UnfinishedDream" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeBuffStackAddLimitedCountInRound",
+          "buffData": {
+            "buffKeyword": "BloodArmorPersonalityFirst",
+            "stack": 2
+          },
+          "value": 5
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "RighteousFeeling"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "FragmentOfHopeSancho",
+      "subIdList": [ "FragmentOfHope" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": 1
+        },
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "FragmentOfHope"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "FragmentOfHopeTwoSancho",
+      "iconId": "FragmentOfHopeSancho",
+      "subIdList": [ "FragmentOfHopeTwo" ],
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": 4
+        },
+        {
+          "ability": "AttackDmgMultiplier",
+          "value": 0.2
+        },
+        {
+          "ability": "FragmentOfHopeTwo",
+          "value": 30
+        },
+        {
+          "ability": "AdditionalDmg",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": []
+    }
+  ]
+}

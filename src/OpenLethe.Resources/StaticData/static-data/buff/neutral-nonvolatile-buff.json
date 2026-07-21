@@ -1,0 +1,38 @@
+{
+  "list": [
+    {
+      "id": "WrappedCurseTag",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.01
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByStackIfHasStack_WrappedCurseTag9",
+          "buffData": {
+            "buffKeyword": "Reduction",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "Meursault_Last_Remodeling",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "MeursaultLastRemodeling"
+        }
+      ]
+    }
+  ]
+}

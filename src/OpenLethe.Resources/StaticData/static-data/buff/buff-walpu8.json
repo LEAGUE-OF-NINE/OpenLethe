@@ -1,0 +1,232 @@
+{
+  "list": [
+    {
+      "id": "BestWelfareTeamCaptain",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "TrainTeamCaptain"
+        },
+        {
+          "ability": "GiveNegativeSinBuffStackAdderForCaptain",
+          "value": 2
+        },
+        {
+          "ability": "BestWelfareTeamCaptainDmgMul",
+          "value": 0.3
+        },
+        {
+          "ability": "BestWelfareTeamCaptainHealMp",
+          "value": 10
+        },
+        {
+          "ability": "WalpuSinStockAdderOnKillTarget"
+        },
+        {
+          "ability": "BestWelfareTeamCaptainOnKillTarget"
+        }
+      ]
+    },
+    {
+      "id": "RunHallway",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnZero": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "LoseStackOnBattleStart",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "NextHallway",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "list": []
+    },
+    {
+      "id": "PumpkinJelly",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "PumpkinJellyHeal_60_30"
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "TensionUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "CRIMSON",
+          "value": 0.05
+        },
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "attribute": "SCARLET",
+          "value": 0.05
+        },
+        {
+          "ability": "TakeBSDmgOnTakeAttackDmgByStack",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "QueenBeepheromone",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "TauntAllSlot",
+          "value": 1000
+        },
+        {
+          "ability": "GiveBuffOnTakeAttackDamage",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "QueenBeeMark",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierViaBuffCheckDevideByStack",
+          "value": 0.01,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "buffOwner": "Self",
+            "stack": 3,
+            "turn": 0,
+            "limit": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "PinkPetals",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStackWithMax_15",
+          "attribute": "AZURE",
+          "value": 0.01
+        },
+        {
+          "ability": "GiveBuffOnTakeAttackDamagePerStackWithLimitCount_2",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TakeDmgOnVEPinkPetals",
+          "value": 5,
+          "attribute": "AZURE",
+          "buffData": {
+            "buffKeyword": "Sinking"
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "DesperadoBuff",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "DefaultAtkSkillParryingResultAdderDevideByStack",
+          "buffData": {
+            "stack": 1,
+            "value": 1
+          }
+        },
+        {
+          "ability": "DefaultAtkSkillPowerAdderDevideByStack",
+          "buffData": {
+            "stack": 1,
+            "value": 1
+          }
+        },
+        {
+          "ability": "DefaultAtkSkillPlusCoinScaleAdderIfSatisfied",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "DesperadoBuff",
+            "buffOwner": "Self",
+            "stack": 2,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "DefaultSkillMinusCoinScaleAdderIfSatisfied",
+          "value": -1,
+          "buffData": {
+            "buffKeyword": "DesperadoBuff",
+            "buffOwner": "Self",
+            "stack": 2,
+            "turn": 0
+          }
+        }
+      ]
+    }
+  ]
+}

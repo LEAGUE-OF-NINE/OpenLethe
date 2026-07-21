@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
+using OpenLethe.Server.Handlers;
 using OpenLethe.Server.Login;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,6 +40,7 @@ app.MapGet("/health", () => "ok");
 app.MapAuth();
 app.MapSignInAsSteam();
 app.MapStaticPackets();
+app.MapLoadUserDataAll();
 
 // EnterBossRaid is genuinely stateful (its Rust handler touches UserRepository,
 // so it's correctly excluded from StaticRoutes.cs) but Task 4's regression

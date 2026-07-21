@@ -1,0 +1,91 @@
+{
+  "list": [
+    {
+      "id": "Breath",
+      "buffClass": "SinBuff",
+      "attributeType": "INDIGO",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Breath",
+          "value": 0.05
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "BREATH" ]
+    },
+    {
+      "id": "Charge",
+      "buffClass": "ChargeSinBuff",
+      "attributeType": "VIOLET",
+      "buffType": "Positive",
+      "maxTurn": 20,
+      "canBeDespelled": true,
+      "destroyableOnZeroTurn": false,
+      "destroyableOnZeroStack": false,
+      "list": [
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "CHARGE" ]
+    },
+    {
+      "id": "VibrationDistribution",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration",
+          "value": 1
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "VibrationDistribution",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    },
+    {
+      "id": "VibrationSpring",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 2
+        },
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "VibrationSpring",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "buffOwner": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    }
+  ]
+}

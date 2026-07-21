@@ -1,0 +1,335 @@
+{
+  "list": [
+    {
+      "id": "BearClawWound",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 9,
+      "list": [
+        {
+          "ability": "GiveBuffOnTakeAttackDamagePerStackWithRoundLimitAndSkillLimit_1_1",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnREBearClawWound",
+          "value": 4,
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "BearClawWoundEffect"
+        }
+      ],
+      "categoryKeywordList": [ "FAUVISM_CLAW_WOUND" ]
+    },
+    {
+      "id": "EagleClawWound",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 9,
+      "list": [
+        {
+          "ability": "GiveBuffOnTakeAttackDamagePerStackWithRoundLimitAndSkillLimit_1_1",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TakeMpDmgSelfByValueCheckBuffOnRoundEnd",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "EagleClawWound",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "EagleClawWoundEffect"
+        }
+      ],
+      "categoryKeywordList": [ "FAUVISM_CLAW_WOUND" ]
+    },
+    {
+      "id": "BoldBrushstrokes",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "BoldBrushstrokes",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "IntenseColors",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "IntenseColorsTakeAttackDmgMultiplierFromRingFinger",
+          "value": 0.05,
+          "buffData": {
+            "buffKeyword": "IntenseColors",
+            "target": "Self",
+            "value": 0.1
+          }
+        },
+        {
+          "ability": "IntenseColorsGiveBuffsOnBattleStart",
+          "value": 1
+        },
+        {
+          "ability": "IntenseColorsLoseBuffOnBattleEnd",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "FaubismWolfMask",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "FaubismWolfMaskGiveAdditionalBuffStack",
+          "value": 1
+        },
+        {
+          "ability": "FaubismWolfMaskGiveBuffOnSucceedAttackIfHasNotBuff",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 0,
+            "turn": 2,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "FaubismWolfMaskGiveBuffOnTakeAttackDmgIfHasNotBuff",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 0,
+            "turn": 2,
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "FaubismWolfMaskBlooded",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FaubismWolfMaskBloodedAttackDmgMultiplierAndConvertToSuperCoin",
+          "value": 0.2
+        },
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "FaubismWolfMaskBloodedGiveAdditionalBuffStackAndTurn",
+          "value": 1
+        },
+        {
+          "ability": "FaubismWolfMaskGiveBuffOnSucceedAttackIfHasNotBuff",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target",
+            "stack": 0,
+            "turn": 2,
+            "limit": 3
+          }
+        },
+        {
+          "ability": "FaubismWolfMaskGiveBuffOnTakeAttackDmgIfHasNotBuff",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Target",
+            "stack": 0,
+            "turn": 2,
+            "limit": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "PanicChangeLock",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+
+      ]
+    },
+
+    {
+      "id": "IndexPrescriptEnemy_0",
+      "iconId": "IndexPrescript_Base",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescriptEnemy_1",
+      "iconId": "IndexPrescript_Base",
+      "subIdList": [ "IndexPrescriptEnemy_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescriptEnemy_2",
+      "iconId": "IndexPrescript_Base",
+      "subIdList": [ "IndexPrescriptEnemy_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "IndexPrescriptEnemy_3",
+      "iconId": "IndexPrescript_Base",
+      "subIdList": [ "IndexPrescriptEnemy_0" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "ResentmentSpiderDaughterTwo",
+      "iconId": "ResentmentSpider",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "ResentmentSpiderAssist"
+        }
+      ],
+      "subIdList": [
+        "ResentmentSpiderDaughter"
+      ]
+    },
+    {
+      "id": "ReinforcedTattooSpiderDaughterTwo",
+      "iconId": "ReinforcedTattooSpider",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 3,
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "atk": "HIT",
+          "value": 0.1
+        },
+        {
+          "ability": "AtkDamageMultiplier",
+          "attribute": "VIOLET",
+          "value": 0.1
+        }
+      ],
+      "subIdList": [
+        "ReinforcedTattooSpiderDaughter"
+      ]
+    },
+    {
+      "id": "HeatingWireOnSpiderTwo",
+      "iconId": "HeatingWireOnSpider",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+
+      ],
+      "subIdList": [
+        "HeatingWireOnSpider"
+      ]
+    }
+  ]
+}

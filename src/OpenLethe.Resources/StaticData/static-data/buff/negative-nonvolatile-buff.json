@@ -1,0 +1,71 @@
+{
+  "list": [
+    {
+      "id": "Curse",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Curse"
+        }
+      ]
+    },
+    {
+      "id": "EmittedCurrent",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "EmittedCurrent"
+        }
+      ]
+    },
+    {
+      "id": "CollapseAmpoule",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "TakeHpDamageOnRoundEndByMaxHp",
+          "value": 0.02
+        },
+        {
+          "ability": "LoseStackOnRoundEndByRatio",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "RedApricotBlossom",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "TakeCriticalChanceAdder",
+          "value": 0.1
+        },
+        {
+          "ability": "TakeCriticalAtkDamageMultiplierByStack",
+          "value": 0.03
+        },
+        {
+          "ability": "RedApricotBlossom",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "buffOwner": "Self",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0
+          }
+        }
+      ],
+      "categoryKeywordList": [ "LACERATION" ]
+    }
+  ]
+}

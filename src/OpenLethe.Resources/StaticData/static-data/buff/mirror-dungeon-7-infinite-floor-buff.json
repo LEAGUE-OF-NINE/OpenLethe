@@ -1,0 +1,77 @@
+{
+  "list": [
+    {
+      "id": "MD7LimitBaseN",
+      "useTrigger": false,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "buffClass": "VariableBuff",
+      "buffType": "Positive",
+      "list": [
+        
+      ]
+    },
+    {
+      "id": "MD7Limit101",
+      "buffClass": "VariableBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "MD7LimitGiveBuffAllyDieAlt",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "MD7Limit111",
+      "buffClass": "VariableBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "MD7LimitMpAdjuster_plus20_minus15"
+        }
+      ]
+    },
+    {
+      "id": "MD7Limit121",
+      "buffClass": "VariableBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "MD7LimitGiveShield",
+          "value": 3000
+        }
+      ]
+    },
+    {
+      "id": "MD7Limit131",
+      "buffClass": "VariableBuff",
+      "buffType": "Positive",
+      "list": [
+        {
+          "ability": "MD7LimitSinBuffGiveBooster",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "MD7Limit141",
+      "buffClass": "VariableBuff",
+      "buffType": "Negative",
+      "list": [
+        {
+          "ability": "GiveRandomNegativeSinbuffOnRoundStart",
+          "value": 5
+        }
+      ]
+    }
+  ]
+}

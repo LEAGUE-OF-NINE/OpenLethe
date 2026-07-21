@@ -1,0 +1,152 @@
+{
+  "list": [
+    {
+      "id": 10003,
+      "startDate": "2026-06-18T01:00:00.000Z",
+      "startDateForUI": "2026-06-18T03:00:00.000Z",
+      "endDate": "2026-07-09T01:00:00.000Z",
+      "gracePeriod": "2026-07-16T01:00:00.000Z",
+      "openChapterData": {
+        "unlockCode": 9127
+      },
+      "maxPartyCount": 3,
+      "danteAbilityCategory": 3,
+      "difficulties": [
+        {
+          "difficulty": "NORMAL",
+          "stageId": 912720,
+          "unlockCode": 0,
+          "rewards": [
+            { "type": "UNLOCK_CODE", "id": 912720, "num": 1 }
+          ],
+          "missions": [
+            { "category": "BOSS_RAID_03_NORMAL", "missionIds": [301003001, 301003002, 301003003, 301003004] }
+          ],
+          "uiConfigs": {
+            "mainUnitId": 5012,
+            "isHideEnemySprite": true,
+            "phases": [
+              {
+                "phaseIndex": 0,
+                "waveIndex": 0,
+                "ignoreHide": true
+              },
+              {
+                "phaseIndex": 1,
+                "waveIndex": 0
+              }
+            ]
+          }
+        },
+        {
+          "difficulty": "HARD",
+          "stageId": 912721,
+          "unlockCode": 912720,
+          "rewards": [
+            { "type": "UNLOCK_CODE", "id": 912721, "num": 1 }
+          ],
+          "missions": [
+            { "category": "BOSS_RAID_03_HARD", "missionIds": [301003005, 301003006, 301003007, 301003008] }
+          ],
+          "uiConfigs": {
+            "mainUnitId": 5012,
+            "isHideEnemySprite": true,
+            "phases": [
+              {
+                "phaseIndex": 0,
+                "waveIndex": 0,
+                "ignoreHide": true
+              },
+              {
+                "phaseIndex": 1,
+                "waveIndex": 0
+              }
+            ]
+          }
+        }
+      ],
+      "buffList": [
+        {
+          "faction": "PLAYER",
+          "buffId": "FavorBuff5012AllyOne",
+          "isPart": false,
+          "buffWave": 0,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 0,
+          "targetLevel": -1,
+          "uiConfigs" : {
+            "uiAlternativeBuffId": "FavorBuff5012AllyOneForUI"
+          }
+        },
+        {
+          "faction": "ENEMY",
+          "buffId": "FavorBuff5012EnemyOne",
+          "isPart": true,
+          "buffWave": 0,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 0,
+          "targetLevel": -1,
+          "uiConfigs" : {
+            "uiAlternativeBuffId": "FavorBuff5012AllyOneForUI"
+          }
+        },
+        {
+          "faction": "PLAYER",
+          "buffId": "FavorBuff5012AllyTwo",
+          "isPart": false,
+          "buffWave": 1,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 0,
+          "targetLevel": -1,
+          "uiConfigs" : {
+            "uiAlternativeBuffId": "FavorBuff5012AllyTwoForUI"
+          }
+        },
+        {
+          "faction": "ENEMY",
+          "buffId": "FavorBuff5012HardOne",
+          "isPart": false,
+          "buffWave": 0,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 1,
+          "targetLevel": 2,
+          "uiConfigs" : {
+            "notShowPhase": true,
+            "uiAlternativeBuffId": "FavorBuff5012HardTwoForUI"
+          }
+        },
+        {
+          "faction": "ENEMY",
+          "buffId": "FavorBuff5012HardTwo",
+          "isPart": false,
+          "buffWave": 1,
+          "stack": 1,
+          "turn": 0,
+          "buffType": 1,
+          "targetLevel": 2,
+          "uiConfigs" : {
+            "notShowPhase": true,
+            "uiAlternativeBuffId": "FavorBuff5012HardTwoForUI"
+          }
+        }
+      ],
+      "shopEventId": 51,
+      "uiConfigs": {
+        "priority": 1,
+        "resourceName" : "Mnestic-Experience",
+        "bannerTitleTextKey": "boss_raid_10003_banner_title",
+        "bannerChapterText": "9.5-2",
+        "bossTitleTextKey": "boss_raid_10003_boss_title",
+        "rewardWarningTextKey": "boss_raid_reward_ui_warning_10003",
+        "ruleTextKey": "boss_raid_rule_popup_desc_10003",
+        "bgm": "event:/BGM/Battle/Battle_Cp9_Enemy_1",
+        "isMostEarly": true,
+        "shopDescKey": "boss_raid_reward_ui_desc_10003"
+      }
+    }
+  ]
+}

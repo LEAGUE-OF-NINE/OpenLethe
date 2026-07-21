@@ -1,0 +1,515 @@
+{
+  "list": [
+    {
+      "id": "LegStrengthHorse",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "enemyImportanceLevel": 1,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LegStrengthHorseAddBuffExceptionCrazy"
+        },
+        {
+          "ability": "LegStrengthHorseAbility",
+          "value": 6
+        },
+        {
+          "ability": "LegStrengthHorseEffect"
+        }
+      ]
+    },
+    {
+      "id": "ConcussionWei",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "enemyImportanceLevel": 3,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": 0.3
+        },
+        {
+          "ability": "TakeSinBuffDamageMultiplier",
+          "value": 0.5,
+          "buffData": {
+            "buffKeyword": "Burst"
+          }
+        },
+        {
+          "ability": "TakeVibrationExplosionBsDmgMultiplierByValue",
+          "value": 0.5
+        },
+        {
+          "ability": "ConcussionWeiRemover"
+        },
+        {
+          "ability": "ConcussionWeiEffect"
+        }
+      ]
+    },
+    {
+      "id": "SweptAwayWei",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "TakeVibrationExplosionBsDmgMultiplierByValue",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "SweptAwayWeiEffect"
+        }
+      ]
+    },
+    {
+      "id": "ReboundWei",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "enemyImportanceLevel": 3,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "ReboundWeiRemover"
+        },
+        {
+          "ability": "ReboundWeiEffect"
+        }
+      ]
+    },
+    {
+      "id": "CrazyWei",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -15
+        },
+        {
+          "ability": "CrazyWeiEffect"
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "StudyStatSinclair_A",
+      "iconId": "StudyStatSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnRoundStart",
+          "value": 3
+        },
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "AtkAdder",
+          "value": 2
+        },
+        {
+          "ability": "DefAdder",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "StudyStatSinclair_B",
+      "iconId": "StudyStatSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnRoundStart",
+          "value": 5
+        },
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AtkAdder",
+          "value": 2
+        },
+        {
+          "ability": "DefAdder",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "StudyStatSinclair_C",
+      "iconId": "StudyStatSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnRoundStart",
+          "value": 5
+        },
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ParryingResultAdderIfDefaultSkill",
+          "value": 1
+        },
+        {
+          "ability": "AtkAdder",
+          "value": 3
+        },
+        {
+          "ability": "DefAdder",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "StudyStatSinclair_D",
+      "iconId": "StudyStatSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnRoundStart",
+          "value": 10
+        },
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ParryingResultAdderIfDefaultSkill",
+          "value": 1
+        },
+        {
+          "ability": "AtkAdder",
+          "value": 4
+        },
+        {
+          "ability": "DefAdder",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "id": "StudyStatSinclair_E",
+      "iconId": "StudyStatSinclair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnRoundStart",
+          "value": 15
+        },
+        {
+          "ability": "MinSpeedAdderIncludeFirstTurn",
+          "value": 2
+        },
+        {
+          "ability": "MaxSpeedAdderIncludeFirstTurn",
+          "value": 2
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ParryingResultAdderIfDefaultSkill",
+          "value": 1
+        },
+        {
+          "ability": "CoinScaleAdderIfDefaultSkill",
+          "value": 1
+        },
+        {
+          "ability": "AtkAdder",
+          "value": 5
+        },
+        {
+          "ability": "DefAdder",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "StudySignSinclair",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "StudySignSinclair",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "id": "StudyStatSinclair",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "list": []
+    },
+    {
+      "id": "SipOfAlcoholJin",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEndDivideByStack",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 1,
+            "activeRound": 1,
+            "value": 2
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEndDivideByStack",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 2,
+            "activeRound": 1,
+            "value": 1
+          }
+        },
+        {
+          "ability": "SipOfAlcoholJinHeal",
+          "value": 0.015
+        }
+      ]
+    },
+    {
+      "id": "DrunkBlood",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "DrunkBloodAbility"
+        }
+      ],
+      "categoryKeywordList": [ "LACERATION" ]
+    },
+    {
+      "id": "DrunkAwakening",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkSkillPowerResultAdderAsStack",
+          "value": 4
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": 0.3
+        },
+        {
+          "ability": "DrunkAwakeningAbility"
+        },
+        {
+          "ability": "LoseStackOnRoundEnd"
+        }
+      ]
+    },
+    {
+      "id": "NightDrifterGuilty",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -15
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "SnakePoisonJinWeak",
+      "iconId": "SnakePoisonJin",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "SnakePoisonJin",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -7
+        },
+        {
+          "ability": "SnakePoisonJin",
+          "value": 0.01
+        }
+      ]
+    }
+  ]
+}

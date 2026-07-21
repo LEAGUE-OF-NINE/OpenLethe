@@ -1,0 +1,285 @@
+{
+  "list": [
+    {
+      "id": "UnfinishedDreamMirror",
+      "iconId": "UnfinishedDream",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "RighteousFeeling"
+        },
+        {
+          "ability": "PassNextParticipantOrderIfDie"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "UnfinishedDreamTwoMirror",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "RighteousFeeling"
+        },
+        {
+          "ability": "PassNextParticipantOrderIfDie"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "FragmentOfHopeFamilyMirror",
+      "iconId": "RecklessDuel",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": 1
+        },
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.05
+        },
+        {
+          "ability": "FragmentOfHopeFamily"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "FragmentOfHopeTwoFamilyMirror",
+      "iconId": "RecklessDuel",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "ParryingResultAdderAsStack",
+          "value": 2
+        },
+        {
+          "ability": "FragmentOfHopeTwoFamily",
+          "value": 30
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "DerivativeHugeIrritation",
+      "iconId": "HugeIrritation",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartPerLostHpRatio",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 0.15,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartPerLostHpRatio",
+          "buffData": {
+            "buffKeyword": "ResultEnhancement",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 0.15,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "IrritationDiffSpeedAtkDmgMul",
+          "value": 0.4
+        },
+        {
+          "ability": "IrritationSuperCoin",
+          "value": 114503
+        },
+        {
+          "ability": "IrritationSuperCoin",
+          "value": 114504
+        },
+        {
+          "ability": "IrritationVibrationAdder",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "stack": 3,
+            "turn": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "GiveMeCandy",
+      "iconId": "CandyForCharon",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveMeCandy"
+        }
+      ]
+    },
+    {
+      "id": "HungryCharon",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "list": [
+      ]
+    },
+    {
+      "id": "FullCharon",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "ParryingResultDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "VerEmergencyCandy",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "VerEmergencyCandy",
+          "value": 0.6,
+          "buffData": {
+            "buffKeyword": "VerShiningFullness",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "value": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "VerHunger",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "VerHunger",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "id": "VerShiningFullness",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "VerShiningFullness",
+          "value": 0.3
+        }
+      ]
+    }
+  ]
+}

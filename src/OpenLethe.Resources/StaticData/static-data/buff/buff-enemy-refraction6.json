@@ -1,0 +1,660 @@
+{
+  "list": [
+    {
+      "id": "ObservationTheRingsRail",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "iconId": "ObservationTheRings",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "enemyImportanceLevel": 2,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -20
+        },
+        {
+          "ability": "ObservationTheRingsRail",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 7,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "TagGameBuff",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 3,
+      "enemyImportanceLevel": 3,
+      "list": [
+        {
+          "ability": "AttackDmgMultiplierIfOneSideAttack",
+          "value": -1.0
+        },
+        {
+          "ability": "TakeDmgMultiplierIfOneSideAttack",
+          "value": 0.8
+        },
+        {
+          "ability": "WillYouPlayOnDestroy"
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "YesdragonSelfRefraction",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "AtkAdderPerStack",
+          "value": 2
+        },
+        {
+          "ability": "DefAdderPerStack",
+          "value": 2
+        },
+        {
+          "ability": "SkillPowerResultAdderIfSatisfied",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "YesdragonSelfRefraction",
+            "buffOwner": "AbnormalitySelf",
+            "stack": 5,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "CoinScaleAdderViaBuffCheck",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "YesdragonSelfRefraction",
+            "buffOwner": "AbnormalitySelf",
+            "stack": 10,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "YesdragonSelfRefractionOnUsed"
+        }
+      ]
+    },
+    {
+      "id": "CondensedBloodRefraction",
+      "buffClass": "CountableBuff",
+      "buffType": "Negative",
+      "maxStack": 50,
+      "maxTurn": 50,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "TakeDamageOnRoundEndByMaxHpRatioPerStackAndNotBreak",
+          "value": 0.01,
+          "buffData": {
+            "stack": 1,
+            "turn": 0,
+            "value": 1
+          }
+        },
+        {
+          "ability": "LoseBuffTurnOnUseDefenseSkill_1",
+          "value": 1
+        },
+        {
+          "ability": "MultiplyBuffStackAndLoseTurnOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "CondensedBloodRefraction",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "value": 2,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ActivateBuffEffect"
+        }
+      ]
+    },
+    {
+      "id": "DragonLanceRefraction",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Neutral",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "DragonLanceRefractionHpDisplay"
+        }
+      ]
+    },
+    {
+      "id": "YesdragonPower",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [        
+        {
+          "ability": "TakeAtkDamageMultiplier",
+          "value": -1.0
+        },
+        {
+          "ability": "DestroyBuffOnEndEnemyAttackIfAttacked"
+        },
+        {
+          "ability": "ActivateBuffEffectSkinAcitveRound0"
+        }
+      ]
+    },
+    {
+      "id": "YesdragonWind",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "MinSpeedAdder",
+          "value": 3
+        },
+        {
+          "ability": "MaxSpeedAdder",
+          "value": 3
+        },
+        {
+          "ability": "ParryingResultAdder",
+          "value": 2
+        },
+        {
+          "ability": "DestroyBuffOnEndEnemyAttackIfAttacked"
+        },
+        {
+          "ability": "ActivateBuffEffect"
+        }
+      ]
+    },
+    {
+      "id": "YesdragonScale",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 20,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByReverseStack",
+          "value": 0.1
+        },
+        {
+          "ability": "LoseStackOnLoseDuelIfSelfSpecificSkill_956804",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "HeatedWingScalesExplain",
+      "iconId": "HeatedWingScales",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "TransparentWingScalesExplain",
+      "iconId": "TransparentWingScales",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "RustedWingScalesExplain",
+      "iconId": "RustedWingScales",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "HeatedWingScales",
+      "buffClass": "Railway6PowderBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "9564WingPowder",
+          "value": 0.25
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "TransparentWingScales",
+      "buffClass": "Railway6PowderBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "9565WingPowder",
+          "value": 0.25
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "RustedWingScales",
+      "buffClass": "Railway6PowderBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "9566WingPowder",
+          "value": 0.25
+        }
+      ],
+      "categoryKeywordList": []
+    },
+
+    {
+      "id": "StackPast",
+      "subIdList": [ "StackPastActivate" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "StackPresent",
+      "subIdList": [ "StackPresentActivate" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "StackFuture",
+      "subIdList": [ "StackFutureActivate" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "StackPastActivate",
+      "subIdList": [ "StackPast" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "PastLowLevel",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 1,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "PastMidLevel",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 2,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "PastHighLevel",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 3,
+            "turn": 2
+          }
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "StackPresentActivate",
+      "subIdList": [ "StackPresent" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "NowLowLevel",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "stack": 1,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "NowMidLevel",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "stack": 2,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "NowHighLevel",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "stack": 3,
+            "turn": 2
+          }
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "StackFutureActivate",
+      "subIdList": [ "StackFuture" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnZero": false,
+      "list": [
+        {
+          "ability": "FutureLowLevel",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 1,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "FutureMidLevel",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 2,
+            "turn": 1
+          }
+        },
+        {
+          "ability": "FutureHighLevel",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 3,
+            "turn": 2
+          }
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "TimeGap",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStackWithMax_150",
+          "value": 0.15
+        },
+        {
+          "ability": "GiveBuffOnRoundStartRelatedSlotStateIfStackNotLessThen",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 5,
+            "activeRound": 0
+          }
+        }
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "NoeulNageuneBuffA3",
+      "iconId": "NoeulNageuneBuffA",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "NoeulNageuneBuffHpMul_200",
+          "value": 0.5
+        },
+        {
+          "ability": "NoeulNageuneBuffRemoveBS"
+        }
+      ]
+    },
+    {
+      "id": "NoeulNageuneBuffA4",
+      "iconId": "NoeulNageuneBuffA",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "NoeulNageuneBuffHpMul_200",
+          "value": 0.5
+        },
+        {
+          "ability": "TakeDmgMultiplierIfSuperCoin",
+          "value": -0.2
+        }
+      ]
+    },
+    {
+      "id": "NoeulNageuneBuffA5",
+      "iconId": "NoeulNageuneBuffA",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "NoeulNageuneBuffHpMul_200",
+          "value": 0.5
+        },
+        {
+          "ability": "NoeulNageuneBuffRemoveBS"
+        },
+        {
+          "ability": "NoeulNageuneBuffMpHeal_4_4"
+        }
+      ]
+    },
+    {
+      "id": "NoeulNageuneBuffB3",
+      "iconId": "NoeulNageuneBuffB",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "NoeulNageuneBuffTakeBuffByAllyAsso",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "NoeulNageuneBuffB4",
+      "iconId": "NoeulNageuneBuffB",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "NoeulNageuneBuffTakeBuffByAtkTypeAndEGODmgMul",
+          "value": 0.5,
+          "buffData": {
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AtkDmgMultiplierIfSuperCoin",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "id": "NoeulNageuneBuffB5",
+      "iconId": "NoeulNageuneBuffB",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "NoeulNageuneBuffTakeBuffByDeadAlly",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 6
+          }
+        },
+        {
+          "ability": "NoeulNageuneBuffDmgMulByPR",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "id": "MiddleFingerLeashBuff",
+      "iconId": "MiddleFingerLeashBuff",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "AttackDmgMultiplierIfOneSideAttack",
+          "value": -1
+        },
+        {
+          "ability": "MiddleFingerLeashBuffLoseStack",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "list": [
+    {
+      "id": "OminousTalisman",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "OminousTalisman",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Self",
+            "stack": -1,
+            "turn": -1,
+            "activeRound": 0,
+            "value": 0.5,
+            "limit": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "RepressedMurderousIntendTwo",
+      "iconId": "RepressedMurderousIntend",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -5
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "BurstWeakness",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "BurstWeakness",
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ],
+      "categoryKeywordList": [
+        "BURSTREACTIVE"
+      ]
+    },
+    {
+      "id": "ZiluDebuff",
+      "iconId": "WeighedMurderousIntend",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -20
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "ExaminationOfQiu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -35
+        },
+        {
+          "ability": "AttackDmgMultiplierIfOneSideAttack",
+          "value": 0.3
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "BurstStop",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "BurstStop"
+        }
+      ],
+      "categoryKeywordList": [
+        "BURSTREACTIVE"
+      ]
+    },
+    {
+      "id": "BurstSuppress",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "BurstSuppress",
+          "buffData": {
+            "buffKeyword": "AttackDown",
+            "target": "Self",
+            "stack": 6,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ],
+      "categoryKeywordList": [
+        "BURSTREACTIVE"
+      ]
+    },
+    {
+      "id": "BurstWave",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "BurstWave"
+        }
+      ],
+      "categoryKeywordList": [
+        "BURSTREACTIVE"
+      ]
+    },
+    {
+      "id": "Teaching",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnRoundEnd",
+          "value": 5
+        },
+        {
+          "ability": "EffectByStackOnRoundStart_TeachingQiu"
+        },
+        {
+          "ability": "Teaching"
+        }        
+      ]
+    },
+    {
+      "id": "QiuAndHonglu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderIfUniqueId_6",
+          "value": 1
+        },
+        {
+          "ability": "RecoverMpLowestMpAllyOnWinDuel",
+          "value": 5
+        },
+        {
+          "ability": "QiuAndHonglu"
+        }
+      ]
+    },
+    {
+      "id": "MadFeather",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "DarkHongluTeaching",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "RecoverSelfMpOnRoundEnd",
+          "value": 5
+        },
+        {
+          "ability": "EffectByStackOnRoundStart_TeachingQiu"
+        },
+        {
+          "ability": "DarkHongluTeaching",
+          "buffData": {
+            "buffKeyword": "ResultEnhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "DarkHongluQiuAndHonglu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdderIfUniqueId_6",
+          "value": 1
+        },
+        {
+          "ability": "RecoverMpLowestMpAllyOnWinDuel",
+          "value": 5
+        },
+        {
+          "ability": "QiuAndHonglu"
+        }
+      ]
+    }
+  ]
+}

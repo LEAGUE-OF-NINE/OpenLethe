@@ -1,0 +1,1544 @@
+{
+  "list": [
+    {
+      "id": 10801,
+      "floors": [
+        {
+          "count": 0,
+          "sectors": [
+            {
+              "sectorNumber": 0,
+              "nodes": [
+                {
+                  "debugNodeId": "DN-10801",
+                  "debugEncounterId": "0",
+                  "id": "10801",
+                  "encounter": "start",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10802"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10802",
+                  "debugEncounterId": "0",
+                  "id": "10802",
+                  "encounter": "story",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "story": {
+                    "enter": [
+                      "8D101B"
+                    ]
+                  },
+                  "exitItemRewards": [
+                    {
+                      "type": "EGO_GIFT",
+                      "rewardId": 2061,
+                      "num": 3,
+                      "prob": 1
+                    }
+                  ],
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10803"
+                    },
+                    {
+                      "nodeId": "10801"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10803",
+                  "debugEncounterId": "0",
+                  "id": "10803",
+                  "encounter": "story",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "story": {
+                    "enter": [
+                      "8D102B"
+                    ]
+                  },
+                  "exitItemRewards": [
+                    {
+                      "type": "EGO_GIFT",
+                      "rewardId": 2061,
+                      "num": 1,
+                      "prob": 1
+                    }
+                  ],
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10802"
+                    },
+                    {
+                      "nodeId": "10804"
+                    },
+                    {
+                      "nodeId": "10805"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10804",
+                  "debugEncounterId": "DB10801",
+                  "id": "10804",
+                  "encounter": "ab_battle",
+                  "encounterId": 10801,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10806"
+                    },
+                    {
+                      "nodeId": "10803"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10805",
+                  "debugEncounterId": "DB10802",
+                  "id": "10805",
+                  "encounter": "ab_battle",
+                  "encounterId": 10802,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10807"
+                    },
+                    {
+                      "nodeId": "10803"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10806",
+                  "debugEncounterId": "DB10801",
+                  "id": "10806",
+                  "encounter": "event",
+                  "encounterId": 10801,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10808"
+                    },
+                    {
+                      "nodeId": "10804"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10807",
+                  "debugEncounterId": "0",
+                  "id": "10807",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10808"
+                    },
+                    {
+                      "nodeId": "10805"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10808",
+                  "debugEncounterId": "0",
+                  "id": "10808",
+                  "encounter": "story",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "story": {
+                    "enter": [
+                      "8D103B"
+                    ]
+                  },
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10809"
+                    },
+                    {
+                      "nodeId": "10807"
+                    },
+                    {
+                      "nodeId": "10806"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10809",
+                  "debugEncounterId": "DB10835",
+                  "id": "10809",
+                  "encounter": "boss",
+                  "encounterId": 10835,
+                  "isHidden": "False",
+                  "forceAliveCharacterIds":[6],
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10810"
+                    },
+                    {
+                      "nodeId": "10808"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10810",
+                  "debugEncounterId": "0",
+                  "id": "10810",
+                  "encounter": "story",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "story": {
+                    "enter": [
+                      "8D105B"
+                    ]
+                  },
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10811"
+                    },
+                    {
+                      "nodeId": "10809"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10811",
+                  "debugEncounterId": "0",
+                  "id": "10811",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10812"
+                    },
+                    {
+                      "nodeId": "10810"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10812",
+                  "debugEncounterId": "DB10805",
+                  "id": "10812",
+                  "encounter": "battle",
+                  "encounterId": 10805,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10811"
+                    },
+                    {
+                      "nodeId": "10813"
+                    },
+                    {
+                      "nodeId": "10814"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10813",
+                  "debugEncounterId": "DB10806",
+                  "id": "10813",
+                  "encounter": "battle",
+                  "encounterId": 10806,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10815"
+                    },
+                    {
+                      "nodeId": "10816"
+                    },
+                    {
+                      "nodeId": "10812"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10814",
+                  "debugEncounterId": "DB10807",
+                  "id": "10814",
+                  "encounter": "ab_battle",
+                  "encounterId": 10807,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10817"
+                    },
+                    {
+                      "nodeId": "10812"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10815",
+                  "debugEncounterId": "DB10802",
+                  "id": "10815",
+                  "encounter": "event",
+                  "encounterId": 10802,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10816"
+                    },
+                    {
+                      "nodeId": "10818"
+                    },
+                    {
+                      "nodeId": "10813"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10816",
+                  "debugEncounterId": "DB10808",
+                  "id": "10816",
+                  "encounter": "ab_battle",
+                  "encounterId": 10808,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10819"
+                    },
+                    {
+                      "nodeId": "10820"
+                    },
+                    {
+                      "nodeId": "10815"
+                    },
+                    {
+                      "nodeId": "10813"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10817",
+                  "debugEncounterId": "DB10803",
+                  "id": "10817",
+                  "encounter": "event",
+                  "encounterId": 10803,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10819"
+                    },
+                    {
+                      "nodeId": "10820"
+                    },
+                    {
+                      "nodeId": "10814"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10818",
+                  "debugEncounterId": "DB10804",
+                  "id": "10818",
+                  "encounter": "event",
+                  "encounterId": 10804,
+                  "isHidden": "True",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10822"
+                    },
+                    {
+                      "nodeId": "10815"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10819",
+                  "debugEncounterId": "DB10805",
+                  "id": "10819",
+                  "encounter": "event",
+                  "encounterId": 10805,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10821"
+                    },
+                    {
+                      "nodeId": "10816"
+                    },
+                    {
+                      "nodeId": "10817"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10820",
+                  "debugEncounterId": "DB10809",
+                  "id": "10820",
+                  "encounter": "battle",
+                  "encounterId": 10809,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10821"
+                    },
+                    {
+                      "nodeId": "10816"
+                    },
+                    {
+                      "nodeId": "10817"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10821",
+                  "debugEncounterId": "DB10810",
+                  "id": "10821",
+                  "encounter": "battle",
+                  "encounterId": 10810,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10822"
+                    },
+                    {
+                      "nodeId": "10819"
+                    },
+                    {
+                      "nodeId": "10820"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10822",
+                  "debugEncounterId": "0",
+                  "id": "10822",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10823"
+                    },
+                    {
+                      "nodeId": "10821"
+                    },
+                    {
+                      "nodeId": "10818"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10823",
+                  "debugEncounterId": "DB10836",
+                  "id": "10823",
+                  "encounter": "boss",
+                  "encounterId": 10836,
+                  "isHidden": "False",
+                  "forceAliveCharacterIds":[6],
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10825"
+                    },
+                    {
+                      "nodeId": "10822"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10825",
+                  "debugEncounterId": "0",
+                  "id": "10825",
+                  "encounter": "stairs",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "story": {
+                    "enter": [
+                      "8D108B"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "count": 1,
+          "sectors": [
+            {
+              "sectorNumber": 0,
+              "nodes": [
+                {
+                  "debugNodeId": "DN-10826",
+                  "debugEncounterId": "0",
+                  "id": "10826",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10827"
+                    },
+                    {
+                      "nodeId": "10829"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10827",
+                  "debugEncounterId": "0",
+                  "id": "10827",
+                  "encounter": "stairs",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10828"
+                    },
+                    {
+                      "nodeId": "10830"
+                    },
+                    {
+                      "nodeId": "10826"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10828",
+                  "debugEncounterId": "DB10806",
+                  "id": "10828",
+                  "encounter": "event",
+                  "encounterId": 10806,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10831"
+                    },
+                    {
+                      "nodeId": "10827"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10829",
+                  "debugEncounterId": "0",
+                  "id": "10829",
+                  "encounter": "stairs",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10830"
+                    },
+                    {
+                      "nodeId": "10826"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10830",
+                  "debugEncounterId": "DB10812",
+                  "id": "10830",
+                  "encounter": "ab_battle",
+                  "encounterId": 10812,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10827"
+                    },
+                    {
+                      "nodeId": "10829"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10831",
+                  "debugEncounterId": "DB10813",
+                  "id": "10831",
+                  "encounter": "battle",
+                  "encounterId": 10813,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10828"
+                    },
+                    {
+                      "nodeId": "10832"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10832",
+                  "debugEncounterId": "DB10814",
+                  "id": "10832",
+                  "encounter": "battle",
+                  "encounterId": 10814,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10831"
+                    },
+                    {
+                      "nodeId": "10833"
+                    },
+                    {
+                      "nodeId": "10836"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10833",
+                  "debugEncounterId": "0",
+                  "id": "10833",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10832"
+                    },
+                    {
+                      "nodeId": "10834"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10834",
+                  "debugEncounterId": "DB10837",
+                  "id": "10834",
+                  "encounter": "boss",
+                  "encounterId": 10837,
+                  "isHidden": "False",
+                  "forceAliveCharacterIds":[6],
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10833"
+                    },
+                    {
+                      "nodeId": "10840"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10835",
+                  "debugEncounterId": "DB10816",
+                  "id": "10835",
+                  "encounter": "ab_battle",
+                  "encounterId": 10816,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10836"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10836",
+                  "debugEncounterId": "DB10807",
+                  "id": "10836",
+                  "encounter": "event",
+                  "encounterId": 10807,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10832"
+                    },
+                    {
+                      "nodeId": "10835"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10837",
+                  "debugEncounterId": "DB10808",
+                  "id": "10837",
+                  "encounter": "event",
+                  "encounterId": 10808,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10839"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10838",
+                  "debugEncounterId": "DB10817",
+                  "id": "10838",
+                  "encounter": "battle",
+                  "encounterId": 10817,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10839"
+                    },
+                    {
+                      "nodeId": "10844"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10839",
+                  "debugEncounterId": "DB10838",
+                  "id": "10839",
+                  "encounter": "boss",
+                  "encounterId": 10838,
+                  "isHidden": "False",
+                  "forceAliveCharacterIds":[6],
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10840"
+                    },
+                    {
+                      "nodeId": "10841"
+                    },
+                    {
+                      "nodeId": "10837"
+                    },
+                    {
+                      "nodeId": "10838"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10840",
+                  "debugEncounterId": "0",
+                  "id": "10840",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10834"
+                    },
+                    {
+                      "nodeId": "10839"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10841",
+                  "debugEncounterId": "0",
+                  "id": "10841",
+                  "encounter": "stairs",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10839"
+                    },
+                    {
+                      "nodeId": "10842"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10842",
+                  "debugEncounterId": "DB10819",
+                  "id": "10842",
+                  "encounter": "ab_battle",
+                  "encounterId": 10819,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10841"
+                    },
+                    {
+                      "nodeId": "10843"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10843",
+                  "debugEncounterId": "0",
+                  "id": "10843",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10842"
+                    },
+                    {
+                      "nodeId": "10845"
+                    },
+                    {
+                      "nodeId": "10844"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10844",
+                  "debugEncounterId": "DB10820",
+                  "id": "10844",
+                  "encounter": "battle",
+                  "encounterId": 10820,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10843"
+                    },
+                    {
+                      "nodeId": "10838"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10845",
+                  "debugEncounterId": "DB10839",
+                  "id": "10845",
+                  "encounter": "boss",
+                  "encounterId": 10839,
+                  "isHidden": "False",
+                  "forceAliveCharacterIds":[6],
+                  "exitItemRewards": [
+                    {
+                      "type": "EGO_GIFT_STACK_MULT",
+                      "rewardId": 2061,
+                      "num": 0.5,
+                      "prob": 1
+                    }
+                  ],
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10843"
+                    },
+                    {
+                      "nodeId": "10862"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10846",
+                  "debugEncounterId": "0",
+                  "id": "10846",
+                  "encounter": "story",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "story": {
+                    "enter": [
+                      "8D205B"
+                    ]
+                  },
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10862"
+                    },
+                    {
+                      "nodeId": "10847"
+                    },
+                    {
+                      "nodeId": "10848"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10847",
+                  "debugEncounterId": "DB10821",
+                  "id": "10847",
+                  "encounter": "ab_battle",
+                  "encounterId": 10821,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10846"
+                    },
+                    {
+                      "nodeId": "10852"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10848",
+                  "debugEncounterId": "DB10809",
+                  "id": "10848",
+                  "encounter": "event",
+                  "encounterId": 10809,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10846"
+                    },
+                    {
+                      "nodeId": "10849"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10849",
+                  "debugEncounterId": "0",
+                  "id": "10849",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10848"
+                    },
+                    {
+                      "nodeId": "10850"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10850",
+                  "debugEncounterId": "DB10822",
+                  "id": "10850",
+                  "encounter": "battle",
+                  "encounterId": 10822,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10849"
+                    },
+                    {
+                      "nodeId": "10851"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10851",
+                  "debugEncounterId": "DB10810",
+                  "id": "10851",
+                  "encounter": "event",
+                  "encounterId": 10810,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10850"
+                    },
+                    {
+                      "nodeId": "10853"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10852",
+                  "debugEncounterId": "DB10811",
+                  "id": "10852",
+                  "encounter": "event",
+                  "encounterId": 10811,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10847"
+                    },
+                    {
+                      "nodeId": "10854"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10853",
+                  "debugEncounterId": "0",
+                  "id": "10853",
+                  "encounter": "stairs",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10851"
+                    },
+                    {
+                      "nodeId": "10854"
+                    },
+                    {
+                      "nodeId": "10856"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10854",
+                  "debugEncounterId": "DB10812",
+                  "id": "10854",
+                  "encounter": "event",
+                  "encounterId": 10812,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10852"
+                    },
+                    {
+                      "nodeId": "10853"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10855",
+                  "debugEncounterId": "0",
+                  "id": "10855",
+                  "encounter": "story",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "story": {
+                    "enter": [
+                      "8D206B"
+                    ]
+                  },
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10856"
+                    },
+                    {
+                      "nodeId": "10857"
+                    },
+                    {
+                      "nodeId": "10858"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10856",
+                  "debugEncounterId": "0",
+                  "id": "10856",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10855"
+                    },
+                    {
+                      "nodeId": "10853"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10857",
+                  "debugEncounterId": "DB10823",
+                  "id": "10857",
+                  "encounter": "ab_battle",
+                  "encounterId": 10823,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10855"
+                    },
+                    {
+                      "nodeId": "10858"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10858",
+                  "debugEncounterId": "DB10813",
+                  "id": "10858",
+                  "encounter": "event",
+                  "encounterId": 10813,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10857"
+                    },
+                    {
+                      "nodeId": "10859"
+                    },
+                    {
+                      "nodeId": "10855"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10859",
+                  "debugEncounterId": "DB10824",
+                  "id": "10859",
+                  "encounter": "battle",
+                  "encounterId": 10824,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10858"
+                    },
+                    {
+                      "nodeId": "10860"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10860",
+                  "debugEncounterId": "DB10825",
+                  "id": "10860",
+                  "encounter": "battle",
+                  "encounterId": 10825,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10859"
+                    },
+                    {
+                      "nodeId": "10861"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10861",
+                  "debugEncounterId": "DB10826",
+                  "id": "10861",
+                  "encounter": "battle",
+                  "encounterId": 10826,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10860"
+                    },
+                    {
+                      "nodeId": "10863"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10862",
+                  "debugEncounterId": "0",
+                  "id": "10862",
+                  "encounter": "stairs",
+                  "encounterId": 0,
+                  "isHidden": "False",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10845"
+                    },
+                    {
+                      "nodeId": "10863"
+                    },
+                    {
+                      "nodeId": "10846"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10863",
+                  "debugEncounterId": "0",
+                  "id": "10863",
+                  "encounter": "save",
+                  "encounterId": 0,
+                  "isHidden": "True",
+                  "adjacentNode": [
+                    {
+                      "nodeId": "10862"
+                    },
+                    {
+                      "nodeId": "10864"
+                    }
+                  ]
+                },
+                {
+                  "debugNodeId": "DN-10864",
+                  "debugEncounterId": "DB10827",
+                  "id": "10864",
+                  "encounter": "boss",
+                  "encounterId": 10827,
+                  "isHidden": "False",
+                  "forceAliveCharacterIds":[6]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 911801,
+      "floors": [{
+        "count": 0,
+        "sectors": [{
+          "sectorNumber": 0,
+          "nodes": [{
+            "debugNodeId": "DN-911801",
+            "debugEncounterId": "0",
+            "id": "911801",
+            "encounter": "start",
+            "encounterId": 0,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911802"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 1,
+          "nodes": [{
+            "debugNodeId": "DN-911802",
+            "debugEncounterId": "SDC10516",
+            "id": "911802",
+            "encounter": "event",
+            "encounterId": 910901,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911801"
+            }, {
+              "nodeId": "911803"
+            }, {
+              "nodeId": "911804"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 2,
+          "nodes": [{
+            "debugNodeId": "DN-911803",
+            "debugEncounterId": "DB911807",
+            "id": "911803",
+            "encounter": "battle",
+            "encounterId": 911801,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911802"
+            }, {
+              "nodeId": "911805"
+            }, {
+              "nodeId": "911806"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911804",
+            "debugEncounterId": "DB911808",
+            "id": "911804",
+            "encounter": "battle",
+            "encounterId": 911802,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911802"
+            }, {
+              "nodeId": "911807"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 3,
+          "nodes": [{
+            "debugNodeId": "DN-911805",
+            "debugEncounterId": "SDC10511",
+            "id": "911805",
+            "encounter": "event",
+            "encounterId": 10511,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911803"
+            }, {
+              "nodeId": "911808"
+            }, {
+              "nodeId": "911809"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911806",
+            "debugEncounterId": "DB911809",
+            "id": "911806",
+            "encounter": "battle",
+            "encounterId": 911803,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911803"
+            }, {
+              "nodeId": "911809"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911807",
+            "debugEncounterId": "SDC10512",
+            "id": "911807",
+            "encounter": "event",
+            "encounterId": 10512,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911804"
+            }, {
+              "nodeId": "911809"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 4,
+          "nodes": [{
+            "debugNodeId": "DN-911808",
+            "debugEncounterId": "SDC10814",
+            "id": "911808",
+            "encounter": "event",
+            "encounterId": 10814,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911805"
+            }, {
+              "nodeId": "911810"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911809",
+            "debugEncounterId": "SDC10815",
+            "id": "911809",
+            "encounter": "event",
+            "encounterId": 10815,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911805"
+            }, {
+              "nodeId": "911806"
+            }, {
+              "nodeId": "911807"
+            }, {
+              "nodeId": "911810"
+            }, {
+              "nodeId": "911811"
+            }, {
+              "nodeId": "911812"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 5,
+          "nodes": [{
+            "debugNodeId": "DN-911810",
+            "debugEncounterId": "DB911810",
+            "id": "911810",
+            "encounter": "battle",
+            "encounterId": 911804,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911808"
+            }, {
+              "nodeId": "911809"
+            }, {
+              "nodeId": "911813"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911811",
+            "debugEncounterId": "DB911811",
+            "id": "911811",
+            "encounter": "battle",
+            "encounterId": 911805,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911809"
+            }, {
+              "nodeId": "911813"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911812",
+            "debugEncounterId": "DB911812",
+            "id": "911812",
+            "encounter": "battle",
+            "encounterId": 911806,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911809"
+            }, {
+              "nodeId": "911813"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 6,
+          "nodes": [{
+            "debugNodeId": "DN-911813",
+            "debugEncounterId": "SDC10515",
+            "id": "911813",
+            "encounter": "event",
+            "encounterId": 10515,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911810"
+            }, {
+              "nodeId": "911811"
+            }, {
+              "nodeId": "911812"
+            }, {
+              "nodeId": "911814"
+            }, {
+              "nodeId": "911815"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 7,
+          "nodes": [{
+            "debugNodeId": "DN-911814",
+            "debugEncounterId": "DB911829",
+            "id": "911814",
+            "encounter": "ab_battle",
+            "encounterId": 911807,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911813"
+            }, {
+              "nodeId": "911816"
+            }, {
+              "nodeId": "911817"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911815",
+            "debugEncounterId": "DB911830",
+            "id": "911815",
+            "encounter": "ab_battle",
+            "encounterId": 911808,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911813"
+            }, {
+              "nodeId": "911817"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 8,
+          "nodes": [{
+            "debugNodeId": "DN-911816",
+            "debugEncounterId": "SDC10816",
+            "id": "911816",
+            "encounter": "event",
+            "encounterId": 10514,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911814"
+            }, {
+              "nodeId": "911818"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911817",
+            "debugEncounterId": "SDC10817",
+            "id": "911817",
+            "encounter": "event",
+            "encounterId": 10817,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911814"
+            }, {
+              "nodeId": "911815"
+            }, {
+              "nodeId": "911818"
+            }, {
+              "nodeId": "911819"
+            }, {
+              "nodeId": "911820"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 9,
+          "nodes": [{
+            "debugNodeId": "DN-911818",
+            "debugEncounterId": "SDC10514",
+            "id": "911818",
+            "encounter": "event",
+            "encounterId": 10816,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911816"
+            }, {
+              "nodeId": "911817"
+            }, {
+              "nodeId": "911821"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911819",
+            "debugEncounterId": "DB911831",
+            "id": "911819",
+            "encounter": "ab_battle",
+            "encounterId": 911809,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911817"
+            }, {
+              "nodeId": "911821"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911820",
+            "debugEncounterId": "SDC10513",
+            "id": "911820",
+            "encounter": "event",
+            "encounterId": 10513,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911817"
+            }, {
+              "nodeId": "911822"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 10,
+          "nodes": [{
+            "debugNodeId": "DN-911821",
+            "debugEncounterId": "DB911832",
+            "id": "911821",
+            "encounter": "hard_battle",
+            "encounterId": 911810,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911818"
+            }, {
+              "nodeId": "911819"
+            }, {
+              "nodeId": "911823"
+            }
+            ]
+          }, {
+            "debugNodeId": "DN-911822",
+            "debugEncounterId": "DB911833",
+            "id": "911822",
+            "encounter": "hard_battle",
+            "encounterId": 911811,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911820"
+            }, {
+              "nodeId": "911823"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 11,
+          "nodes": [{
+            "debugNodeId": "DN-911823",
+            "debugEncounterId": "SDC900043",
+            "id": "911823",
+            "encounter": "event",
+            "encounterId": 910902,
+            "isHidden": "False",
+            "adjacentNode": [{
+              "nodeId": "911821"
+            }, {
+              "nodeId": "911822"
+            }, {
+              "nodeId": "911824"
+            }
+            ]
+          }
+          ]
+        }, {
+          "sectorNumber": 12,
+          "nodes": [{
+            "debugNodeId": "DN-911824",
+            "debugEncounterId": "DB911840",
+            "id": "911824",
+            "encounter": "boss",
+            "encounterId": 911812,
+            "isHidden": "False"
+          }
+          ]
+        }
+        ]
+      }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "list": [
+    {
+      "id": "RyoshuEGOPF",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 999,
+      "list": [
+        {
+          "ability": "GiveBuffOnSAPerAccumulativeDmg",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "RyoshuEGOPF",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DefaultSkillDmgMultiplierViaBuffCheckDevideByStack",
+          "value": 0.01,
+          "buffData": {
+            "buffKeyword": "RyoshuEGOPF",
+            "buffOwner": "Self",
+            "stack": 33,
+            "turn": 0,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "ActivateBuffEffectSkin"
+        }
+      ]
+    },
+    {
+      "id": "Gebura_Reinforcement",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierGebura",
+          "value": 1
+        },
+        {
+          "ability": "CoinScaleAdderOSTIfMinusCoinSkillGetFinalResultGebura_1",
+          "value": 1
+        },
+        {
+          "ability": "ChangeToSuperCoinGebura"
+        },
+        {
+          "ability": "IgnoreNaturalBreakExceptForcedCaseAndRemovePassedBreakSection"
+        },
+        {
+          "ability": "GeburaFixHp",
+          "value": 0.5
+        },
+        {
+          "ability": "GeburaHeal_100",
+          "value": 0.1
+        },
+        {
+          "ability": "ActivateBuffEffectSkin",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ThreeMirrorpartYiSang",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeSinBuffDamageMultiplier",
+          "value": 0.2,
+          "buffData": {
+            "buffKeyword": "Combustion"
+          }
+        },
+        {
+          "ability": "ThreeMirrorpartYiSangTakeAttackDmg",
+          "value": 0.1
+        },
+        {
+          "ability": "ActivateBuffEffect"
+        }
+      ]
+    },
+    {
+      "id": "RyoshuParrySojiTwo",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "AddUnitSlotRightAfterGettingBuff"
+        },
+        {
+          "ability": "AttackDamageMultiplierToLittleFingerFatherEnemy",
+          "value": 0.2
+        },
+        {
+          "ability": "TakeAttackDamageMultiplierToLittleFingerFatherEnemy",
+          "value": 0.2
+        },
+        {
+          "ability": "GiveMpDamageOnWinDuelWithLittleFingerFatherEnemy",
+          "value": 5
+        },
+        {
+          "ability": "BlockNaturalBreakAndGetBuff",
+          "value": -1,
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "AddSinStockOnStartTurnBySkillAttributeTypeLimit",
+          "buffData": {
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "AddSinStockOnStartTurnBySkillLowerStockLimit",
+          "buffData": {
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "ImmortalIfNotAlone"
+        },
+        {
+          "ability": "CanNotRetreat"
+        },
+        {
+          "ability": "TakingOtherStoryImmortalAbility"
+        }
+      ]
+    },
+    {
+      "id": "RyoshuParrySojiThree",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "AddUnitSlotRightAfterGettingBuff"
+        },
+        {
+          "ability": "AttackDamageMultiplierToLittleFingerFatherEnemy",
+          "value": 0.2
+        },
+        {
+          "ability": "TakeAttackDamageMultiplierToLittleFingerFatherEnemy",
+          "value": 0.2
+        },
+        {
+          "ability": "GiveMpDamageOnWinDuelWithLittleFingerFatherEnemy",
+          "value": 5
+        },
+        {
+          "ability": "BlockNaturalBreakAndGetBuff",
+          "value": -1,
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "AddSinStockOnStartTurnBySkillAttributeTypeLimit",
+          "buffData": {
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "AddSinStockOnStartTurnBySkillLowerStockLimit",
+          "buffData": {
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "ImmortalIfNotAlone"
+        },
+        {
+          "ability": "CanNotRetreat"
+        },
+        {
+          "ability": "TakingOtherStoryImmortalAbility"
+        }
+      ]
+    },
+    {
+      "id": "RyoshuParrySojiWe",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "RyoshuParrySojiWeTakeDmgMultiplier",
+          "value": 0.777
+        },
+        {
+          "ability": "AttackDamageMultiplierToLittleFingerFatherEnemy",
+          "value": 0.5
+        },
+        {
+          "ability": "AddSinStockOnStartTurnBySkillAttributeTypeLimit",
+          "buffData": {
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "AddSinStockOnStartTurnBySkillLowerStockLimit",
+          "buffData": {
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "CanNotRetreat"
+        }
+      ]
+    },
+    {
+      "id": "CriticalDamageUp",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "CriticalAtkDamageMultiplierByStack",
+          "value": 0.1
+        }
+      ]
+    },
+    {
+      "id": "KAA1C9ActivateEffect",
+      "buffClass": "TypoOnlyBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "list": [
+      ]
+    }
+  ]
+}

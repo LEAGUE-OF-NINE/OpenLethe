@@ -1,0 +1,233 @@
+{
+  "list": [
+    {
+      "id": "CALL_OF_SEA",
+      "buffA": {
+        "id": "CallOfSea_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "TakeHpDmgByRatioOnRE",
+            "value": 0.03
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "EveryAlly",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "EveryAlly",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "CallOfSea_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "TakeHpDmgByRatioOnRE",
+            "value": 0.05
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "EveryAlly",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "EveryAlly",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DESIRE_TO_SAVE",
+      "buffA": {
+        "id": "DesireToSave_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierViaBuffWithLimitPercentage",
+            "buffData": {
+              "buffKeyword": "NervousImpairment",
+              "buffOwner": "Target",
+              "value": 0.5,
+              "limit": 15
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DesireToSave_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierViaBuffWithLimitPercentage",
+            "buffData": {
+              "buffKeyword": "NervousImpairment",
+              "buffOwner": "Target",
+              "value": 1,
+              "limit": 30
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DOQ",
+      "buffA": {
+        "id": "DOQ_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "OverwriteAtkResistResult",
+            "value": 1
+          },
+          {
+            "ability": "OverwriteAttributeResistResult",
+            "value": 1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DOQ_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "OverwriteAtkResistResult",
+            "value": 1
+          },
+          {
+            "ability": "OverwriteAttributeResistResult",
+            "value": 1
+          },
+          {
+            "ability": "MultipleStackWhenGettingBuff",
+            "buffData": {
+              "buffKeyword": "Combustion",
+              "value": 1
+            }
+          },
+          {
+            "ability": "MultipleStackWhenGettingBuff",
+            "buffData": {
+              "buffKeyword": "Laceration",
+              "value": 1
+            }
+          },
+          {
+            "ability": "MultipleStackWhenGettingBuff",
+            "buffData": {
+              "buffKeyword": "Vibration",
+              "value": 1
+            }
+          },
+          {
+            "ability": "MultipleStackWhenGettingBuff",
+            "buffData": {
+              "buffKeyword": "Burst",
+              "value": 1
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

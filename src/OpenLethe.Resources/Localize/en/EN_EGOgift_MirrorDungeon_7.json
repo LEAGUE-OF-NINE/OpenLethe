@@ -1,0 +1,652 @@
+{
+  "dataList": [
+    {
+      "id": 9209,
+      "name": "For You Who Love the City",
+      "desc": "If an ally is at less than 30% HP when hit, said ally heals 80% HP and other allies heal 40% HP next turn (once per Encounter)\n- Excess healing beyond max HP is applied as Shield\n- If an ally healed 50+ HP due to the above effect, gain 3 [AttackUp] and 3 [DefenseDown]",
+      "simpleDesc": [
+        {
+          "abilityID": 9209,
+          "simpleDesc": "Heal HP"
+        }
+      ]
+    },
+    {
+      "id": 9210,
+      "name": "Meat Tenderizer",
+      "desc": "[Effects apply only to #4 Deployed Identity]\n\nIf this unit has 2+ Blunt Attack Skills, gain 1 [ParryingResultUp] at Turn Start",
+      "simpleDesc": [
+        {
+          "abilityID": 9210,
+          "simpleDesc": "Gain [ParryingResultUp]"
+        }
+      ]
+    },
+    {
+      "id": 19210,
+      "name": "Meat Tenderizer+",
+      "desc": "[Effects apply only to #4 Deployed Identity]\n\nIf this unit has 2+ Blunt Attack Skills, gain <style=\"upgradeHighlight\">2</style> [ParryingResultUp] at Turn Start",
+      "simpleDesc": [
+        {
+          "abilityID": 19210,
+          "simpleDesc": "Gain [ParryingResultUp]"
+        }
+      ]
+    },
+    {
+      "id": 29210,
+      "name": "Meat Tenderizer++",
+      "desc": "[Effects apply only to #4, <style=\"upgradeHighlight\">#5</style> Deployed Identities]\n\nIf this unit has 2+ Blunt Attack Skills, gain 2 [ParryingResultUp] at Turn Start",
+      "simpleDesc": [
+        {
+          "abilityID": 29210,
+          "simpleDesc": "Gain [ParryingResultUp]"
+        }
+      ]
+    },
+    {
+      "id": 9207,
+      "name": "Chance & Choice",
+      "desc": "Random chance for the leftmost Slot's E.G.O Skill to deal -50% damage or +150% damage (once per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 9207,
+          "simpleDesc": "E.G.O Skills deal more(or less) damage"
+        }
+      ]
+    },
+    {
+      "id": 9208,
+      "name": "Entangled Fate",
+      "desc": "Combat Start: At 7+ A-Reson., all allies gain Final Power +5 for this turn (once per Encounter)",
+      "simpleDesc": [
+        {
+          "abilityID": 9208,
+          "simpleDesc": "Gain Final Power"
+        }
+      ]
+    },
+    {
+      "id": 9211,
+      "name": "Raincloud",
+      "desc": "Turn Start: At 30+ total sum of [Sinking] Potency and [Sinking] Count on all enemies, apply the following effects:\n\n- Skills that inflict [Sinking] Potency or Count: Final Power +1 (including 'Unique Sinking'; excluding E.G.O Skills)\n\n- When 6 or more Identities have Attack Skills that inflict [Sinking] Potency, Count, or 'Unique Sinking', Skills that inflict [Sinking] Potency or Count also deal +20% damage (including 'Unique Sinking' and Backup Units; excluding E.G.O Skills)\n · If the target is at -45 SP, deal additional +10% damage\n\n- When 10 or more Identities have Attack Skills that inflict [Sinking] Potency, Count, or 'Unique Sinking', Plus Coin Skills that inflict [Sinking] Potency or Count also gain Coin Power +1 (including 'Unique Sinking' and Backup Units; excluding E.G.O Skills)\n · Minus Coin Skills: Instead of gaining Coin Power, gain Base Power +(4 / # of Coins) (min 1; rounded down)",
+      "simpleDesc": [
+        {
+          "abilityID": 9211,
+          "simpleDesc": "Sinking Skills gain Final Power"
+        },
+        {
+          "abilityID": 92111,
+          "simpleDesc": "Sinking Skills deal more damage"
+        },
+        {
+          "abilityID": 92112,
+          "simpleDesc": "Sinking Skills gain Coin/Base Power"
+        }
+      ]
+    },
+    {
+      "id": 9212,
+      "name": "The End of all Evil",
+      "desc": "Activates when there are 3 or more The Pequod-faction Identities (counting Backup units)\n\nOn Hit with an Attack Skill against enemies with [Laceration] or 'Unique Bleed': Gain 3 [Breath] or +2 [Breath] Count (3 times per turn per Identity)\n\nOn Crit: 80% chance to gain 1 [PenetrateResultUp] next turn (2 times per turn per Identity; including E.G.O Skills and Counter Skills)\n- The Pequod-faction Identities gain 1 [PlusCoinValueUp] next turn as well (once per turn per Identity)\n\nOn Crit Heads Hit with a Base Skill: Inflict +1 more of the negative effect with that Coin (once per turn per Identity; including Counter Skills and excluding E.G.O Skills)\n\nOn enemy or ally death, The Pequod-faction Identities gain 1 [PenetrateResultUp], 1 [Protection], and 1 [CriticalDamageUp] each turn for the rest of this Encounter (3 times per Encounter)\n\nIf one of The Pequod-faction Identities attacks and hits an enemy, heal 7 SP for The Pequod-faction Identity with the earliest Deployment order (once per Skill)\n\nWhen an ally kills an enemy, heal 15 SP for The Pequod-faction Identity with the earliest Deployment order if said Identity lost SP",
+      "simpleDesc": [
+        {
+          "abilityID": 9212,
+          "simpleDesc": "Gain Poise"
+        },
+        {
+          "abilityID": 92121,
+          "simpleDesc": "On Crit: Chance to gain [PenetrateResultUp] next turn; gain [PlusCoinValueUp] and increase the amount of negative effect inflicted when conditions are met"
+        },
+        {
+          "abilityID": 92122,
+          "simpleDesc": "Gain [PenetrateResultUp], [Protection], and [CriticalDamageUp]"
+        },
+        {
+          "abilityID": 92123,
+          "simpleDesc": "Heal SP"
+        }
+      ]
+    },
+    {
+      "id": 9213,
+      "name": "Miniature Ferris Wheel",
+      "desc": "All Bloodfiend allies: Base Skill Coin Power +1, deal +([BloodDinner_Accumulation] / 10)% Skill damage\n\nTurn End: Among allies with [Laceration], 2 allies with the least HP heal 5% HP and gain 10 [SwirlingBloodPersonality] at next Turn Start\n\nOn enemy Kill, increase [BloodDinner] by (enemy Core max HP / 10) (max 50)\n\nTurn End: If an ally died this turn, all allies gain 2 [Enhancement] next turn\n\nIn Encounters where backup enemies appear: When new enemies appear, inflict 5 [Laceration] and +3 [Laceration] Count against them at Combat Start.\nIf there is a <Bloodfiend> among allies: When new enemies enter the battle, activate [Laceration] on all enemies twice and reduce their [Laceration] Count by 2",
+      "simpleDesc": [
+        {
+          "abilityID": 9213,
+          "simpleDesc": "Gain Base Skill Coin Power"
+        },
+        {
+          "abilityID": 92131,
+          "simpleDesc": "Heal HP and gain [SwirlingBloodPersonality]"
+        },
+        {
+          "abilityID": 92132,
+          "simpleDesc": "Gain Attack Power Up"
+        },
+        {
+          "abilityID": 92133,
+          "simpleDesc": "Inflict Bleed Potency and Count"
+        }
+      ]
+    },
+    {
+      "id": 9214,
+      "name": "Searing Hammer",
+      "desc": "If the enemy has [VibrationIgnition], apply the following effects:\n- On Base Skill Hit, inflict 1 [Combustion] (3 times per Skill)\n- On Base Skill Hit, if the enemy has 15+ [VibrationIgnition], inflict +1 [Combustion] Count (2 times per Skill)\n- For every 3 [Combustion], +1% to Stagger Threshold raised by [VibrationExplosion] (max 15%)",
+      "simpleDesc": [
+        {
+          "abilityID": 9214,
+          "simpleDesc": "Inflict Burn"
+        },
+        {
+          "abilityID": 92141,
+          "simpleDesc": "Tremor Burst increases Stagger threshold further"
+        }
+      ]
+    },
+    {
+      "id": 9215,
+      "name": "Red Necktie",
+      "desc": "Skill 3 that inflicts [Combustion] Potency, Count, or 'Unique Burn': Clash Power +2 and deal +30% damage",
+      "simpleDesc": [
+        {
+          "abilityID": 9215,
+          "simpleDesc": "Gain Clash Power and deal more damage"
+        }
+      ]
+    },
+    {
+      "id": 9216,
+      "name": "Uniform - Liu Assoc.",
+      "desc": "Turn Start: This Gift activates for the whole Encounter when 5 or more Identities have Attack Skills that apply [Combustion] Potency, Count, or 'Unique Burn'. (except E.G.O Skills; except Backup Units)\n\nLiu Association Identities: Base Attack Skills gain Plus Coin Power +2 (Minus Coin Skills gain Base Power +(8 / # of Coins) (min 1; rounded down))\n\nNon-Skill 3 Skills (including E.G.O Skills) that inflict [Combustion] Potency, Count or 'Unique Burn' deal +20% damage\n\nSkill 3 that inflicts [Combustion] Potency, Count, or 'Unique Burn' gain Plus Coin Power +1 (Minus Coin Skills gain Base Power +(4 / # of Coins) (min 1; rounded down)) and deal +30% damage \n- Identities in a faction deal +5% damage for every same-faction Identity in the Team (max 20%; including Backup Units)\n\nTurn End: 2 allies with the least SP heal 8 SP\n- If affected allies are at 0 SP or lower, heal 5 additional SP",
+      "simpleDesc": [
+        {
+          "abilityID": 9216,
+          "simpleDesc": "Gain Skill Power and deal more damage"
+        }
+      ]
+    },
+    {
+      "id": 9217,
+      "name": "Someone's Device",
+      "desc": "Attack End: If [IndexPrescriptTargetToEnemy] is killed, the Identity who attacked and killed [IndexPrescriptTargetToEnemy] gains 1 [AzureResultUp] next turn; inflict +3 [Sinking] Count to 1 random surviving enemy (once per turn)\n- If the unit that killed [IndexPrescriptTargetToEnemy] is in The Index faction, gain 1 [Enhancement] instead of [AzureResultUp] next turn (once per turn)\n\nTurn End: The Index faction units take ([KarmaOfIndexAlly] Stack on self)% HP damage.\n(Does not get Staggered due to this effect; this damage does not reduce the allies' HP below 20% HP)\nThen, Identities who took damage due to the above effect gain ([KarmaOfIndexAlly] Stack on self / 5) [ResultEnhancement] next turn (max 2)",
+      "simpleDesc": [
+        {
+          "abilityID": 9217,
+          "simpleDesc": "Gain Gloom Power Up. The Index Identities gain Attack Power Up instead"
+        },
+        {
+          "abilityID": 92171,
+          "simpleDesc": "The Index Identities take damage and gain Power Up next turn"
+        }
+      ]
+    },
+    {
+      "id": 9218,
+      "name": "Providence of the Prescript",
+      "desc": "Identities that inflicted [Sinking], [Sinking] Count, or 'Unique Sinking', gain 3 [Breath] or +2 [Breath] Count at Turn Start (once per turn per Identity)\n\nDuring the Encounter, if an Identity has gained [Breath] 3 times due to the above effect, starting from the next turn, the said Sinner deals +30% damage on Critical Hit",
+      "simpleDesc": [
+        {
+          "abilityID": 9218,
+          "simpleDesc": "Gain Poise Potency and Count"
+        },
+        {
+          "abilityID": 92181,
+          "simpleDesc": "Deal more Damage on Critical Hit"
+        }
+      ]
+    },
+    {
+      "id": 9219,
+      "name": "Omni-tool",
+      "desc": "When Skills of the same Attack Type hit an enemy 12 times, the enemy gains +0.1 Resistance against that Attack Type (3 times per Encounter per enemy/Abnormality Parts; this effect cannot raise Resistance value over 2.0)",
+      "simpleDesc": [
+        {
+          "abilityID": 9219,
+          "simpleDesc": "Target becomes more vulnerable to an Attack Type"
+        }
+      ]
+    },
+    {
+      "id": 19219,
+      "name": "Omni-tool+",
+      "desc": "When Skills of the same Attack Type hit an enemy <style=\"upgradeHighlight\">9 times</style>, the enemy gains +0.1 Resistance against that Attack Type (3 times per Encounter per enemy/Abnormality Parts; this effect cannot raise Resistance value over 2.0)",
+      "simpleDesc": [
+        {
+          "abilityID": 19219,
+          "simpleDesc": "Target becomes more vulnerable to an Attack Type"
+        }
+      ]
+    },
+    {
+      "id": 29219,
+      "name": "Omni-tool++",
+      "desc": "When Skills of the same Attack Type hit an enemy <style=\"upgradeHighlight\">6 times</style>, the enemy gains +0.1 Resistance against that Attack Type (3 times per Encounter per enemy/Abnormality Parts; this effect cannot raise Resistance value over 2.0)",
+      "simpleDesc": [
+        {
+          "abilityID": 29219,
+          "simpleDesc": "Target becomes more vulnerable to an Attack Type"
+        }
+      ]
+    },
+    {
+      "id": 9220,
+      "name": "Stolen Fixer Magazine",
+      "desc": "Turn Start: Gain 1 [HitResultUp]\n\nCombat Start: Gain 1 [HitDamageUp] if Envy A-Reson. is activated\n\nEncounter Start: If there are 4 or more The Middle-faction Identities on the battlefield, apply [RetaliationBook] to a random enemy",
+      "simpleDesc": [
+        {
+          "abilityID": 9220,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9221,
+      "name": "Thermal Weapon",
+      "desc": "On Hit with Envy Skill or Counter Skill, inflict +1 [Laceration] Count or +1 [Combustion] Count (3 times per turn)\n\nWhen [Laceration] Count on an enemy drops below 1 during combat, reduce [Combustion] Count instead if said enemy has 2+ [Combustion] Count (3 times per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 9221,
+          "simpleDesc": "Inflict Bleed Count and Burn Count"
+        },
+        {
+          "abilityID": 92211,
+          "simpleDesc": "Reduce Burn Count"
+        }
+      ]
+    },
+    {
+      "id": 9222,
+      "name": "Pure-white Canvas",
+      "desc": "On Hit with Plus Coin Attack Skills against an enemy that has 15+ [Laceration], heal 3 SP (once per turn for each Identity)\n- If said Identity or target has 3+ types of negative effects, heal 6 SP instead",
+      "simpleDesc": [
+        {
+          "abilityID": 9222,
+          "simpleDesc": "Heal SP"
+        }
+      ]
+    },
+    {
+      "id": 9223,
+      "name": "Average Artwork",
+      "desc": "The Ring-faction Identities gain [Inspire]\n\nIf The Ring-faction Identity with [Inspire] hits an enemy with Lust or Slash Skills, inflict [ObjectOfExploration] on said enemy next turn\n- If the enemy already has [ObjectOfExploration], replace [ObjectOfExploration] with [PaintingMaterial]\n\nIf The Ring-faction Identity with [Inspire] kills an enemy that has [PaintingMaterial], said Identity gains 1 [PlusCoinValueUp] next turn (once per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 9223,
+          "simpleDesc": "Inflict [ObjectOfExploration]"
+        },
+        {
+          "abilityID": 92231,
+          "simpleDesc": "Gain [PlusCoinValueUp]"
+        }
+      ]
+    },
+    {
+      "id": 9224,
+      "name": "Exquisite Artwork",
+      "desc": "The Ring-faction Identities gain [Inspire]\n\nIf The Ring-faction Identity with [Inspire] hits an enemy, inflict [ObjectOfExploration] on said enemy\n- If the enemy already has [ObjectOfExploration], replace [ObjectOfExploration] with [PaintingMaterial]\n\nIf The Ring-faction Identity with [Inspire] kills an enemy that has [PaintingMaterial], said Identity loses [Inspire] and gains [GreatAesthetics]\n\nOn Hit with Plus Coin Attack Skills against an enemy that has 15+ [Laceration], heal 3 SP (once per turn for each Identity)\n- If said Identity or target has 3+ types of negative effects, heal 6 SP instead",
+      "simpleDesc": [
+        {
+          "abilityID": 9224,
+          "simpleDesc": "Gain [Inspire]"
+        },
+        {
+          "abilityID": 92241,
+          "simpleDesc": "Inflict [ObjectOfExploration]"
+        },
+        {
+          "abilityID": 92242,
+          "simpleDesc": "Gain [GreatAesthetics]"
+        }
+      ]
+    },
+    {
+      "id": 9225,
+      "name": "The Spider's Thread",
+      "desc": "Allies who use Defense Skill deal +10% damage with Skill 3 next turn (once per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 9225,
+          "simpleDesc": "Skill 3 deals more damage"
+        }
+      ]
+    },
+    {
+      "id": 19225,
+      "name": "The Spider's Thread+",
+      "desc": "Allies who use Defense Skill deal <style=\"upgradeHighlight\">+15%</style> damage with Skill 3 next turn (once per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 19225,
+          "simpleDesc": "Skill 3 deals more damage"
+        }
+      ]
+    },
+    {
+      "id": 29225,
+      "name": "The Spider's Thread++",
+      "desc": "Allies who use Defense Skill deal <style=\"upgradeHighlight\">+20%</style> damage with Skill 3 next turn (once per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 29225,
+          "simpleDesc": "Skill 3 deals more damage"
+        }
+      ]
+    },
+    {
+      "id": 9226,
+      "name": "Someone's Azure Blade",
+      "desc": "Combat Start: Allies with Shield gain 1 [CriticalDamageUp]\nOn Crit with ally Skill, said ally gains Shield equal to ([Breath] / 5) for the next turn (max 15)",
+      "simpleDesc": [
+        {
+          "abilityID": 9226,
+          "simpleDesc": "Gain [CriticalDamageUp]"
+        },
+        {
+          "abilityID": 92261,
+          "simpleDesc": "Gain Shield"
+        }
+      ]
+    },
+    {
+      "id": 9227,
+      "name": "Baleful Hwando",
+      "desc": "This E.G.O Gift changes after 6 Encounter wins\n{0}\n\nFor all allies: Take +20% damage, Clash Power -1",
+      "simpleDesc": [
+        {
+          "abilityID": 9227,
+          "simpleDesc": "Take more damage and lose Clash Power"
+        }
+      ]
+    },
+    {
+      "id": 9228,
+      "name": "One with the Blade",
+      "desc": "All allies deal +25% damage",
+      "simpleDesc": [
+        {
+          "abilityID": 9228,
+          "simpleDesc": "Deal more damage"
+        }
+      ]
+    },
+    {
+      "id": 9229,
+      "name": "Tarnished Gauntlet",
+      "desc": "This E.G.O Gift changes after 6 Encounter wins\n{0}\n\nMin & Max Speed -5 for all allies (this effect cannot reduce Speed below 1)",
+      "simpleDesc": [
+        {
+          "abilityID": 9229,
+          "simpleDesc": "Reduce Speed"
+        }
+      ]
+    },
+    {
+      "id": 9230,
+      "name": "Golden Hour",
+      "desc": "Min & Max Speed +3 for all allies\nFinal Power +2 when using Skills against slower targets with 4+ Speed difference\nOn Hit against an enemy, inflict 1 Bind next turn (4 times per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 9230,
+          "simpleDesc": "Gain Speed and Final Power"
+        }
+      ]
+    },
+    {
+      "id": 9231,
+      "name": "Record Logs of That Day",
+      "desc": "This E.G.O Gift changes after 6 Encounter wins\n{0}\n\nTurn Start: A random ally who is not Staggered enters a forced Stagger state",
+      "simpleDesc": [
+        {
+          "abilityID": 9231,
+          "simpleDesc": "Gets Staggered"
+        }
+      ]
+    },
+    {
+      "id": 9232,
+      "name": "Potentialities",
+      "desc": "When Staggered due to damage, recover from Stagger; then gain Shield equal to 50% of Max HP and remove 1 random removable negative effect on self (excluding forced Staggers, 2 times per Encounter)\n\nGain 20 Poise at the start of the next turn after activating the above effect (once per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 9232,
+          "simpleDesc": "Recover from Stagger; remove negative effect"
+        }
+      ]
+    },
+    {
+      "id": 9242,
+      "name": "Bongy Plush",
+      "desc": "Multiply Cost owned by 1.5 upon clearing a Floor\n\n- Deal +0.5% damage for every E.G.O Gift owned (Current: +{0}%; max 100%)\n- Turn Start: Gain 1 [Enhancement] for every 20 E.G.O Gift owned (Current Stack: {1}; max 10)",
+      "simpleDesc": [
+        {
+          "abilityID": 9242,
+          "simpleDesc": "Deal more damage"
+        },
+        {
+          "abilityID": 92421,
+          "simpleDesc": "Gain [Enhancement]"
+        }
+      ]
+    },
+    {
+      "id": 9256,
+      "name": "Imperfect Eye of Precognition",
+      "desc": "Allies' Plus Coin Skills: Gain Coin Power +(8 / # of Coins) (gains at least 1 Coin Power, includes E.G.O Skills; rounded down)\n\nAllies' Minus Coin Skills: Gain Final Power +(8 / # of Coins) (gains at least 1 Final Power, includes E.G.O Skills; rounded down)\n\n[Effects apply only to #1 Deployed Identity]\n- In a Clash, gain 1 [LookingFutureMirror] with every Clash. Inflict 2 [Vibration] and [Combustion] on target (10 times per Skill)\n- On Clash Win, trigger [Switch_Vibration] into [VibrationIgnition] and trigger [VibrationExplosion] on the main target. Target loses 1 [Vibration] Count\n- On Hit with a Skill, if target is Staggered, deal +30% damage\n- On Crit, trigger [VibrationExplosion]. Target loses 1 [Vibration] Count (2 times per Skill)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9257,
+      "name": "The Abandoned Oracle",
+      "desc": "Allies' Plus Coin Skills: Gain Coin Power +(8 / # of Coins) (gains at least 1 Coin Power, includes E.G.O Skills; rounded down)\n\nAllies' Minus Coin Skills: Gain Final Power +(8 / # of Coins) (gains at least 1 Final Power, includes E.G.O Skills; rounded down)\n\nIn a Clash, gain Clash Power +1 for every 30 ([Sinking] on target + [Breath] on self) (max 5)\n\nDeal +25% damage with [SuperCoin]s\nTake -25% damage from [SuperCoin]s\n\n[The Index-faction Exclusive Effect]\n- Upon entering the Encounter for the first time, gain 6 [BlessingOfIndexPrescriptAlly]\n· If the unit is an Identity that can gain [UnlockBuff_Base], gain [UnlockBuffAlly_2] as well\n- Deal +50% damage against [IndexPrescriptTargetToEnemy]",
+      "simpleDesc": [
+        {
+          "abilityID": 98270,
+          "simpleDesc": "Allies gain a significant amount of Coin Power or Final Power"
+        },
+        {
+          "abilityID": 9257,
+          "simpleDesc": "Gain Clash Power based on the sum of Sinking on target and Poise on self"
+        },
+        {
+          "abilityID": 92571,
+          "simpleDesc": "Deal +25% damage with Unbreakable Coins"
+        },
+        {
+          "abilityID": 92572,
+          "simpleDesc": "Deal +50% damage against The Prescript's Target"
+        }
+      ]
+    },
+    {
+      "id": 9258,
+      "name": "The Book of Vengeance: Annex",
+      "desc": "Allies' Plus Coin Skills: Gain Coin Power +(8 / # of Coins) (gains at least 1 Coin Power, includes E.G.O Skills; rounded down)\n\nAllies' Minus Coin Skills: Gain Final Power +(8 / # of Coins) (gains at least 1 Final Power, includes E.G.O Skills; rounded down)\n\nEncounter Start: All allies gain 50 Shield for every The Middle-faction allied unit on the field (excluding Backup units; Shield gained via this effect does not expire at Turn End)\n\nAttack End with The Middle-faction allied units' Envy or Blunt Base Skills: Heal 10% of Skill damage dealt\n- If this effect is triggered by a Counter Skill, heal 20% of Skill damage dealt instead\n- Excess HP healed is converted into Shield (Shield gained via this effect does not expire at Turn End)\n\nCombat Start: The Middle-faction allied units gain Offense Level for the turn based on the number of Defense Skills equipped (max 12 Offense Level)\n- If 6+ Defense Skills are equipped, deal +30% damage with Envy Base Skills\n- Deal an additional +10% damage for every Defense Skill equipped beyond 6 (max 60%)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9259,
+      "name": "A Maestro's Ring-Turned-Artwork",
+      "desc": "Allies' Plus Coin Skills: Gain Coin Power +(8 / # of Coins) (gains at least 1 Coin Power, includes E.G.O Skills; rounded down)\n\nAllies' Minus Coin Skills: Gain Final Power +(8 / # of Coins) (gains at least 1 Final Power, includes E.G.O Skills; rounded down)\n\nWhen The Ring-faction Identities use Base Attack Skills, apply the following effects based on the number of negative effect types on the target:\n- 2+: Clash Power +2\n- 4+: Deal +15% damage\n- 6+: Inflict +1 more Potency and Count of negative effects via Coin effects\n- 7+: Base Power +2\n- 8+: Deal +35% damage",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9250,
+      "name": "Mid-range K Corp. Ampule",
+      "desc": "[Effects apply only to #1 Deployed Identity]\nEncounter Start: Gain 1 [KAmpouleMirror]",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9251,
+      "name": "Burning Fate",
+      "desc": "Max [Combustion] Potency +30\n \nOn Clash Win against targets that have [Combustion], activate [Combustion] on target once and reduce the target's [Combustion] Count by 1 (once per Identity)\n\nOn Skill Use against enemies that have [Combustion], the said Skill gains Offense Level equal to ([Combustion] Potency on the main target / 10) (max 8)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9252,
+      "name": "Nail and Hammer",
+      "desc": "<noparse>N Corp. Fanatic</noparse> Identities: Base Skills gain Base Power +3\n\nWhen an <noparse>N Corp. Fanatic</noparse> Identity gains [AssemblePersonality], all <noparse>N Corp. Fanatic</noparse> Identities gain the same Stack of [AssemblePersonality] (once per turn including the first unit)\n- If there is a Lust A-Reson., triple the Stack gained\n\nEncounter Start: Inflict 2 [NailPersonality] on all enemies\n\nWhen an <noparse>N Corp. Fanatic</noparse> Identity uses a Base Skill to Clash against a target that has [NailPersonality], inflict 3 [Laceration] (once per Skill)\n\n<noparse>N Corp. Fanatic</noparse> Identities deal +100% damage using Base Skills against targets that have [NailPersonality]",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9253,
+      "name": "Carousel Figurine",
+      "desc": "First Turn Start: Increase [BloodDinner] by 300\nDouble the amount of [BloodDinner] increased by [Laceration]\nOn Use of a Skill that consumes [BloodDinner], at Attack End, consume additional [BloodDinner] equal to the amount consumed by the Skill\n\n[La Manchaland Identities Only]\nWhen a La Manchaland Identity enters the field, the Identity gains their respective effect:\n- The Manager of La Manchaland Don Quixote: Gain 15 [BloodArmorPersonalityFirst]\n- The Princess of La Manchaland Rodion: Gain 15 [BloomingThornsRodionFirst]\n- The Priest of La Manchaland Gregor: Gain 15 [BloodyHandGregFirst]\n- The Barber of La Manchaland Outis: Gain 15 [BloodScissorPersonalityFirst]\n- The Prince of La Manchaland Meursault: Gain 3 [BloodArmorMeursault]\n\n[The Manager of La Manchaland Don Quixote Only]\nThe Manager of La Manchaland Don Quixote's Base Skills gain Final Power +1 and deal +30% damage for every La Manchaland Identity in the Team (max 4; max 120%; including Backup Units; including defeated units; excluding undeployed units)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9254,
+      "name": "Another Round!",
+      "desc": "Base Skills that consume [Vibration] Count or [Charge] Count deal +20% damage (including 'Unique Charge'; excluding 'Unique Charge'(fixed Potency))\n\nWhen consuming [Vibration] Count or [Charge] Count by using Base Skills, regain the half of consumed Count at Skill End (min 1, rounded down; including 'Unique Charge', excluding 'Unique Charge'(fixed Potency))",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9255,
+      "name": "Clappity Clap!",
+      "desc": "On Clash Win using a Base Skill that inflicts [Vibration] Potency, Count, or 'Unique Tremor' against an enemy, trigger [FusionVibration] into a random 'Unique Tremor' from the following (once per turn):\n- [VibrationIgnition]\n- [VibrationBleeding]\n- [VibrationEcho]\n- [VibrationCollapse]\n- [VibrationChainPersonality]",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9273,
+      "name": "Spiderweb Entangled in Red",
+      "desc": "All allies gain 1 Offense Level and 1 Defense Level for every defeated ally (max 10)\n\nIf Blade of the House of Spiders Ryōshū is in the Team loadout, any defeated Identities excluding Blade of the House of Spiders Ryōshū will not be revived after clearing an Encounter (Floor final boss nodes and Hidden nodes)\n\n[Effects apply only to #1 Deployed Identity]\n\nTurn Start: If there are no surviving allies apart from this unit, gain [RedButterfly]\n\n[Effects apply only to Blade of the House of Spiders Ryōshū]\n\nUpon entering the Encounter for the first time, for every The House of Spiders allied Identity that is defeated, gain 5 [PhantomIncisionTotalID]\nFor every 2 defeated The House of Spiders allies, Final Power +1, Coin Power +1, and deal +10% damage (max 3 and 30%, respectively)\nIf there are no surviving allies apart from Blade of the House of Spiders Ryōshū, gain +12 modifier for all Choice Event Skill checks",
+      "simpleDesc": [
+        {
+          "abilityID": 9273,
+          "simpleDesc": "Gain Offense Level and Defense Level"
+        },
+        {
+          "abilityID": 92731,
+          "simpleDesc": "Gain [RedButterfly]"
+        },
+        {
+          "abilityID": 92732,
+          "simpleDesc": "Gain [PhantomIncisionTotalID]"
+        },
+        {
+          "abilityID": 92733,
+          "simpleDesc": "Gain Final Power, Coin Power, deal more damage"
+        }
+      ]
+    },
+    {
+      "id": 9274,
+      "name": "Ohra Bond",
+      "desc": "On Crit against an enemy, inflict 1 [Binding] next turn (2 times per turn)\nOn Hit using a Skill against an enemy that has [Binding], gain 1 [Breath] (2 times per turn per Identity)\n\nTurn Start: All enemies that have [Laceration] gain [AttackDown] equal to [Binding] on themselves (max 5)\n\nTurn Start: If all enemies(for Focused Encounters, all Parts) have [Binding], all allies gain 3 [Breath]",
+      "simpleDesc": [
+        {
+          "abilityID": 9274,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9275,
+      "name": "N Corp. Service des Clous Briefcase",
+      "desc": "When hitting an enemy using a Skill that inflicts [Laceration] Potency, Count, or 'Unique Bleed', inflict 1 [NailPersonality] (once per Skill)\nWhen triggering [VibrationExplosion] on an enemy that has [NailPersonality], inflict 1 [Binding] next turn (3 times per turn)",
+      "simpleDesc": [
+        {
+          "abilityID": 9275,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9276,
+      "name": "Baekja Water Dropper",
+      "desc": "When an allied Identity gains [SupportProtect], the said ally gains 2 [AttackDmgUp] and 2 [Protection]\n\n[Effects apply only to #1 Deployed Identity]\nTurn End: Gain 2 [Agility] next turn\nWhen an Identity's Speed is faster than the enemy's, deal +3% damage for every Speed difference (max 30%)",
+      "simpleDesc": [
+        {
+          "abilityID": 9276,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9277,
+      "name": "Flagroot Cane Sword",
+      "desc": "If an ally was not hit by an enemy this turn, the said ally gains 1 [SlashDamageUp] next turn\nWhen an ally is hit by an enemy, the said ally gains 4 [Breath], and gains 1 [CriticalDamageUp] this turn and next turn (once per turn per Identity)\n- If the affected ally is a Blade Lineage Identity, gain double the effects of this E.G.O Gift",
+      "simpleDesc": [
+        {
+          "abilityID": 9277,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9278,
+      "name": "Crushed Wooden Manacle",
+      "desc": "On Hit against an enemy using a Slash Skill, inflict 1 [DefenseDown] next turn (2 times per Skill)\nIf an ally is faster than the enemy, the said ally deals +3% damage using Base Attack Skills for every 1 Speed Difference (max 12%)\n- If the enemy has [Binding], double the above damage boost and its maximum cap",
+      "simpleDesc": [
+        {
+          "abilityID": 9278,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9279,
+      "name": "Unadorned Sword-guard",
+      "desc": "Slash Skills deal +1% damage for every [Breath] (max 15%)",
+      "simpleDesc": [
+        {
+          "abilityID": 9279,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9280,
+      "name": "The Book of the Homeland Swordplay [本國劍譜]",
+      "desc": "If an enemy has 1.5 or lower Slash Resist., Slash Resist. +0.3\nSlash Skills gain Offense Level +2\nWhen attacking enemies that are Weak (greater than 1.0 Resist.; Staggered states do not count) to Slash, deal +(5 + (target's Slash Resist. x 10))% damage (max 25%)\n\nSlash Skills deal +1.5% damage for every [Breath] (max 30%)\n\nCount 1 non-Blade Lineage S Corp. Identity with the earliest Deployment order as a Blade Lineage Identity and apply [BongukGiftEnhance] on it every turn\n\nTurn Start: Activates when there are 3 or more Blade Lineage Identities (only counts Identities on the field at Encounter Start)\n- Combat Start: Apply 1 [BongukGiftEnhance] on allied Blade Lineage Identities that have equipped Wrath or Pride Skills",
+      "simpleDesc": [
+        {
+          "abilityID": 9280,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9282,
+      "name": "Wing-shaped Waxen Candle",
+      "desc": "Turn Start: Activates when there are 3 or more <noparse>Dawn Office</noparse> Identities (counts Backup Identities)\n\nTurn 1: Apply 2 [DawnLight] on all allies\nCombat Start: <noparse>Dawn Office</noparse> Fixer Sinclair heals 10 SP, and the said Identity may enter the \"Volatile E.G.O::Waxen Pinion\" state via the Passive effect of \"Unstable Shell of Ego\" at 25+ SP instead of 40+ SP\n\n[<noparse>Dawn Office</noparse> Identities Exclusive Effect]\nOn Hit using Base Skills, inflict 2 [Combustion] and 2 [Vibration] on target (once per Skill)\n<noparse>Dawn Office</noparse> Identities are considered \"Identities that inflict [Combustion] and [Vibration]\"\n- <noparse>Dawn Office</noparse> Identities' Base Skills count as \"Skills that inflict [Combustion] and [Vibration]\"\nEncounter Start: If <noparse>Dawn Office</noparse> Faust is on the field, apply 1 [Firstlight] on the said Identity",
+      "simpleDesc": [
+        {
+          "abilityID": 9281,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9283,
+      "name": "Tributary Cigar",
+      "desc": "Turn Start: Activates when there are 3 or more \"The Thumb\" Identities (only counts Identities on the field)\nTurn Start: \"The Thumb\" Identities gain 1 [PlusCoinValueUp] and 2 [AttackDmgUp]\n\"The Thumb\" Identities gain 1 [AttackUp] for every \"The Thumb\" Identity on the field (max 4)\nDeal +1% damage for every [VibrationIgnition] on target (max 20%)\n- Skills that spend [Bullet] deal an additional +1% damage (max 20%)\n- \"The Thumb\" Identities deal an additional +1% damage (max 20%)\n\nUnits that triggered [VibrationExplosion] with their Skill effects gain 2 [AttackUp] next turn (3 times per turn)\n\nAt Attack End of The House of Spiders: The Thumb Nursefather Rodion's Skill 3, apply 1 [EvolvingManual] on The House of Spiders: The Thumb Apprentice Heathcliff",
+      "simpleDesc": [
+        {
+          "abilityID": 9282,
+          "simpleDesc": ""
+        }
+      ]
+    }
+  ]
+}

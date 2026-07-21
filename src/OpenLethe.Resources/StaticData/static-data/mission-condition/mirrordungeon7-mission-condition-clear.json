@@ -1,0 +1,68 @@
+{
+  "list": [
+    {
+      "id": 201002001,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "ACCUMULATED",
+      "targetList1": [ 0, 1, 2, 3 ],
+      "targetList2": [ 5 ],
+      "targetList2Op": "GREATER_THAN_OR_EQUAL",
+      "uiConfig": {
+        "textTags": [ "targetList2", "value" ]
+      }
+    },
+
+
+    {
+      "id": 201002002,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "ACCUMULATED",
+      "targetList1": [ 1, 2, 3 ],
+      "targetList2": [ 5 ],
+      "targetList2Op": "GREATER_THAN_OR_EQUAL",
+      "uiConfig": {
+        "textTags": [ "targetList2", "value" ]
+      }
+    },
+
+
+    {
+      "id": 201002003,
+      "type": "MIRROR_DUNGEON_FLOOR_CLEAR",
+      "valueType": "PEAK",
+      "uiConfig": {
+        "textTags": [ "value" ]
+      }
+    },
+    {
+      "id": 201002004,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "ACCUMULATED",
+      "targetList1": [ 1, 2, 3 ],
+      "targetList2": [ 10 ],
+      "targetList2Op": "GREATER_THAN_OR_EQUAL",
+      "uiConfig": {
+        "textTags": [ "targetList2", "value" ]
+      }
+    },
+
+    {
+      "id": 201002005,
+      "type": "MIRROR_DUNGEON_CLEAR_WITH_RAILWAY_THEME",
+      "valueType": "PEAK",
+      "uiConfig": {
+        "textTags": [ "value" ]
+      }
+    },
+
+    {
+      "id": 201002006,
+      "type": "MIRROR_DUNGEON_CLEAR_WITH_STORY_THEME",
+      "valueType": "PEAK",
+      "targetList1Op": "GREATER_THAN_OR_EQUAL",
+      "uiConfig": {
+        "textTags": [ "value" ]
+      }
+    }
+  ]
+}
