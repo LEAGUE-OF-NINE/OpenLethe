@@ -50,6 +50,7 @@ app.MapExitStageBattle();
 app.MapExitStory();
 app.MapUpdateAnnouncerPreset();
 app.MapGetDungeonSaveInfoAll();
+app.MapRailway();
 
 app.Run();
 
