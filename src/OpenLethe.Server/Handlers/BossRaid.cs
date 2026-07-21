@@ -131,6 +131,8 @@ public static class BossRaidEndpoints
             if (p.isWin)
             {
                 account.BossRaidSaveInfo = "{}"; // clear on win
+                // Rust's exit_boss_raid also granted a win reward (UNLOCK_CODE 912520), but
+                // ResPacket_ExitBossRaidBattle carries only saveInfo, so it's unreachable via this route.
                 await HandlerContext.SaveAsync(ctx);
                 result = new global::ResPacket_ExitBossRaidBattle { saveInfo = null };
             }

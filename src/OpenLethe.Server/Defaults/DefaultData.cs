@@ -12,6 +12,11 @@ public static class DefaultData
 
     // Memoized builders: Lazy<T> defers the expensive scan/parse on first call.
     // Public methods return shallow copies to prevent mutation of the cache.
+    // ponytail: the "shallow copy" only clones the List<T> container (new(_field.Value));
+    // the element instances inside are shared across every caller and every call. A future
+    // handler that mutates a returned element in place (e.g. a level-up bumping .level) would
+    // corrupt the process-wide cache for all other accounts. Such a consumer must deep-copy the
+    // element itself (or these builders must switch to per-call deep copies).
     private static readonly Lazy<List<Ego>> _egos = new(BuildFormattedEgos);
     private static readonly Lazy<List<ResultPersonality>> _personalities = new(BuildFormattedPersonalities);
     private static readonly Lazy<List<UserUnlockCode>> _userCodes = new(BuildFormattedUserCodes);

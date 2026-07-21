@@ -124,4 +124,39 @@ public class BossRaidHandlerTests(PostgresFixture db)
         using var doc = JsonDocument.Parse(await exit.Content.ReadAsStringAsync());
         Assert.Equal(1, doc.RootElement.GetProperty("result").GetProperty("saveInfo").GetProperty("currentIdx").GetInt32());
     }
+
+    [SkippableFact]
+    public async Task StartBattle_AfterEnter_ReturnsEnemyAndEgostocks()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (client, jwt) = await NewUserAsync(f);
+
+        await client.PostAsJsonAsync("/api/EnterBossRaid", Body(jwt, new { raidId = 10001, difficulty = 1 }));
+        var start = await client.PostAsJsonAsync("/api/StartBossRaidBattle", Body(jwt, new
+        {
+            raidId = 10001,
+            personalities = new[] { new { pid = 42, pord = 0 } },
+        }));
+        Assert.Equal(HttpStatusCode.OK, start.StatusCode);
+        using var doc = JsonDocument.Parse(await start.Content.ReadAsStringAsync());
+        var result = doc.RootElement.GetProperty("result");
+        Assert.True(result.TryGetProperty("enemy", out _));
+        Assert.True(result.TryGetProperty("egostocks", out _));
+    }
+
+    [SkippableFact]
+    public async Task StartBattle_NoActiveSave_BadRequest()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (client, jwt) = await NewUserAsync(f);
+
+        var start = await client.PostAsJsonAsync("/api/StartBossRaidBattle", Body(jwt, new
+        {
+            raidId = 10001,
+            personalities = Array.Empty<object>(),
+        }));
+        Assert.Equal(HttpStatusCode.BadRequest, start.StatusCode);
+    }
 }
