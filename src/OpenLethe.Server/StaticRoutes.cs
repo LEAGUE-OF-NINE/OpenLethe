@@ -61,7 +61,6 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_GetStageProgressRateReward, ResPacket_GetStageProgressRateReward>("/api/GetStageProgressRateReward");
         app.MapPacket<ReqPacket_GetStartBuffFInfoMirrorDungeon, ResPacket_GetStartBuffFInfoMirrorDungeon>("/api/GetStartBuffFInfoMirrorDungeon");
         app.MapPacket<ReqPacket_GetStoryDungeonSaveInfo, ResPacket_GetStoryDungeonSaveInfo>("/api/GetStoryDungeonSaveInfo");
-        app.MapPacket<ReqPacket_GetTermsOfUseStateAll, ResPacket_GetTermsOfUseStateAll>("/login/GetTermsOfUseStateAll");
         app.MapPacket<ReqPacket_GetTheaterInfo, ResPacket_GetTheaterInfo>("/api/GetTheaterInfo");
         app.MapPacket<ReqPacket_GetUserBanners, ResPacket_GetUserBanners>("/api/GetUserBanners");
         app.MapPacket<ReqPacket_GiveUpRailwayDungeonNode, ResPacket_GiveUpRailwayDungeonNode>("/api/GiveUpRailwayDungeonNode");
@@ -137,6 +136,6 @@ public static class StaticRoutes
         return app;
     }
 
-    public static int RegisteredCount => 113;
+    public static int RegisteredCount => 112;
 }
 

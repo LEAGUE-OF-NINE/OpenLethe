@@ -39,8 +39,10 @@ app.UseJwtAuth();   // 401s protected routes lacking a valid token; exempts /log
 app.MapGet("/health", () => "ok");
 app.MapAuth();
 app.MapSignInAsSteam();
+app.MapGetTermsOfUseStateAll(); // real handler: returns terms as accepted (excluded from StaticRoutes)
 app.MapStaticPackets();
 app.MapLoadUserDataAll();
+app.MapFetchLatestSynchronousData();
 app.MapBossRaid();
 app.MapUpdateFormation();
 app.MapUseCoupon();

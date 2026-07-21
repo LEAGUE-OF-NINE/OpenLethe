@@ -30,10 +30,12 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
         // against the current lethe-server source: 107 /api/ + 16 /login/. Of
         // those, 10 /api/ routes have a route name that has drifted from its
         // client ReqPacket_/ResPacket_ pair - those are commented out in
-        // StaticRoutes.cs as `// MISSING:` rather than invented, leaving
-        // 97 + 16 = 113 actually registered here. See StaticRoutes.cs for the
-        // full list of MISSING lines; they are cycle 3 items.
-        Assert.Equal(113, StaticRoutes.RegisteredCount);
+        // StaticRoutes.cs as `// MISSING:` rather than invented. One /login/
+        // route (GetTermsOfUseStateAll) uses static_response with NON-default
+        // data the generic MapPacket can't reproduce, so it's force-excluded
+        // and served by a real handler (Program.cs), leaving 97 + 15 = 112
+        // actually registered here. See StaticRoutes.cs for the MISSING lines.
+        Assert.Equal(112, StaticRoutes.RegisteredCount);
     }
 
     [Fact]

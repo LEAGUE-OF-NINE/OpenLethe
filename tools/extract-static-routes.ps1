@@ -40,6 +40,13 @@ Get-ChildItem -Path $PacketsRoot -Filter *.cs -Recurse | ForEach-Object {
     }
 }
 
+# Routes whose Rust handler uses static_response but with NON-DEFAULT data the
+# generic MapPacket can't reproduce (it would return an empty/default result).
+# These need a hand-written handler and are registered in Program.cs, not here.
+$forceRealHandler = @(
+    '/login/GetTermsOfUseStateAll'   # returns terms as accepted (version 1, state 1)
+)
+
 $static = @()
 $skipped = @()
 $missing = @()
@@ -47,6 +54,8 @@ $missing = @()
 foreach ($m in $routeMatches) {
     $route   = $m.Groups['route'].Value
     $handler = $m.Groups['handler'].Value
+
+    if ($forceRealHandler -contains $route) { $skipped += "$route (real handler required - non-default static data)"; continue }
 
     # crate::api::battlepass::battle_pass_reward::handle_x -> api/battlepass/battle_pass_reward.rs
     $parts = $handler -split '::'
