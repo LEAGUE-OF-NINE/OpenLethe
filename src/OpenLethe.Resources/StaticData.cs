@@ -35,6 +35,27 @@ public static class StaticData
         return result;
     }
 
+    /// Like GetList, but matches the ONE embedded resource whose normalized name ends with
+    /// resourcePath (e.g. a specific file within a folder that holds several JSON files).
+    /// Mirrors Rust get_static_data(path-to-single-file). Empty if not found / bad json.
+    public static List<T> GetListFromFile<T>(string resourcePath)
+    {
+        var suffix = resourcePath.Replace('\\', '/');
+
+        foreach (var name in Asm.GetManifestResourceNames())
+        {
+            var norm = name.Replace('\\', '/');
+            if (!norm.EndsWith(suffix, StringComparison.OrdinalIgnoreCase)) continue;
+
+            using var stream = Asm.GetManifestResourceStream(name)!;
+            ValList<T>? doc;
+            try { doc = JsonSerializer.Deserialize<ValList<T>>(stream, Options); }
+            catch (JsonException) { return new List<T>(); }
+            return doc?.list ?? new List<T>();
+        }
+        return new List<T>();
+    }
+
     private sealed class ValList<T>
     {
         public List<T>? list;
