@@ -55,6 +55,7 @@ app.MapStoryDungeon();
 app.MapMirrorDungeon();
 app.MapMirrorDungeonShop();
 app.MapMirrorDungeonMap();
+app.MapMirrorDungeonEvents();
 
 app.Run();
 
