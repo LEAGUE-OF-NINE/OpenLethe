@@ -51,6 +51,7 @@ app.MapExitStory();
 app.MapUpdateAnnouncerPreset();
 app.MapGetDungeonSaveInfoAll();
 app.MapRailway();
+app.MapStoryDungeon();
 
 app.Run();
 
