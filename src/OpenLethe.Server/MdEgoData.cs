@@ -13,6 +13,8 @@ public sealed class MdEgo
     public long id;
     public long price;
     public List<JsonNode>? upgradeDataList;
+    public List<string> tag = new();
+    public string? keyword;
 }
 
 public static class MdEgoData
@@ -24,4 +26,13 @@ public static class MdEgoData
     public static MdEgo? GetById(long id) => Data.Value.FirstOrDefault(e => e.id == id);
 
     public static long UpgradeCost(long price, long desiredUl) => ((price * desiredUl / 3) / 10) * 10;
+
+    // Port of models/src/mirror_dungeon/ego_gift_fusion.rs determine_ego_tier.
+    public static long? DetermineEgoTier(long id)
+    {
+        var tag = GetById(id)?.tag.FirstOrDefault(t => t.StartsWith("TIER_", StringComparison.Ordinal));
+        if (tag is null) return null;
+        var suffix = tag[(tag.LastIndexOf('_') + 1)..];
+        return long.TryParse(suffix, out var tier) ? tier : null;
+    }
 }
