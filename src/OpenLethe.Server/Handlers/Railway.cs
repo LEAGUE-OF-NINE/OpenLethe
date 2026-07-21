@@ -54,6 +54,56 @@ public static class RailwayEndpoints
             return Results.Json(global::ResponsePacket<GetRailwayDungeonNodeAndLogAllResult>.Ok(result, getAllId), global::PacketJson.Options);
         });
 
+        var enterNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnterRailwayDungeonNode>();
+        app.MapPost("/api/EnterRailwayDungeonNode", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+            var p = await HandlerContext.ReadParamsAsync<EnterRailwayDungeonNodeParams>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var save = OpenLethe.Server.AccountFields.Get<RailwaySaveInfo>(account.RailwaySaveInfo) ?? new RailwaySaveInfo();
+            var nodeData = OpenLethe.Server.AccountFields.Get<List<UpdateNodeDatas>>(account.RailwayNodeData) ?? new();
+            var buffs = OpenLethe.Server.AccountFields.Get<List<Buffsetsbyegogift>>(account.RailwayBuffs) ?? new();
+
+            var prev = RailwayHelpers.FindOrDefaultNode(nodeData, p.nodeid - 1); // not persisted (matches Rust)
+            var result = new EnterRailwayDungeonNodeResult
+            {
+                nodeid = p.nodeid, deletedNodeIds = new(), abnormalityLogs = new(),
+                prevStatusData = prev.status, prevEgoStockData = prev.egostocks, prevEnemyData = prev.enemy,
+                prevClearNodeId = save.prevclearnode, currentNodeId = prev.nodeid,
+                buffsetsbyegogift = RailwayHelpers.BuffsBelowNode(buffs, p.nodeid),
+            };
+            return Results.Json(global::ResponsePacket<EnterRailwayDungeonNodeResult>.Ok(result, enterNodeId), global::PacketJson.Options);
+        });
+
+        var restNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitRailwayDungeonRestNode>();
+        app.MapPost("/api/ExitRailwayDungeonRestNode", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+            var p = await HandlerContext.ReadParamsAsync<ExitRailwayDungeonRestNodeParams>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var save = OpenLethe.Server.AccountFields.Get<RailwaySaveInfo>(account.RailwaySaveInfo) ?? new RailwaySaveInfo();
+            var nodeData = OpenLethe.Server.AccountFields.Get<List<UpdateNodeDatas>>(account.RailwayNodeData) ?? new();
+
+            var prevEgoStocks = RailwayHelpers.FindOrDefaultNode(nodeData, p.nodeid - 1).egostocks;
+            var current = RailwayHelpers.FindOrDefaultNode(nodeData, p.nodeid);
+            save.currentnode = p.nodeid;
+            save.prevclearnode = p.nodeid;
+            current.nodeid = p.nodeid;
+            current.status = DeriveStatus(p.personalities);
+            current.egostocks = prevEgoStocks;
+
+            account.RailwayNodeData = OpenLethe.Server.AccountFields.Set(nodeData);
+            account.RailwaySaveInfo = OpenLethe.Server.AccountFields.Set(save);
+            await HandlerContext.SaveAsync(ctx);
+
+            var result = new ExitRailwayDungeonRestNodeResult { saveInfo = save, deletedNodeIds = new(), nodeData = current };
+            return Results.Json(global::ResponsePacket<ExitRailwayDungeonRestNodeResult>.Ok(result, restNodeId), global::PacketJson.Options);
+        });
+
         return app;
     }
 
