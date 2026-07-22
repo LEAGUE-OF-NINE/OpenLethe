@@ -163,3 +163,89 @@ public sealed class ExitStoryMirrorDungeonMapNodeResult
     public Currentinfo1 currentInfo = new();
     public List<object> abnormalityLogs = new();
 }
+
+// ---- cycle 5c: shop / ego-gift ----
+
+public sealed class PurchaseEgoGiftStoryMirrorDungeonParams
+{
+    public long idx;
+}
+
+public sealed class SellEgoGiftStoryMirrorDungeonParams
+{
+    public long id;
+}
+
+public sealed class UpgradeEgoGiftStoryMirrorDungeonParams
+{
+    public long egoGiftId;
+}
+
+public sealed class RefreshShopEgoGiftsStoryMirrorDungeonParams
+{
+    // Declared because the client sends it; Rust's handler never reads it.
+    public string keyword = "";
+}
+
+public sealed class PurchaseHealStoryMirrorDungeonParams
+{
+    public long idx;
+    public long pid;
+}
+
+/// Shared by the purchase-ego-gift and sell-ego-gift responses (identical shape in Rust).
+/// `egogifts` is lowercase here - that is the wire contract, not a typo.
+public sealed class StoryMirrorDungeonShopEgoGiftResult
+{
+    public long cost;
+    public List<AcquiredEgogifts> egogifts = new();
+    public UserStoryMirrorDungeonShopData shopInfo = new();
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+}
+
+public sealed class UpgradeEgoGiftStoryMirrorDungeonResult
+{
+    public long cost;
+    public AcquiredEgogifts egoGift = new();
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+}
+
+public sealed class RefreshShopEgoGiftsStoryMirrorDungeonResult
+{
+    public long cost;
+    public UserStoryMirrorDungeonShopData shopInfo = new();
+}
+
+public sealed class PurchaseHealStoryMirrorDungeonResult
+{
+    public long cost;
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+    public UserStoryMirrorDungeonShopData shopInfo = new();
+}
+
+public sealed class AcquireRewardEgoGiftsStoryMirrorDungeonParams
+{
+    public List<long> selectIndexList = new();
+}
+
+public sealed class AcquireRewardEgoGiftsStoryMirrorDungeonResult
+{
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<RemainRewardEvent> remainRewardEvent = new();
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+}
+
+public sealed class CombineEgoGiftStoryMirrorDungeonParams
+{
+    public List<long> materialEgoGiftIds = new();
+    // Declared because the client sends it; Rust's handler never reads it.
+    public string keyword = "";
+}
+
+public sealed class CombineEgoGiftStoryMirrorDungeonResult
+{
+    public AcquiredEgogifts resultEgoGift = new();
+    public bool isSuccess;
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+}
