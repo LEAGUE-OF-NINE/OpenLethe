@@ -3,10 +3,11 @@ using System.Collections.Generic;
 namespace OpenLethe.Server.Wire;
 
 // Server-authored ports of the Rust story-mirror-dungeon structs (models/src/types.rs).
-// Field names match Rust serde exactly. No [JsonIgnore]; lists init empty. Shared types
-// (Currentnode, AcquiredEgogifts, ChoiceEventData, EgoSkillStock, RemainRewardEvent,
-// PrevUnitInfo, StartEgoGiftPoolSets, DungeonMap, Ns, MdStatistics) are reused from
-// Wire/MirrorDungeon.cs; Egos from Wire/Railway.cs.
+// Field names match Rust serde exactly. No [JsonIgnore]; lists init empty. Shared types are
+// reused, not redefined - EgoSkillStock, Ns, DungeonMap, StartEgoGiftPoolSets,
+// RemainRewardEvent, PrevUnitInfo and MdStatistics from Wire/MirrorDungeon.cs; Currentnode,
+// AcquiredEgogifts and ChoiceEventData from Wire/StoryDungeon.cs; Egos from Wire/Railway.cs.
+// All live in this same OpenLethe.Server.Wire namespace.
 
 /// Port of models/src/types.rs Dungeonunitlist2 (story MIRROR dungeon). The third unit
 /// type: story-dungeon Dungeonunitlist has `gi`; MD Dungeonunitlist1 differs again. This
