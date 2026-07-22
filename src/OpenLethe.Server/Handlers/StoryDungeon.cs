@@ -196,7 +196,9 @@ public static class StoryDungeonEndpoints
             var choiceIdx = p.choiceEventData.sl[0];
             var cs = p.choiceEventData.cs;
 
-            var next = MdEventManager.ProcessEvent(matchingEid, (int)choiceIdx, cs, new StoryEventSave(save));
+            // choiceIdx is client-controlled; a naked (int) cast wraps on overflow, so
+            // narrow it via the clamping helper instead (see ClampChoiceIndex).
+            var next = MdEventManager.ProcessEvent(matchingEid, MdEventManager.ClampChoiceIndex(choiceIdx), cs, new StoryEventSave(save));
 
             // cs = -1 and ri = 0 are literals in Rust, NOT the request's values.
             save.currentinfo.pce.Insert(0, new ChoiceEventData

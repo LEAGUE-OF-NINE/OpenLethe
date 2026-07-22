@@ -32,7 +32,9 @@ public static class MirrorDungeonEventsEndpoints
 
             long choiceIdx = p.choiceEventData.sl.Count > 0 ? p.choiceEventData.sl[0] : 0;
             long cs = p.choiceEventData.cs;
-            long next = MdEventManager.ProcessEvent(eid.Value, (int)choiceIdx, cs, new MdEventSave(save));
+            // choiceIdx is client-controlled; a naked (int) cast wraps on overflow, so
+            // narrow it via the clamping helper instead (see ClampChoiceIndex).
+            long next = MdEventManager.ProcessEvent(eid.Value, MdEventManager.ClampChoiceIndex(choiceIdx), cs, new MdEventSave(save));
 
             save.currentInfo.pce.Insert(0, new ChoiceEventData { sl = new() { choiceIdx }, cs = -1, ri = 0, nei = next });
 

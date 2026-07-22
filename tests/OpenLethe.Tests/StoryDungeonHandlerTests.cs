@@ -292,6 +292,10 @@ public class StoryDungeonHandlerTests(PostgresFixture db)
             {
                 cn = new Currentnode { f = 0, s = 0, nid = 10501 },
                 pce = new() { new ChoiceEventData { sl = new() { 0 }, cs = -1, ri = 0, nei = 805001 } },
+                // Seeded unit with a distinct pid/ch/cm from anything the request sends,
+                // so a handler that starts consuming the request's unit list (replacing
+                // or appending) is caught even if it lands on a different pid than 999.
+                dul = new() { new Dungeonunitlist { pid = 42, ch = 111, cm = 222 } },
             },
         });
 
@@ -307,6 +311,99 @@ public class StoryDungeonHandlerTests(PostgresFixture db)
         var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
         var stored = AccountFields.Get<StorySaveInfo>(acc!.StorySaveInfo)!;
         Assert.DoesNotContain(stored.currentinfo.dul, u => u.pid == 999);
+        var seeded = Assert.Single(stored.currentinfo.dul);
+        Assert.Equal(42, seeded.pid);
+        Assert.Equal(111, seeded.ch);
+        Assert.Equal(222, seeded.cm);
         Assert.DoesNotContain(stored.currentinfo.egs, e => e.id == 424242);
+    }
+
+    // Real static-data: abnormality-event id 101001, actionEvent.eachOptionList[0]. A
+    // single Prob_1 result with eventResultDataList = [GetConfirmedEgogift(1001),
+    // LoseMpOnly_10 target EveryAlly]. UpdateActionEventRewards applies every entry in
+    // resultList/eventResultDataList unconditionally (no probability roll in this port),
+    // and "LoseMpOnly" has no random-target case (that's only RandomAlly, not used here),
+    // so the -10 sp delta to the seeded unit is fully deterministic. nextEventID is -1.
+    [SkippableFact]
+    public async Task UpdateStoryDungeonMapNode_AppliesDeterministicSpLossToDul()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        await SeedSave(f, name, new StorySaveInfo
+        {
+            dungeonid = 10501,
+            currentinfo = new Currentinfo
+            {
+                cn = new Currentnode { f = 0, s = 0, nid = 10501 },
+                pce = new() { new ChoiceEventData { sl = new() { 0 }, cs = -1, ri = 0, nei = 101001 } },
+                dul = new() { new Dungeonunitlist { pid = 42, ch = 100, cm = 50 } },
+            },
+        });
+
+        var resp = await client.PostAsJsonAsync("/api/UpdateStoryDungeonMapNode", Body(jwt, new
+        {
+            choiceEventData = new { sl = new long[] { 0 }, cs = 0, ri = 0 },
+            dungeonUnitList = Array.Empty<object>(),
+            updatedEgoGifts = Array.Empty<object>(),
+        }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var stored = AccountFields.Get<StorySaveInfo>(acc!.StorySaveInfo)!;
+        var unit = Assert.Single(stored.currentinfo.dul);
+        Assert.Equal(42, unit.pid);
+        Assert.Equal(100, unit.ch); // unaffected - effect only touches sp/cm
+        Assert.Equal(40, unit.cm); // 50 - 10
+        Assert.Contains(stored.currentinfo.egs, e => e.id == 1001);
+        Assert.Equal(-1, stored.currentinfo.pce[0].nei);
+    }
+
+    // Finding 3: choiceEventData.sl[0] is client-controlled and cast to int for
+    // MdEventManager.ProcessEvent. A naked (int) cast WRAPS on overflow, so a hostile
+    // value like 4294967296 (2^32) would wrap to 0 - a valid option index. Send it
+    // alongside the same seed/event as the sl:[0] test above and confirm the outcome
+    // differs (no sp loss applied, no ego gift granted): the guard must reject it as
+    // out-of-range rather than silently treating it as choice 0.
+    [SkippableFact]
+    public async Task UpdateStoryDungeonMapNode_OverflowingChoiceIndex_DoesNotWrapToZero()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        await SeedSave(f, name, new StorySaveInfo
+        {
+            dungeonid = 10501,
+            currentinfo = new Currentinfo
+            {
+                cn = new Currentnode { f = 0, s = 0, nid = 10501 },
+                pce = new() { new ChoiceEventData { sl = new() { 0 }, cs = -1, ri = 0, nei = 101001 } },
+                dul = new() { new Dungeonunitlist { pid = 42, ch = 100, cm = 50 } },
+            },
+        });
+
+        var resp = await client.PostAsJsonAsync("/api/UpdateStoryDungeonMapNode", Body(jwt, new
+        {
+            choiceEventData = new { sl = new long[] { 4294967296L }, cs = 0, ri = 0 },
+            dungeonUnitList = Array.Empty<object>(),
+            updatedEgoGifts = Array.Empty<object>(),
+        }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var stored = AccountFields.Get<StorySaveInfo>(acc!.StorySaveInfo)!;
+        var unit = Assert.Single(stored.currentinfo.dul);
+        // If the cast had wrapped to 0, cm would be 40 and egs would contain 1001 -
+        // the same outcome as the sl:[0] test above. Neither happened: rejected as OOB.
+        Assert.Equal(50, unit.cm);
+        Assert.Equal(100, unit.ch);
+        Assert.DoesNotContain(stored.currentinfo.egs, e => e.id == 1001);
+        Assert.Equal(-1, stored.currentinfo.pce[0].nei);
     }
 }

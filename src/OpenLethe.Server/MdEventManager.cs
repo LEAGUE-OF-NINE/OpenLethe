@@ -97,6 +97,16 @@ public sealed class StoryEventSave : IDungeonEventSave
 
 public static class MdEventManager
 {
+    /// Narrows a client-supplied long choice index to int for ProcessEvent. A naked
+    /// (int) cast WRAPS on overflow (e.g. 4294967296 -> 0), turning a hostile
+    /// out-of-range index into what looks like valid option 0. Rust's `as usize` does
+    /// not wrap this way, so an out-of-range value stays out-of-range there and is
+    /// rejected by the eachOptionList/eventResults bounds check. int.MaxValue is
+    /// guaranteed larger than any real option list, so clamping to it lands a hostile
+    /// value in that same "rejected" bucket instead of wrapping into a chosen option.
+    public static int ClampChoiceIndex(long choiceIdx) =>
+        choiceIdx is >= 0 and <= int.MaxValue ? (int)choiceIdx : int.MaxValue;
+
     /// Processes the event and returns the next event id (-1 = none/not found).
     public static long ProcessEvent(long eid, int choiceIdx, long coinState, IDungeonEventSave save)
     {
