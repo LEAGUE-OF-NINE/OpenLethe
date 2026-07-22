@@ -23,6 +23,11 @@ public sealed class MdRewardList
 /// that whole file - its ENCOUNTER_REWARD_MAP has 28 entries to this type's 35. Those 7
 /// extras are unreachable here too: STARLIGHT_MIN_MAX is in neither AllowedCardTypes nor
 /// any switch arm below, so no response ever differs. Do not add a filter for them.
+/// The same tolerant-vs-strict divergence applies to a missing rewardParams: Rust's
+/// per-variant reward_params field is non-Option, so a card missing it fails
+/// deserialization and drops the whole file, whereas here it just leaves rewardParams
+/// null and the battle-reward handler silently skips that one card via `if (rp is null)
+/// continue`.
 public sealed class MdReward
 {
     public long id;

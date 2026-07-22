@@ -93,8 +93,12 @@ public static class MirrorDungeonRewardsEndpoints
             if (p is null) return Results.BadRequest();
 
             var bought = save.currentInfo.shop.peg.Count;
-            // Rust: usize subtraction (would panic on underflow) then clamp at 30. A
-            // negative count here just makes the selection loops no-op.
+            // Rust does usize subtraction here, which only panics in debug builds. In
+            // release it wraps to a huge value, trips the `count > 30` clamp below, and
+            // serves a full 30-gift shop (reachable: refreshing off a shop node makes
+            // shop_gift_count 0 with a non-empty peg). C# goes negative instead and the
+            // selection loops below just no-op, serving only the peg - the saner outcome
+            // of the two, kept here deliberately rather than reproducing Rust's wrap.
             var count = (int)MirrorDungeonMapEndpoints.ShopGiftCount(save) - bought;
             if (count > 30) count = 30;
 
@@ -160,9 +164,12 @@ public static class MirrorDungeonRewardsEndpoints
                 foreach (var index in p.selectIndexList)
                 {
                     // Rust unwrap_or(&0): a missing index still appends an id-0 gift.
-                    var i = (int)index;
-                    save.currentInfo.egs.Add(new AcquiredEgogifts { id = i >= 0 && i < popup.pool.Count ? popup.pool[i] : 0 });
-                    save.currentInfo.egs.Add(new AcquiredEgogifts { id = i >= 0 && i < popup.pool_v2.Count ? popup.pool_v2[i] : 0 });
+                    // Range-check in long before any int cast - a huge client-supplied
+                    // index (e.g. 4294967296) must stay out-of-range, not wrap to 0.
+                    var inPool = index >= 0 && index < popup.pool.Count;
+                    var inPoolV2 = index >= 0 && index < popup.pool_v2.Count;
+                    save.currentInfo.egs.Add(new AcquiredEgogifts { id = inPool ? popup.pool[(int)index] : 0 });
+                    save.currentInfo.egs.Add(new AcquiredEgogifts { id = inPoolV2 ? popup.pool_v2[(int)index] : 0 });
                 }
             }
 
@@ -208,9 +215,10 @@ public static class MirrorDungeonRewardsEndpoints
             var newRewards = new List<RemainRewardEvent>();
             foreach (var index in p.selectIndexList)
             {
-                var i = (int)index;
-                if (i < 0 || i >= cards.Count) continue; // Rust filter_map drops misses
-                if (!MdEncounterCard.EncounterRewardMap.TryGetValue(cards[i], out var reward)) continue;
+                // Range-check in long before any int cast - a huge client-supplied index
+                // (e.g. 4294967296) must stay out-of-range, not wrap to a valid one.
+                if (index < 0 || index >= cards.Count) continue; // Rust filter_map drops misses
+                if (!MdEncounterCard.EncounterRewardMap.TryGetValue(cards[(int)index], out var reward)) continue;
                 var rp = reward.rewardParams;
                 if (rp is null) continue;
 
@@ -250,9 +258,9 @@ public static class MirrorDungeonRewardsEndpoints
                         };
                         foreach (var ess in save.currentInfo.ess) stock[ess.t] = ess.n;
 
-                        // ponytail: Rust sorts a Vec built from a HashMap, so ties break
-                        // randomly there; OrderBy over the seeded dict is deterministic here.
-                        foreach (var key in stock.OrderBy(kv => kv.Value).Take((int)least.kind).Select(kv => kv.Key).ToList())
+                        // Rust sorts a Vec built from a HashMap (random iteration order), so
+                        // ties break randomly there; ThenBy(Random) reproduces that here.
+                        foreach (var key in stock.OrderBy(kv => kv.Value).ThenBy(_ => System.Random.Shared.Next()).Take((int)least.kind).Select(kv => kv.Key).ToList())
                             stock[key] += least.num;
 
                         save.currentInfo.ess = stock.Select(kv => new EgoSkillStock { t = kv.Key, n = kv.Value }).ToList();

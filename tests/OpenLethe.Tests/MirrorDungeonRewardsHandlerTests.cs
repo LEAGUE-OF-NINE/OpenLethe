@@ -280,4 +280,28 @@ public class MirrorDungeonRewardsHandlerTests(PostgresFixture db)
         var stored = AccountFields.Get<MirrorOriginSaveInfo>((await GetAccount(f, name)).MdSaveInfo)!;
         Assert.Equal(7, stored.currentInfo.cost); // unchanged
     }
+
+    [SkippableFact]
+    public async Task AcquireBattleReward_IndexWrapsPastIntMax_IsRejectedNotWrapped()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new MirrorOriginSaveInfo();
+        save.currentInfo.cost = 7;
+        save.currentInfo.leveladders.Add(1);
+        save.currentInfo.rre.Add(new RemainRewardEvent { rt = "GetBattleRewardCase", pool = new List<long> { 101 } });
+        await SetSave(f, name, save);
+
+        // 4294967296 == 1L << 32, wraps to 0 under an unguarded (int) cast, which would
+        // wrongly hit the single COST card at index 0.
+        var resp = await client.PostAsJsonAsync("/api/AcquireMirrorDungeonBattleReward",
+            Body(jwt, new { selectIndexList = new[] { 4294967296L }, isOrigin = 0 }));
+
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        var stored = AccountFields.Get<MirrorOriginSaveInfo>((await GetAccount(f, name)).MdSaveInfo)!;
+        Assert.Equal(7, stored.currentInfo.cost); // unchanged - index rejected, not wrapped
+    }
 }
