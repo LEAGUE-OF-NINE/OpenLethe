@@ -446,3 +446,29 @@ public sealed class ExitMirrorDungeonResult
     public long isclear;
     public List<MdStatistics> statistics = new();
 }
+
+public sealed class AcquireRewardEgoGiftsWithEnemyBufParams
+{
+    public List<long> selectIndexList = new();
+    public long isOrigin;
+}
+
+public sealed class AcquireRewardEgoGiftsWithEnemyBufResult
+{
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<RemainRewardEvent> remainRewardEvent = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+    public List<long> levelAdders = new();
+    public MirrorOriginSaveInfo saveinfo = new();
+}
+
+public sealed class AcquireMirrorDungeonBattleRewardParams
+{
+    public List<long> selectIndexList = new();
+    public long isOrigin;
+}
+
+public sealed class AcquireMirrorDungeonBattleRewardResult
+{
+    public MirrorOriginSaveInfo saveinfo = new();
+}

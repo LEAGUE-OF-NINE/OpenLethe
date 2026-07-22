@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -133,5 +134,119 @@ public class MirrorDungeonRewardsHandlerTests(PostgresFixture db)
         Assert.Equal(1, result.GetProperty("isEndDungeon").GetInt64());
         Assert.Equal(1, result.GetProperty("isclear").GetInt64());
         Assert.Empty(result.GetProperty("statistics").EnumerateArray());
+    }
+
+    [SkippableFact]
+    public async Task AcquireRewardEgoGiftsWithEnemyBuf_PushesLevelAdderAndBothPools()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new MirrorOriginSaveInfo();
+        save.currentInfo.leveladders.Add(1);
+        save.currentInfo.rre.Add(new RemainRewardEvent
+        {
+            rt = "GetEgogiftWithEnemyBuf",
+            pool = new List<long> { 9001, 9002 },
+            pool_v2 = new List<long> { 9101, 9102 },
+        });
+        await SetSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireRewardEgoGiftsWithEnemyBufMirrorDungeon",
+            Body(jwt, new { selectIndexList = new[] { 1 }, isOrigin = 0 }));
+
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        var stored = AccountFields.Get<MirrorOriginSaveInfo>((await GetAccount(f, name)).MdSaveInfo)!;
+        Assert.Equal(new List<long> { 1, 3 }, stored.currentInfo.leveladders);
+        Assert.Equal(new long[] { 9002, 9102 }, stored.currentInfo.egs.Select(e => e.id).ToArray());
+        // rre is REPLACED with a single GetBattleRewardCase popup holding up to 3 cards.
+        var rre = Assert.Single(stored.currentInfo.rre);
+        Assert.Equal("GetBattleRewardCase", rre.rt);
+        Assert.Equal(1, rre.se);
+        Assert.Equal(2, rre.sh);
+        Assert.InRange(rre.pool.Count, 0, 3);
+    }
+
+    [SkippableFact]
+    public async Task AcquireBattleReward_CostCard_AddsCostWithinRange()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new MirrorOriginSaveInfo();
+        save.currentInfo.cost = 0;
+        save.currentInfo.leveladders.Add(1);
+        save.currentInfo.rre.Add(new RemainRewardEvent
+        {
+            rt = "GetBattleRewardCase",
+            pool = new List<long> { 101 }, // COST, acquireCostMin 80 / max 120
+        });
+        await SetSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireMirrorDungeonBattleReward",
+            Body(jwt, new { selectIndexList = new[] { 0 }, isOrigin = 0 }));
+
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        var stored = AccountFields.Get<MirrorOriginSaveInfo>((await GetAccount(f, name)).MdSaveInfo)!;
+        Assert.InRange(stored.currentInfo.cost, 80, 120);
+        // rre is replaced by newRewards - a COST card produces none.
+        Assert.Empty(stored.currentInfo.rre);
+    }
+
+    [SkippableFact]
+    public async Task AcquireBattleReward_EgoStockCard_RaisesLeastStocks()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new MirrorOriginSaveInfo();
+        save.currentInfo.leveladders.Add(1);
+        save.currentInfo.ess.Add(new EgoSkillStock { t = "CR", n = 50 });
+        save.currentInfo.rre.Add(new RemainRewardEvent
+        {
+            rt = "GetBattleRewardCase",
+            pool = new List<long> { 507 }, // EGOSTOCK, leastEgoStock kind 4 num 10
+        });
+        await SetSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireMirrorDungeonBattleReward",
+            Body(jwt, new { selectIndexList = new[] { 0 }, isOrigin = 0 }));
+
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        var stored = AccountFields.Get<MirrorOriginSaveInfo>((await GetAccount(f, name)).MdSaveInfo)!;
+        // All 7 stock kinds are written back.
+        Assert.Equal(7, stored.currentInfo.ess.Count);
+        // CR was highest (50) so it is not among the 4 least -> unchanged.
+        Assert.Equal(50, stored.currentInfo.ess.Single(s => s.t == "CR").n);
+        // Exactly 4 of the 6 zero-valued kinds got +10.
+        Assert.Equal(4, stored.currentInfo.ess.Count(s => s.n == 10));
+    }
+
+    [SkippableFact]
+    public async Task AcquireBattleReward_OutOfRangeIndex_IsSkipped()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new MirrorOriginSaveInfo();
+        save.currentInfo.cost = 7;
+        save.currentInfo.leveladders.Add(1);
+        save.currentInfo.rre.Add(new RemainRewardEvent { rt = "GetBattleRewardCase", pool = new List<long> { 101 } });
+        await SetSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireMirrorDungeonBattleReward",
+            Body(jwt, new { selectIndexList = new[] { 99 }, isOrigin = 0 }));
+
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        var stored = AccountFields.Get<MirrorOriginSaveInfo>((await GetAccount(f, name)).MdSaveInfo)!;
+        Assert.Equal(7, stored.currentInfo.cost); // unchanged
     }
 }
