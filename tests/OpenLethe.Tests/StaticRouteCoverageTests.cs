@@ -26,26 +26,30 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
     public void AllStatelessRoutes_AreRegistered()
     {
         // The generator (tools/extract-static-routes.ps1) is client-driven: a
-        // route/type pair comes from the packets/api_*.cs header comments, and
-        // Rust (router.rs + handler source) only supplies the stateless
+        // route/type pair comes from the packet header comments, and Rust
+        // (router.rs + handler source) only supplies the stateless
         // classification (static_response present, UserRepository absent).
-        // Against the current client + lethe-server source that resolves 115
-        // routes whose Rust handler is directly proven stateless, plus 4 more
-        // client-only *v2 routes (EnterThreadDungeonv2, ExitThreadDungeonv2,
-        // SkipExpDungeonv2, SkipThreadDungeonv2) that Rust has never heard of
-        // but that share a packet contract with a proven-stateless Rust route
-        // (e.g. EnterThreadDungeonv2 reuses EnterThreadDungeon's ReqPacket_/
-        // ResPacket_ pair) - 115 + 4 = 119. Five routes Rust declares and
-        // classifies stateless but the client does not declare at all
-        // (EgoGacksung, EnterMirrordungeonMapNodeBattleAfterChoice,
+        // Against the current client + lethe-server source that resolves:
+        //   115  /api + /login routes whose Rust handler is directly proven stateless
+        // +   4  client-only *v2 routes Rust has never heard of, admitted because
+        //        they share a packet contract with a proven-stateless Rust route
+        //        (EnterThreadDungeonv2, ExitThreadDungeonv2, SkipExpDungeonv2,
+        //        SkipThreadDungeonv2)
+        // +  13  /iap and /log routes, brought into the generator's scope in cycle 7
+        //        (9 /iap + 4 /log, all Rust-declared and all proven stateless)
+        // = 132.
+        // /iap/PurchaseAsAppleV2 is client-only and is NOT admitted: no Rust-static
+        // route shares its packet pair, and its response carries an appleIAP object a
+        // canned default cannot fill. Five routes Rust declares and classifies
+        // stateless but the client does not declare at all (EgoGacksung,
+        // EnterMirrordungeonMapNodeBattleAfterChoice,
         // EnterStoryDungeonMapNodeBattleAfterChoice, GetStoryDungeonNodeRecord,
-        // PersonalityGacksung) are commented out in StaticRoutes.cs as
-        // `// NOT IN CLIENT:` rather than invented. Three further routes
-        // (login/GetTermsOfUseStateAll, /api/GetMirrorDungeonEgoGiftRecord,
-        // /api/ExitMirrorDungeon) use static_response with NON-default data the
-        // generic MapPacket can't reproduce, so they're force-excluded and
-        // served by real handlers (Program.cs) instead.
-        Assert.Equal(119, StaticRoutes.RegisteredCount);
+        // PersonalityGacksung) are commented out as `// NOT IN CLIENT:` rather than
+        // invented. Three further routes (login/GetTermsOfUseStateAll,
+        // /api/GetMirrorDungeonEgoGiftRecord, /api/ExitMirrorDungeon) use
+        // static_response with NON-default data the generic MapPacket can't
+        // reproduce, so they're force-excluded and served by real handlers instead.
+        Assert.Equal(132, StaticRoutes.RegisteredCount);
     }
 
     [Fact]
@@ -54,7 +58,7 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
         // MapPacket resolves each packet ID once at startup via ResolvePacketId,
         // which now defaults to 0 on a miss instead of throwing (the client
         // ignores packetId) - so a missing constant can never block boot. This
-        // just confirms the app still starts cleanly with all 119 routes wired.
+        // just confirms the app still starts cleanly with all 132 routes wired.
         var client = _factory.CreateClient();
         Assert.NotNull(client);
     }
@@ -114,5 +118,33 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
         using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
         Assert.Equal("ok", doc.RootElement.GetProperty("state").GetString());
         Assert.True(doc.RootElement.GetProperty("packetId").GetInt64() != 0);
+    }
+
+    [Theory]
+    // Cycle 7 brought the /iap and /log groups into the generator's scope. All are
+    // static_response stubs with no UserRepository even in the Rust reference (there
+    // is no real payment integration upstream). packetId is deliberately NOT asserted
+    // here: only 5 of the 13 have a Rust HasPacketId impl (GetGachaLogAll, GetMailLogAll,
+    // GetSteamWalletCurrency, InitPurchase, UpdateSteamPendingPurchase), so the other 8
+    // resolve to 0 by design - the client ignores the field. See ResolvePacketId.
+    [InlineData("/iap/Purchase")]
+    [InlineData("/iap/InitPurchase")]
+    [InlineData("/iap/PurchaseIngameProduct")]
+    [InlineData("/log/ReportSpeedHack")]
+    [InlineData("/log/GetGachaLogAll")]
+    public async Task IapAndLogRoutes_ReturnOkEnvelope(string route)
+    {
+        var client = _factory.CreateClient();
+
+        var resp = await client.PostAsJsonAsync(route, new
+        {
+            userAuth = new { uid = 1, dbid = 1, authCode = _token, version = "1", synchronousDataVersion = 0 },
+            parameters = new { },
+        });
+
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        Assert.Equal("ok", doc.RootElement.GetProperty("state").GetString());
     }
 }

@@ -11,9 +11,10 @@
 # (ReqPacket_X, ResPacket_Y) pair - with a Rust route already proven static; see
 # the $staticClassPairs comment below.
 #
-# Scope is /api/* and /login/* routes (matches the brief's regex) - the /iap
-# and /log route groups use the same static_response/UserRepository idiom but
-# are a separate subsystem and out of scope for this task.
+# Scope is /api/*, /login/*, /iap/* and /log/* routes. The /iap and /log groups
+# were out of scope until cycle 7; they use the same static_response/UserRepository
+# idiom, and upstream they are stubs (no real payment integration exists), so the
+# same classification applies to them unchanged.
 #
 # Rust-declared routes the client does not declare at all are commented out with
 # `// NOT IN CLIENT:` and reported, deterministically, so a regen reproduces the
@@ -32,7 +33,7 @@ $routerText = Get-Content "$RustRoot\server\src\router.rs" -Raw
 # router.route("/api/Name", post(path::to::handler_fn)) - handler may be
 # wrapped across lines and/or have a trailing comma before the closing paren,
 # e.g. BattlePassExLevelReward's post(\n    crate::...::handle_x,\n),
-$routePattern = 'route\(\s*"(?<route>/(?:api|login)/[^"]+)"\s*,\s*post\(\s*(?<handler>[\w:]+)\s*,?\s*\)'
+$routePattern = 'route\(\s*"(?<route>/(?:api|login|iap|log)/[^"]+)"\s*,\s*post\(\s*(?<handler>[\w:]+)\s*,?\s*\)'
 $routeMatches = [regex]::Matches($routerText, $routePattern)
 if ($routeMatches.Count -eq 0) { throw "No routes matched - check regex against router.rs" }
 
@@ -63,7 +64,7 @@ $clientRoutes = New-Object 'System.Collections.Generic.Dictionary[string,object]
 Get-ChildItem -Path $PacketsRoot -Filter *.cs -Recurse | ForEach-Object {
     $fileName = $_.Name
     $text = Get-Content $_.FullName -Raw
-    foreach ($hm in [regex]::Matches($text, '(?m)^//\s*(?<route>/(?:api|login)/\S+)\s+(?<req>ReqPacket_\w+)\s*->\s*(?<res>ResPacket_\w+)\s*$')) {
+    foreach ($hm in [regex]::Matches($text, '(?m)^//\s*(?<route>/(?:api|login|iap|log)/\S+)\s+(?<req>ReqPacket_\w+)\s*->\s*(?<res>ResPacket_\w+)\s*$')) {
         $route = $hm.Groups['route'].Value
         $req   = $hm.Groups['req'].Value
         $res   = $hm.Groups['res'].Value
@@ -177,7 +178,7 @@ $emittedRoutes = New-Object 'System.Collections.Generic.HashSet[string]' ([Syste
 $fallbackResolved = @()
 
 foreach ($route in $rustStatic) {
-    $name = $route -replace '^/(?:api|login)/', ''
+    $name = $route -replace '^/(?:api|login|iap|log)/', ''
     $usedFallback = $false
     if ($clientRoutes.ContainsKey($route)) {
         $req = $clientRoutes[$route].Req
@@ -220,7 +221,7 @@ foreach ($route in $clientRoutes.Keys) {
     $pairKey = "$($cr.Req)|$($cr.Res)"
     if ($staticClassPairs.Contains($pairKey)) {
         if (-not $emittedRoutes.Add($route)) { throw "Duplicate emission for $route" }
-        $name = $route -replace '^/(?:api|login)/', ''
+        $name = $route -replace '^/(?:api|login|iap|log)/', ''
         $static += [pscustomobject]@{ Route = $route; Name = $name; Req = $cr.Req; Res = $cr.Res }
         $inheritedRoutes += $route
     } else {

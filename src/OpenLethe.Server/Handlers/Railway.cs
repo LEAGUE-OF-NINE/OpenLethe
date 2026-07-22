@@ -50,7 +50,8 @@ public static class RailwayEndpoints
             if (account is null) return Results.Unauthorized();
 
             var nodes = OpenLethe.Server.AccountFields.Get<List<UpdateNodeDatas>>(account.RailwayNodeData) ?? new();
-            var result = new GetRailwayDungeonNodeAndLogAllResult { nodeDatas = nodes, logDatas = new() };
+            var saveAll = OpenLethe.Server.AccountFields.Get<RailwaySaveInfo>(account.RailwaySaveInfo) ?? new RailwaySaveInfo();
+            var result = new GetRailwayDungeonNodeAndLogAllResult { railwaySaveInfo = saveAll, nodeDatas = nodes, logDatas = new() };
             return Results.Json(global::ResponsePacket<GetRailwayDungeonNodeAndLogAllResult>.Ok(result, getAllId), global::PacketJson.Options);
         });
 
@@ -173,6 +174,70 @@ public static class RailwayEndpoints
                 rewards = new(),
             };
             return Results.Json(global::ResponsePacket<ExitRailwayDungeonResult>.Ok(result, exitId), global::PacketJson.Options);
+        });
+
+        // The client splits GetRailwayDungeonNodeAndLogAll into granular getters. Rust
+        // declares none of them; shapes come from packets/api_GetRailwayDungeon*.cs. The
+        // port stores one Railway run per account, not one per dungeonId, so the three
+        // single-value getters read the same columns the combined getter does and ignore
+        // the request body - exactly as GetRailwayDungeonNodeAndLogAll already does.
+        // ExtraRewardStates is the exception: its response is a list KEYED by dungeonId, so
+        // it must decide per entry, and it reports the stored state only for the run's own
+        // save.id rather than repeating it under every id the client asked about.
+        var saveInfoId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonSaveInfo>();
+        app.MapPost("/api/GetRailwayDungeonSaveInfo", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+
+            var save = OpenLethe.Server.AccountFields.Get<RailwaySaveInfo>(account.RailwaySaveInfo) ?? new RailwaySaveInfo();
+            var result = new GetRailwayDungeonSaveInfoResult { railwaySaveInfo = save };
+            return Results.Json(global::ResponsePacket<GetRailwayDungeonSaveInfoResult>.Ok(result, saveInfoId), global::PacketJson.Options);
+        });
+
+        var nodeDatasId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonNodeDatas>();
+        app.MapPost("/api/GetRailwayDungeonNodeDatas", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+
+            var nodes = OpenLethe.Server.AccountFields.Get<List<UpdateNodeDatas>>(account.RailwayNodeData) ?? new();
+            var result = new GetRailwayDungeonNodeDatasResult { nodeDatas = nodes };
+            return Results.Json(global::ResponsePacket<GetRailwayDungeonNodeDatasResult>.Ok(result, nodeDatasId), global::PacketJson.Options);
+        });
+
+        var logsId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonLogs>();
+        app.MapPost("/api/GetRailwayDungeonLogs", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+
+            return Results.Json(global::ResponsePacket<GetRailwayDungeonLogsResult>.Ok(new GetRailwayDungeonLogsResult(), logsId), global::PacketJson.Options);
+        });
+
+        var extraRewardId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonExtraRewardStates>();
+        app.MapPost("/api/GetRailwayDungeonExtraRewardStates", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+            var p = await HandlerContext.ReadParamsAsync<GetRailwayDungeonExtraRewardStatesParams>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var save = OpenLethe.Server.AccountFields.Get<RailwaySaveInfo>(account.RailwaySaveInfo);
+            // A client body of {"dungeonIds": null} nulls the list - coalesce here, after
+            // deserialization, since a field initializer would have been overwritten.
+            var requested = p.dungeonIds ?? new List<long>();
+            var result = new GetRailwayDungeonExtraRewardStatesResult
+            {
+                list = requested.Select(id => new ExtraRewardStateByDungeonId
+                {
+                    dungeonId = id,
+                    // One run is stored per account, keyed by save.id (EnterRailwayDungeon
+                    // sets it to 5). Any other requested dungeon has no state to report.
+                    extraRewardState = (save is not null && save.id == id) ? save.extrarewardstate : new(),
+                }).ToList(),
+            };
+            return Results.Json(global::ResponsePacket<GetRailwayDungeonExtraRewardStatesResult>.Ok(result, extraRewardId), global::PacketJson.Options);
         });
 
         return app;
