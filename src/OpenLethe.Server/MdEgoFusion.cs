@@ -27,6 +27,34 @@ public sealed class FixedCombination
     public List<long> requiredEgoGiftIds = new();
 }
 
+/// static-data/mirror-dungeon-common-data/*.json - the same unlisted files the fixed-combination
+/// table comes from. Rust: models/src/mirror_dungeon/ego_gift_fusion.rs EgoGiftCombineTierTable.
+public sealed class EgoGiftCombineTierTable
+{
+    public CombineTierData? egoGiftCombineTierTable;
+}
+
+public sealed class CombineTierData
+{
+    public List<CombineTwo> combineTwo = new();
+    public List<CombineThree> combineThree = new();
+}
+
+public sealed class CombineTwo
+{
+    public long aTier;
+    public long bTier;
+    public long resultTier;
+}
+
+public sealed class CombineThree
+{
+    public long aTier;
+    public long bTier;
+    public long cTier;
+    public long resultTier;
+}
+
 /// Fixed-recipe result when FixedGiftId is non-null; otherwise a random (Keyword, Tier) roll.
 /// ponytail: one record struct instead of a two-case class hierarchy - the caller only
 /// ever branches on "was it fixed".
@@ -53,6 +81,28 @@ public static class MdEgoFusion
     });
 
     public static IReadOnlyDictionary<long, long> EgoRecipeMapping => RecipeMapping.Value;
+
+    // Rust get_md_ego_gift_combinations() loads the folder unlisted and the combine handler
+    // takes .first(); the file carries many other top-level keys, which STJ ignores.
+    private static readonly Lazy<CombineTierData?> TierTable = new(() =>
+        StaticData.GetUnlisted<EgoGiftCombineTierTable>("static-data/mirror-dungeon-common-data")
+            .Select(t => t.egoGiftCombineTierTable)
+            .FirstOrDefault(t => t is not null));
+
+    public static CombineTierData? CombineTierTable => TierTable.Value;
+
+    /// Port of combine_ego_gift_story_mirror_dungeon.rs tier_to_int. Deliberately NOT
+    /// MdEgoData.DetermineEgoTier: this reads tag.First() only and collapses TIER_4, TIER_5
+    /// and a missing/unknown tag all into 4, where DetermineEgoTier scans for any TIER_ tag
+    /// and returns 5 or null respectively. Story-MD's combine uses this one.
+    public static long TierToInt(long egoGiftId) =>
+        MdEgoData.GetById(egoGiftId)?.tag.FirstOrDefault() switch
+        {
+            "TIER_1" => 1,
+            "TIER_2" => 2,
+            "TIER_3" => 3,
+            _ => 4,
+        };
 
     /// Rust hash_3_numbers: all arithmetic wraps (wrapping_add/mul on i64).
     public static long Hash3(long a, long b, long c)

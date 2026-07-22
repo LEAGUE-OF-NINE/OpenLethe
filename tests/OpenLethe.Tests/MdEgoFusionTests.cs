@@ -145,4 +145,57 @@ public class MdEgoFusionTests
         var gifts = pool.ShopEgoGiftsPool(themeId);
         Assert.DoesNotContain(gifts, g => MdEgoFusion.EgoRecipeMapping.Values.Contains(g));
     }
+
+    [Fact]
+    public void CombineTierTable_LoadsFromMirrorDungeonCommonData()
+    {
+        var table = MdEgoFusion.CombineTierTable;
+        Assert.NotNull(table);
+        // Verified against static-data/mirror-dungeon-common-data/mirror-dungeon-common-data-md7.json.
+        Assert.Equal(6, table!.combineTwo.Count);
+        Assert.Equal(10, table.combineThree.Count);
+
+        var firstTwo = table.combineTwo[0];
+        Assert.Equal(1, firstTwo.aTier);
+        Assert.Equal(1, firstTwo.bTier);
+        Assert.Equal(1, firstTwo.resultTier);
+
+        var firstThree = table.combineThree[0];
+        Assert.Equal(1, firstThree.aTier);
+        Assert.Equal(1, firstThree.bTier);
+        Assert.Equal(1, firstThree.cTier);
+        Assert.Equal(1, firstThree.resultTier);
+    }
+
+    [Fact]
+    public void CombineTierTable_ContainsAKnownThreeWayRow()
+    {
+        // {"aTier":1,"bTier":1,"cTier":2,"resultTier":2} is the second combineThree row.
+        var table = MdEgoFusion.CombineTierTable!;
+        Assert.Contains(table.combineThree,
+            r => r.aTier == 1 && r.bTier == 1 && r.cTier == 2 && r.resultTier == 2);
+    }
+
+    // TierToInt is story-MD's own tier function and is deliberately NOT DetermineEgoTier:
+    // it reads tag.First() and collapses TIER_4, TIER_5 and "no tag at all" into 4.
+    [Theory]
+    [InlineData(9038, 3)]   // TIER_3
+    [InlineData(9704, 2)]   // TIER_2
+    [InlineData(9793, 4)]   // TIER_4
+    public void TierToInt_MapsLowTiersDirectly(long id, long expected)
+    {
+        Assert.Equal(expected, MdEgoFusion.TierToInt(id));
+    }
+
+    [Fact]
+    public void TierToInt_DiffersFromDetermineEgoTier_ForTier5AndUnknown()
+    {
+        // 9083 is TIER_5: DetermineEgoTier says 5, TierToInt collapses it to 4.
+        Assert.Equal(5, MdEgoData.DetermineEgoTier(9083));
+        Assert.Equal(4, MdEgoFusion.TierToInt(9083));
+
+        // An unknown id: DetermineEgoTier is null, TierToInt defaults to 4.
+        Assert.Null(MdEgoData.DetermineEgoTier(12345));
+        Assert.Equal(4, MdEgoFusion.TierToInt(12345));
+    }
 }
