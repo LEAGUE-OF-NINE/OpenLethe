@@ -16,7 +16,8 @@ public static class StoryMdMapGen
     // (story-MD has no hard_ab_battle_pool branch, unlike MD's five).
     // Keep the retry `loop` faithful to Rust - no iteration bound. It re-rolls `p` every
     // pass, and every story-MD dungeon's derived theme (Task 2) has a non-empty battlePool,
-    // which alone guarantees eventual termination.
+    // which alone guarantees eventual termination - enforced by the guard in
+    // GenerateNewFloor below, which is the only path that reaches this loop.
     public static DungeonNode GenerateBattleNode(StoryMdTheme theme)
     {
         while (true)
@@ -121,6 +122,15 @@ public static class StoryMdMapGen
     public static void GenerateNewFloor(long floor, long dungeonId, StoryMirrorSaveInfo save)
     {
         var theme = StoryMdThemeData.GetTheme(dungeonId);
+
+        // StoryMdThemeData.GetTheme is deliberately total (Task 2) and returns an all-empty
+        // theme for unknown ids. GenerateBattleNode's retry loop is only bounded because
+        // battlePool is guaranteed non-empty for every known story-MD dungeon; an unknown id
+        // would spin forever. Fail fast here instead - the handler layer maps this to a 500,
+        // matching MdMapGen.GenerateNewFloor's precedent for unknown MD theme ids.
+        if (theme.battlePool.Count == 0)
+            throw new KeyNotFoundException($"Story MD theme {dungeonId} not found");
+
         const int floorWidth = 7;
 
         var graph = GenerateMd4Graph(theme, floorWidth).EncodeAsMd(floor);

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using OpenLethe.Server;
 using OpenLethe.Server.Wire;
@@ -7,6 +8,16 @@ namespace OpenLethe.Tests;
 
 public class StoryMdMapGenTests
 {
+    [Fact]
+    public void GenerateNewFloor_UnknownDungeonId_ThrowsPromptly()
+    {
+        // Without the battlePool-empty guard in GenerateNewFloor, this would HANG (not fail):
+        // StoryMdThemeData.GetTheme returns an all-empty theme for unknown ids, and
+        // GenerateBattleNode's unbounded retry loop never terminates against empty pools.
+        var save = new StoryMirrorSaveInfo { dungeonid = 123456 };
+        Assert.Throws<KeyNotFoundException>(() => StoryMdMapGen.GenerateNewFloor(0, 123456, save));
+    }
+
     [Theory]
     [InlineData(910301)] [InlineData(910302)] [InlineData(910701)] [InlineData(910901)]
     [InlineData(911401)] [InlineData(911501)] [InlineData(911801)] [InlineData(912014)]
