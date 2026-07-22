@@ -56,6 +56,28 @@ public static class StaticData
         return new List<T>();
     }
 
+    /// Port of Rust get_static_data_unlisted<T>: same folder scan as GetList, but each
+    /// file IS one T (no { "list": [...] } wrapper).
+    public static List<T> GetUnlisted<T>(string folder)
+    {
+        var prefix = folder.Replace('\\', '/').TrimEnd('/') + "/";
+        var result = new List<T>();
+
+        foreach (var name in Asm.GetManifestResourceNames())
+        {
+            var norm = name.Replace('\\', '/');
+            if (!norm.StartsWith(prefix, StringComparison.OrdinalIgnoreCase)) continue;
+            if (!norm.EndsWith(".json", StringComparison.OrdinalIgnoreCase)) continue;
+
+            using var stream = Asm.GetManifestResourceStream(name)!;
+            T? doc;
+            try { doc = JsonSerializer.Deserialize<T>(stream, Options); }
+            catch (JsonException) { continue; } // mirror Rust: warn + skip bad files
+            if (doc is not null) result.Add(doc);
+        }
+        return result;
+    }
+
     private sealed class ValList<T>
     {
         public List<T>? list;

@@ -80,8 +80,8 @@ public sealed class MdThemePool
         foreach (var id in theme.specificEgoGiftPool)
             giftPool.Add(id);
 
-        // ponytail: Rust also removes EGO_RECIPE_MAPPING outputs (fusion) here - fusion is a
-        // 4d handler, deferred; shop egos stay valid ids without that exclusion.
+        // Rust removes every fixed-recipe OUTPUT from the shop pool (those are craft-only).
+        giftPool.ExceptWith(MdEgoFusion.EgoRecipeMapping.Values);
 
         return giftPool.ToList();
     }
