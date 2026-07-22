@@ -211,4 +211,137 @@ public class RailwayHandlerTests(PostgresFixture db)
     }
 
     private static (string jwt, string name) Split(string s) { var p = s.Split('|'); return (p[0], p[1]); }
+
+    private static object OnePersonality => new[] { new { pid = 1, g = 0, l = 0, es = new object[0], sp = 0, gi = 0, pord = 0 } };
+
+    [SkippableFact]
+    public async Task GetRailwayDungeonSaveInfo_ReturnsPersistedSave()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+
+        await client.PostAsJsonAsync("/api/EnterRailwayDungeon", Body(jwt, new { dungeonId = 5, personalities = OnePersonality }));
+
+        var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonSaveInfo", Body(jwt, new { dungeonId = 5 }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var save = doc.RootElement.GetProperty("result").GetProperty("railwaySaveInfo");
+        Assert.Equal(5, save.GetProperty("id").GetInt64());
+        Assert.Equal(1, save.GetProperty("personalities")[0].GetProperty("pid").GetInt64());
+    }
+
+    [SkippableFact]
+    public async Task GetRailwayDungeonSaveInfo_FreshAccount_ReturnsEmptySaveNotNull()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+
+        var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonSaveInfo", Body(jwt, new { dungeonId = 5 }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var save = doc.RootElement.GetProperty("result").GetProperty("railwaySaveInfo");
+        Assert.Equal(JsonValueKind.Object, save.ValueKind);
+        Assert.Equal(0, save.GetProperty("id").GetInt64());
+    }
+
+    [SkippableFact]
+    public async Task GetRailwayDungeonSaveInfo_NoAuth_Returns401()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var client = f.CreateClient();
+
+        var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonSaveInfo", Body("not-a-real-token", new { dungeonId = 5 }));
+        Assert.Equal(HttpStatusCode.Unauthorized, resp.StatusCode);
+    }
+
+    [SkippableFact]
+    public async Task GetRailwayDungeonNodeDatas_ReturnsPersistedNodes()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+
+        await client.PostAsJsonAsync("/api/EnterRailwayDungeon", Body(jwt, new { dungeonId = 5, personalities = OnePersonality }));
+
+        var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonNodeDatas", Body(jwt, new { dungeonId = 5 }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var nodes = doc.RootElement.GetProperty("result").GetProperty("nodeDatas");
+        Assert.Equal(1, nodes.GetArrayLength());
+        Assert.Equal(1, nodes[0].GetProperty("nodestate").GetInt64());
+    }
+
+    [SkippableFact]
+    public async Task GetRailwayDungeonLogs_ReturnsEmptyList()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+
+        var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonLogs", Body(jwt, new { dungeonId = 5 }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        Assert.Equal(0, doc.RootElement.GetProperty("result").GetProperty("logDatas").GetArrayLength());
+    }
+
+    [SkippableFact]
+    public async Task GetRailwayDungeonExtraRewardStates_EchoesOneEntryPerRequestedId()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+
+        await client.PostAsJsonAsync("/api/EnterRailwayDungeon", Body(jwt, new { dungeonId = 5, personalities = OnePersonality }));
+
+        var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonExtraRewardStates", Body(jwt, new { dungeonIds = new[] { 5, 6 } }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var list = doc.RootElement.GetProperty("result").GetProperty("list");
+        Assert.Equal(2, list.GetArrayLength());
+        Assert.Equal(5, list[0].GetProperty("dungeonId").GetInt64());
+        Assert.Equal(6, list[1].GetProperty("dungeonId").GetInt64());
+        Assert.Equal(JsonValueKind.Array, list[0].GetProperty("extraRewardState").ValueKind);
+        Assert.Equal(0, list[1].GetProperty("extraRewardState").GetArrayLength());
+    }
+
+    [SkippableFact]
+    public async Task GetRailwayDungeonExtraRewardStates_NullDungeonIds_ReturnsEmptyListNot500()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+
+        var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonExtraRewardStates", Body(jwt, new { dungeonIds = (object?)null }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        Assert.Equal(0, doc.RootElement.GetProperty("result").GetProperty("list").GetArrayLength());
+    }
+
+    [SkippableFact]
+    public async Task GetRailwayDungeonNodeAndLogAll_IncludesRailwaySaveInfo()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var client = f.CreateClient();
+
+        await client.PostAsJsonAsync("/api/EnterRailwayDungeon", Body(jwt, new { dungeonId = 5, personalities = OnePersonality }));
+
+        var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonNodeAndLogAll", Body(jwt, new { dungeonId = 5 }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var result = doc.RootElement.GetProperty("result");
+        Assert.Equal(5, result.GetProperty("railwaySaveInfo").GetProperty("id").GetInt64());
+        Assert.Equal(1, result.GetProperty("nodeDatas").GetArrayLength());
+        Assert.Equal(0, result.GetProperty("logDatas").GetArrayLength());
+    }
 }

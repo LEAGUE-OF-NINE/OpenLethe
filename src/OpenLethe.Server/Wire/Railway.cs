@@ -241,6 +241,45 @@ public sealed class ExitRailwayDungeonRestNodeResult
 
 public sealed class GetRailwayDungeonNodeAndLogAllResult
 {
+    // Client-declared but absent from Rust's ResponseResultApi...::new(node_data, Vec::new()).
+    // Client wins on shape; additive, so nothing reading the old response breaks.
+    public RailwaySaveInfo railwaySaveInfo = new();
     public List<UpdateNodeDatas> nodeDatas = new();
     public List<CurrentLog> logDatas = new();
+}
+
+// ---- client-only granular getters (no Rust reference; shapes from packets/api_*.cs) ----
+
+public sealed class GetRailwayDungeonExtraRewardStatesParams
+{
+    public List<long>? dungeonIds;
+}
+
+public sealed class GetRailwayDungeonSaveInfoResult
+{
+    public RailwaySaveInfo railwaySaveInfo = new();
+}
+
+public sealed class GetRailwayDungeonNodeDatasResult
+{
+    public List<UpdateNodeDatas> nodeDatas = new();
+}
+
+public sealed class GetRailwayDungeonLogsResult
+{
+    // ponytail: nothing in the port persists Railway logs - ExitRailwayDungeon builds a
+    // CurrentLog and returns it without storing it, and GetRailwayDungeonNodeAndLogAll
+    // likewise answers with an empty list. Populate here when logs gain storage.
+    public List<CurrentLog> logDatas = new();
+}
+
+public sealed class ExtraRewardStateByDungeonId
+{
+    public long dungeonId;
+    public List<Extrarewardstate> extraRewardState = new();
+}
+
+public sealed class GetRailwayDungeonExtraRewardStatesResult
+{
+    public List<ExtraRewardStateByDungeonId> list = new();
 }
