@@ -259,7 +259,13 @@ public class StoryMirrorDungeonHandlerTests(PostgresFixture db)
         var (jwt, name) = await NewAccount(f);
         var client = f.CreateClient();
 
-        await SetStoryMdSave(f, name, new StoryMirrorSaveInfo { dungeonid = 910301 });
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.cn = new Currentnode { f = 0, s = 0, nid = 9999 };
+        save.currentinfo.dul.Add(new Dungeonunitlist2 { pid = 424242 });
+        save.currentinfo.cost = 12345;
+        save.currentinfo.pce.Add(new ChoiceEventData { sl = new() { 0 } });
+        save.currentinfo.shop.peg.Add(6789);
+        await SetStoryMdSave(f, name, save);
 
         var resp = await client.PostAsJsonAsync("/api/ExitStoryMirrorDungeonMapNode", Body(jwt, new
         {
@@ -269,6 +275,17 @@ public class StoryMirrorDungeonHandlerTests(PostgresFixture db)
             egoSkillStockList = Array.Empty<object>(),
         }));
         Assert.Equal(HttpStatusCode.BadRequest, resp.StatusCode);
+
+        // Nothing should be persisted on the error path: the handler mutates its in-memory
+        // save (cn, dul, pce.Clear, shop.peg.Clear) before the node lookup that 400s, so this
+        // proves the 400 happened before AccountFields.Set/SaveAsync, not just that it happened.
+        var stored = AccountFields.Get<StoryMirrorSaveInfo>((await GetAccount(f, name)).StoryMdSaveInfo)!;
+        Assert.Equal(9999, stored.currentinfo.cn.nid);
+        var unit = Assert.Single(stored.currentinfo.dul);
+        Assert.Equal(424242, unit.pid);
+        Assert.Equal(12345, stored.currentinfo.cost);
+        Assert.Single(stored.currentinfo.pce);
+        Assert.Single(stored.currentinfo.shop.peg);
     }
 
     [SkippableFact]

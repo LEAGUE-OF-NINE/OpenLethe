@@ -23,7 +23,7 @@ public static class StoryMdMapGen
         while (true)
         {
             var p = Random.Shared.NextDouble();
-            List<long> pool;
+            IReadOnlyList<long> pool;
             long nodeType;
             if (p < 0.45) { pool = theme.battlePool; nodeType = 1; }
             else if (p < 0.70) { pool = theme.abBattlePool; nodeType = 5; }

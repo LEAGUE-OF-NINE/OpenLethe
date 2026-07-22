@@ -22,7 +22,10 @@ namespace OpenLethe.Server;
 // static-data/acquirable-egogifts-in-event (eventId -> egoGiftList), and
 // static-data/mirrordungeon-egogift-droppool (fallback pool, reusing DungeonEgoGiftDropPool
 // from MdTheme.cs). If the real story-mirror-dungeon-* folders ever ship, replace this whole
-// derivation with a direct static-data load.
+// derivation with a direct static-data load. Pools are built into HashSets and de-duplicated,
+// unlike Rust's Vec-based push - so a map node repeated in the source data does not raise its
+// own draw weight here. That's a side effect of reading a different data source by design, not
+// a fidelity defect.
 
 public sealed class DungeonConfig
 {
@@ -37,19 +40,21 @@ public sealed class AcquirableEgoGiftsInEvent
     public List<long> egoGiftList = new();
 }
 
+// Pools are shared, cached instances (see StoryMdThemeData.Themes) - exposed read-only so
+// no caller can mutate the one instance handed out for a dungeon id across the whole process.
 public sealed class StoryMdTheme
 {
     public long id;
-    public List<long> battlePool = new();
-    public List<long> hardBattlePool = new();
-    public List<long> abBattlePool = new();
-    public List<long> eventPool = new();
-    public List<long> bossPool = new();
-    public List<long> egoGiftPool = new();
+    public IReadOnlyList<long> battlePool = new List<long>();
+    public IReadOnlyList<long> hardBattlePool = new List<long>();
+    public IReadOnlyList<long> abBattlePool = new List<long>();
+    public IReadOnlyList<long> eventPool = new List<long>();
+    public IReadOnlyList<long> bossPool = new List<long>();
+    public IReadOnlyList<long> egoGiftPool = new List<long>();
 
     // Rust's get_combined_ego_gift_pool appends specific_ego_gift_pool to ego_gift_pool, but
     // the synthesized story theme never populates a specific pool - so this is just egoGiftPool.
-    public List<long> GetCombinedEgoGiftPool() => egoGiftPool;
+    public IReadOnlyList<long> GetCombinedEgoGiftPool() => egoGiftPool;
 }
 
 public static class StoryMdThemeData
