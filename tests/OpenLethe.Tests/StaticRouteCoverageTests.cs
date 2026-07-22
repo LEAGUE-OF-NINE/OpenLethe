@@ -124,8 +124,9 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
     // Cycle 7 brought the /iap and /log groups into the generator's scope. All are
     // static_response stubs with no UserRepository even in the Rust reference (there
     // is no real payment integration upstream). packetId is deliberately NOT asserted
-    // here: only 4 of the 13 have a Rust HasPacketId impl, so the rest resolve to 0 by
-    // design - the client ignores the field. See PacketRouting.ResolvePacketId.
+    // here: only 5 of the 13 have a Rust HasPacketId impl (GetGachaLogAll, GetMailLogAll,
+    // GetSteamWalletCurrency, InitPurchase, UpdateSteamPendingPurchase), so the other 8
+    // resolve to 0 by design - the client ignores the field. See ResolvePacketId.
     [InlineData("/iap/Purchase")]
     [InlineData("/iap/InitPurchase")]
     [InlineData("/iap/PurchaseIngameProduct")]
