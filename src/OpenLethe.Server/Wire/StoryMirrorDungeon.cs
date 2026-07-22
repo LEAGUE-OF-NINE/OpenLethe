@@ -72,3 +72,94 @@ public sealed class StoryMirrorSaveInfo
     public List<long> choiceeventlist = new();
     public List<MdStatistics> statistics = new();
 }
+
+// ---- Task 4: request params ----
+
+public sealed class EnterStoryMirrorDungeonParams
+{
+    public long dungeonid;
+    public long idx;
+}
+
+public sealed class UpdateStoryMirrorDungeonParams
+{
+    public List<Formation> formation = new();
+}
+
+public sealed class AcquireStartEgoGiftsStoryMirrorDungeonParams
+{
+    public long selectedSetId;
+    public List<long> selectedEgoGiftIds = new();
+}
+
+public sealed class EnterStoryMirrorDungeonMapNodeParams
+{
+    public Currentnode currentnode = new();
+    public List<long> abnormalityids = new();
+    public List<long> participatedPIds = new();
+}
+
+public sealed class UpdateStoryMirrorDungeonMapNodeParams
+{
+    public Currentnode currentnode = new();
+    public ChoiceEventData choiceEventData = new();
+    // Rust reads neither of these; the client sends them, the handler ignores them.
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+    public List<AcquiredEgogifts> updatedEgoGifts = new();
+}
+
+/// Rust's RequestParamApiExitStoryMirrorDungeonMapNode also carries `noderesult`,
+/// `choiceEventData`, `battlePassParameters`, `abnormalityLogs`, `updatedEgoGifts`,
+/// `statistics` and `usedDanteAbilityCount` - none of which the handler reads, so (matching
+/// this project's existing handler style, e.g. ExitMirrorDungeonMapNodeParams) only the
+/// fields actually used are declared here.
+public sealed class ExitStoryMirrorDungeonMapNodeParams
+{
+    public Currentnode currentnode = new();
+    public List<Dungeonunitlist2> dungeonunitlist = new();
+    public long isupdatedEgoSkillStock;
+    public List<EgoSkillStock> egoSkillStockList = new();
+}
+
+// ---- Task 4: response results ----
+
+public sealed class EnterStoryMirrorDungeonResult
+{
+    public StoryMirrorSaveInfo saveInfo = new();
+}
+
+public sealed class UpdateStoryMirrorDungeonResult
+{
+    public StoryMirrorSaveInfo saveInfo = new();
+}
+
+public sealed class AcquireStartEgoGiftsStoryMirrorDungeonResult
+{
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<StartEgoGiftPoolSets> startEgoGiftPoolSets = new();
+    public long startEgoGiftCreatedCount;
+}
+
+public sealed class EnterStoryMirrorDungeonMapNodeResult
+{
+    public List<object> abnormalityLogs = new();
+    public List<long> passingNodeIds = new();
+    public Currentnode currentNode = new();
+    public UserStoryMirrorDungeonShopData shopInfo = new();
+    public List<AcquiredEgogifts> egogifts = new();
+    public List<PrevUnitInfo> prevdul = new();
+    public List<long> preves = new();
+}
+
+public sealed class UpdateStoryMirrorDungeonMapNodeResult
+{
+    public List<ChoiceEventData> prevChoiceEvent = new();
+    public List<AcquiredEgogifts> currentEgoGifts = new();
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+}
+
+public sealed class ExitStoryMirrorDungeonMapNodeResult
+{
+    public Currentinfo1 currentInfo = new();
+    public List<object> abnormalityLogs = new();
+}
