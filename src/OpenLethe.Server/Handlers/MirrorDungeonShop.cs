@@ -24,7 +24,8 @@ public static class MirrorDungeonShopEndpoints
         var rejectRewardEgoGiftsId = global::PacketRouting.ResolvePacketId<global::ResPacket_RejectRewardEgoGiftsMirrorDungeon>();
         var acquireExitRewardId = global::PacketRouting.ResolvePacketId<global::ResPacket_AcquireMirrorDungeonExitReward>();
         var purchaseFormationId = global::PacketRouting.ResolvePacketId<global::ResPacket_PurchaseFormationMirrorDungeon>();
-        global::PacketIds.TryGet("SelectFormationMirrorDungeon", out var selectFormationId);
+        // No ResPacket_SelectFormationMirrorDungeon exists in the client packets.
+        var selectFormationId = global::PacketRouting.PacketId;
 
         app.MapPost("/api/PurchaseHealMirrorDungeon", async (HttpContext ctx) =>
         {

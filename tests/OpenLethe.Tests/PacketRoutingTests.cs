@@ -23,9 +23,9 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
     }
 
     [Fact]
-    public void ResolvePacketId_StripsResPacketPrefix()
+    public void ResolvePacketId_ReturnsTheConstant()
     {
-        Assert.Equal(1696, PacketRouting.ResolvePacketId<ResPacket_EnterBossRaid>());
+        Assert.Equal(67, PacketRouting.ResolvePacketId<ResPacket_EnterBossRaid>());
     }
 
     [Fact]
@@ -39,13 +39,12 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
     private sealed class ResPacket_NoSuchPacket;
 
     [Fact]
-    public void ResolvePacketId_DefaultsToZeroForUnknownPacketName()
+    public void ResolvePacketId_IsNameIndependent()
     {
-        // The game client ignores the envelope's packetId value entirely, so an
-        // unresolved name (route/client packet name drift, or a genuinely new
-        // constant not yet extracted) must never be a fatal boot error - it
-        // defaults to 0 and the endpoint still serves traffic normally.
-        Assert.Equal(0, PacketRouting.ResolvePacketId<ResPacket_NoSuchPacket>());
+        // The game client ignores the envelope's packetId value entirely, so every
+        // response carries the same one. A packet name the server has never seen
+        // resolves exactly like a known one - there is nothing left to look up.
+        Assert.Equal(67, PacketRouting.ResolvePacketId<ResPacket_NoSuchPacket>());
     }
 
     [Fact]

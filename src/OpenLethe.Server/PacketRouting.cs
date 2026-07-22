@@ -11,11 +11,14 @@ public static class PacketRouting
 {
     private const string ResPrefix = "ResPacket_";
 
-    /// Derives the packet ID from the response type name.
-    /// ResPacket_EnterBossRaid -> PacketIds.For("EnterBossRaid") -> 1696.
-    /// A miss returns 0 rather than throwing: the game client ignores the
-    /// envelope's packetId value entirely, so an unresolved name can never be
-    /// allowed to block the server from booting.
+    /// The envelope must carry a packetId, but the game client never reads its
+    /// value - any number serves. So every response gets the same one, and the
+    /// extracted per-packet ID table (and its generator) are gone.
+    public const long PacketId = 67;
+
+    /// Returns the constant packet ID. The only work left here is asserting that
+    /// callers name a real response packet type, which is what keeps handlers
+    /// honest about which contract they answer.
     public static long ResolvePacketId<TRes>()
     {
         var name = typeof(TRes).Name;
@@ -26,8 +29,7 @@ public static class PacketRouting
                 $"Expected a type named {ResPrefix}*, got '{name}'.");
         }
 
-        PacketIds.TryGet(name[ResPrefix.Length..], out var id);
-        return id;
+        return PacketId;
     }
 
     /// Registers a stateless POST endpoint that echoes back a default response.

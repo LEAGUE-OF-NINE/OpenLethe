@@ -55,10 +55,7 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
     [Fact]
     public void Application_BootsWithoutError()
     {
-        // MapPacket resolves each packet ID once at startup via ResolvePacketId,
-        // which now defaults to 0 on a miss instead of throwing (the client
-        // ignores packetId) - so a missing constant can never block boot. This
-        // just confirms the app still starts cleanly with all 132 routes wired.
+        // Confirms the app still starts cleanly with all 132 routes wired.
         var client = _factory.CreateClient();
         Assert.NotNull(client);
     }
@@ -83,7 +80,7 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
 
         using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
         Assert.Equal("ok", doc.RootElement.GetProperty("state").GetString());
-        Assert.True(doc.RootElement.GetProperty("packetId").GetInt64() != 0);
+        Assert.Equal(67, doc.RootElement.GetProperty("packetId").GetInt64());
     }
 
     [Theory]
@@ -117,16 +114,13 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
 
         using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
         Assert.Equal("ok", doc.RootElement.GetProperty("state").GetString());
-        Assert.True(doc.RootElement.GetProperty("packetId").GetInt64() != 0);
+        Assert.Equal(67, doc.RootElement.GetProperty("packetId").GetInt64());
     }
 
     [Theory]
     // Cycle 7 brought the /iap and /log groups into the generator's scope. All are
     // static_response stubs with no UserRepository even in the Rust reference (there
-    // is no real payment integration upstream). packetId is deliberately NOT asserted
-    // here: only 5 of the 13 have a Rust HasPacketId impl (GetGachaLogAll, GetMailLogAll,
-    // GetSteamWalletCurrency, InitPurchase, UpdateSteamPendingPurchase), so the other 8
-    // resolve to 0 by design - the client ignores the field. See ResolvePacketId.
+    // is no real payment integration upstream).
     [InlineData("/iap/Purchase")]
     [InlineData("/iap/InitPurchase")]
     [InlineData("/iap/PurchaseIngameProduct")]
