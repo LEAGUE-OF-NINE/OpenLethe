@@ -54,7 +54,12 @@ Get-ChildItem -Path $PacketsRoot -Filter *.cs -Recurse | ForEach-Object {
 # The file carries the v2, but (per the client's own source) the classes don't -
 # that's exactly the drift a route-name-derived guess misses. This is the
 # authoritative route/type map; $packetClassNames above is only used to validate it.
-$clientRoutes = @{}
+#
+# Dictionary (not a Hashtable) built with OrdinalIgnoreCase explicitly, so its
+# case-insensitive key lookup is a stated choice rather than an incidental
+# property of PowerShell's default Hashtable comparer - it must match ASP.NET's
+# own case-insensitive route matching (see the comment above $rustStatic).
+$clientRoutes = New-Object 'System.Collections.Generic.Dictionary[string,object]' ([System.StringComparer]::OrdinalIgnoreCase)
 Get-ChildItem -Path $PacketsRoot -Filter *.cs -Recurse | ForEach-Object {
     $fileName = $_.Name
     $text = Get-Content $_.FullName -Raw
@@ -81,17 +86,49 @@ if ($clientRoutes.Count -eq 0) { throw "No client routes matched - check regex a
 # Routes whose Rust handler uses static_response but with NON-DEFAULT data the
 # generic MapPacket can't reproduce (it would return an empty/default result).
 # These need a hand-written handler and are registered in Program.cs, not here.
+# This is a curated list of routes INTENDED to get a real handler - a distinct
+# concept from $handRegisteredRoutes below (routes that ALREADY have one, auto-
+# detected from source rather than hand-maintained). The two lists complement
+# each other; neither replaces the other.
 $forceRealHandler = @(
     '/login/GetTermsOfUseStateAll'      # returns terms as accepted (version 1, state 1)
     '/api/GetMirrorDungeonEgoGiftRecord' # real handler: enumerates all MD ego gifts + themes
     '/api/ExitMirrorDungeon'             # real handler: returns isEndDungeon=1, isclear=1
 )
 
+# Routes already served by a hand-written C# handler, auto-detected by scanning
+# this repo's own server source for literal MapPost("...")/MapGet("...") route
+# registrations. The C# server has drifted ahead of Rust - some client-declared
+# routes already have real handlers here that Rust has never heard of, so they
+# can't be caught by checking $rustKnown/$forceRealHandler alone. Scanning the
+# source directly means a newly hand-written handler is picked up automatically
+# on the next regen, instead of relying on someone remembering to add it to a
+# hand-maintained list.
+$serverRoot = Join-Path $PSScriptRoot "..\src\OpenLethe.Server"
+$handRegisteredRoutes = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
+$handRoutePattern = 'Map(?:Post|Get)\(\s*"(?<route>/[^"]+)"'
+$handScanFiles = @((Join-Path $serverRoot "Program.cs"))
+$handScanFiles += (Get-ChildItem -Path (Join-Path $serverRoot "Handlers") -Filter *.cs -Recurse | ForEach-Object { $_.FullName })
+foreach ($file in $handScanFiles) {
+    $text = Get-Content $file -Raw
+    foreach ($hrm in [regex]::Matches($text, $handRoutePattern)) {
+        [void]$handRegisteredRoutes.Add($hrm.Groups['route'].Value)
+    }
+}
+$autoExcluded = @()
+
 # Classify every Rust-declared route (unchanged classification semantics: static
 # iff static_response present and UserRepository absent). Recorded into sets
 # instead of emitted directly, so type resolution (below) can be client-driven.
-$rustStatic = New-Object 'System.Collections.Generic.HashSet[string]'
-$rustKnown  = New-Object 'System.Collections.Generic.HashSet[string]'
+#
+# NB comparer: routes are matched by ASP.NET case-insensitively at request time
+# (MapPost/MapGet route templates), so every set/dictionary below that holds or
+# looks up routes uses OrdinalIgnoreCase consistently - otherwise a route that
+# differs only by case from another could slip past the duplicate-emission
+# guard and register twice, surfacing as an AmbiguousMatchException at runtime
+# instead of being caught here at generation time.
+$rustStatic = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
+$rustKnown  = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
 $skipped = @()
 
 foreach ($m in $routeMatches) {
@@ -100,6 +137,7 @@ foreach ($m in $routeMatches) {
     [void]$rustKnown.Add($route)
 
     if ($forceRealHandler -contains $route) { $skipped += "$route (real handler required - non-default static data)"; continue }
+    if ($handRegisteredRoutes.Contains($route)) { $autoExcluded += $route; $skipped += "$route (real handler already registered in C# source - auto-detected)"; continue }
 
     # crate::api::battlepass::battle_pass_reward::handle_x -> api/battlepass/battle_pass_reward.rs
     $parts = $handler -split '::'
@@ -133,24 +171,33 @@ foreach ($m in $routeMatches) {
 # a client-only route (below) can inherit staticness from.
 $static = @()
 $notInClient = @()
-$staticClassPairs = New-Object 'System.Collections.Generic.HashSet[string]'
-$emittedRoutes = New-Object 'System.Collections.Generic.HashSet[string]'
+# Same comparer choice, and for the same reason, as $rustStatic/$rustKnown above.
+$staticClassPairs = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
+$emittedRoutes = New-Object 'System.Collections.Generic.HashSet[string]' ([System.StringComparer]::OrdinalIgnoreCase)
+$fallbackResolved = @()
 
 foreach ($route in $rustStatic) {
     $name = $route -replace '^/(?:api|login)/', ''
+    $usedFallback = $false
     if ($clientRoutes.ContainsKey($route)) {
         $req = $clientRoutes[$route].Req
         $res = $clientRoutes[$route].Res
     } else {
         $req = "ReqPacket_$name"
         $res = "ResPacket_$name"
+        $usedFallback = $true
     }
 
     if ($packetClassNames.Contains($req) -and $packetClassNames.Contains($res)) {
         if (-not $emittedRoutes.Add($route)) { throw "Duplicate emission for $route" }
         $static += [pscustomobject]@{ Route = $route; Name = $name; Req = $req; Res = $res }
         [void]$staticClassPairs.Add("$req|$res")
+        if ($usedFallback) { $fallbackResolved += $route }
     } else {
+        # Accurate only because the $clientRoutes build above THROWS when a header names a
+        # class with no declaration under /packets - if that throw were ever relaxed to
+        # warn-and-skip, client-declared routes could land here too and this label (and the
+        # "NOT IN CLIENT" comment it drives) would misrepresent them.
         $notInClient += $route
     }
 }
@@ -163,9 +210,11 @@ foreach ($route in $rustStatic) {
 # pair no Rust-static route uses is never emitted, which is what keeps
 # ProjectGS, Starlight and the Railway getters out (they need real handlers).
 $inheritedRoutes = @()
+$rejectedClientOnly = @()
 foreach ($route in $clientRoutes.Keys) {
     if ($rustKnown.Contains($route)) { continue }   # already resolved (or excluded) above
     if ($forceRealHandler -contains $route) { $skipped += "$route (real handler required - non-default static data)"; continue }
+    if ($handRegisteredRoutes.Contains($route)) { $autoExcluded += $route; $skipped += "$route (real handler already registered in C# source - auto-detected)"; continue }
 
     $cr = $clientRoutes[$route]
     $pairKey = "$($cr.Req)|$($cr.Res)"
@@ -174,6 +223,10 @@ foreach ($route in $clientRoutes.Keys) {
         $name = $route -replace '^/(?:api|login)/', ''
         $static += [pscustomobject]@{ Route = $route; Name = $name; Req = $cr.Req; Res = $cr.Res }
         $inheritedRoutes += $route
+    } else {
+        # Server doesn't answer this yet: a client-declared route whose (Req,Res) pair no
+        # Rust-static route shares, so there is nothing to inherit staticness from.
+        $rejectedClientOnly += $route
     }
 }
 
@@ -212,7 +265,13 @@ Set-Content -Path $OutFile -Value $sb.ToString() -Encoding utf8
 Write-Output "Static routes generated: $($static.Count)"
 Write-Output "  of which client-only, inherited via class-pair match: $($inheritedRoutes.Count)"
 $inheritedRoutes | Sort-Object | ForEach-Object { Write-Output "    - $_" }
+Write-Output "  of which resolved via route-name fallback (client declares no header for them): $($fallbackResolved.Count)"
+$fallbackResolved | Sort-Object | ForEach-Object { Write-Output "    - $_" }
+Write-Output "Auto-excluded (real handler already registered in C# source): $($autoExcluded.Count)"
+$autoExcluded | Sort-Object -Unique | ForEach-Object { Write-Output "  - $_" }
 Write-Output "Skipped (stateful or unresolved): $($skipped.Count)"
 $skipped | ForEach-Object { Write-Output "  - $_" }
 Write-Output "Not in client (commented out): $($notInClient.Count)"
 $notInClient | Sort-Object | ForEach-Object { Write-Output "  - $_" }
+Write-Output "Rejected client-only routes (no Rust-static route shares their packet pair): $($rejectedClientOnly.Count)"
+$rejectedClientOnly | Sort-Object | ForEach-Object { Write-Output "  - $_" }

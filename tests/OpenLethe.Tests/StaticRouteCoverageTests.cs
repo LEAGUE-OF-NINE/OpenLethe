@@ -89,13 +89,17 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
     // ReqPacket_EnterExpDungeonv2). The old generator derived types from the
     // route name (route -> ReqPacket_<route>), so it could never match these
     // classes and the six routes below 404'd against real client traffic.
+    // All six go through the same auth-free MapPacket path as
+    // SampledRoutes_ReturnOkEnvelope above, so - now that routing is fixed -
+    // they can be held to the same 200/"ok" envelope assertion, not just
+    // "not a 404".
     [InlineData("/api/EnterExpDungeonv2")]
     [InlineData("/api/ExitExpDungeonv2")]
     [InlineData("/api/SkipExpDungeonv2")]
     [InlineData("/api/EnterThreadDungeonv2")]
     [InlineData("/api/ExitThreadDungeonv2")]
     [InlineData("/api/SkipThreadDungeonv2")]
-    public async Task V2DungeonRoutes_AreNotNotFound(string route)
+    public async Task V2DungeonRoutes_ReturnOkEnvelope(string route)
     {
         var client = _factory.CreateClient();
 
@@ -105,9 +109,10 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
             parameters = new { },
         });
 
-        // Not asserting a specific success code (some of these may yet need
-        // auth/session wiring) - the bug being fixed is routing (404), so that
-        // is the only thing this test is about.
-        Assert.NotEqual(HttpStatusCode.NotFound, resp.StatusCode);
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+
+        using var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        Assert.Equal("ok", doc.RootElement.GetProperty("state").GetString());
+        Assert.True(doc.RootElement.GetProperty("packetId").GetInt64() != 0);
     }
 }
