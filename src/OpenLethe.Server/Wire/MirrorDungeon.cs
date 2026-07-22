@@ -402,3 +402,73 @@ public sealed class UpdateMirrorDungeonMapNodeResult
     public List<AcquiredEgogifts> currentEgoGifts = new();
     public List<Dungeonunitlist1> dungeonUnitList = new();
 }
+
+// ---- cycle 4e: rewards + fusion ----
+
+public sealed class CombineEgoGiftMirrorDungeonParams
+{
+    public List<long> materialEgoGiftIds = new();
+    public string keyword = "";
+    public long isOrigin;
+}
+
+public sealed class CombineEgoGiftMirrorDungeonResult
+{
+    public AcquiredEgogifts resultEgoGift = new();
+    public List<AcquiredEgogifts> resultEgoGifts = new();
+    public bool isSuccess;
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+}
+
+public sealed class RefreshShopEgoGiftsMirrorDungeonParams
+{
+    public string keyword = "";
+    public long isOrigin;
+}
+
+public sealed class RefreshShopEgoGiftsMirrorDungeonResult
+{
+    public long cost;
+    public ShopInfo shopInfo = new();
+    public long usedcost;
+}
+
+public sealed class GetMirrorDungeonEgoGiftRecordResult
+{
+    public List<long> acquiredegogifts = new();
+    public List<long> themeFloorIds = new();
+}
+
+public sealed class ExitMirrorDungeonResult
+{
+    public long isEndDungeon;
+    public long isclear;
+    public List<MdStatistics> statistics = new();
+}
+
+public sealed class AcquireRewardEgoGiftsWithEnemyBufParams
+{
+    public List<long> selectIndexList = new();
+    public long isOrigin;
+}
+
+public sealed class AcquireRewardEgoGiftsWithEnemyBufResult
+{
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<RemainRewardEvent> remainRewardEvent = new();
+    public List<Dungeonunitlist1> dungeonUnitList = new();
+    public List<long> levelAdders = new();
+    public MirrorOriginSaveInfo saveinfo = new();
+}
+
+public sealed class AcquireMirrorDungeonBattleRewardParams
+{
+    public List<long> selectIndexList = new();
+    public long isOrigin;
+}
+
+public sealed class AcquireMirrorDungeonBattleRewardResult
+{
+    public MirrorOriginSaveInfo saveinfo = new();
+}

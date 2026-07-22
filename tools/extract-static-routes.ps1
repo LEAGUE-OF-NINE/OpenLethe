@@ -44,7 +44,9 @@ Get-ChildItem -Path $PacketsRoot -Filter *.cs -Recurse | ForEach-Object {
 # generic MapPacket can't reproduce (it would return an empty/default result).
 # These need a hand-written handler and are registered in Program.cs, not here.
 $forceRealHandler = @(
-    '/login/GetTermsOfUseStateAll'   # returns terms as accepted (version 1, state 1)
+    '/login/GetTermsOfUseStateAll'      # returns terms as accepted (version 1, state 1)
+    '/api/GetMirrorDungeonEgoGiftRecord' # real handler: enumerates all MD ego gifts + themes
+    '/api/ExitMirrorDungeon'             # real handler: returns isEndDungeon=1, isclear=1
 )
 
 $static = @()
