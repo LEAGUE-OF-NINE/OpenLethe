@@ -158,7 +158,6 @@ public sealed class MirrorOriginSaveInfo
     public CurrentInfo currentInfo = new();
     public DungeonMap dungeonMap = new();
     public List<long> choiceEventList = new();
-    public long addUserExp;
     public List<MdStatistics> statistics = new();
     public List<long> encounterstatistics = new();
     public long isEndDungeon;

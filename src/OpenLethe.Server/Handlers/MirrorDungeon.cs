@@ -88,7 +88,6 @@ public static class MirrorDungeonEndpoints
             },
             dungeonMap = new DungeonMap(),
             choiceEventList = new(),
-            addUserExp = 0,
             statistics = new(),
             encounterstatistics = new List<long> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
             isEndDungeon = 0,
