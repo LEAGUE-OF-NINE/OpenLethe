@@ -37,4 +37,29 @@ public static class MdEgoData
         var suffix = tag[(tag.LastIndexOf('_') + 1)..];
         return long.TryParse(suffix, out var tier) ? tier : null;
     }
+
+    /// Port of models/src/data/egogifts.rs get_random_md_ego_gifts. Weighted sample WITH
+    /// replacement (Rust samples the distribution `count` times independently, so duplicates
+    /// are possible - do not dedupe). Keys off tag.First(), NOT DetermineEgoTier, matching Rust.
+    public static List<long> GetRandomMdEgoGifts(int count)
+    {
+        var eligible = Data.Value.Where(e => e.tag.FirstOrDefault() != "TIER_5").ToList();
+        if (eligible.Count == 0) return new List<long>();
+
+        var weights = eligible.Select(e => e.tag.FirstOrDefault() == "TIER_4" ? 1 : 10).ToList();
+        var total = weights.Sum();
+
+        var picked = new List<long>(count);
+        for (var i = 0; i < count; i++)
+        {
+            var roll = Random.Shared.Next(total);
+            var acc = 0;
+            for (var j = 0; j < eligible.Count; j++)
+            {
+                acc += weights[j];
+                if (roll < acc) { picked.Add(eligible[j].id); break; }
+            }
+        }
+        return picked;
+    }
 }
