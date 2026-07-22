@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -172,6 +173,48 @@ public static class StoryDungeonEndpoints
                     return Results.Json(global::ResponsePacket<ReturnSavePointStoryDungeonMapResult>.Ok(result, savePointId), global::PacketJson.Options);
                 }
             }
+        });
+
+        var updateMapNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_UpdateStoryDungeonMapNode>();
+        app.MapPost("/api/UpdateStoryDungeonMapNode", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx);
+            if (account is null) return Results.Unauthorized();
+            var save = OpenLethe.Server.AccountFields.Get<StorySaveInfo>(account.StorySaveInfo);
+            if (save is null) return Results.StatusCode(500);
+            var p = await HandlerContext.ReadParamsAsync<UpdateStoryDungeonMapNodeParams>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            // Rust: pce.first().and_then(|e| e.nei), else the map-node encounter id, else -1
+            // (Rust logs an error and carries on with -1 rather than bailing).
+            long? eid = save.currentinfo.pce.FirstOrDefault()?.nei;
+            eid ??= OpenLethe.Server.StoryMapData.GetStoryFloorEncounterId(
+                save.dungeonid, save.currentinfo.cn.nid.ToString());
+            var matchingEid = eid ?? -1;
+
+            if (p.choiceEventData.sl.Count == 0) return Results.StatusCode(500);
+            var choiceIdx = p.choiceEventData.sl[0];
+            var cs = p.choiceEventData.cs;
+
+            // choiceIdx is client-controlled; a naked (int) cast wraps on overflow, so
+            // narrow it via the clamping helper instead (see ClampChoiceIndex).
+            var next = MdEventManager.ProcessEvent(matchingEid, MdEventManager.ClampChoiceIndex(choiceIdx), cs, new StoryEventSave(save));
+
+            // cs = -1 and ri = 0 are literals in Rust, NOT the request's values.
+            save.currentinfo.pce.Insert(0, new ChoiceEventData
+            {
+                sl = new List<long> { choiceIdx }, cs = -1, ri = 0, nei = next,
+            });
+
+            account.StorySaveInfo = OpenLethe.Server.AccountFields.Set(save);
+            await HandlerContext.SaveAsync(ctx);
+
+            var body = new UpdateStoryDungeonMapNodeResult
+            {
+                // Rust responds with an empty prevChoiceEvent.
+                currentEgoGifts = save.currentinfo.egs,
+            };
+            return Results.Json(global::ResponsePacket<UpdateStoryDungeonMapNodeResult>.Ok(body, updateMapNodeId), global::PacketJson.Options);
         });
 
         return app;

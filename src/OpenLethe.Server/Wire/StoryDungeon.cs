@@ -1,11 +1,27 @@
 using System.Collections.Generic;
-using System.Text.Json.Nodes;
 
 namespace OpenLethe.Server.Wire;
 
 // Server-authored ports of the Rust story-dungeon structs. Field names match Rust
-// serde exactly. No [JsonIgnore]; lists init empty. Client-authored blobs (dul, ess,
-// request unit/ego lists) are JsonNode passthrough - stored and echoed, never inspected.
+// serde exactly. No [JsonIgnore]; lists init empty. dul/ess and the matching request
+// unit/ego-stock lists (personalities, dungeonunitlist, egoSkillStockList) are typed
+// ports of the Rust structs (Dungeonunitlist, EgoSkillStock), not JsonNode passthrough.
+
+/// Port of models/src/types.rs Dungeonunitlist (story dungeon). Distinct from the MD
+/// Dungeonunitlist1 in Wire/MirrorDungeon.cs (story has gi; MD has upidx/mlos).
+public sealed class Dungeonunitlist
+{
+    public long sp;
+    public long gi;
+    public long pid;
+    public long ch;
+    public long cm;
+    public long mhos;
+    public long g;
+    public long l;
+    public List<Egos> es = new();
+    public long isp;
+}
 
 public sealed class Currentnode
 {
@@ -32,7 +48,7 @@ public sealed class ChoiceEventData
 
 public sealed class Currentinfo
 {
-    public List<JsonNode> dul = new();
+    public List<Dungeonunitlist> dul = new();
     public Currentnode scpn = new();
     public List<AcquiredEgogifts> scpegl = new();
     public List<long> opn = new();
@@ -41,7 +57,7 @@ public sealed class Currentinfo
     public List<long> pnids = new();
     public long nr;
     public List<ChoiceEventData> pce = new();
-    public List<JsonNode> ess = new();
+    public List<EgoSkillStock> ess = new();
     public long dn;
 }
 
@@ -56,7 +72,7 @@ public sealed class StorySaveInfo
 public sealed class EnterStoryDungeonParams
 {
     public long stageid;
-    public List<JsonNode> personalities = new();
+    public List<Dungeonunitlist> personalities = new();
 }
 
 public sealed class EnterStoryDungeonMapNodeParams
@@ -74,8 +90,8 @@ public sealed class ExitStoryDungeonParams
 public sealed class ExitStoryDungeonMapNodeParams
 {
     public List<AcquiredEgogifts> updatedEgoGifts = new();
-    public List<JsonNode> dungeonunitlist = new();
-    public List<JsonNode> egoSkillStockList = new();
+    public List<Dungeonunitlist> dungeonunitlist = new();
+    public List<EgoSkillStock> egoSkillStockList = new();
 }
 
 // ---- response results ----
@@ -127,4 +143,18 @@ public sealed class ExitStoryDungeonResult
     public Element givebackstaminabyDefeat = new();
     public List<object> statistics = new();
     public bool isGacksung;
+}
+
+public sealed class UpdateStoryDungeonMapNodeParams
+{
+    public ChoiceEventData choiceEventData = new();
+    // Rust reads neither of these - the client sends them, the handler ignores them.
+    public List<Dungeonunitlist> dungeonUnitList = new();
+    public List<AcquiredEgogifts> updatedEgoGifts = new();
+}
+
+public sealed class UpdateStoryDungeonMapNodeResult
+{
+    public List<ChoiceEventData> prevChoiceEvent = new();
+    public List<AcquiredEgogifts> currentEgoGifts = new();
 }
