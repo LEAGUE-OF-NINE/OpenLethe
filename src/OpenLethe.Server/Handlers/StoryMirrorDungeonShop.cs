@@ -221,14 +221,16 @@ public static class StoryMirrorDungeonShopEndpoints
             var rewardEvent = rre.FirstOrDefault(e => e.rt == "GetEgogift");
             if (rewardEvent is null) return Results.StatusCode(500);
 
-            var index = (int)p.selectIndexList.FirstOrDefault();
             // ponytail (D3 guard): Rust does `event.pool.get(index).unwrap()` where `index`
             // comes straight from the client's selectIndexList - a panic on an out-of-range
             // index. Return 500 instead; do NOT substitute a default id, that would invent a
             // reward the player never rolled.
+            // Range-check in long BEFORE any int cast: a naked (int) cast wraps, so a crafted
+            // 64-bit value (e.g. 4294967297) would truncate into a valid index and slip past.
+            var index = p.selectIndexList.FirstOrDefault();
             if (index < 0 || index >= rewardEvent.pool.Count) return Results.StatusCode(500);
 
-            save.currentinfo.egs.Add(new AcquiredEgogifts { id = rewardEvent.pool[index] });
+            save.currentinfo.egs.Add(new AcquiredEgogifts { id = rewardEvent.pool[(int)index] });
             // Rust clears the ENTIRE rre list on success, not just the matched entry.
             rre.Clear();
 
