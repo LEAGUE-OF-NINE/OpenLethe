@@ -144,3 +144,17 @@ public sealed class ExitStoryDungeonResult
     public List<object> statistics = new();
     public bool isGacksung;
 }
+
+public sealed class UpdateStoryDungeonMapNodeParams
+{
+    public ChoiceEventData choiceEventData = new();
+    // Rust reads neither of these - the client sends them, the handler ignores them.
+    public List<Dungeonunitlist> dungeonUnitList = new();
+    public List<AcquiredEgogifts> updatedEgoGifts = new();
+}
+
+public sealed class UpdateStoryDungeonMapNodeResult
+{
+    public List<ChoiceEventData> prevChoiceEvent = new();
+    public List<AcquiredEgogifts> currentEgoGifts = new();
+}

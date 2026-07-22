@@ -191,4 +191,122 @@ public class StoryDungeonHandlerTests(PostgresFixture db)
             .GetProperty("subcss")[0].GetProperty("nss")[0];
         Assert.Equal(2, node.GetProperty("ct").GetInt64());
     }
+
+    // Real static-data: abnormality-event id 805001, actionEvent.eachOptionList[0].resultList[0].nextEventID
+    // = 805002. No eventResultDataList (no reward/RNG effects), so the outcome is fully deterministic.
+    [SkippableFact]
+    public async Task UpdateStoryDungeonMapNode_UsesPceNeiAndPrependsChoiceEvent()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        await SeedSave(f, name, new StorySaveInfo
+        {
+            dungeonid = 10501,
+            currentinfo = new Currentinfo
+            {
+                cn = new Currentnode { f = 0, s = 0, nid = 10501 },
+                pce = new() { new ChoiceEventData { sl = new() { 0 }, cs = -1, ri = 0, nei = 805001 } },
+            },
+        });
+
+        var resp = await client.PostAsJsonAsync("/api/UpdateStoryDungeonMapNode", Body(jwt, new
+        {
+            choiceEventData = new { sl = new long[] { 0 }, cs = 0, ri = 0 },
+            dungeonUnitList = Array.Empty<object>(),
+            updatedEgoGifts = Array.Empty<object>(),
+        }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using (var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync()))
+        {
+            var result = doc.RootElement.GetProperty("result");
+            Assert.Empty(result.GetProperty("prevChoiceEvent").EnumerateArray());
+            Assert.True(result.TryGetProperty("currentEgoGifts", out _));
+        }
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var stored = AccountFields.Get<StorySaveInfo>(acc!.StorySaveInfo)!;
+        Assert.Equal(2, stored.currentinfo.pce.Count);
+        Assert.Equal(new List<long> { 0 }, stored.currentinfo.pce[0].sl);
+        Assert.Equal(-1, stored.currentinfo.pce[0].cs);
+        Assert.Equal(0, stored.currentinfo.pce[0].ri);
+        Assert.Equal(805002, stored.currentinfo.pce[0].nei);
+        // Previous entry pushed down to index 1, untouched.
+        Assert.Equal(805001, stored.currentinfo.pce[1].nei);
+    }
+
+    [SkippableFact]
+    public async Task UpdateStoryDungeonMapNode_EmptyChoiceList_Returns500()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        await SeedSave(f, name, new StorySaveInfo
+        {
+            dungeonid = 10501,
+            currentinfo = new Currentinfo { cn = new Currentnode { f = 0, s = 0, nid = 10501 } },
+        });
+
+        var resp = await client.PostAsJsonAsync("/api/UpdateStoryDungeonMapNode", Body(jwt, new
+        {
+            choiceEventData = new { sl = Array.Empty<long>(), cs = 0, ri = 0 },
+            dungeonUnitList = Array.Empty<object>(),
+            updatedEgoGifts = Array.Empty<object>(),
+        }));
+        Assert.Equal(HttpStatusCode.InternalServerError, resp.StatusCode);
+    }
+
+    [SkippableFact]
+    public async Task UpdateStoryDungeonMapNode_NoAuth_Returns401()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var client = f.CreateClient();
+
+        var resp = await client.PostAsJsonAsync("/api/UpdateStoryDungeonMapNode", Body("not-a-real-jwt", new
+        {
+            choiceEventData = new { sl = new long[] { 0 }, cs = 0, ri = 0 },
+            dungeonUnitList = Array.Empty<object>(),
+            updatedEgoGifts = Array.Empty<object>(),
+        }));
+        Assert.Equal(HttpStatusCode.Unauthorized, resp.StatusCode);
+    }
+
+    [SkippableFact]
+    public async Task UpdateStoryDungeonMapNode_IgnoresRequestUnitListAndEgoGifts()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        await SeedSave(f, name, new StorySaveInfo
+        {
+            dungeonid = 10501,
+            currentinfo = new Currentinfo
+            {
+                cn = new Currentnode { f = 0, s = 0, nid = 10501 },
+                pce = new() { new ChoiceEventData { sl = new() { 0 }, cs = -1, ri = 0, nei = 805001 } },
+            },
+        });
+
+        var resp = await client.PostAsJsonAsync("/api/UpdateStoryDungeonMapNode", Body(jwt, new
+        {
+            choiceEventData = new { sl = new long[] { 0 }, cs = 0, ri = 0 },
+            dungeonUnitList = new[] { new { sp = 1, gi = 2, pid = 999, ch = 3, cm = 4, mhos = 5, g = 6, l = 7, es = Array.Empty<object>(), isp = 8 } },
+            updatedEgoGifts = new[] { new { id = 424242, pids = Array.Empty<long>(), un = 0, ul = 0 } },
+        }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+
+        using var scope = f.Services.CreateScope();
+        var acc = await new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>()).FindByUsernameAsync(name);
+        var stored = AccountFields.Get<StorySaveInfo>(acc!.StorySaveInfo)!;
+        Assert.DoesNotContain(stored.currentinfo.dul, u => u.pid == 999);
+        Assert.DoesNotContain(stored.currentinfo.egs, e => e.id == 424242);
+    }
 }
