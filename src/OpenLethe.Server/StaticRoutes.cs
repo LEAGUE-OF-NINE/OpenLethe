@@ -52,6 +52,7 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_ExitStoryMirrorDungeon, ResPacket_ExitStoryMirrorDungeon>("/api/ExitStoryMirrorDungeon");
         app.MapPacket<ReqPacket_ExitThreadDungeon, ResPacket_ExitThreadDungeon>("/api/ExitThreadDungeon");
         app.MapPacket<ReqPacket_ExitThreadDungeon, ResPacket_ExitThreadDungeon>("/api/ExitThreadDungeonv2");
+        app.MapPacket<ReqPacket_FinalizePurchaseAsSteam, ResPacket_FinalizePurchaseAsSteam>("/iap/FinalizePurchaseAsSteam");
         app.MapPacket<ReqPacket_FindFriend, ResPacket_FindFriend>("/api/FindFriend");
         app.MapPacket<ReqPacket_GetAbnormalityLogData, ResPacket_GetAbnormalityLogData>("/api/GetAbnormalityLogData");
         app.MapPacket<ReqPacket_GetAttendanceState, ResPacket_GetAttendanceState>("/api/GetAttendanceState");
@@ -62,18 +63,23 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_GetFriends, ResPacket_GetFriends>("/api/GetFriendsData");
         app.MapPacket<ReqPacket_GetFriendSupportPersonalities, ResPacket_GetFriendSupportPersonalities>("/api/GetFriendSupportPersonalities");
         app.MapPacket<ReqPacket_GetFriendSupportPersonalitiesByCharacterId, ResPacket_GetFriendSupportPersonalitiesByCharacterId>("/api/GetFriendSupportPersonalitiesByCharacterId");
+        app.MapPacket<ReqPacket_GetGachaLogAll, ResPacket_GetGachaLogAll>("/log/GetGachaLogAll");
         app.MapPacket<ReqPacket_GetHellsChickenState, ResPacket_GetHellsChickenState>("/api/GetHellsChickenState");
         app.MapPacket<ReqPacket_GetInfoOfLinkWith, ResPacket_GetInfoOfLinkWith>("/login/GetInfoOfLinkWith");
+        app.MapPacket<ReqPacket_GetMailLogAll, ResPacket_GetMailLogAll>("/log/GetMailLogAll");
         app.MapPacket<ReqPacket_GetProfileTicketDecoDatas, ResPacket_GetProfileTicketDecoDatas>("/api/GetProfileTicketDecoDatas");
         app.MapPacket<ReqPacket_GetRecommendFriends, ResPacket_GetRecommendFriends>("/api/GetRecommendFriends");
         app.MapPacket<ReqPacket_GetStageProgressRateReward, ResPacket_GetStageProgressRateReward>("/api/GetStageProgressRateReward");
         app.MapPacket<ReqPacket_GetStartBuffFInfoMirrorDungeon, ResPacket_GetStartBuffFInfoMirrorDungeon>("/api/GetStartBuffFInfoMirrorDungeon");
+        app.MapPacket<ReqPacket_GetSteamWalletCurrency, ResPacket_GetSteamWalletCurrency>("/iap/GetSteamWalletCurrency");
         app.MapPacket<ReqPacket_GetStoryDungeonSaveInfo, ResPacket_GetStoryDungeonSaveInfo>("/api/GetStoryDungeonSaveInfo");
         app.MapPacket<ReqPacket_GetTheaterInfo, ResPacket_GetTheaterInfo>("/api/GetTheaterInfo");
         app.MapPacket<ReqPacket_GetUserBanners, ResPacket_GetUserBanners>("/api/GetUserBanners");
         app.MapPacket<ReqPacket_GetCouponFailState, ResPacket_GetCouponFailState>("/api/GetUserCouponState");
         app.MapPacket<ReqPacket_GiveUpRailwayDungeonNode, ResPacket_GiveUpRailwayDungeonNode>("/api/GiveUpRailwayDungeonNode");
         app.MapPacket<ReqPacket_GiveUpRailwayDungeonNodeInBattle, ResPacket_GiveUpRailwayDungeonNodeInBattle>("/api/GiveUpRailwayDungeonNodeInBattle");
+        app.MapPacket<ReqPacket_InitPurchase, ResPacket_InitPurchase>("/iap/InitPurchase");
+        app.MapPacket<ReqPacket_InitPurchaseAsSteam, ResPacket_InitPurchaseAsSteam>("/iap/InitPurchaseAsSteam");
         app.MapPacket<ReqPacket_LinkWithAnother, ResPacket_LinkWithAnother>("/login/LinkWithAnother");
         app.MapPacket<ReqPacket_LinkWithApple, ResPacket_LinkWithApple>("/login/LinkWithApple");
         app.MapPacket<ReqPacket_LinkWithGoogle, ResPacket_LinkWithGoogle>("/login/LinkWithGoogle");
@@ -81,11 +87,15 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_PlayGacha, ResPacket_PlayGacha>("/api/PlayGacha");
         app.MapPacket<ReqPacket_PlayVendingMachine, ResPacket_PlayVendingMachine>("/api/PlayVendingMachine");
         app.MapPacket<ReqPacket_PreviewMirrorDungeonExitReward, ResPacket_PreviewMirrorDungeonExitReward>("/api/PreviewMirrorDungeonExitReward");
+        app.MapPacket<ReqPacket_Purchase, ResPacket_Purchase>("/iap/Purchase");
+        app.MapPacket<ReqPacket_PurchaseAsApple, ResPacket_PurchaseAsApple>("/iap/PurchaseAsApple");
+        app.MapPacket<ReqPacket_PurchaseAsGoogle, ResPacket_PurchaseAsGoogle>("/iap/PurchaseAsGoogle");
         app.MapPacket<ReqPacket_PurchaseBattlePassByRealLunacy, ResPacket_PurchaseBattlePassByRealLunacy>("/api/PurchaseBattlePassByRealLunacy");
         app.MapPacket<ReqPacket_PurchaseBattlePassLevel, ResPacket_PurchaseBattlePassLevel>("/api/PurchaseBattlePassLevel");
         app.MapPacket<ReqPacket_PurchaseEnkephalin, ResPacket_PurchaseEnkephalin>("/api/PurchaseEnkephalin");
         app.MapPacket<ReqPacket_PurchaseEnkephalinModule, ResPacket_PurchaseEnkephalinModule>("/api/PurchaseEnkephalinModule");
         app.MapPacket<ReqPacket_PurchaseFormationStoryMirrorDungeon, ResPacket_PurchaseFormationStoryMirrorDungeon>("/api/PurchaseFormationStoryMirrorDungeon");
+        app.MapPacket<ReqPacket_PurchaseIngameProduct, ResPacket_PurchaseIngameProduct>("/iap/PurchaseIngameProduct");
         app.MapPacket<ReqPacket_PurchaseSpecialPassProduct, ResPacket_PurchaseSpecialPassProduct>("/api/PurchaseSpecialPassProduct");
         app.MapPacket<ReqPacket_PurchaseSpecialPassProduct_IncludeLimbusPass, ResPacket_PurchaseSpecialPassProduct_IncludeLimbusPass>("/api/PurchaseSpecialPassProduct_IncludeLimbusPass");
         app.MapPacket<ReqPacket_PurchaseSpecialPassProduct_NotIncludeLimbusPass, ResPacket_PurchaseSpecialPassProduct_NotIncludeLimbusPass>("/api/PurchaseSpecialPassProduct_NotIncludeLimbusPass");
@@ -103,6 +113,8 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_RemoveMirrorDungeonEgoGift, ResPacket_RemoveMirrorDungeonEgoGift>("/api/RemoveMirrorDungeonEgoGift");
         app.MapPacket<ReqPacket_RemoveStoryMirrorDungeonEgoGift, ResPacket_RemoveStoryMirrorDungeonEgoGift>("/api/RemoveStoryMirrorDungeonEgoGift");
         app.MapPacket<ReqPacket_ReportError, ResPacket_ReportError>("/api/ReportError");
+        app.MapPacket<ReqPacket_ReportModifiedHashCatalog, ResPacket_ReportModifiedHashCatalog>("/log/ReportModifiedHash");
+        app.MapPacket<ReqPacket_ReportSpeedHack, ResPacket_ReportSpeedHack>("/log/ReportSpeedHack");
         app.MapPacket<ReqPacket_SaveMiniStoryWeek, ResPacket_SaveMiniStoryWeek>("/api/SaveMiniStoryWeek");
         app.MapPacket<ReqPacket_SelectRailwayDungeonBuff, ResPacket_SelectRailwayDungeonBuff>("/api/SelectRailwayDungeonBuff");
         app.MapPacket<ReqPacket_SendFriendRequest, ResPacket_SendFriendRequest>("/api/SendFriendRequest");
@@ -126,6 +138,7 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_UpdateMirrorDungeon, ResPacket_UpdateMirrorDungeon>("/api/UpdateMirrorDungeon");
         app.MapPacket<ReqPacket_UpdateMirrorDungeonUnits, ResPacket_UpdateMirrorDungeonUnits>("/api/UpdateMirrorDungeonUnits");
         app.MapPacket<ReqPacket_UpdateProfileTicketDeco, ResPacket_UpdateProfileTicketDeco>("/api/UpdateProfileTicketDeco");
+        app.MapPacket<ReqPacket_UpdateSteamPendingPurchase, ResPacket_UpdateSteamPendingPurchase>("/iap/UpdateSteamPendingPurchase");
         app.MapPacket<ReqPacket_UpdateStoryDungeonUnits, ResPacket_UpdateStoryDungeonUnits>("/api/UpdateStoryDungeonUnits");
         app.MapPacket<ReqPacket_UpdateStoryMirrorDungeonUnits, ResPacket_UpdateStoryMirrorDungeonUnits>("/api/UpdateStoryMirrorDungeonUnits");
         app.MapPacket<ReqPacket_UpdateTermsOfUseState, ResPacket_UpdateTermsOfUseState>("/login/UpdateTermsOfUseState");
@@ -142,6 +155,6 @@ public static class StaticRoutes
         return app;
     }
 
-    public static int RegisteredCount => 119;
+    public static int RegisteredCount => 132;
 }
 
