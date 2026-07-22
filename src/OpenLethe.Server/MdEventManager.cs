@@ -58,6 +58,43 @@ public sealed class MdEventSave : IDungeonEventSave
     public void AddCost(long cost) => _save.currentInfo.cost += cost;
 }
 
+// Port of the Rust `impl DungeonSaveInfo for StorySaveInfo` (events/mod.rs:64-95).
+public sealed class StoryEventSave : IDungeonEventSave
+{
+    private readonly StorySaveInfo _save;
+
+    public StoryEventSave(StorySaveInfo save) => _save = save;
+
+    public void PushEgoGift(long rewardId) =>
+        _save.currentinfo.egs.Add(new AcquiredEgogifts { id = rewardId });
+
+    public Dictionary<long, UnitStats> GetUnitStats()
+    {
+        var stats = new Dictionary<long, UnitStats>();
+        foreach (var unit in _save.currentinfo.dul)
+        {
+            stats[unit.pid] = new UnitStats { hp = unit.ch, sp = unit.cm }; // last-wins on dup pid
+        }
+        return stats;
+    }
+
+    public void SetUnitStats(Dictionary<long, UnitStats> stats)
+    {
+        foreach (var unit in _save.currentinfo.dul)
+        {
+            if (stats.TryGetValue(unit.pid, out var stat))
+            {
+                unit.ch = stat.hp;
+                unit.cm = stat.sp;
+            }
+        }
+    }
+
+    // Rust events/mod.rs:94 is `fn add_cost(&mut self, _: i64) {}` - the story-dungeon
+    // save has no cost field. Intentionally does nothing.
+    public void AddCost(long cost) { }
+}
+
 public static class MdEventManager
 {
     /// Processes the event and returns the next event id (-1 = none/not found).
