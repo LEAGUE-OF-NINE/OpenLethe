@@ -181,6 +181,9 @@ public static class RailwayEndpoints
         // port stores one Railway run per account, not one per dungeonId, so the three
         // single-value getters read the same columns the combined getter does and ignore
         // the request body - exactly as GetRailwayDungeonNodeAndLogAll already does.
+        // ExtraRewardStates is the exception: its response is a list KEYED by dungeonId, so
+        // it must decide per entry, and it reports the stored state only for the run's own
+        // save.id rather than repeating it under every id the client asked about.
         var saveInfoId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonSaveInfo>();
         app.MapPost("/api/GetRailwayDungeonSaveInfo", async (HttpContext ctx) =>
         {

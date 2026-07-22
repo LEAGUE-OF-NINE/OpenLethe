@@ -296,10 +296,23 @@ public class RailwayHandlerTests(PostgresFixture db)
     {
         db.RequireDb();
         await using var f = new DbWebAppFactory(db.ConnectionString);
-        var (jwt, _) = Split(await NewAccount(f, "rw"));
+        var (jwt, name) = Split(await NewAccount(f, "rw"));
         var client = f.CreateClient();
 
         await client.PostAsJsonAsync("/api/EnterRailwayDungeon", Body(jwt, new { dungeonId = 5, personalities = OnePersonality }));
+
+        // EnterRailwayDungeon always writes an EMPTY extrarewardstate, so seed one directly:
+        // without it both arms of the id-match produce [] and a handler that ignored the save
+        // entirely would still pass. This is the only conditional in the cycle - pin it.
+        using (var seed = f.Services.CreateScope())
+        {
+            var store = new AccountStore(seed.ServiceProvider.GetRequiredService<AppDbContext>());
+            var acc = await store.FindByUsernameAsync(name);
+            var save = AccountFields.Get<RailwaySaveInfo>(acc!.RailwaySaveInfo)!;
+            save.extrarewardstate.Add(new Extrarewardstate { id = 42, isRewarded = true });
+            acc.RailwaySaveInfo = AccountFields.Set(save);
+            await seed.ServiceProvider.GetRequiredService<AppDbContext>().SaveChangesAsync();
+        }
 
         var resp = await client.PostAsJsonAsync("/api/GetRailwayDungeonExtraRewardStates", Body(jwt, new { dungeonIds = new[] { 5, 6 } }));
         Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
@@ -308,7 +321,10 @@ public class RailwayHandlerTests(PostgresFixture db)
         Assert.Equal(2, list.GetArrayLength());
         Assert.Equal(5, list[0].GetProperty("dungeonId").GetInt64());
         Assert.Equal(6, list[1].GetProperty("dungeonId").GetInt64());
-        Assert.Equal(JsonValueKind.Array, list[0].GetProperty("extraRewardState").ValueKind);
+        // id 5 matches the stored run and carries its state; id 6 does not and must be empty.
+        Assert.Equal(1, list[0].GetProperty("extraRewardState").GetArrayLength());
+        Assert.Equal(42, list[0].GetProperty("extraRewardState")[0].GetProperty("id").GetInt64());
+        Assert.True(list[0].GetProperty("extraRewardState")[0].GetProperty("isRewarded").GetBoolean());
         Assert.Equal(0, list[1].GetProperty("extraRewardState").GetArrayLength());
     }
 
