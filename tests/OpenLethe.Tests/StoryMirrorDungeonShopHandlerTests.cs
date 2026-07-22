@@ -355,4 +355,243 @@ public class StoryMirrorDungeonShopHandlerTests(PostgresFixture db)
         Assert.Equal(10000, unit.ch);
         Assert.Equal(0, unit.cm);
     }
+
+    [SkippableFact]
+    public async Task AcquireRewardEgoGifts_GrantsSelectedGiftAndClearsRewards()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.rre = new()
+        {
+            new RemainRewardEvent { rt = "GetEgogift", pool = new() { 9001, 9002 } },
+            new RemainRewardEvent { rt = "Other" },
+        };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireRewardEgoGiftsStoryMirrorDungeon",
+            Body(jwt, new { selectIndexList = new[] { 1 } }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using (var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync()))
+        {
+            var result = doc.RootElement.GetProperty("result");
+            Assert.Equal(9002, result.GetProperty("egoGifts")[0].GetProperty("id").GetInt64());
+            Assert.Equal(0, result.GetProperty("remainRewardEvent").GetArrayLength());
+        }
+
+        var stored = AccountFields.Get<StoryMirrorSaveInfo>((await GetAccount(f, name)).StoryMdSaveInfo)!;
+        Assert.Contains(stored.currentinfo.egs, e => e.id == 9002);
+        Assert.Empty(stored.currentinfo.rre);
+    }
+
+    [SkippableFact]
+    public async Task AcquireRewardEgoGifts_NoGetEgogiftEvent_Returns500()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.rre = new() { new RemainRewardEvent { rt = "Other" } };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireRewardEgoGiftsStoryMirrorDungeon",
+            Body(jwt, new { selectIndexList = new[] { 0 } }));
+        Assert.Equal(HttpStatusCode.InternalServerError, resp.StatusCode);
+    }
+
+    [SkippableFact]
+    public async Task AcquireRewardEgoGifts_IndexOutOfRange_Returns500()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        // D3 guard: Rust does `event.pool.get(index).unwrap()` on a client-supplied index,
+        // which panics when out of range. Pool has 1 entry; index 5 must 500, not throw.
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.rre = new() { new RemainRewardEvent { rt = "GetEgogift", pool = new() { 9001 } } };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireRewardEgoGiftsStoryMirrorDungeon",
+            Body(jwt, new { selectIndexList = new[] { 5 } }));
+        Assert.Equal(HttpStatusCode.InternalServerError, resp.StatusCode);
+
+        var stored = AccountFields.Get<StoryMirrorSaveInfo>((await GetAccount(f, name)).StoryMdSaveInfo)!;
+        Assert.Empty(stored.currentinfo.egs);
+        var rre = Assert.Single(stored.currentinfo.rre);
+        Assert.Equal("GetEgogift", rre.rt);
+        Assert.Equal(new List<long> { 9001 }, rre.pool);
+    }
+
+    [SkippableFact]
+    public async Task AcquireRewardEgoGifts_EmptySelectList_DefaultsToIndexZero()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.rre = new() { new RemainRewardEvent { rt = "GetEgogift", pool = new() { 9001, 9002 } } };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireRewardEgoGiftsStoryMirrorDungeon",
+            Body(jwt, new { selectIndexList = Array.Empty<int>() }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+
+        var stored = AccountFields.Get<StoryMirrorSaveInfo>((await GetAccount(f, name)).StoryMdSaveInfo)!;
+        Assert.Contains(stored.currentinfo.egs, e => e.id == 9001);
+    }
+
+    [SkippableFact]
+    public async Task CombineEgoGift_RemovesAllMaterialCopiesAndGrantsAResult()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        // 9002 is deliberately duplicated - Rust's `retain` is a bulk filter, unlike the
+        // plain-MD combine's first-match-each removal.
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.egs = new()
+        {
+            new AcquiredEgogifts { id = 9002 },
+            new AcquiredEgogifts { id = 9002 },
+            new AcquiredEgogifts { id = 9001 },
+        };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/CombineEgoGiftStoryMirrorDungeon",
+            Body(jwt, new { materialEgoGiftIds = new[] { 9002, 9001 }, keyword = "" }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+
+        var stored = AccountFields.Get<StoryMirrorSaveInfo>((await GetAccount(f, name)).StoryMdSaveInfo)!;
+        Assert.DoesNotContain(stored.currentinfo.egs, e => e.id == 9002);
+        Assert.DoesNotContain(stored.currentinfo.egs, e => e.id == 9001);
+        Assert.Single(stored.currentinfo.egs);
+    }
+
+    /// Reproduces the handler's tier-table lookup so tests assert against the live static
+    /// data rather than a hard-coded row (mirrors the memory note: MD data may change).
+    private static long ExpectedResultTier(List<long> tiers)
+    {
+        var table = MdEgoFusion.CombineTierTable;
+        if (table is null) return 1;
+        if (tiers.Count == 2)
+        {
+            var row = table.combineTwo.FirstOrDefault(c => c.aTier == tiers[0] && c.bTier == tiers[1]);
+            return row?.resultTier ?? 1;
+        }
+        if (tiers.Count == 3)
+        {
+            var row = table.combineThree.FirstOrDefault(c => c.aTier == tiers[0] && c.bTier == tiers[1] && c.cTier == tiers[2]);
+            return row?.resultTier ?? 1;
+        }
+        return 1;
+    }
+
+    [SkippableFact]
+    public async Task CombineEgoGift_TwoMaterials_ResultMatchesTheTierTable()
+    {
+        db.RequireDb();
+        // 9002 is TIER_1, 9001 is TIER_2 (static-data/ego-gift-mirrordungeon). Sorted tiers
+        // [1, 2] hit the egoGiftCombineTierTable.combineTwo row {aTier:1, bTier:2}.
+        var tiers = new List<long> { MdEgoFusion.TierToInt(9002), MdEgoFusion.TierToInt(9001) };
+        tiers.Sort();
+        var expectedTier = ExpectedResultTier(tiers);
+
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.egs = new() { new AcquiredEgogifts { id = 9002 }, new AcquiredEgogifts { id = 9001 } };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/CombineEgoGiftStoryMirrorDungeon",
+            Body(jwt, new { materialEgoGiftIds = new[] { 9002, 9001 }, keyword = "" }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using (var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync()))
+        {
+            var resultId = doc.RootElement.GetProperty("result").GetProperty("resultEgoGift").GetProperty("id").GetInt64();
+            Assert.Equal(expectedTier, MdEgoFusion.TierToInt(resultId));
+        }
+    }
+
+    [SkippableFact]
+    public async Task CombineEgoGift_ThreeMaterials_ResultMatchesTheTierTable()
+    {
+        db.RequireDb();
+        // 9002 = TIER_1, 9001 = TIER_2, 1052 = TIER_3. Sorted tiers [1, 2, 3] hit
+        // egoGiftCombineTierTable.combineThree row {aTier:1, bTier:2, cTier:3}.
+        var tiers = new List<long>
+        {
+            MdEgoFusion.TierToInt(9002),
+            MdEgoFusion.TierToInt(9001),
+            MdEgoFusion.TierToInt(1052),
+        };
+        tiers.Sort();
+        var expectedTier = ExpectedResultTier(tiers);
+
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.egs = new()
+        {
+            new AcquiredEgogifts { id = 9002 },
+            new AcquiredEgogifts { id = 9001 },
+            new AcquiredEgogifts { id = 1052 },
+        };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/CombineEgoGiftStoryMirrorDungeon",
+            Body(jwt, new { materialEgoGiftIds = new[] { 9002, 9001, 1052 }, keyword = "" }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using (var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync()))
+        {
+            var resultId = doc.RootElement.GetProperty("result").GetProperty("resultEgoGift").GetProperty("id").GetInt64();
+            Assert.Equal(expectedTier, MdEgoFusion.TierToInt(resultId));
+        }
+    }
+
+    [SkippableFact]
+    public async Task CombineEgoGift_UnknownMaterials_FallsBackToTierOne()
+    {
+        db.RequireDb();
+        // Ids absent from static data: MdEgoFusion.TierToInt gives 4 for each (MdEgoData.GetById
+        // returns null), so with 2 materials the lookup is [4, 4].
+        var unknownA = 700001001;
+        var unknownB = 700001002;
+        Assert.Null(MdEgoData.GetById(unknownA));
+        Assert.Null(MdEgoData.GetById(unknownB));
+        var tiers = new List<long> { MdEgoFusion.TierToInt(unknownA), MdEgoFusion.TierToInt(unknownB) };
+        tiers.Sort();
+        var expectedTier = ExpectedResultTier(tiers);
+
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.egs = new() { new AcquiredEgogifts { id = unknownA }, new AcquiredEgogifts { id = unknownB } };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/CombineEgoGiftStoryMirrorDungeon",
+            Body(jwt, new { materialEgoGiftIds = new[] { unknownA, unknownB }, keyword = "" }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using (var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync()))
+        {
+            var resultId = doc.RootElement.GetProperty("result").GetProperty("resultEgoGift").GetProperty("id").GetInt64();
+            Assert.Equal(expectedTier, MdEgoFusion.TierToInt(resultId));
+        }
+    }
 }

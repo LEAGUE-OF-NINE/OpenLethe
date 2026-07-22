@@ -222,3 +222,30 @@ public sealed class PurchaseHealStoryMirrorDungeonResult
     public List<Dungeonunitlist2> dungeonUnitList = new();
     public UserStoryMirrorDungeonShopData shopInfo = new();
 }
+
+public sealed class AcquireRewardEgoGiftsStoryMirrorDungeonParams
+{
+    public List<long> selectIndexList = new();
+}
+
+public sealed class AcquireRewardEgoGiftsStoryMirrorDungeonResult
+{
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<RemainRewardEvent> remainRewardEvent = new();
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+}
+
+public sealed class CombineEgoGiftStoryMirrorDungeonParams
+{
+    public List<long> materialEgoGiftIds = new();
+    // Declared because the client sends it; Rust's handler never reads it.
+    public string keyword = "";
+}
+
+public sealed class CombineEgoGiftStoryMirrorDungeonResult
+{
+    public AcquiredEgogifts resultEgoGift = new();
+    public bool isSuccess;
+    public List<AcquiredEgogifts> egoGifts = new();
+    public List<Dungeonunitlist2> dungeonUnitList = new();
+}
