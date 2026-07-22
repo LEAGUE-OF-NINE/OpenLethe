@@ -564,18 +564,23 @@ public class StoryMirrorDungeonShopHandlerTests(PostgresFixture db)
     }
 
     [SkippableFact]
-    public async Task CombineEgoGift_UnknownMaterials_FallsBackToTierOne()
+    public async Task CombineEgoGift_TwoUnknownMaterials_BothMapToTierOneViaOuterFallback()
     {
         db.RequireDb();
-        // Ids absent from static data: MdEgoFusion.TierToInt gives 4 for each (MdEgoData.GetById
-        // returns null), so with 2 materials the lookup is [4, 4].
+        // Ids absent from static data go through the handler's OUTER fallback (Rust's
+        // extract_ego_tiers .unwrap_or(1)) rather than MdEgoFusion.TierToInt's inner "no tag ->
+        // 4" arm, so with 2 unknown materials the lookup is [1, 1], not [4, 4].
+        // NOTE: this test previously asserted the same numeric outcome for the wrong reason -
+        // the pre-fix handler produced tiers [4, 4] (no combineTwo row -> resultTier defaults to
+        // 1) which coincidentally agreed with the correct [1, 1] path (which also happens to
+        // resolve to tier 1). It could not distinguish the buggy code from the fixed code. See
+        // CombineEgoGift_UnknownAndTierThreeMaterial_UsesOuterFallbackForUnknownOnly below for a
+        // case that actually fails on the old code.
         var unknownA = 700001001;
         var unknownB = 700001002;
         Assert.Null(MdEgoData.GetById(unknownA));
         Assert.Null(MdEgoData.GetById(unknownB));
-        var tiers = new List<long> { MdEgoFusion.TierToInt(unknownA), MdEgoFusion.TierToInt(unknownB) };
-        tiers.Sort();
-        var expectedTier = ExpectedResultTier(tiers);
+        var expectedTier = ExpectedResultTier(new List<long> { 1, 1 });
 
         await using var f = new DbWebAppFactory(db.ConnectionString);
         var (jwt, name) = await NewAccount(f);
@@ -587,6 +592,46 @@ public class StoryMirrorDungeonShopHandlerTests(PostgresFixture db)
 
         var resp = await client.PostAsJsonAsync("/api/CombineEgoGiftStoryMirrorDungeon",
             Body(jwt, new { materialEgoGiftIds = new[] { unknownA, unknownB }, keyword = "" }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using (var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync()))
+        {
+            var resultId = doc.RootElement.GetProperty("result").GetProperty("resultEgoGift").GetProperty("id").GetInt64();
+            Assert.Equal(expectedTier, MdEgoFusion.TierToInt(resultId));
+        }
+    }
+
+    [SkippableFact]
+    public async Task CombineEgoGift_UnknownAndTierThreeMaterial_UsesOuterFallbackForUnknownOnly()
+    {
+        db.RequireDb();
+        // Regression test for the two-nested-fallbacks bug: an id absent from static data must
+        // map to tier 1 (Rust's outer .unwrap_or(1)), not tier 4 (MdEgoFusion.TierToInt's inner
+        // "no recognised tag" arm). Sorted with a genuine TIER_3 material this is [1, 3]. Under
+        // the pre-fix handler (which fed the unknown id straight through TierToInt) it would
+        // instead be [3, 4], which has no combineTwo row and defaults to tier 1 - masking the
+        // bug for the "both unknown" case above but not for this mixed case, whose expected
+        // tier (from the table) differs between [1, 3] and [3, 4].
+        var unknownMaterial = 700001003;
+        Assert.Null(MdEgoData.GetById(unknownMaterial));
+
+        var tierThreeMaterial = MdEgoData.AllIds().First(id => MdEgoFusion.TierToInt(id) == 3);
+
+        var expectedTier = ExpectedResultTier(new List<long> { 1, 3 });
+
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new StoryMirrorSaveInfo { dungeonid = 910301 };
+        save.currentinfo.egs = new()
+        {
+            new AcquiredEgogifts { id = unknownMaterial },
+            new AcquiredEgogifts { id = tierThreeMaterial },
+        };
+        await SetStoryMdSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/CombineEgoGiftStoryMirrorDungeon",
+            Body(jwt, new { materialEgoGiftIds = new[] { unknownMaterial, tierThreeMaterial }, keyword = "" }));
         Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
         using (var doc = JsonDocument.Parse(await resp.Content.ReadAsStringAsync()))
         {

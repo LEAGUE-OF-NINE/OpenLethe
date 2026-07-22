@@ -271,7 +271,13 @@ public static class StoryMirrorDungeonShopEndpoints
 
             // Sort the TIERS (not the ids - the id sort in Rust only fed the fixed-combination
             // branch we omitted above).
-            var tiers = p.materialEgoGiftIds.Select(MdEgoFusion.TierToInt).OrderBy(t => t).ToList();
+            // Rust extract_ego_tiers has TWO nested fallbacks: tier_to_int gives 4 for a missing or
+            // unrecognised tag, but an id NOT FOUND in the ego-gift data falls to .unwrap_or(1).
+            // TierToInt is only the inner half, so the outer "unknown id -> 1" belongs here.
+            var tiers = p.materialEgoGiftIds
+                .Select(id => MdEgoData.GetById(id) is null ? 1L : MdEgoFusion.TierToInt(id))
+                .OrderBy(t => t)
+                .ToList();
 
             // ponytail (D4 guard): Rust does
             // `combine_tier_table.first().cloned().expect("...")`. The data is present today
