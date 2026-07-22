@@ -41,7 +41,6 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_EnterThreadDungeon, ResPacket_EnterThreadDungeon>("/api/EnterThreadDungeon");
         app.MapPacket<ReqPacket_ExchangeTwine, ResPacket_ExchangeTwine>("/api/ExchangeTwine");
         app.MapPacket<ReqPacket_ExitExpDungeon, ResPacket_ExitExpDungeon>("/api/ExitExpDungeon");
-        app.MapPacket<ReqPacket_ExitMirrorDungeon, ResPacket_ExitMirrorDungeon>("/api/ExitMirrorDungeon");
         app.MapPacket<ReqPacket_ExitStoryMirrorDungeon, ResPacket_ExitStoryMirrorDungeon>("/api/ExitStoryMirrorDungeon");
         app.MapPacket<ReqPacket_ExitThreadDungeon, ResPacket_ExitThreadDungeon>("/api/ExitThreadDungeon");
         app.MapPacket<ReqPacket_FindFriend, ResPacket_FindFriend>("/api/FindFriend");
@@ -55,7 +54,6 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_GetFriendSupportPersonalitiesByCharacterId, ResPacket_GetFriendSupportPersonalitiesByCharacterId>("/api/GetFriendSupportPersonalitiesByCharacterId");
         app.MapPacket<ReqPacket_GetHellsChickenState, ResPacket_GetHellsChickenState>("/api/GetHellsChickenState");
         app.MapPacket<ReqPacket_GetInfoOfLinkWith, ResPacket_GetInfoOfLinkWith>("/login/GetInfoOfLinkWith");
-        app.MapPacket<ReqPacket_GetMirrorDungeonEgoGiftRecord, ResPacket_GetMirrorDungeonEgoGiftRecord>("/api/GetMirrorDungeonEgoGiftRecord");
         app.MapPacket<ReqPacket_GetProfileTicketDecoDatas, ResPacket_GetProfileTicketDecoDatas>("/api/GetProfileTicketDecoDatas");
         app.MapPacket<ReqPacket_GetRecommendFriends, ResPacket_GetRecommendFriends>("/api/GetRecommendFriends");
         app.MapPacket<ReqPacket_GetStageProgressRateReward, ResPacket_GetStageProgressRateReward>("/api/GetStageProgressRateReward");
@@ -136,6 +134,6 @@ public static class StaticRoutes
         return app;
     }
 
-    public static int RegisteredCount => 112;
+    public static int RegisteredCount => 110;
 }
 

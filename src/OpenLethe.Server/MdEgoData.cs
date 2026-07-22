@@ -25,6 +25,8 @@ public static class MdEgoData
 
     public static MdEgo? GetById(long id) => Data.Value.FirstOrDefault(e => e.id == id);
 
+    public static List<long> AllIds() => Data.Value.Select(e => e.id).ToList();
+
     public static long UpgradeCost(long price, long desiredUl) => ((price * desiredUl / 3) / 10) * 10;
 
     // Port of models/src/mirror_dungeon/ego_gift_fusion.rs determine_ego_tier.
