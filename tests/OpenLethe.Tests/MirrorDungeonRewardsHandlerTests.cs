@@ -198,6 +198,37 @@ public class MirrorDungeonRewardsHandlerTests(PostgresFixture db)
     }
 
     [SkippableFact]
+    public async Task AcquireBattleReward_CostEgoGiftStartCategoryCard_AddsCostWithinRange()
+    {
+        db.RequireDb();
+        await using var f = new DbWebAppFactory(db.ConnectionString);
+        var (jwt, name) = await NewAccount(f);
+        var client = f.CreateClient();
+
+        var save = new MirrorOriginSaveInfo();
+        save.currentInfo.cost = 0;
+        save.currentInfo.leveladders.Add(1);
+        save.currentInfo.rre.Add(new RemainRewardEvent
+        {
+            rt = "GetBattleRewardCase",
+            pool = new List<long> { 201 }, // COST_EGOGIFT_START_CATEGORY, acquireCostMin 40 / max 60
+        });
+        await SetSave(f, name, save);
+
+        var resp = await client.PostAsJsonAsync("/api/AcquireMirrorDungeonBattleReward",
+            Body(jwt, new { selectIndexList = new[] { 0 }, isOrigin = 0 }));
+
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        var stored = AccountFields.Get<MirrorOriginSaveInfo>((await GetAccount(f, name)).MdSaveInfo)!;
+        Assert.InRange(stored.currentInfo.cost, 40, 60);
+        // RewardRandomEgoGift always returns null on shipped data (its drop-pool lookup
+        // wants dungeonId == 5, which never exists - a preserved upstream quirk, not a bug).
+        // So this card grants no ego gift and rre stays empty (replaced by newRewards).
+        Assert.Empty(stored.currentInfo.egs);
+        Assert.Empty(stored.currentInfo.rre);
+    }
+
+    [SkippableFact]
     public async Task AcquireBattleReward_EgoStockCard_RaisesLeastStocks()
     {
         db.RequireDb();

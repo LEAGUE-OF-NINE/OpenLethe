@@ -54,6 +54,24 @@ public class MdEncounterCardTests
         Assert.Empty(MdEncounterCard.PickRandomEncounterCards(0));
     }
 
+    [Fact]
+    public void StarlightMinMaxCards_AreUnreachable()
+    {
+        // Rust's Reward enum has no STARLIGHT_MIN_MAX variant, so it drops group-D's cards
+        // (ids 401-407) at the file level. They stay unreachable here too - pin that so a
+        // future change that makes one reachable (e.g. adding its format to AllowedCardTypes)
+        // fails loudly instead of silently diverging from Rust.
+        var starlightRewards = MdEncounterCard.EncounterRewardMap.Values
+            .Where(r => r.rewardType == "STARLIGHT_MIN_MAX")
+            .ToList();
+        Assert.NotEmpty(starlightRewards);
+        Assert.All(starlightRewards, r => Assert.DoesNotContain(r.localizeTextFormat, MdEncounterCard.AllowedCardTypes));
+
+        var starlightIds = starlightRewards.Select(r => r.id).ToHashSet();
+        var picked = MdEncounterCard.PickRandomEncounterCards(1000);
+        Assert.DoesNotContain(picked, id => starlightIds.Contains(id));
+    }
+
     [Theory]
     [InlineData(1, 3, 0, false)]
     [InlineData(1, 3, 1, true)]

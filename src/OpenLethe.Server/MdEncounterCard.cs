@@ -17,6 +17,12 @@ public sealed class MdRewardList
 /// ponytail: Rust models this as an internally-tagged enum on rewardType. System.Text.Json
 /// polymorphism needs the discriminator, and these files put "id" first - so this is one
 /// flat type with every variant's params nullable, dispatched on the rewardType string.
+/// Consequence: the flat model is tolerant where Rust's enum is strict. Rust's Reward enum
+/// has exactly 4 variants (COST, EGOGIFT, EGOSTOCK, COST_EGOGIFT_START_CATEGORY), so
+/// group-D's 7 STARLIGHT_MIN_MAX cards (ids 401-407) fail to deserialize and Rust drops
+/// that whole file - its ENCOUNTER_REWARD_MAP has 28 entries to this type's 35. Those 7
+/// extras are unreachable here too: STARLIGHT_MIN_MAX is in neither AllowedCardTypes nor
+/// any switch arm below, so no response ever differs. Do not add a filter for them.
 public sealed class MdReward
 {
     public long id;

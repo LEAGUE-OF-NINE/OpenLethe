@@ -178,6 +178,10 @@ public static class MirrorDungeonRewardsEndpoints
             account.MdSaveInfo = AccountFields.Set(save);
             await HandlerContext.SaveAsync(ctx);
 
+            // Intentional 3-vs-1 mismatch: leveladders gets 3 (above) but the response
+            // reports 1. Byte-for-byte faithful to Rust's
+            // acquire_reward_ego_gifts_with_enemy_buf_mirror_dungeon.rs, which pushes 3 and
+            // responds vec![1]. Do not "fix" this to match.
             var body = new AcquireRewardEgoGiftsWithEnemyBufResult
             {
                 dungeonUnitList = save.currentInfo.dul,
