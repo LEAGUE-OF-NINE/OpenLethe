@@ -1,0 +1,17 @@
+# Keep the build context small and clean. docs/ (gitignored, contains large flow
+# captures) and .superpowers/ must be excluded or the build is huge and slow.
+**/bin
+**/obj
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+run.bat
+docs
+.superpowers
+tests
+.vs
+.vscode
+.idea
+*.md

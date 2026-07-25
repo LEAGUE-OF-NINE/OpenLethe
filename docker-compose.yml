@@ -1,0 +1,35 @@
+# OpenLethe: server + Postgres. Run with `docker compose up --build`
+# (or double-click run.bat on Windows). The server migrates the database on startup.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: openlethe
+      POSTGRES_USER: openlethe
+      POSTGRES_PASSWORD: openlethe
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U openlethe -d openlethe"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  server:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Npgsql connection string the server reads (ConnectionStrings:Postgres).
+      ConnectionStrings__Postgres: "Host=db;Port=5432;Database=openlethe;Username=openlethe;Password=openlethe"
+      ASPNETCORE_URLS: "http://+:8080"
+      # Optional: set a fixed secret so login tokens survive server restarts.
+      # Without it a random secret is generated each boot (fine for local testing).
+      # Auth__JwtSecret: "replace-with-a-long-random-string"
+    ports:
+      - "8080:8080"   # server reachable at http://localhost:8080 (health: /health)
+    restart: unless-stopped
+
+volumes:
+  pgdata:

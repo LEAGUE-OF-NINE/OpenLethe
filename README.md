@@ -2,6 +2,30 @@
 
 A C# / ASP.NET Core port of the Lethe (Limbus Company private) game server.
 
+## Quickstart
+
+The fastest way — **Docker** (no .NET SDK needed). This builds the server and starts it
+alongside a Postgres database:
+
+```bash
+docker compose up --build
+```
+
+On Windows you can just double-click **`run.bat`**.
+
+That's it. The server is at **http://localhost:8080** and migrates the database on startup.
+Verify it's up:
+
+```bash
+curl http://localhost:8080/health   # -> ok
+```
+
+Stop it with `Ctrl+C` (add `-d` to run in the background). Data persists in a Docker volume
+between runs.
+
+> Prefer running from source (hot reload, no containers)? See
+> [Running the server](#running-the-server) below.
+
 ## Running the server
 
 ### Prerequisites
