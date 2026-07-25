@@ -1,0 +1,1127 @@
+{
+  "dataList": [
+    {
+      "id": 2010611,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Bygone Days",
+          "abName": "Portrait of a Certain Day",
+          "desc": "[EndSkill] Randomly inflict (6 + Gloom Reson.) [Sinking] between targets",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] If target has 6+ [Sinking], inflict 1 [Binding] next turn"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Bygone Days",
+          "abName": "Portrait of a Certain Day",
+          "desc": "[EndSkill] Randomly inflict (6 + Gloom Reson.) [Sinking] between targets",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] If target has 6+ [Sinking], inflict 2 [Binding] next turn"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Bygone Days",
+          "abName": "Portrait of a Certain Day",
+          "desc": "[EndSkill] Randomly inflict (6 + (<style=\"highlight\">Gloom Reson. x1.5</style>)) [Sinking] between targets",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] If target has 6+ [Sinking], inflict 2 [Binding] next turn"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010621,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Bygone Days",
+          "abName": "Portrait of a Certain Day",
+          "desc": "[CantIdentify]\nTargets randomly",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Sinking]. Inflict 2 [Binding] next turn"
+                },
+                {
+                  "desc": "[OnSucceedAttack] If target has 6+ [Sinking], inflict 1 [Binding] next turn"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Bygone Days",
+          "abName": "Portrait of a Certain Day",
+          "desc": "[CantIdentify]\nTargets Randomly\n[BeforeAttack] At 3+ (Gloom Reson.), Atk Weight +1",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Sinking]. Inflict 2 [Binding] next turn"
+                },
+                {
+                  "desc": "[OnSucceedAttack] If target has 6+ [Sinking], inflict 1 [Binding] next turn"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Bygone Days",
+          "abName": "Portrait of a Certain Day",
+          "desc": "[CantIdentify]\nTargets Randomly\n[BeforeAttack] At 3+ (Gloom Reson.), Atk Weight +1\n[BeforeAttack] At 5+ (Gloom Reson.), additional Atk Weight +1",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Sinking]. Inflict 2 [Binding] next turn"
+                },
+                {
+                  "desc": "[OnSucceedAttack] If target has 6+ [Sinking], inflict 2 [Binding] next turn"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010711,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Fell Bullet",
+          "abName": "Der Fluchschütze",
+          "desc": "Prioritizes targets with the least HP (prioritizes allies)\n[BeforeAttack] Gain (highest Reson. + 1) [BoseProjektil] (max 7)\n[BeforeAttack] Gain 1 [Breath] for every [BoseProjektil] (max 7)\n[EndSkill] Lose every [BoseProjektil]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the main target."
+                },
+                {
+                  "desc": "If the main target is an ally, deal +8% damage for every [BoseProjektil] (max 56%)"
+                },
+                {
+                  "desc": "[AllyKill] Apply 2 [Breath] to self and 2 random allies"
+                },
+                {
+                  "desc": "[AllyKillFail] Gain 1 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the sub-targets\n- If the first Coin failed to kill the ally, 1 random sub-target takes damage"
+                },
+                {
+                  "desc": "+2% Damage on Critical Hit for every [BoseProjektil] (max 14%)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict 2 [Laceration]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Fell Bullet",
+          "abName": "Der Fluchschütze",
+          "desc": "Prioritizes targets with the least HP (prioritizes allies)\n[BeforeAttack] Gain (highest Reson. + 1) [BoseProjektil] (max 7)\n[BeforeAttack] Gain 1 [Breath] for every [BoseProjektil] (max 7)\n[EndSkill] Lose every [BoseProjektil]<style=\"highlight\"></style>",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the main target.<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "If the main target is an ally, deal <style=\"highlight\">+10%</style> damage for every [BoseProjektil] (max <style=\"highlight\">70%</style>)"
+                },
+                {
+                  "desc": "[AllyKill] Apply 3 [Breath] to self and 2 random allies<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[AllyKill] +1 E.G.O resource for the killed ally's Skill 1 Affinity</style>"
+                },
+                {
+                  "desc": "[AllyKillFail] Gain <style=\"highlight\">3</style> [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the sub-targets\n- If the first Coin failed to kill the ally, 1 random sub-target takes damage<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">+5%</style> Damage on Critical Hit for every [BoseProjektil] (max <style=\"highlight\">35%</style>)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict 2 [Laceration]<style=\"highlight\"></style>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Fell Bullet",
+          "abName": "Der Fluchschütze",
+          "desc": "Prioritizes targets with the least HP (prioritizes allies)\n[BeforeAttack] Gain (highest Reson. + 1) [BoseProjektil] (max 7)\n<style=\"highlight\">- If the said Reson. was a Pride Reson., gain (highest Reson. x 2) [BoseProjektil] instead (max 7)</style>\n[BeforeAttack] Gain 1 [Breath] for every [BoseProjektil] (max 7)\n[EndSkill] Lose every [BoseProjektil]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the main target.<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "If the main target is an ally, deal <style=\"highlight\">+15%</style> damage for every [BoseProjektil] (max <style=\"highlight\">105%</style>)"
+                },
+                {
+                  "desc": "[AllyKill] Apply 3 [Breath] to self and 2 random allies<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[AllyKill] +1 E.G.O resource for the killed ally's Skill 1 and 2 Affinities</style>"
+                },
+                {
+                  "desc": "[AllyKillFail] Gain <style=\"highlight\">3</style> [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the sub-targets\n- If the first Coin failed to kill the ally, 1 random sub-target takes damage<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">+9%</style> Damage on Critical Hit for every [BoseProjektil] (max <style=\"highlight\">63%</style>)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict <style=\"highlight\">3</style> [Laceration]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010721,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Fell Bullet",
+          "abName": "Der Fluchschütze",
+          "desc": "[CantIdentify]\nPrioritizes targets with the least HP (prioritizes allies)\n[BeforeAttack] Gain (highest Reson. + 1) [BoseProjektil] (max 7)\n[BeforeAttack] Deal +2% damage for every [BoseProjektil] (max 14%)\n[BeforeAttack] Gain 1 [Breath] for every [BoseProjektil] (max 7)\n[EndSkill] Lose every [BoseProjektil]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the main target."
+                },
+                {
+                  "desc": "If the main target is an ally, deal +10% damage for every [BoseProjektil] (max 70%)"
+                },
+                {
+                  "desc": "If the main target is an ally, deal +2% damage for every [Breath] on self (max 50%)"
+                },
+                {
+                  "desc": "[AllyKill] Apply 2 [Breath] to self and 3 random allies"
+                },
+                {
+                  "desc": "[AllyKill] The next Coin deals +2% damage for every [BoseProjektil] (max 14%)"
+                },
+                {
+                  "desc": "[AllyKill] +1 E.G.O resource for the killed ally's Skill 1 and 2 Affinities"
+                },
+                {
+                  "desc": "[AllyKillFail] Gain 1 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the sub-targets\n- If the first Coin failed to kill the ally, 1 random sub-target takes damage"
+                },
+                {
+                  "desc": "+2% Damage on Critical Hit for every [BoseProjektil] (max 14%)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict 3 [Laceration]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Fell Bullet",
+          "abName": "Der Fluchschütze",
+          "desc": "[CantIdentify]\nPrioritizes targets with the least HP (prioritizes allies)\n[BeforeAttack] Gain (highest Reson. + 1) [BoseProjektil] (max 7)\n[BeforeAttack] Deal <style=\"highlight\">+3%</style> damage for every [BoseProjektil] (max <style=\"highlight\">21%</style>)\n[BeforeAttack] Gain 1 [Breath] for every [BoseProjektil] (max 7)\n[EndSkill] Lose every [BoseProjektil]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the main target.<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "If the main target is an ally, deal <style=\"highlight\">+12%</style> damage for every [BoseProjektil] (max <style=\"highlight\">84%</style>)"
+                },
+                {
+                  "desc": "If the main target is an ally, deal +2% damage for every [Breath] on self (max 50%)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[AllyKill] Apply 3 [Breath] to self and <style=\"highlight\">3</style> random allies"
+                },
+                {
+                  "desc": "[AllyKill] The next Coin deals <style=\"highlight\">+5%</style> damage for every [BoseProjektil] (max <style=\"highlight\">35%</style>)"
+                },
+                {
+                  "desc": "<style=\"highlight\">[AllyKill] +1 E.G.O resource for the killed ally's Skill 1, 2, and 3 Affinities</style>"
+                },
+                {
+                  "desc": "[AllyKillFail] Gain <style=\"highlight\">2</style> [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the sub-targets\n- If the first Coin failed to kill the ally, 1 random sub-target takes damage<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">+3%</style> Damage on Critical Hit for every [BoseProjektil] (max <style=\"highlight\">21%</style>)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict <style=\"highlight\">4</style> [Laceration]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Fell Bullet",
+          "abName": "Der Fluchschütze",
+          "desc": "[CantIdentify]\nPrioritizes targets with the least HP (prioritizes allies)\n[BeforeAttack] Gain (highest Reson. + 1) [BoseProjektil] (max 7)\n<style=\"highlight\">- If the said Reson. was a Pride Reson., gain (highest Reson. x 2) [BoseProjektil] instead (max 7)</style>\n[BeforeAttack] Deal <style=\"highlight\">+4%</style> damage for every [BoseProjektil] (max 28%)\n[BeforeAttack] Gain 1 [Breath] for every [BoseProjektil] (max 7)\n[EndSkill] Lose every [BoseProjektil]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the main target.<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "If the main target is an ally, deal +15% damage for every [BoseProjektil] (max 105%)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "If the main target is an ally, deal +2% damage for every [Breath] on self (max 50%)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">+30% Damage on Critical Hit</style>"
+                },
+                {
+                  "desc": "[AllyKill] Apply 3 [Breath] to self and <style=\"highlight\">4</style> random allies"
+                },
+                {
+                  "desc": "[AllyKill] The next Coin deals <style=\"highlight\">+7%</style> damage for every [BoseProjektil] (max <style=\"highlight\">49%</style>)"
+                },
+                {
+                  "desc": "[AllyKill] +1 E.G.O resource for the killed ally's Skill 1, 2, and 3 Affinities<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[AllyKillFail] Gain <style=\"highlight\">3</style> [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "This Coin deals damage only against the sub-targets\n- If the first Coin failed to kill the ally, 1 random sub-target takes damage<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">+4% Damage on Critical Hit for every [BoseProjektil] (max 28%)</style>"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict <style=\"highlight\">5</style> [Laceration]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010811,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Great Trichiliocosm [三千大世界]",
+          "abName": "Butterfly of Entangled Lives [羅生蝶]",
+          "desc": "[BeforeAttack] Gain (highest Reson.) [Breath] (max 7)\n- If it was an A-Reson., also gain +(highest Reson. / 3) [Breath] Count (max 2; rounded down)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +1 [Sinking] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Inflict 1 [ThreeMirrorpartYiSang] this turn and next turn"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict [Combustion] equal to ([Sinking] on target / 3) (max 5; rounded down)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once; then, reduce their [Combustion] Count by 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Great Trichiliocosm [三千大世界]",
+          "abName": "Butterfly of Entangled Lives [羅生蝶]",
+          "desc": "<style=\"highlight\">[BeforeAttack] If the main target has 15+ ([Combustion] + [Sinking]), Coin Power +1</style>\n[BeforeAttack] Gain (highest Reson.) [Breath] (max 7)\n- If it was an A-Reson., also gain +(highest Reson. / 3) [Breath] Count (max 2; rounded down)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict <style=\"highlight\">2</style> [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict <style=\"highlight\">+2</style> [Sinking] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Inflict 1 [ThreeMirrorpartYiSang] this turn and next turn"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict [Combustion] equal to ([Sinking] on target / 3) (max 5; rounded down)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once; then, reduce their [Combustion] Count by 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Great Trichiliocosm [三千大世界]",
+          "abName": "Butterfly of Entangled Lives [羅生蝶]",
+          "desc": "[BeforeAttack] If the main target has <style=\"highlight\">10</style>+ ([Combustion] + [Sinking]), Coin Power +1\n[BeforeAttack] Gain (highest Reson.) [Breath] (max 7)\n- If it was an A-Reson., also gain +(highest Reson. / 3) [Breath] Count (max 2; rounded down)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +<style=\"highlight\">3</style> [Sinking] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Inflict 1 [ThreeMirrorpartYiSang] this turn and next turn"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict [Combustion] equal to ([Sinking] on target / 3) (max 5; rounded down)"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once; then, reduce their [Combustion] Count by 1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010821,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Great Trichiliocosm [三千大世界]",
+          "abName": "Butterfly of Entangled Lives [羅生蝶]",
+          "desc": "[CantIdentify]\nTargets randomly\nOn Coin Hit, gain 5 [Combustion]; on final Coin Use, Final Power +1 (max 3; once per Coin)\n[BeforeAttack] Gain (highest Reson.) [Breath] (max 7)\n- If it was an A-Reson., also gain +(highest Reson. / 3) [Breath] Count (max 2; rounded down)\n[BeforeAttack] Base Power -1 for every Cracked Coin (down to -4)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +1 [Sinking] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [ThreeMirrorpartYiSang] this turn and next turn"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnStartCoin] Deal +10% damage for every 10 ([Combustion] + [Sinking]) on all targets (max 40%)",
+                  "summary": "[OnStartCoin] Deal more damage for every 10 ([Combustion] + [Sinking]) on all targets"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once; then, reduce their [Combustion] Count by 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Great Trichiliocosm [三千大世界]",
+          "abName": "Butterfly of Entangled Lives [羅生蝶]",
+          "desc": "[CantIdentify]\nTargets randomly\nOn Coin Hit, gain <style=\"highlight\">4</style> [Combustion]; on final Coin Use, Final Power +1 (max 3; once per Coin)\n[BeforeAttack] Gain (highest Reson.) [Breath] (max 7)\n- If it was an A-Reson., also gain +(highest Reson. / 3) [Breath] Count (max 2; rounded down)\n[BeforeAttack] Base Power -1 for every Cracked Coin (down to -4)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict <style=\"highlight\">2</style> [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +<style=\"highlight\">2</style> [Sinking] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [ThreeMirrorpartYiSang] this turn and next turn"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict <style=\"highlight\">3</style> [Combustion]"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnStartCoin] Deal +10% damage for every 10 ([Combustion] + [Sinking]) on all targets (max <style=\"highlight\">50</style>%)",
+                  "summary": "[OnStartCoin] Deal more damage for every 10 ([Combustion] + [Sinking]) on all targets"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once; then, reduce their [Combustion] Count by 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Great Trichiliocosm [三千大世界]",
+          "abName": "Butterfly of Entangled Lives [羅生蝶]",
+          "desc": "[CantIdentify]\nTargets randomly\nOn Coin Hit, gain <style=\"highlight\">3</style> [Combustion]; on final Coin Use, Final Power +1 (max 3; once per Coin)\n[BeforeAttack] Gain (highest Reson.) [Breath] (max 7)\n- If it was an A-Reson., also gain +(highest Reson. / 3) [Breath] Count (max 2; rounded down)\n[BeforeAttack] Base Power -1 for every Cracked Coin (down to -4)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +<style=\"highlight\">3</style> [Sinking] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [ThreeMirrorpartYiSang] this turn and next turn"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict <style=\"highlight\">4</style> [Combustion]"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnStartCoin] Deal +10% damage for every 10 ([Combustion] + [Sinking]) on all targets (max <style=\"highlight\">60</style>%)",
+                  "summary": "[OnStartCoin] Deal more damage for every 10 ([Combustion] + [Sinking]) on all targets"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once; then, reduce their [Combustion] Count by 1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010911,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Solemn Lament",
+          "abName": "Funeral of the Dead Butterflies",
+          "desc": "[WideAreaRampage]\nWhen inflicting [SinkingWhite] using this Skill's effects: (Chance to flip Heads)% chance to inflict The Departed. If this unit did not inflict The Departed, inflict The Living instead. (calculates every [SinkingWhite] Stack independently)\n\nIf Lobotomy E.G.O::Solemn Lament Yi Sang used this Skill:\n- [BeforeAttack] Gain a random assortment of (Gloom Reson. + 1) [BulletLament] (max 7)\n- [EndSkill] [ReloadLament]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 random [SinkingWhite]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 random [SinkingWhite]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 random [SinkingWhite]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 random [SinkingWhite]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "Spend all [BulletLament] on self"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [Sinking]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [Vibration]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [SinkingWhite](The Living)"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [SinkingWhite](The Departed)"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Solemn Lament",
+          "abName": "Funeral of the Dead Butterflies",
+          "desc": "[WideAreaRampage]\nWhen inflicting [SinkingWhite] using this Skill's effects: (Chance to flip Heads)% chance to inflict The Departed. If this unit did not inflict The Departed, inflict The Living instead. (calculates every [SinkingWhite] Stack independently)\n\nIf Lobotomy E.G.O::Solemn Lament Yi Sang used this Skill:\n- [BeforeAttack] Gain a random assortment of (Gloom Reson. + 1) [BulletLament] (max 7)\n- [EndSkill] [ReloadLament]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 random [SinkingWhite]<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 random [SinkingWhite]<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 random [SinkingWhite]<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 random [SinkingWhite]<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "Spend all [BulletLament] on self<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [Sinking]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [Vibration]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [SinkingWhite](The Living)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [SinkingWhite](The Departed)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Deal Gloom damage equal to the sum of both [SinkingWhite] on target</style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Deal Gloom damage equal to ([BulletLament] spent by this Coin x 2)% of this Coin's final damage</style>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Solemn Lament",
+          "abName": "Funeral of the Dead Butterflies",
+          "desc": "[WideAreaRampage]\nWhen inflicting [SinkingWhite] using this Skill's effects: (Chance to flip Heads)% chance to inflict The Departed. If this unit did not inflict The Departed, inflict The Living instead. (calculates every [SinkingWhite] Stack independently)\n<style=\"highlight\">Clash Power +1 for every 4 ([Sinking] + both [SinkingWhite]) on the main target (max 4)</style>\n\nIf Lobotomy E.G.O::Solemn Lament Yi Sang used this Skill:\n- [BeforeAttack] Gain a random assortment of (Gloom Reson. + 1) [BulletLament] (max 7)\n- [EndSkill] [ReloadLament]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 random [SinkingWhite]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Inflict +1 [Sinking] Count</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 random [SinkingWhite]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Inflict +1 [Sinking] Count</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 random [SinkingWhite]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Inflict +1 [Sinking] Count</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 random [SinkingWhite]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Inflict +1 [Sinking] Count</style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Inflict 1 [AzureTakeDamageUp] and 1 [AzureResistDown], this turn and next turn</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "Spend all [BulletLament] on self<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [Sinking]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [Vibration]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [SinkingWhite](The Living)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [SinkingWhite](The Departed)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Deal Gloom damage equal to the sum of both [SinkingWhite] on target<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Deal Gloom damage equal to ([BulletLament] spent by this Coin x 2)% of this Coin's final damage<style=\"highlight\"></style>"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2010921,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Solemn Lament",
+          "abName": "Funeral of the Dead Butterflies",
+          "desc": "[CantIdentify]\nTargets randomly\n[BeforeAttack] Gain +(highest Reson. / 2) Atk Weight (max 2, rounded down)\n[BeforeAttack] Base Power -2 for every Cracked Coin (max -6)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [SinkingWhite](The Living)"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [SinkingWhite](The Departed)"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 5 [Sinking]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 5 [Vibration]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Solemn Lament",
+          "abName": "Funeral of the Dead Butterflies",
+          "desc": "[CantIdentify]\nTargets randomly\n[BeforeAttack] Gain +(highest Reson. / 2) Atk Weight (max 2, rounded down)\n[BeforeAttack] Base Power -2 for every Cracked Coin (max -6)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [SinkingWhite](The Living)<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [SinkingWhite](The Departed)<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 5 [Sinking]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 5 [Vibration]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Deal Gloom damage equal to the sum of both [SinkingWhite] on target</style>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "level": 4,
+          "name": "Solemn Lament",
+          "abName": "Funeral of the Dead Butterflies",
+          "desc": "[CantIdentify]\nTargets randomly\n<style=\"highlight\">Clash Power +1 for every 4 ([Sinking] + both [SinkingWhite]) on the main target (max 4)</style>\n[BeforeAttack] Gain +(highest Reson. / 2) Atk Weight (max 2, rounded down)\n[BeforeAttack] Base Power -2 for every Cracked Coin (max -6)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [SinkingWhite](The Living)<style=\"highlight\"></style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [SinkingWhite](The Departed)<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Inflict 1 [AzureTakeDamageUp] and 1 [AzureResistDown], this turn and next turn</style>"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 5 [Sinking]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 5 [Vibration]<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Deal Gloom damage equal to the sum of both [SinkingWhite] on target<style=\"highlight\"></style>"
+                },
+                {
+                  "desc": "<style=\"highlight\">[OnSucceedAttack] Deal Gloom damage equal to [Sinking] on target</style>t"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

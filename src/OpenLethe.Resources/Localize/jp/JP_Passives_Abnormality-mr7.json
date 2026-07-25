@@ -1,0 +1,242 @@
+{
+  "dataList": [
+    {
+      "id": 131911,
+      "name": "アイアンメイデン - 除細動",
+      "desc": "登場時、精神力を30回復"
+    },
+    {
+      "id": 135201,
+      "name": "狩りの印",
+      "desc": "3ターンごとにランダムな1名を指定し、速度を1にして全スキルのターゲットに指定する\n(混乱で発動できなかった場合、次のターンに発動)"
+    },
+    {
+      "id": 135501,
+      "name": "端末機で伝達された指令",
+      "desc": "ステージ開始時、体力最大値の20%だけバリアを得る (この戦闘の間維持される)\n\nターン開始時\n- [UnlockBuff_Base]段階によって[IndexPrescript_Base_2nd]を得る\n- <color=#ff6000><mark=#ff000040><b><u>ランダムな敵へ[IndexPrescriptTargetToPersonality]を付与して、優先して攻撃する</u></b></mark></color>\n\n[BlessingOfIndexPrescriptEnemy]1につき[IndexPrescriptTargetToPersonality]への与ダメージ量 +2.5% (最大20%)\n- [BlessingOfIndexPrescriptEnemy]が9なら、代わりに全対象へのダメージ量 +30%"
+    },
+    {
+      "id": 135503,
+      "name": "解禁",
+      "desc": "ターン終了時、[BlessingOfIndexPrescriptEnemy]が3/6/9か体力が90%/70%/50%以下なら、\n- [UnlockBuff_1]/[UnlockBuff_2]/[UnlockBuff_3]を得る\n- 精神力が45に増加\n- 保有した[PressureOfPrescript]を全て消耗、混乱を解除\n- 最初に[UnlockBuff_Base]を獲得した次のターンに、[BlessingOfIndexPrescriptEnemy]1を得る\n\n体力を条件に[UnlockBuff_Base]獲得時、\n- (増加した精神力 ÷ 15)だけ[KarmaOfIndexStudent]を得る\n- [BlessingOfIndexPrescriptEnemy]が3/6/9未満なら、3/6/9に変更\n増加した数値1につき、次のターン開始時に[DefenseDown]1, [KarmaOfIndexStudent]2を得る"
+    },
+    {
+      "id": 135505,
+      "name": "没入",
+      "desc": "[UnlockBuff_3]を得れば、下記の効果を適用\n- [BlandishmentShinEnemyDelete]、最大体力の50%だけバリアを得る (この戦闘のあいだ維持)\n- [PressureOfPrescript]が[PressureOfPrescript_2nd]に変更され、最大まで増加\n- ターン開始時、[PressureOfPrescript_2nd]1を得る"
+    },
+    {
+      "id": 141801,
+      "name": "必死の奮戦",
+      "desc": "- ターン開始時、[SupportProtect]3を得る\n- 親指の親方がマッチにて勝利すると、当該攻撃終了時に「コルピ・ソッターニ」で一方攻撃 (1ターンにつき2回)",
+      "summary": "",
+      "undefined": "",
+      "flavor": "「今なら、殺せるんじゃないか。」\n\n眠りについた師匠を見ながら、ルチオは常に同じ思考に囚われた。\nその考えを行動に移さないのは、すでに刷り込まれた恐怖と、路地裏から自分を連れ出してくれた恩義のためだった。\nしかし積もり積もった恨みがあまりにも深い。心を込めて命令に従うと言いながらも、ルチオは誓った。\nこの戦いが終わったら必ず殺そう。残っているもう片方の目まで斬って刺して殺してやろう。\n全身に痣のある少年の目に、初めて生気が宿り始めた。"
+    },
+    {
+      "id": 137901,
+      "name": "威信を保つ",
+      "desc": "戦闘内に「親指の子方 - ルチオ」がいる間、最終被ダメージ量 -50%"
+    },
+    {
+      "id": 137911,
+      "name": "予知眼",
+      "desc": "ステージに登場時、[FutureEyeOnMirror]30を得る\n[FutureEyeOnMirror]数値が0になると、[FutureEyeOnMirror]が[FutureEyeOffMirror]に変更される",
+      "summary": "",
+      "undefined": "-",
+      "flavor": "オーディンの目と呼ばれたこの遺物は、実のところ三つに分かれたとある遺物の破片の一つである。"
+    },
+    {
+      "id": 137902,
+      "name": "加速する未来",
+      "desc": "マッチ進行時、<color=#ff6000><mark=#ff000040><b><u>マッチごとに自分へ[LookingFuture]1を付与</u></b></mark></color>\n[LookingFuture]はターンごとに(ターン開始時に保有した[FutureEyeOnMirror] ÷ 3)まで得られる\n[FutureEyeOnMirror]があるとき、<color=#ff6000><mark=#ff000040><b><u>一方攻撃されるかマッチ敗北時に「予知」スキルを発動</u></b></mark></color>",
+      "summary": "",
+      "undefined": "-",
+      "flavor": "「打ち合うほどにこの剣は熱を帯び、私が見た未来に到達するまで加速し続けるだろう。」"
+    },
+    {
+      "id": 137908,
+      "name": "過負荷",
+      "desc": "下記の条件によって[FutureEyeOnMirror]が減少\n- [LookingFuture]を得られなければ、マッチ1発ごとに[FutureEyeOnMirror]1が減少\n- 一方攻撃されるとき、[FutureEyeOnMirror]が1減少\n- マッチ敗北時、[FutureEyeOnMirror]が3減少",
+      "summary": "",
+      "undefined": "-",
+      "flavor": "「目がずきずきと痛んで熱くなり、視界が赤く染まる。」"
+    },
+    {
+      "id": 137905,
+      "name": "パレルモ・スパーダ",
+      "desc": "メインターゲットの火傷1につき、バリアへの与ダメージ量が15%増加 (最大300%)\nスキル使用時、対象の攻撃スキルが斬撃または貫通属性なら、マッチ威力 +1\n自分のスキル効果で[VibrationExplosion]が発動したなら、次のターンに[AttackDmgUp]2を得る (1ターンにつき3回)\n自分のスキル効果でクリティカルが発動したなら、精神力を5回復",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": 137904,
+      "name": "ボニャテッリ家の恥",
+      "desc": "[Combustion]・[Laceration]・[Vibration]・[Burst]・[Sinking]による体力・精神力・混乱区間の前進量 -30%\n[AccelBullet]が1以上なら、[AccelBullet]を消耗するスキルのダメージ量 +30%, バリアへの与ダメージ量 +150%\n[AccelBullet]を消耗した数値1につき、[Breath]4を得る\n[AccelBullet]を消耗するコインをトスするとき、加速弾がない場合にも攻撃をキャンセルしない",
+      "summary": "",
+      "undefined": "-",
+      "flavor": "「パレルモを伝授され、家宝まで継承しておきながら、このような醜態をさらすとはな。」\n「お前が受け継いだ遺物と剣には、お前の不名誉な残り香が染みついているから回収はしない。」\n「アンダーボスに昇格してから、わずか三日で罷免された者などヴァレンチーナ、お前だけだろう。」\n「お前は一家の恥だ。ボニャテッリはお前から愛を取り上げる。」"
+    },
+    {
+      "id": 137909,
+      "name": "シン(心) - ヴァレンチーナ",
+      "desc": "被ダメージ時、もしくは「親指の子方 - ルチオ」が戦闘不能になったなら、次のターンに[ObsessionAndGreed]を得る",
+      "summary": "",
+      "undefined": "-",
+      "flavor": "「ふぅ…結局、あの狂信者の野郎が組んでおいた作戦通りに潜り込んで、ひと暴れすればいいってわけか…。これで本当にチケットが戻ってくるのか？」"
+    },
+    {
+      "id": 137906,
+      "name": "ルチオ、この役立たず",
+      "desc": "「親指の子方 - ルチオ」が戦闘不能になったなら、パッシブ「狩りの時間」が発動",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": 137910,
+      "name": "狩りの時間",
+      "desc": "ターン開始時、混乱状態なら混乱を解除\n\nランダムな囚人1名を指定し、[TeachersPrey]を付与\n- 以降、4ターンごとに1回ずつ発動\n- スキル「処分」で対象を討伐したとき、次のターンに再び発動",
+      "summary": "",
+      "undefined": "-",
+      "flavor": "パレルモは、ボニャテッリ家の気質をそのまま体現した剣術である。\nただ一つの獲物を執拗に狙い、狩り、解体する。隠密は排される。名誉と堂々さをもって、衆目の前で相手を殺す。\nその華麗な剣術は数多の栄誉を生み、ボニャテッリ家を裏路地の七大名門へと押し上げた。\nパレルモを完全に修得したヴァレンチーナは、煙戦争において数多くの将校やベテラン兵の首を落とし、煙戦争の英雄の一人となった。\nだが、誰が予想しただろうか。その名声が彼女の足枷となることを。"
+    },
+    {
+      "id": 138201,
+      "name": "怨恨の刺青 [<s>長兄</s>]",
+      "desc": "[Combustion]・[Laceration]・[Vibration]・[Burst]による被ダメージ量 -30% (小数点切り捨て)\n受ける混乱区間前進量 -50% (小数点切り捨て)",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": 138202,
+      "name": "仕返し帳簿",
+      "desc": "ステージ開始時、全囚人とへ[VengeanceBookSpider]を付与する\n\nこのターンに的中したスキル数が3つを超過したなら、超過したスキル数だけ次のターンに[ReinforcedTattooSpider]を得る",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": 138203,
+      "name": "娘ちゃんの教育",
+      "desc": "マッチ勝利時、[DaughterEducationSpider]1を得る\n\nスキル的中時、[DaughterEducationSpider]1を得る (スキルごとに1回、破壊されたコインなら獲得しない)\n\nターンの最初に使用するスキルがマッチ勝利時、[DaughterEducationSpider]を1追加で得て、当該スキルのコイン威力 +1",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": 138204,
+      "name": "怨恨",
+      "desc": "スキルに2回被ダメージ時、[ResentmentSpider]1を得る、[DaughterEducationSpider]が1減少 (被ダメージ回数は累積される)\n\n[ResentmentSpider]が最大値なら、強力な攻撃を使用する\n\nターン終了時に体力が90%, 60%, 40%未満なら、[ResentmentSpider]を最大値で得る"
+    },
+    {
+      "id": 138205,
+      "name": "怨恨の刺青最高出力…レーヴァテインの封印解除だ！",
+      "desc": "[MiddleFatherSwordFour] 解放時、[MiddleFatherGutsMirror]を得る"
+    },
+    {
+      "id": 138801,
+      "name": "こうすればいいんだよね、パパ！",
+      "desc": "ステージ開始時、[HeatingWireOffSpider]を持って始める\n\nターン開始時、自分が保有した[GotACompliment]が3以上なら[HeatingWireOnSpider]に代わり、[Laceration]を付与するスキルで[Combustion]を追加で付与する\n- ターン終了時、自分が保有した[GotACompliment]が3未満なら[HeatingWireOnSpider]が[HeatingWireOffSpider]に変換される\n\n中指の親方 - マティアスが[MiddleFatherSwordFour]保有時、[HeatingWireOffSpider]状態にならない",
+      "flavor": "「パパはいつも褒めてくれるし、マンガ買ってくれてサイコー」"
+    },
+    {
+      "id": 138802,
+      "name": "中指式刺青",
+      "desc": "このターンに的中したスキル数が2つを超過したなら、超過したスキル数だけ次のターンに[ReinforcedTattooSpiderDaughter]を得る",
+      "summary": "",
+      "undefined": "-",
+      "flavor": "「ウチもいつか中指で家族として認められて、姉様や兄様たちとずっと一緒に暮らせる？」"
+    },
+    {
+      "id": 138803,
+      "name": "キラもおだてりゃ木に登る",
+      "desc": "マッチ勝利時、[GotACompliment]1を得る\n\nスキル的中時、[GotACompliment]1を得る (スキルごとに1回、破壊されたコインなら獲得しない)\n\nターンの最初に使用するスキルがマッチ勝利時、[GotACompliment]を1追加で得て、当該スキルのコイン威力 +1",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": 138804,
+      "name": "中指は絶対にお返しするって言ったよね",
+      "desc": "スキルに2回被ダメージ時、[ResentmentSpiderDaughter]1を得る、[GotACompliment]が1減少 (被ダメージ回数は累積される)\n\n自分の[ResentmentSpiderDaughter]が最大値なら、強力な攻撃を使用する\n\nターン終了時に自分の体力が80%, 60%, 40%未満なら、[ResentmentSpiderDaughter]を最大値で得る",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": 138001,
+      "name": "人差し指の親方 リアン",
+      "desc": "<color=#ff6000><mark=#ff000040><b><u>一方攻撃による被ダメージ量 -50%</u></b></mark></color>\n[Combustion]・[Laceration]・[Vibration]・[Burst]・[Sinking]による被ダメージ量 -50%\n[UnlockBuff_Base]にて精神力を回復時、精神力が15未満なら精神力を15まで回復\n\nステージ開始時、[BurningWoundRien_Mask]を得て精神力を30まで回復\n\n体力が 55%以下なら、フェーズが変更\n- 自分の固有効果以外の効果が全て消滅\n- [StackRienSpecialSkill]が9未満なら、9に変更",
+      "flavor": "指令が言ったとおり、その時を待っていたんだ。\n娘が出て行ってからも、待って、待ち続けた。\n\nそんなある日、リンバス・カンパニーから連絡が来て、裏口が開いていたんだ。\nそれから端末機が鳴って、娘を迎えに行く時が来たことが分かった。"
+    },
+    {
+      "id": 138002,
+      "name": "神託端末機 [カドゥケウス]",
+      "desc": "<color=#ff6000><mark=#ff000040><b><u>コインごとに武器がランダムに決まり、特殊効果が適用</u></b></mark></color>\n- [RienWeapon01Hatchet]\n- [RienWeapon02Stiletto]\n- [RienWeapon03Greatsword]\n- [RienWeapon04Rapier]\n- [RienWeapon05Sledgehammer]\n- [RienWeapon06Ultragreatsword]\n- [RienWeapon07Lance]\n- [RienWeapon08Chain]\n- [RienWeapon09Scythe]\n\n攻撃スキル使用時、[StackRienSpecialSkill]1を得る (最大9)\n- スキルごとに1回獲得可能 (同じスキルで2を超過して獲得できない)\n\n<color=#ff6000><mark=#ff000040><b><u>ターン開始時に[StackRienSpecialSkill]が9なら、強力なスキルを使用</u></b></mark></color>\n- 初めて使用後に攻撃終了時、[Shin_Rien]を得る\n- スキルの種類別に[StackRienSpecialSkill]獲得状況が初期化\n- 速度の最小・最大値 +15\n- ターン終了時、次のターンに[Vulnerable]1, [ResultReduction]2を得る\n\n3ターン目が開始時、[StackRienSpecialSkill]が9未満なら9まで増加し、(増加した数値 × 3)だけ[KarmaOfIndexRien]を得る\n- 以降、3ターンごとにこの効果が発動",
+      "flavor": "端末機の中には、特異点に類似した技術を用いて形状や質量を変化させられる、金属のような液体が収められている。\nこの液体は、端末機が受け取った指令に応じて姿を変え、殺害対象の情報や与えられた制限時間に合わせて武器へと変換される。\nある日、あまりにも小さな短剣が割り当てられたので別の武器に変わるのを待っていたが、殺害の制限時間が迫るまで使えそうな武器は現れなかった。結局、最後まで待って出てきたのがフォークだったため、そのフォークで対象を殺さなければならなかった。"
+    },
+    {
+      "id": 138003,
+      "name": "指令の意味",
+      "desc": "ターン開始時、\n- [UnlockBuff_Base]段階によって[IndexPrescript_Base_2nd]を得る\n- ランダムな囚人へ[IndexPrescriptTargetToPersonality]を付与して、優先して攻撃する\n<color=#ff6000><mark=#ff000040><b><u>- [IndexPrescriptTargetToPersonality]へ使用するスキルのコインが全て[SuperCoin]に変更される</u></b></mark></color>\n\n攻撃時、[IndexPrescriptTargetToPersonality]が死亡するか対象を攻撃できなくなる場合、\n<color=#ff6000><mark=#ff000040><b><u>使用しない残りのスキルをランダムな囚人1名へ使用\n- 現体力が最も低い対象を優先 (体力が1の場合を除く)</u></b></mark></color>\n- ランダムで選択した囚人が死亡するか体力が1の場合、他の囚人にこれを繰り返す\n\n[BlessingOfIndexPrescriptEnemy]1につき、[IndexPrescriptTargetToPersonality]への与ダメージ量 +2.5% (最大20%)\n- [BlessingOfIndexPrescriptEnemy]が9なら、代わりに全対象への与ダメージ量 +30%",
+      "flavor": "俺が家庭を築くことをお望みですか。\n\n「あなたみたいな夫と、どうしてこんな運命的な出逢いができたんでしょうね。」"
+    },
+    {
+      "id": 138004,
+      "name": "指令遂行",
+      "desc": "このターンに[IndexPrescript_Base_2nd]を遂行したなら、\nターン終了時に精神力を10回復、[BlessingOfIndexPrescriptEnemy]3を得る (1ターンにつき1回)\n\nこのターンに<color=#ff6000><mark=#ff000040><b><u>[IndexPrescript_Base_2nd]を遂行できなければ、\nターン終了時に[KarmaOfIndexRien]を8得る</u></b></mark></color>\n- [UnlockBuff_Base]がないなら、ターン終了時に[BlessingOfIndexPrescriptEnemy]1を得る\n- [BlessingOfIndexPrescriptEnemy]が9なら、[KarmaOfIndexRien]を得られない",
+      "flavor": "俺が家庭を失うことをお望みですか。\n\n「ハニー。ちょっと北部まで行ってくるよ。」\n「あぁ。午後に宅配が届くことになってるから、代わりに受け取ってくれるかい？愛しい娘。」"
+    },
+    {
+      "id": 138005,
+      "name": "解禁",
+      "desc": "ターン終了時、[BlessingOfIndexPrescriptEnemy]が3/6/9か体力が95%/85%/75%以下なら、\n[UnlockBuff_Rien1]/[UnlockBuff_Rien2]/[UnlockBuff_Rien3]を得る\n\n1/2ターン目が終了時、[UnlockBuff_Base]段階が1/2未満なら\n[UnlockBuff_Rien1]/[UnlockBuff_Rien2]を得る\n\n[UnlockBuff_Base]を保有していない状態で初回獲得時、\n精神力が15未満なら、15まで回復\n\n体力またはターン条件で[UnlockBuff_Base]時、\n- [BlessingOfIndexPrescriptEnemy]が3/6/9未満なら、3/6/9へ変更\n増加した数値1につき、次のターン開始時に[KarmaOfIndexRien]5を得る",
+      "flavor": "「指令に従って進んでいれば、閉ざされていたものが解かれていくものだ。」"
+    },
+    {
+      "id": 138101,
+      "name": "親方リアン [模造品]",
+      "desc": "<color=#ff6000><mark=#ff000040><b><u>一方攻撃による被ダメージ量 -75%</u></b></mark></color>\n[Combustion]・[Laceration]・[Vibration]・[Burst]・[Sinking]による被ダメージ量 -75%\n[UnlockBuff_Base]で精神力回復時、精神力が15未満なら精神力を15まで回復\n\n体力が55%以下になってフェーズ変更時、下記の効果を適用\n- 自分の固有効果を除いた全効果が消滅\n- [IndexPrescript_RienSecondPhase]を得る\n- [BurningWoundRien_Mask]が[BurningWoundRien]に変更\n- [KarmaOfIndexRien]が[KarmaOfIndexRien_2Phase]に変更されて10を得る\n- [Shin_Rien]がないなら即獲得\n\n体力が25%以下なら、パターンが変更されて特定のスキルがより強力になる",
+      "flavor": "誰かの真似をしなければならない気がしていて、それが誰なのか分からず指令を疑い、指令に背きかけたが、遅れて自分が誰に似ることになったのかを悟り、指令の意を受け入れて完成した偽りの親方。"
+    },
+    {
+      "id": 138102,
+      "name": "神託端末機 [カドゥケウス] - 完全解禁",
+      "desc": "<color=#ff6000><mark=#ff000040><b><u>コインごとに武器がランダムに決まり、特殊効果が適用</u></b></mark></color>\n- [RienWeapon01Hatchet2phase]\n- [RienWeapon02Stiletto2phase]\n- [RienWeapon03Greatsword2phase]\n- [RienWeapon04Rapier2phase]\n- [RienWeapon05Sledgehammer2phase]\n- [RienWeapon06Ultragreatsword2phase]\n- [RienWeapon07Lance2phase]\n- [RienWeapon08Chain2phase]\n- [RienWeapon09Scythe2phase]\n\n攻撃スキル使用時、[StackRienSpecialSkill]1を得る (最大9)\n- スキルごとに1回獲得可能 (同じスキルで2以上獲得不可)\n- 特殊パターンでのみ使用するスキルでは獲得できない\n\nターン開始時に[StackRienSpecialSkill]が9なら、強力なスキルを使用\n- スキルの種類別に[StackRienSpecialSkill]獲得状況が初期化\n- 速度の最小・最大値 +15\n- ターン終了時、次のターンに[Vulnerable]2, [ResultReduction]3を得る\n\nフェーズが変更したターンから効果発動\n- 3ターンごとに[StackRienSpecialSkill]が9未満なら、\n9まで増加して(増加した数値 × 5)だけ[KarmaOfIndexRien_2Phase]を得る",
+      "flavor": "電波を介して指令を送る都市の神、ヘルメスが授けた最高の武器にして呪い。"
+    },
+    {
+      "id": 138103,
+      "name": "指令の意味",
+      "desc": "ターン開始時、\n- ランダムな囚人へ[IndexPrescriptTargetToPersonality]を付与して、優先して攻撃する\n<color=#ff6000><mark=#ff000040><b><u>- [IndexPrescriptTargetToPersonality]へ使用するスキルのコインが全て[SuperCoin]に変更される</u></b></mark></color>\n- [BlessingOfIndexPrescriptEnemy]だけ[Protection]を得る (最大9)\n<color=#ff6000><mark=#ff000040><b><u>・[KarmaOfIndexRien_2Phase]20につき、1減少</u></b></mark></color>\n\n攻撃時、[IndexPrescriptTargetToPersonality]が死亡するか対象を攻撃できなくなる場合、\n<color=#ff6000><mark=#ff000040><b><u>使用しない残りのスキルをランダムな囚人1名へ使用\n- 現体力が最も低い対象を優先 (体力が1の場合を除く)\n- ランダムに選ばれた囚人が死亡したり、体力が1になるならこれを他の囚人に繰り返す</u></b></mark></color>\n\n[BlessingOfIndexPrescriptEnemy]1につき、[IndexPrescriptTargetToPersonality]への与ダメージ量 +5% (最大40%)\n- [BlessingOfIndexPrescriptEnemy]が9なら、代わりに全対象への与ダメージ量 +50%\n\nフェーズが変更したターンから効果発動\n- ターン開始時に[BlackNightmare]を得る\n・直前のターンに強力なスキルを使用したなら、そのターンには[BlackNightmare]が消える\n- [BlackNightmare]を得るとき、[StackRienSpecialSkill]が9未満なら特殊パターン発動",
+      "flavor": "「家族を作りました」\n\n「お前は今ここにいるべきじゃないはずだが」\n「まだ作業の真っ最中だ。何よりも繊細に、美しく飾り立てているところなんだ」\n「…貴様、まさか指令に逆らうつもりか」"
+    },
+    {
+      "id": 138104,
+      "name": "指令遂行",
+      "desc": "このターンに[IndexPrescript_Base_2nd]を遂行したなら、\nターン終了時に精神力を15回復、[BlessingOfIndexPrescriptEnemy]1を得る (1ターンにつき1回)\n\nこのターンに<color=#ff6000><mark=#ff000040><b><u>[IndexPrescript_Base_2nd]を遂行できなければ、\nターン終了時に[KarmaOfIndexRien_2Phase]を8得て、[BlessingOfIndexPrescriptEnemy]を1失う</u></b></mark></color>\n- 強力なスキルを使用したターンなら、代わりに[KarmaOfIndexRien_2Phase]を12得て[BlessingOfIndexPrescriptEnemy]を2失う",
+      "flavor": "家族を…失いました。\n\n「行かないで…。」\n「このまま行かないで…。パパ…私たちのこと…助けて…。」"
+    },
+    {
+      "id": 138301,
+      "name": "私の全ての身体要素は既にティビアへ",
+      "desc": "[Combustion]・[Vibration]・[Burst]・[Sinking]による体力・精神力ダメージ量 -30%\n[Laceration]で受けるダメージ量 -50%\n\nターン開始時、混乱状態なら混乱を解除。以降、[CrimsonTakeDamageUp]2を得て次のターンまで「設置美術第3号『簡易肋骨』」が使用不可 (戦闘ごとに1回)\n\nターン終了時、自分の[Combustion]4につき次のターンに[DefenseDown]1を得る (最大15)"
+    },
+    {
+      "id": 138306,
+      "name": "子方の展示をしばらく観察してみましょうか",
+      "desc": "自分に[SupportProtect]があるなら、<color=#ff6000><mark=#ff000040><b><u>マッチ開始時に[SupportProtect]が1減少</u></b></mark></color> (スキルごとに1回)"
+    },
+    {
+      "id": 141704,
+      "name": "ギャラリーにはギャラリーならではの鑑賞ルールがあるものよ",
+      "desc": "自分に[SupportProtect]があるなら、<color=#ff6000><mark=#ff000040><b><u>マッチ開始時に[SupportProtect]が1減少</u></b></mark></color> (スキルごとに1回)"
+    },
+    {
+      "id": 141706,
+      "name": "マエストロ様の前で、作品で証明してみせるわ",
+      "desc": "薬指の親方出現時、自分の精神力が20未満なら精神力が20になる"
+    },
+    {
+      "id": 138302,
+      "name": "走り回る観客は椅子に座って鑑賞なさってくださいね",
+      "desc": "ターン終了時、速度が最も高い囚人へ、次のターンに[RedemptionTheRings]を付与"
+    }
+  ]
+}

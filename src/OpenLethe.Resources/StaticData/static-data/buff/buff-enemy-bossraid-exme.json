@@ -1,0 +1,166 @@
+{
+  "list": [
+    {
+      "id": "FavorBuff5012AllyOne",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorKeywordAndAttribute_COMBUSTION_CRIMSON_-1_100",
+          "value": 0.25
+        },
+        {
+          "ability": "EgoResourceAdderIfResonanceStatic_2",
+          "value": 1
+        },
+        {
+          "ability": "FavorBuff5012AllyOneShieldDamageConverter",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5012EnemyOne",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorBuff5012EnemyOneShieldDamageBooster",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5012AllyTwo",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorMainKeywordAndAttributeWithUse_Breath_INDIGO_-1_100",
+          "value": 0.25
+        },
+        {
+          "ability": "FavorBuffAllyTwoGiveBuff",
+          "value": 2,
+          "attribute": "INDIGO",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "RemoveFirstBreakSectionIfPlayerAndHasUnitAssociation_BLADE_LINEAGE"
+        },
+        {
+          "ability": "SkillResultPowerAdderIfPlayerAndHasUnitAssociation_BLADE_LINEAGE",
+          "value": 2
+        },
+        {
+          "ability": "AttackDmgUpIfPlayerAndHasUnitAssociation_BLADE_LINEAGE",
+          "value": 0.3
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierIfPlayerAndHasUnitAssociation_BLADE_LINEAGE",
+          "value": -0.15
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5012HardOne",
+      "iconId": "FavorBuffTwthHard",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultMaxHpMultiplier",
+          "value": 0.25
+        },
+        {
+          "ability": "FixMentalLowerLimit",
+          "value": 0
+        },
+        {
+          "ability": "FavorBuff5012HardOneGiveBuffBySkill",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5012HardTwo",
+      "iconId": "FavorBuffTwthHard",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultMaxHpMultiplier",
+          "value": 0.25
+        },
+        {
+          "ability": "FixMentalLowerLimit",
+          "value": 0
+        },
+        {
+          "ability": "FavorBuff5012HardOneGiveBuffBySkill",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "FavorBuff5012AllyOneForUI",
+      "iconId": "FavorBuffTwth"
+    },
+    {
+      "id": "FavorBuff5012AllyTwoForUI",
+      "iconId": "FavorBuffTwth"
+    },
+    {
+      "id": "FavorBuff5012HardOneForUI",
+      "iconId": "FavorBuffTwthHard"
+    },
+    {
+      "id": "FavorBuff5012HardTwoForUI",
+      "iconId": "FavorBuffTwthHard"
+    }
+  ]
+}

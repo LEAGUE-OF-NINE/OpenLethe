@@ -1,0 +1,38 @@
+{
+	"list": [
+		{
+			"id": 43,
+			"startDate": "2026-04-09T01:00:00.000Z",
+			"startDateForUI": "2026-04-09T03:00:00.000Z",
+			"endDate": "9999-01-01T00:00:00.000Z",
+			"endDateForUI": "9999-01-01T00:00:00.000Z",
+			"gracePeriod": "9999-01-01T00:00:00.000Z",
+			"unlockCondition": {
+				"unlockCode": 102
+			},
+			"eventRewardDatas": [
+				{
+					"rewardId": 1,
+					"rewardPrice": {
+						"type": "ITEM",
+						"id": 1,
+						"num": 20
+					},
+					"rewardItemList": [
+						{
+							"type": "ITEM",
+							"id": 20041,
+							"num": 10
+						}
+					],
+					"limitCount": 1000,
+					"purchaseRestriction": {
+						"type": "DEDUCT_PER_OWNED_ITEMS",
+						"values": ["20041", "0.1"]
+					}
+				}
+			],
+			"eventMainItemId": 20041
+		}
+	]
+}

@@ -1,0 +1,146 @@
+{
+  "list": [
+    {
+      "id": "MRcAiBa",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "MRcAiBa"
+        }
+      ]
+    },
+    {
+      "id": "MRcAiBb",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 5,
+      "canBeDespelled": false,
+      "list": [
+
+      ]
+    },
+    {
+      "id": "MRcAiBc",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "MRcAiBc"
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "MRcAfBa",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "MRcAfBa"
+        }
+      ]
+    },
+    {
+      "id": "MRcAfBb",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "MRcAfBb"
+        }
+      ]
+    },
+    {
+      "id": "MRcAmBa",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MRcAmBa",
+          "value": 3
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackDmgDown",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "MRcAmBb",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "MRcAmBb"
+        }
+      ]
+    },
+    {
+      "id": "MRcAmBbDisplay",
+      "iconId": "MRcAmBb",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "MRcAmBbDisplay",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "MRcAmBc",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 7,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.1
+        },
+        {
+          "ability": "MRcAmBc",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "target": "Self",
+            "stack": 15,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "MRcAmBd",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "MRcAmBd",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

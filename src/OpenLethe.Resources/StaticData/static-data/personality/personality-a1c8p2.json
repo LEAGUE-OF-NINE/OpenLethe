@@ -1,0 +1,122 @@
+{
+  "list": [
+    {
+      "id": 10212,
+      "updatedDate": 20250522,
+      "appearance": "10212_Faust_Heishou_JaroAppearance",
+      "unitKeywordList": [ "BLACK_BEAST", "SMALL", "BLACK_BEAST_CHIEF" ],
+      "associationList": [ "BLACK_BEAST_RABBIT", "H_CORP" ],
+      "skillKeywordList": [ "Burst" ],
+      "unitScriptID" : "10212",
+      "characterId": 2,
+      "panicType": 9999,
+      "season": 6,
+      "defenseSkillIDList": [
+        1021204,
+        1021206,
+        1021207
+      ],
+      "initBuffList": [
+        {
+          "level": 1,
+          "list": [
+            {
+              "buff": "EnhanceZilu",
+              "stack": 0
+            }
+          ]
+        }
+      ],
+      "panicSkillOnErosion": 1000104,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "rank": 3,
+      "hp": {
+        "defaultStat": 76,
+        "incrementByLevel": 3.19
+      },
+      "defCorrection": 3,
+      "minSpeedList": [
+        3,
+        3,
+        4,
+        4
+      ],
+      "maxSpeedList": [
+        6,
+        6,
+        7,
+        7
+      ],
+      "uniqueAttribute": "SHAMROCK",
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "breakSection": {
+        "sectionList": [
+          50
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 0.5
+          },
+          {
+            "type": "PENETRATE",
+            "value": 1
+          },
+          {
+            "type": "HIT",
+            "value": 2
+          }
+        ]
+      },
+      "attributeList": [
+        {
+          "skillId": 1021201,
+          "number": 3
+        },
+        {
+          "skillId": 1021202,
+          "number": 2
+        },
+        {
+          "skillId": 1021203,
+          "number": 1
+        },
+        {
+          "skillId": 1021205,
+          "number": 0
+        }
+      ]
+    }
+  ]
+}

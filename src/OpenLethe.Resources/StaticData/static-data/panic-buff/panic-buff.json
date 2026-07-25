@@ -1,0 +1,818 @@
+{
+  "list": [
+    {
+      "id": "OVERWHELM",
+      "buffA": {
+        "id": "Overwhelm_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Reduction",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Overwhelm_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "CanNotAction"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DAUNTED",
+      "buffA": {
+        "id": "Daunted_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Reduction",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Daunted_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Reduction",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 4,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ANGER",
+      "buffA": {
+        "id": "Anger_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Anger_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "RUN",
+      "buffA": {
+        "id": "Run_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "RunAway"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Run_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "RunAway"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CRAZY",
+      "buffA": {
+        "id": "Crazy_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "CrazyLowMorale"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Crazy_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "CrazyPanic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "SUICIDE",
+      "buffA": {
+        "id": "Suicide_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "SuicideLowMorale"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Suicide_Panic",
+        "stack": 3,
+        "turn": 0,
+        "buffClass": "NonvolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "SuicidePanic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PROWL",
+      "buffA": {
+        "id": "Prowl_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ProwlLowMorale"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Prowl_Panic",
+        "stack": 3,
+        "turn": 0,
+        "buffClass": "NonvolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ProwlPanic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "FRAGILE_MIND",
+      "buffA": {
+        "id": "Fragile_Mind_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Binding",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "RefreshSpeedOnRoundStart"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Fragile_Mind_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "BreakForcelyOnPanicOrLowMorale"
+          }
+        ]
+      }
+    },
+    {
+      "id": "BLUE",
+      "buffA": {
+        "id": "Blue_LowMorale",
+        "iconId": "Anger_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "BlueLowMorale"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Blue_Panic",
+        "iconId": "Anger_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "BluePanic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "IMPURITY",
+      "buffA": {
+        "id": "AaCePbBc",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveMpDmgOnLoseDuelTarget",
+            "value": 2
+          }
+        ]
+      },
+      "buffB": {
+        "id": "AaCePbBd",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveMpDmgOnLoseDuelTarget",
+            "value": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "REVENGE",
+      "buffA": {
+        "id": "AaCePbBe",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "AaCePbBe",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": -1,
+              "turn": 0,
+              "activeRound": 0,
+              "value": 0.03
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "AaCePbBf",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 6,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "AaCePbBe",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": -1,
+              "turn": 0,
+              "activeRound": 0,
+              "value": 0.03
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "WHITE_PANIC",
+      "buffA": {
+        "id": "AaCePcBe",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "iconId": "AaCePbBb",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "MentalSystemResultDecreaseAdder",
+            "value": 2
+          }
+        ]
+      },
+      "buffB": {
+        "id": "AaCePcBf",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "iconId": "AaCePbBb",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Binding",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "ForceCoinResultTail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "RANCOR",
+      "buffA": {
+        "id": "AaCePbBg",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "iconId": "Anger_LowMorale",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "AaCePbBh",
+        "stack": 1,
+        "turn": 0,
+        "iconId": "Anger_Panic",
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "WANDERINGFOOTSTEPS",
+      "buffA": {
+        "id": "WanderingFootsteps_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "iconId": "WanderingFootsteps_Panic",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "ParryingResultAdderAsStack",
+            "value": -1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "WanderingFootsteps_Panic",
+        "stack": 1,
+        "turn": 0,
+        "iconId": "WanderingFootsteps_Panic",
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 3,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "ParryingResultAdderAsStack",
+            "value": -2
+          }
+        ]
+      }
+    },
+    {
+      "id": "NONE_MP",
+      "buffA": {
+        "id": "NoneMp_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+        ]
+      },
+      "buffB": {
+        "id": "NoneMp_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+        ]
+      }
+    },
+    {
+      "id": "CRUSHMARKS",
+      "buffA": {
+        "id": "CrushMarks_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "iconId": "CrushMarks_Panic",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdderAsStack",
+            "value": -1
+          },
+          {
+            "ability": "DefAdder",
+            "value": -2
+          },
+          {
+            "ability": "CrushMarksEffect"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "CrushMarks_Panic",
+        "stack": 1,
+        "turn": 0,
+        "iconId": "CrushMarks_Panic",
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdderAsStack",
+            "value": -2
+          },
+          {
+            "ability": "DefAdder",
+            "value": -3
+          },
+          {
+            "ability": "CrushMarksEffect"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DELUSIONGREGBIGBIRD",
+      "buffA": {
+        "id": "DelusionGregBigBird_LowMorale",
+        "iconId": "DelusionGregBigBird_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Binding",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "AttackDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DelusionGregBigBird_Panic",
+        "iconId": "DelusionGregBigBird_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Binding",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "AttackDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 4,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "GODOKPANICTYPE",
+      "buffA": {
+        "id": "Godok_Lowmorale",
+        "iconId": "GodokPanicType",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 0,
+              "turn": 2,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Godok_Panic",
+        "iconId": "GodokPanicType",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 0,
+              "turn": 3,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

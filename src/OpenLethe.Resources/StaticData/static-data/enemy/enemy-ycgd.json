@@ -1,0 +1,1006 @@
+{
+  "list": [
+    {
+      "id": 91013,
+      "appearance": "91013_Kurokumo_MiddleBossAppearance",
+      "unitKeywordList": [ "CLAN", "SMALL" ],
+      "associationList": [ "BLACK_CLOUD" ],
+      "level": 3,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 151,
+        "incrementByLevel": 5.21
+      },
+      "defCorrection": 0,
+      "minSpeedList": [
+        2
+      ],
+      "maxSpeedList": [
+        5
+      ],
+      "breakSection": {
+        "sectionList": [
+          30,
+          0
+        ]
+      },
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1005,
+      "patternID": "PickByPattern_Enemy",
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 1.2
+          },
+          {
+            "type": "PENETRATE",
+            "value": 0.5
+          },
+          {
+            "type": "HIT",
+            "value": 1
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 1
+          },
+          {
+            "type": "AMBER",
+            "value": 1
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1
+          },
+          {
+            "type": "AZURE",
+            "value": 1
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 1
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        2,
+        3,
+        3
+      ],
+      "maxActionSlotNum": 4,
+      "attributeList": [
+        {
+          "skillId": 9101301,
+          "number": 0
+        },
+        {
+          "skillId": 9101302,
+          "number": 0
+        },
+        {
+          "skillId": 9101303,
+          "number": 0
+        },
+        {
+          "skillId": 9101304,
+          "number": 0
+        },
+        {
+          "skillId": 9101305,
+          "number": 0
+        },
+        {
+          "skillId": 9101306,
+          "number": 0
+        }
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          9011001,
+          9011301,
+          9101301,
+          9101302
+        ]
+      },
+      "patternList": [
+        {
+          "slotList": [
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101301,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101303,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101306,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101304,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101301,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slotList": [
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101302,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101303,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101306,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101304,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101302,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slotList": [
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101305,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101304,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101306,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101303,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101301,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slotList": [
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101301,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101302,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101303,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101304,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            },
+            {
+              "skillParentList": [
+                {
+                  "skillChildList": [
+                    {
+                      "skillID": 9101302,
+                      "chance": 1
+                    }
+                  ],
+                  "chance": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 90110,
+      "appearance": "90110_KuroKumo_Mob_1Appearance",
+      "unitKeywordList": [ "CLAN", "SMALL" ],
+      "associationList": [ "BLACK_CLOUD" ],
+      "level": 3,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 65,
+        "incrementByLevel": 2.24
+      },
+      "defCorrection": 0,
+      "minSpeedList": [
+        2
+      ],
+      "maxSpeedList": [
+        4
+      ],
+      "breakSection": {
+        "sectionList": [
+          60,
+          0
+        ]
+      },
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1005,
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 1.5
+          },
+          {
+            "type": "PENETRATE",
+            "value": 0.75
+          },
+          {
+            "type": "HIT",
+            "value": 1
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 1
+          },
+          {
+            "type": "AMBER",
+            "value": 1
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1
+          },
+          {
+            "type": "AZURE",
+            "value": 1
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 1
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1,
+        2,
+        2
+      ],
+      "maxActionSlotNum": 2,
+      "attributeList": [
+        {
+          "skillId": 9011001,
+          "number": 1
+        },
+        {
+          "skillId": 9011002,
+          "number": 1
+        },
+        {
+          "skillId": 9011003,
+          "number": 1
+        },
+        {
+          "skillId": 9011004,
+          "number": 1
+        }
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          9011001,
+          9011002
+        ]
+      }
+    },
+    {
+      "id": 90111,
+      "appearance": "90111_KuroKumo_Mob_2Appearance",
+      "unitKeywordList": [ "CLAN", "SMALL" ],
+      "associationList": [ "BLACK_CLOUD" ],
+      "level": 3,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 54,
+        "incrementByLevel": 1.86
+      },
+      "defCorrection": 0,
+      "minSpeedList": [
+        1
+      ],
+      "maxSpeedList": [
+        3
+      ],
+      "breakSection": {
+        "sectionList": [
+          70,
+          0
+        ]
+      },
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1005,
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 1.5
+          },
+          {
+            "type": "PENETRATE",
+            "value": 0.75
+          },
+          {
+            "type": "HIT",
+            "value": 1
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 1
+          },
+          {
+            "type": "AMBER",
+            "value": 1
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1
+          },
+          {
+            "type": "AZURE",
+            "value": 1
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 1
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1,
+        2,
+        2
+      ],
+      "maxActionSlotNum": 2,
+      "attributeList": [
+        {
+          "skillId": 9011101,
+          "number": 1
+        },
+        {
+          "skillId": 9011102,
+          "number": 1
+        },
+        {
+          "skillId": 9011103,
+          "number": 1
+        },
+        {
+          "skillId": 9011104,
+          "number": 1
+        }
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          9011001
+        ]
+      }
+    },
+    {
+      "id": 90112,
+      "appearance": "90112_KuroKumo_Mob_3Appearance",
+      "unitKeywordList": [ "CLAN", "SMALL" ],
+      "associationList": [ "BLACK_CLOUD" ],
+      "level": 3,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 42,
+        "incrementByLevel": 1.45
+      },
+      "defCorrection": 0,
+      "minSpeedList": [
+        1
+      ],
+      "maxSpeedList": [
+        3
+      ],
+      "breakSection": {
+        "sectionList": [
+          50,
+          0
+        ]
+      },
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1005,
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 1.5
+          },
+          {
+            "type": "PENETRATE",
+            "value": 0.75
+          },
+          {
+            "type": "HIT",
+            "value": 1
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 1
+          },
+          {
+            "type": "AMBER",
+            "value": 1
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1
+          },
+          {
+            "type": "AZURE",
+            "value": 1
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 1
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1,
+        2,
+        2
+      ],
+      "maxActionSlotNum": 2,
+      "attributeList": [
+        {
+          "skillId": 9011201,
+          "number": 1
+        },
+        {
+          "skillId": 9011202,
+          "number": 1
+        },
+        {
+          "skillId": 9011203,
+          "number": 1
+        },
+        {
+          "skillId": 9011204,
+          "number": 1
+        }
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          9011001
+        ]
+      }
+    },
+    {
+      "id": 90113,
+      "appearance": "90113_KuroKumo_Mob_4Appearance",
+      "unitKeywordList": [ "CLAN", "SMALL" ],
+      "associationList": [ "BLACK_CLOUD" ],
+      "level": 3,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 50,
+        "incrementByLevel": 1.72
+      },
+      "defCorrection": 0,
+      "minSpeedList": [
+        2
+      ],
+      "maxSpeedList": [
+        4
+      ],
+      "breakSection": {
+        "sectionList": [
+          50,
+          0
+        ]
+      },
+      "mp": 45,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1005,
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 1.5
+          },
+          {
+            "type": "PENETRATE",
+            "value": 0.75
+          },
+          {
+            "type": "HIT",
+            "value": 1
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 1
+          },
+          {
+            "type": "AMBER",
+            "value": 1
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1
+          },
+          {
+            "type": "AZURE",
+            "value": 1
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 1
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1,
+        2,
+        2
+      ],
+      "maxActionSlotNum": 2,
+      "attributeList": [
+        {
+          "skillId": 9011301,
+          "number": 1
+        },
+        {
+          "skillId": 9011302,
+          "number": 1
+        },
+        {
+          "skillId": 9011303,
+          "number": 1
+        },
+        {
+          "skillId": 9011304,
+          "number": 1
+        }
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          9011001,
+          9011301
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,433 @@
+{
+  "list": [
+    {
+      "id": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorKeywordAndAttribute_LACERATION_SCARLET_-1_100",
+          "value": 0.25
+        },
+        {
+          "ability": "EgoResourceAdderIfPerfectResonanceStatic_2",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "FavorBuffTwthTwo",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorKeywordAndAttribute_SINKING_AZURE_-1_100",
+          "value": 0.25
+        },
+        {
+          "ability": "AttackDmgUpIfPlayerAndHasUnitKeyword_FINGER",
+          "value": 0.15
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierIfPlayerAndHasUnitKeyword_FINGER",
+          "value": -0.15
+        }
+      ]
+    },
+    {
+      "id": "FavorBuffTwthEnemy",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "LacerationDamageMultiplierIfEnemy",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "FavorBuffTwthEnemyTwo",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnPanicOrLowMorale",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "FavorBuffTwthHard",
+      "iconId": "FavorBuffTwthHard",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultMaxHpMultiplier",
+          "value": 0.25
+        },
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "BearClawWound",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "EagleClawWound",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "ParryingResultAdderViaBuffCheck",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "IntenseColors",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "SkillPowerAdderViaBuffCheck",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "IntenseColors",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "FavorBuffTwth1stPhaseForUI",
+      "iconId": "FavorBuffTwth"
+    },
+    {
+      "id": "FavorBuffTwth2ndPhaseForUI",
+      "iconId": "FavorBuffTwth"
+    },
+    {
+      "id": "FavorBuffTwthHardForUI",
+      "iconId": "FavorBuffTwthHard"
+    },
+    {
+      "id": "FavorBuffTwthHardTwo",
+      "iconId": "FavorBuffTwthHard",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultMaxHpMultiplier",
+          "value": 0.25
+        },
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "BearClawWound",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderIfNotZero",
+          "buffData": {
+            "buffKeyword": "EagleClawWound",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "ParryingResultAdderViaBuffCheck",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "IntenseColors",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "SkillPowerAdderViaBuffCheck",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "IntenseColors",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TwthBossRaidHard",
+          "value": 30,
+          "buffData":
+          {
+            "buffKeyword": "IntenseColors",
+            "value": 10
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "RicardoBookRaid",
+      "iconId": "AaCePbBi",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "value": 0.03
+        },
+        {
+          "ability": "ActivateBuffEffect"
+        }
+      ]
+    },
+    {
+      "id": "RicardoTattooRaid",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 300,
+      "list": [
+        {
+          "ability": "AtkAdderPerStack",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "RicardoJokeRaid",
+      "iconId": "AaCePbBi",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "RicardoJokeRaidTakeSkillBsDmgMutiplier",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5001EnemyFirst",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorBuff5001EnenyFirstAdjustParalysis"
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5001EnemySecond",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorBuff5001TakeAtkDamageMultiplierBySpeedDiff_limit20",
+          "value": 0.02
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5001AllyFirst",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorBuff5001AllyFirstSkillDmgMultiplier",
+          "value": 0.3
+        },
+        {
+          "ability": "FavorBuff5001AllyFirstEgoDmgMultiplier",
+          "value": 1
+        },
+        {
+          "ability": "FavorBuff5001AllyFirstResourceAdderStatic",
+          "value": 4
+        },
+        {
+          "ability": "FavorBuff5001ResourceAdderIfPassAssoCheck",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5001AllyTwo",
+      "iconId": "FavorBuffTwth",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "FavorBuff5001AllyTwoSkillDmgMultiplier",
+          "value": 0.3
+        },
+        {
+          "ability": "FavorBuff5001AllyTwoEgoDmgMultiplier",
+          "value": 1
+        },
+        {
+          "ability": "FavorBuff5001AllyTwoHCorpAsso",
+          "value": 0.3
+        },
+        {
+          "ability": "FavorBuff5001AllyFirstResourceAdderStatic",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5001Hard",
+      "iconId": "FavorBuffTwthHard",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultMaxHpMultiplier",
+          "value": 0.25
+        },
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5001HardTwo",
+      "iconId": "FavorBuffTwthHard",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultMaxHpMultiplier",
+          "value": 0.25
+        },
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": 0.2
+        },
+        {
+          "ability": "FixMentalLowerLimit",
+          "value": 0
+        },
+        {
+          "ability": "FavorBuff5001RevengeBook",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "FavorBuff5001FirstPhaseForUI",
+      "iconId": "FavorBuffTwth"
+    },
+    {
+      "id": "FavorBuff5001SecondPhaseForUI",
+      "iconId": "FavorBuffTwth"
+    },
+    {
+      "id": "FavorBuff5001HardForUI",
+      "iconId": "FavorBuffTwthHard"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "list": [
+    {
+      "id": "Bullet",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "list": [
+        {
+          "ability": "CheckNormalExtendedInitBulletBase"
+        }
+      ],
+      "categoryKeywordList": [
+        "RESOURCE",
+        "BULLET"
+      ]
+    },
+    {
+      "id": "BulletLament",
+      "buffClass": "CountableBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnZeroTurn": false,
+      "destroyableOnBothZero": true,
+      "maxStack": 20,
+      "maxTurn": 20,
+      "list": [
+        {
+          "ability": "CheckCountableExtendedBulletBaseLament"
+        }
+      ],
+      "categoryKeywordList": [
+        "RESOURCE",
+        "BULLET",
+        "TURN_IS_ALSO_LOADED_BULLET"
+      ]
+    },
+    {
+      "id": "Bullet_LogicAtelier",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+
+      ],
+      "categoryKeywordList": [
+        "RESOURCE",
+        "BULLET",
+        "CAN_GET_ONLY_BY_SYSTEM"
+      ]
+    },
+    {
+      "id": "MeursaultSporeBulletLong",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "CheckNormalExtendedInitBulletBase"
+        }
+      ],
+      "categoryKeywordList": [
+        "RESOURCE",
+        "BULLET"
+      ]
+    },
+    {
+      "id": "MeursaultSporeBulletShort",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 6,
+      "list": [
+        {
+          "ability": "CheckNormalExtendedInitBulletBase"
+        }
+      ],
+      "categoryKeywordList": [
+        "RESOURCE",
+        "BULLET"
+      ]
+    },
+    {
+      "id": "BulletGodok",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnZero": false,
+      "maxStack": 6,
+      "list": [
+      ],
+      "categoryKeywordList": [
+        "RESOURCE",
+        "BULLET",
+        "CAN_GET_ONLY_BY_SYSTEM"
+      ]
+    }
+  ]
+}

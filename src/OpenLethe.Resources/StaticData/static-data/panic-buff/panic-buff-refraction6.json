@@ -1,0 +1,110 @@
+{
+  "list": [
+    {
+      "id": "SCAR_BY_GONE_DAYS_REFRACTION",
+      "buffA": {
+        "id": "ScarBygoneDaysRefraction_LowMorale",
+        "iconId": "ScarBygoneDays_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AttackDmgMultiplier",
+            "value": 0.1
+          },
+          {
+            "ability": "TakeAtkDamageMultiplier",
+            "value": 0.1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "ScarBygoneDaysRefraction_Panic",
+        "iconId": "ScarBygoneDays_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AttackDmgMultiplier",
+            "value": 0.2
+          },
+          {
+            "ability": "TakeAtkDamageMultiplier",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "PAINFULSCAR_RAILWAY",
+      "buffA": {
+        "id": "PainfulScarRailway_LowMorale",
+        "iconId": "PainfulScar_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Combustion",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Laceration",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "PainfulScarRailway_Panic",
+        "iconId": "PainfulScar_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Combustion",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 3,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Laceration",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 3,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

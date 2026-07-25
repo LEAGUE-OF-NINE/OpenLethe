@@ -1,0 +1,59 @@
+{
+    "list": [
+        {
+            "id": 837901,
+            "canSkip": false,
+            "eventType": "EVENT",
+            "actionEvent": {
+                "isHideHint": false,
+                "eachOptionList": [
+                    {
+                        "index": 0,
+                        "resultList": [
+                            {
+                                "nextEventID": 837902
+                            }
+                        ]
+                    },
+                    {
+                        "index": 1,
+                        "resultList": [
+                            {
+                              "resultIndex": 0,
+                              "resultCondition": "Prob_1",
+                              "nextEventID": -1,
+                              "eventResultDataList": [
+                                {
+                                  "resultForm": {
+                                    "resultEffect": "Nothing",
+                                    "nextBattleID": -1
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 837902,
+            "canSkip": false,
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "judgement": {
+                    "inclusiveValue": 12,
+                    "exclusiveValue": 24,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "SCARLET"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

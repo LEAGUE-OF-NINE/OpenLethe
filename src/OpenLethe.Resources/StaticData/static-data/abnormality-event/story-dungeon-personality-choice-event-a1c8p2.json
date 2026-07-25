@@ -1,0 +1,711 @@
+{
+  "list": [
+    {
+      "id": 1080101,
+      "canSkip": false,
+      "eventType": "COIN_EVENT",
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "silenceCharacterUniqueIdList": [],
+        "not_allowed_list": [],
+        "adderInfo": [
+          {
+            "correctionCase": "SpecificUnit_Yisang,Faust",
+            "adder": 3
+          },
+          {
+            "correctionCase": "SpecificUnit_Honglu",
+            "adder": 5
+          }
+        ],
+        "judgement": {
+          "upDownType": 1,
+          "inclusiveValue": 13,
+          "exclusiveValue": 15,
+          "judgementDataList": [
+            {
+              "attributeType": "SHAMROCK"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "SUCCESS",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedObject",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2062,
+                        "num": 1,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "HiddenGiftUnlockHiddenRoute",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 991021,
+                        "num": 1,
+                        "prob": 1
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventResult": "FAILURE",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "Nothing",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 1080601,
+      "canSkip": false,
+      "eventType": "COIN_EVENT",
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "silenceCharacterUniqueIdList": [],
+        "not_allowed_list": [],
+        "adderInfo": [
+          {
+            "correctionCase": "SpecificAssociation_BLACK_BEAST_RABBIT,BLACK_BEAST_SNAKE",
+            "adder": 3
+          }
+        ],
+        "judgement": {
+          "upDownType": 1,
+          "inclusiveValue": 18,
+          "exclusiveValue": 22,
+          "judgementDataList": [
+            {
+              "attributeType": "VIOLET"
+            },
+            {
+              "attributeType": "SHAMROCK"
+            },
+            {
+              "attributeType": "SCARLET"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "SUCCESS",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedCoin",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2061,
+                        "num": 6,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "RecoverMpOnlyUntilMax",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventResult": "FAILURE",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseRatioHpOnly_100",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 1080701,
+      "canSkip": false,
+      "eventType": "COIN_EVENT",
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "silenceCharacterUniqueIdList": [],
+        "not_allowed_list": [],
+        "adderInfo": [
+          {
+            "correctionCase": "SpecificUnit_Heathcliff,Donquixote",
+            "adder": -8
+          },
+          {
+            "correctionCase": "SpecificUnit_Yisang,Ishmael",
+            "adder": -5
+          }
+        ],
+        "judgement": {
+          "upDownType": 1,
+          "inclusiveValue": 14,
+          "exclusiveValue": 16,
+          "judgementDataList": [
+            {
+              "attributeType": "SHAMROCK"
+            },
+            {
+              "attributeType": "INDIGO"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "SUCCESS",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": 1080702,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedCoin",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2061,
+                        "num": 2,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseMpOnly_5",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "Donquixote",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "Heathcliff",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventResult": "FAILURE",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": 1080702,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedCoin",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2061,
+                        "num": 1,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "Donquixote",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "Heathcliff",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 1080702,
+      "canSkip": false,
+      "eventType": "COIN_EVENT",
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "silenceCharacterUniqueIdList": [],
+        "not_allowed_list": [],
+        "adderInfo": [
+          {
+            "correctionCase": "SpecificUnit_Heathcliff,Donquixote",
+            "adder": -8
+          },
+          {
+            "correctionCase": "SpecificUnit_Yisang,Ishmael",
+            "adder": -5
+          }
+        ],
+        "judgement": {
+          "upDownType": 1,
+          "inclusiveValue": 16,
+          "exclusiveValue": 20,
+          "judgementDataList": [
+            {
+              "attributeType": "SHAMROCK"
+            },
+            {
+              "attributeType": "INDIGO"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "SUCCESS",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedCoin",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2061,
+                        "num": 2,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseMpOnly_5",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "Donquixote",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "Heathcliff",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventResult": "FAILURE",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedCoin",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2061,
+                        "num": 1,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "Donquixote",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "Heathcliff",
+                      "resultEffect": "LoseMpOnly_10",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 1080801,
+      "canSkip": false,
+      "eventType": "COIN_EVENT",
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "silenceCharacterUniqueIdList": [],
+        "not_allowed_list": [],
+        "adderInfo": [],
+        "judgement": {
+          "upDownType": 1,
+          "inclusiveValue": 14,
+          "exclusiveValue": 16,
+          "judgementDataList": [
+            {
+              "attributeType": "AZURE"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "SUCCESS",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedObject",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2068,
+                        "num": 1,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "RecoverMpOnlyUntilMax",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventResult": "FAILURE",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedObject",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2069,
+                        "num": 1,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseMpOnlyUntilMin",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 1081001,
+      "canSkip": false,
+      "eventType": "COIN_EVENT",
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "silenceCharacterUniqueIdList": [],
+        "not_allowed_list": [],
+        "adderInfo": [],
+        "judgement": {
+          "upDownType": 1,
+          "inclusiveValue": 16,
+          "exclusiveValue": 20,
+          "judgementDataList": [
+            {
+              "attributeType": "AMBER"
+            },
+            {
+              "attributeType": "SHAMROCK"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "SUCCESS",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedCoin",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2061,
+                        "num": 2,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseMpOnly_15",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventResult": "FAILURE",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseMpOnly_30",
+                      "nextBattleID": -1
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffect": "ChangeEventIllust_1081002"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 1081301,
+      "canSkip": false,
+      "eventType": "COIN_EVENT",
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "silenceCharacterUniqueIdList": [],
+        "not_allowed_list": [],
+        "adderInfo": [
+          {
+            "correctionCase": "SpecificUnit_Yisang",
+            "adder": -5
+          },
+          {
+            "correctionCase": "SpecificUnit_Ryosyu",
+            "adder": -10
+          },
+          {
+            "correctionCase": "SpecificUnit_Faust,Meursault,Outis",
+            "adder": 3
+          }
+        ],
+        "judgement": {
+          "upDownType": 1,
+          "inclusiveValue": 16,
+          "exclusiveValue": 20,
+          "judgementDataList": [
+            {
+              "attributeType": "SCARLET"
+            },
+            {
+              "attributeType": "SHAMROCK"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "SUCCESS",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": -1,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffect": "GetConfirmedEgogift",
+                      "resultDescId": "GetConfirmedCoin",
+                      "nextBattleID": -1,
+                      "itemReward": {
+                        "type": "EGO_GIFT",
+                        "rewardId": 2061,
+                        "num": 5,
+                        "prob": 1
+                      }
+                    }
+                  },
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "RecoverMpOnly_15",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "eventResult": "FAILURE",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": 1081302,
+                "eventResultDataList": [
+                  {
+                    "resultForm": {
+                      "resultEffectTarget": "ChosenPersonality",
+                      "resultEffect": "LoseMpOnly_15",
+                      "nextBattleID": -1
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

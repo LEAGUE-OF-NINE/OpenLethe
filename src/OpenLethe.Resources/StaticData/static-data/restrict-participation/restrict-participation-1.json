@@ -1,0 +1,36 @@
+{
+  "list": [
+    {
+      "stageType": "STORY_DUNGEON",
+      "restrictList": [
+        {
+          "id": 10401,
+          "restrictFriendSupportIds": [ 1 ]
+        },
+        {
+          "id": 910302,
+          "useStageStatistic": false
+        },
+        {
+          "id": 10501,
+          "restrictFriendSupportIds": [ 8 ]
+        },
+        {
+          "id": 10701,
+          "instructions": [
+            {
+              "id": "EXCLUDE_DEFAULT_PERSONALITY_WHEN_HAS_EGOGIFT",
+              "instruction": 1,
+              "dataList" : [2047, 3]
+            },
+            {
+              "id": "BLOCK_FRIEND_WHEN_NOT_HAS_EGOGIFT",
+              "instruction": 3,
+              "dataList": [ 2047, 3 ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

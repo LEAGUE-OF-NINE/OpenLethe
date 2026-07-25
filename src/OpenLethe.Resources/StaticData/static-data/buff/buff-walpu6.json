@@ -1,0 +1,350 @@
+{
+  "list": [
+    {
+      "id": "ColdBlackTear",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 5,
+      "canBeDespelled": true,
+      "enemyImportanceLevel": 2,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "ParryingResultDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ColdBlackTearMpDmg",
+          "value": 2
+        },
+        {
+          "ability": "ColdBlackTearTriggerFor400003",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "HelplessTear",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "enemyImportanceLevel": 3,
+      "list": [
+        {
+          "ability": "AtkAdder",
+          "value": 3
+        },
+        {
+          "ability": "DefAdder",
+          "value": -6
+        },
+        {
+          "ability": "TargetNumAdder",
+          "value": 1
+        },
+        {
+          "ability": "HelplessTear"
+        },
+        {
+          "ability": "GiveBuffStackAdder",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdder",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "turn": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "WornOutKnight",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplier",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "SignOfDespair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "SignOfDespairRemover"
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "ParryingResultUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdder",
+          "buffData": {
+            "buffKeyword": "ColdBlackTear",
+            "stack": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "CollapsedPride",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "list": [
+      ]
+    },
+    {
+      "id": "FailedToAssistQueen",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AtkAndDefAdder",
+          "value": -3
+        }
+      ]
+    },
+    {
+      "id": "UsedTooMuchPower",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "UsedTooMuchPower"
+        }
+      ]
+    },
+    {
+      "id": "ChasingArcana",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "playerImportanceLevel": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "ChasingArcana",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ChasingArcana",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 20,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "ChasingArcanahard",
+      "iconId": "ChasingArcana",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 3,
+      "canBeDespelled": false,
+      "playerImportanceLevel": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "ChasingArcanahard",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ChasingArcana",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 20,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "PowerOfLoveAndJustice",
+      "buffClass": "CountableBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnZeroTurn": false,
+      "destroyableOnBothZero": true,
+      "list": [
+        {
+          "ability": "GiveStackAdderBoosterByBuffStack",
+          "buffData": {
+            "buffKeyword": "Burst"
+          }
+        }
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "CentralCommandTeamCaptain",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "TrainTeamCaptain"
+        },
+        {
+          "ability": "GiveNegativeSinBuffStackAdderForCaptain",
+          "value": 1
+        },
+        {
+          "ability": "TakeBreathCategoryStackAdderForCaptain",
+          "value": 1
+        },
+        {
+          "ability": "TakeChargeCategoryTurnAdderForCaptain",
+          "value": 1
+        },
+        {
+          "ability": "DisposablePanicRecovery"
+        },
+        {
+          "ability": "AreaBaseAttackDmgMultiplier",
+          "value": 0.3
+        },
+        {
+          "ability": "WalpuSinStockAdderOnKillTarget"
+        }
+      ]
+    },
+    {
+      "id": "BestWelfareTeamMember",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "list": [
+        {
+          "ability": "GiveNegativeSinBuffStackAdderForCaptain",
+          "value": 1
+        },
+        {
+          "ability": "DisposablePanicRecovery"
+        },
+        {
+          "ability": "BuffBoosterForSpecificMember",
+          "value": 10913,
+          "buffData": {
+            "buffKeyword": "PenetrateDamageUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "KnightBless",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "OverwriteAtkResistResultIfHigher",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "TraumaShield",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 2,
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "list": [
+        {
+          "ability": "TakeMpDamageMultiplierByEnemy",
+          "value": -0.8
+        },
+        {
+          "ability": "TakeSinBuffDamageMultiplier",
+          "value": -0.8,
+          "buffData": {
+            "buffKeyword": "Sinking"
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

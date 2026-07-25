@@ -1,0 +1,109 @@
+{
+  "list": [
+    {
+      "id": "FAUVISM",
+      "buffA": {
+        "id": "Fauvism_Lowmorale",
+        "iconId": "Normal_Lowmorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierIfHasCategory_FAUVISM_CLAW_WOUND",
+            "value": "0.1"
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Fauvism_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierIfHasCategory_FAUVISM_CLAW_WOUND",
+            "value": "0.2"
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "FAUVISM_DOCENT",
+      "buffA": {
+        "id": "FauvismDocent_Lowmorale",
+        "iconId": "Normal_Lowmorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AttackDmgMultiplierByNegativeBuffCount_15",
+            "value": 0.025
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "FauvismDocent_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AttackDmgMultiplierByNegativeBuffCount_30",
+            "value": 0.05
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "list": [
+    {
+      "id": "Combustion",
+      "buffClass": "SinBuff",
+      "attributeType": "CRIMSON",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Combustion"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "COMBUSTION" ]
+    },
+    {
+      "id": "Laceration",
+      "buffClass": "SinBuff",
+      "attributeType": "SCARLET",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Laceration"
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "LACERATION" ]
+    },
+    {
+      "id": "Vibration",
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION" ]
+    },
+    {
+      "id": "Burst",
+      "buffClass": "SinBuff",
+      "attributeType": "SHAMROCK",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Burst"
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "BURST" ]
+    },
+    {
+      "id": "Sinking",
+      "buffClass": "SinBuff",
+      "attributeType": "AZURE",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Sinking"
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "SINKING" ]
+    },
+    {
+      "id": "VibrationCollapse",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "DefAdderByStackCeilToInt",
+          "value": -0.25
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    },
+    {
+      "id": "VibrationCrack",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "Crack",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    },
+    {
+      "id": "VibrationEcho",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "SinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "VibrationEcho",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_CONVERTED" ]
+    },
+    {
+      "id": "VibrationNesting",
+      "subIdList": [ "Vibration" ],
+      "buffClass": "CollapsableSinBuff",
+      "attributeType": "AMBER",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "Vibration"
+        },
+        {
+          "ability": "LoseTurnOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": [ "SIN", "VIBRATION", "VIBRATION_MERGED" ]
+    }
+  ]
+}

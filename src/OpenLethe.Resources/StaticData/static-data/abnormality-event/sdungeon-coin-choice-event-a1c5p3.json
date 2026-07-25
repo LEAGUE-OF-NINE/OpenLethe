@@ -1,0 +1,786 @@
+{
+    "list": [
+        {
+            "id": 1050101,
+            "canSkip": false,
+            "eventType": "COIN_EVENT",
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "silenceCharacterUniqueIdList": [],
+                "adderInfo": [
+                    {
+                        "correctionCase": "SpecificUnit_Ishmael,Outis",
+                        "adder": 5
+                    }
+                ],
+                "judgement": {
+                    "upDownType": 1,
+                    "inclusiveValue": 11,
+                    "exclusiveValue": 14,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "CRIMSON"
+                        }
+                    ]
+                },
+                "eventResults": [
+                    {
+                        "eventResult": "SUCCESS",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "ChooseUnit_Ishmael:Not",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "LoseHpOnly_15"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2019,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "resultIndex": 1,
+                                "resultCondition": "ChooseUnit_Ishmael",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "LoseHpOnly_15"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2019,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2020,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "eventResult": "FAILURE",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "LoseMpOnly_10"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "StartBattle",
+                                            "nextBattleID": 10517
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogiftOnWinBattle",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2019,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 10502,
+            "canSkip": false,
+            "eventType": "COIN_EVENT",
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "silenceCharacterUniqueIdList": [],
+                "adderInfo": [
+                    {
+                        "correctionCase": "SpecificUnit_Ishmael,Outis",
+                        "adder": 5
+                    }
+                ],
+                "judgement": {
+                    "upDownType": 1,
+                    "inclusiveValue": 8,
+                    "exclusiveValue": 11,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "INDIGO"
+                        }
+                    ]
+                },
+                "eventResults": [
+                    {
+                        "eventResult": "SUCCESS",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "ChooseUnit_Ishmael:Not",
+                                "nextEventID": 1050201,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "RecoverMpOnly_5"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "resultIndex": 1,
+                                "resultCondition": "ChooseUnit_Ishmael",
+                                "nextEventID": 1050201,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "RecoverMpOnly_5"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2022,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "eventResult": "FAILURE",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "LoseMpOnly_5"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "StartBattle",
+                                            "nextBattleID": 10518
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1050201,
+            "canSkip": false,
+            "eventType": "COIN_EVENT",
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "silenceCharacterUniqueIdList": [],
+                "adderInfo": [
+                    {
+                        "correctionCase": "SpecificUnit_Ishmael,Outis",
+                        "adder": 5
+                    }
+                ],
+                "judgement": {
+                    "upDownType": 1,
+                    "inclusiveValue": 10,
+                    "exclusiveValue": 13,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "INDIGO"
+                        }
+                    ]
+                },
+                "eventResults": [
+                    {
+                        "eventResult": "SUCCESS",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "ChooseUnit_Ishmael:Not",
+                                "nextEventID": 1050202,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "RecoverMpOnly_10"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "resultIndex": 1,
+                                "resultCondition": "ChooseUnit_Ishmael",
+                                "nextEventID": 1050202,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "RecoverMpOnly_10"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2022,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "eventResult": "FAILURE",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "LoseMpOnly_5"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "StartBattle",
+                                            "nextBattleID": 10518
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1050202,
+            "canSkip": false,
+            "eventType": "COIN_EVENT",
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "silenceCharacterUniqueIdList": [],
+                "adderInfo": [
+                    {
+                        "correctionCase": "SpecificUnit_Ishmael,Outis",
+                        "adder": 5
+                    }
+                ],
+                "judgement": {
+                    "upDownType": 1,
+                    "inclusiveValue": 13,
+                    "exclusiveValue": 16,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "INDIGO"
+                        }
+                    ]
+                },
+                "eventResults": [
+                    {
+                        "eventResult": "SUCCESS",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "ChooseUnit_Ishmael:Not",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "RecoverMpOnly_15"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2021,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "resultIndex": 1,
+                                "resultCondition": "ChooseUnit_Ishmael",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "RecoverMpOnly_15"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2021,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2022,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "eventResult": "FAILURE",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "LoseMpOnly_10"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "StartBattle",
+                                            "nextBattleID": 10518
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogiftOnWinBattle",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2021,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 10503,
+            "canSkip": false,
+            "eventType": "COIN_EVENT",
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "silenceCharacterUniqueIdList": [],
+                "adderInfo": [
+                    {
+                        "correctionCase": "SpecificUnit_Ishmael,Outis",
+                        "adder": 5
+                    }
+                ],
+                "judgement": {
+                    "upDownType": 1,
+                    "inclusiveValue": 11,
+                    "exclusiveValue": 14,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "CRIMSON"
+                        }
+                    ]
+                },
+                "eventResults": [
+                    {
+                        "eventResult": "SUCCESS",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "ChooseUnit_Ishmael:Not",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "RecoverMpOnly_20"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "EveryAlly",
+                                            "resultEffect": "RecoverMpOnly_5"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "resultIndex": 1,
+                                "resultCondition": "ChooseUnit_Ishmael",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "RecoverMpOnly_20"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "EveryAlly",
+                                            "resultEffect": "RecoverMpOnly_5"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2023,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "eventResult": "FAILURE",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "LoseMpOnly_20"
+                                        }
+                                    },
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "EveryAlly",
+                                            "resultEffect": "LoseHpMpSameAmount_10"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1050401,
+            "canSkip": false,
+            "eventType": "COIN_EVENT",
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "silenceCharacterUniqueIdList": [],
+                "adderInfo": [
+                    {
+                        "correctionCase": "SpecificUnit_Faust,Honglu,Outis,Gregor,Ryosyu",
+                        "adder": 5
+                    }
+                ],
+                "judgement": {
+                    "upDownType": 1,
+                    "inclusiveValue": 10,
+                    "exclusiveValue": 13,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "INDIGO"
+                        }
+                    ]
+                },
+                "eventResults": [
+                    {
+                        "eventResult": "SUCCESS",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "EveryAlly",
+                                            "resultEffect": "RecoverMpOnly_10"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "eventResult": "FAILURE",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffectTarget": "ChosenPersonality",
+                                            "resultEffect": "LoseHpOnly_20"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1050501,
+            "canSkip": false,
+            "eventType": "COIN_EVENT",
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "silenceCharacterUniqueIdList": [],
+                "adderInfo": [
+                    {
+                        "correctionCase": "SpecificUnit_Faust,Outis,Gregor",
+                        "adder": 5
+                    }
+                ],
+                "judgement": {
+                    "upDownType": 1,
+                    "inclusiveValue": 12,
+                    "exclusiveValue": 15,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "AMBER"
+                        }
+                    ]
+                },
+                "eventResults": [
+                    {
+                        "eventResult": "SUCCESS",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": 1050502,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2024,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "eventResult": "FAILURE",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "Nothing"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1050502,
+            "canSkip": false,
+            "eventType": "COIN_EVENT",
+            "personalityEvent": {
+                "participantInfo": {
+                    "min": 1,
+                    "max": 1
+                },
+                "silenceCharacterUniqueIdList": [],
+                "adderInfo": [
+                    {
+                        "correctionCase": "SpecificUnit_Faust,Ishmael,Ryosyu,Rodion",
+                        "adder": 2
+                    }
+                ],
+                "judgement": {
+                    "upDownType": 1,
+                    "inclusiveValue": 12,
+                    "exclusiveValue": 15,
+                    "judgementDataList": [
+                        {
+                            "attributeType": "INDIGO"
+                        }
+                    ]
+                },
+                "eventResults": [
+                    {
+                        "eventResult": "SUCCESS",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "ChooseUnit_Faust,Outis,Gregor,Rodion",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2025,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "resultIndex": 1,
+                                "resultCondition": "ChooseUnit_Faust,Outis,Gregor,Rodion:Not",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "GetConfirmedEgogift",
+                                            "itemReward": {
+                                                "type": "EGO_GIFT",
+                                                "rewardId": 2025,
+                                                "num": 1,
+                                                "prob": 1.0
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "eventResult": "FAILURE",
+                        "eventResultDataList": [
+                            {
+                                "resultIndex": 0,
+                                "resultCondition": "Prob_1",
+                                "nextEventID": -1,
+                                "eventResultDataList": [
+                                    {
+                                        "resultForm": {
+                                            "resultEffect": "Nothing"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

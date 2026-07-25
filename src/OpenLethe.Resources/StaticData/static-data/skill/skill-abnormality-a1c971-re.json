@@ -1,0 +1,354 @@
+{
+  "list":[
+    {
+      "id": 137801,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "iconID": "108201",
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "SCARLET",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillMotion": "S1",
+          "range" : 7,
+          "arearange" : 3,
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "targetNum": 1,
+          "defaultValue": 6,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit3",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "stack": 5,
+                "turn": 0,
+                "buffOwner": "Self",
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "stack": 3,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 137802,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "iconID": "108202",
+          "actionScript": "108202",
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "SHAMROCK",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillMotion": "S2",
+          "range" : 7,
+          "arearange" : 3,
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "targetNum": 1,
+          "defaultValue": 6,
+          "skillLevelCorrection": 1,
+          "abilityScriptList": [
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit5",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "stack": 3,
+                "turn": 0,
+                "buffOwner": "Self",
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "OverwriteToSuperCoinViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "ObservedPerson",
+                "stack": 20,
+                "turn": 0,
+                "buffOwner": "Target"
+              }
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackAfterWinDuel",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttackAndLoseTargetVibrationTurn1",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 137803,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "iconID": "108203",
+          "actionScript": "108203",
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "AMBER",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillMotion": "S3",
+          "range" : 7,
+          "arearange" : 3,
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "targetNum": 4,
+          "defaultValue": 3,
+          "skillLevelCorrection": 1,
+          "abilityScriptList": [
+            {
+              "scriptName": "Skill137803ResultAdder",
+              "value": 10,
+              "buffData": {
+                "buffKeyword": "Breath",
+                "stack": 3,
+                "value": 2,
+                "limit": 2
+              }
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 8,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttackViaBuffCheckAndLoseTargetVibrationTurn1",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "buffOwner": "Target",
+                    "stack": 0,
+                    "turn": 5,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackAfterWinDuel",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttackAndLoseTargetVibrationTurn1",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 137804,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "iconID": "108204",
+          "actionScript": "108204",
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "INDIGO",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillMotion": "S4",
+          "range" : 7,
+          "arearange" : 6,
+          "viewType": "ENCOUNTER",
+          "parryingCloseType": "NEAR",
+          "targetNum": 7,
+          "defaultValue": 2,
+          "skillLevelCorrection": 2,
+          "importanceLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "10820401"
+            },
+            {
+              "scriptName": "EmptyBody"
+            },
+            {
+              "scriptName": "10820402"
+            },
+            {
+              "scriptName": "108204SkillMarker"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "grade": 2,
+              "color": "GREY",
+              "scale": 2,
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "10820401"
+                },
+                {
+                  "scriptName": "10820402"
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttackAndLoseTargetVibrationTurn1",
+                  "value": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 137805,
+      "skillTier": 1,
+      "skillData": [
+        {
+          "skillTargetType": "RANDOM",
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "attributeType": "AZURE",
+          "atkType": "NONE",
+          "defType": "GUARD",
+          "skillMotion": "Default",
+          "viewType": "BATTLE",
+          "parryingCloseType": "NEAR",
+          "targetNum": 1,
+          "defaultValue": 4,
+          "skillLevelCorrection": 0,
+          "abilityScriptList": [
+            {
+              "scriptName": "SkillPowerResultAdderViaOnUseBuffCheckDevideByStackWithLimit5",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "stack": 3,
+                "turn": 0,
+                "buffOwner": "Self",
+                "value": 1
+              }
+            },
+            {
+              "scriptName": "10820501",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "stack": 4,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "EmptyBody"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

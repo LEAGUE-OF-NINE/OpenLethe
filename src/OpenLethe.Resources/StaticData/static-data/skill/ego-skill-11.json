@@ -1,0 +1,2397 @@
+{
+  "list": [
+    {
+      "id": 2110111,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "INDIGO",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillTargetType": "FRONT",
+          "targetNum": 1,
+          "mpUsage": 10,
+          "skillLevelCorrection": 3,
+          "defaultValue": 15,
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatio10IfHpRatioLessThan50"
+            }
+          ],
+          "actionScript": "2110121",
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 20,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatio30IfHpRatioLessThan50"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 4,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatio30IfHpRatioLessThan50"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 3,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 4,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnKillTarget",
+                  "buffData": {
+                    "buffKeyword": "AttackDmgUp",
+                    "target": "RandomAlly",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110211,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "SHAMROCK",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillTargetType": "FRONT",
+          "targetNum": 5,
+          "mpUsage": 20,
+          "skillLevelCorrection": 0,
+          "defaultValue": 19,
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackHead",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 22,
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackHead",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "ShamrockTakeDamageUp",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "targetNum": 7
+        }
+      ]
+    },
+    {
+      "id": 2110221,
+      "skillType": "EGO_EROSION",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "SHAMROCK",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillTargetType": "RANDOM",
+          "targetNum": 5,
+          "mpUsage": 20,
+          "skillLevelCorrection": 0,
+          "defaultValue": 26,
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackHead",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 29,
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Laceration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "ShamrockTakeDamageUp",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "targetNum": 7
+        }
+      ]
+    },
+    {
+      "id": 2110311,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "SCARLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "skillTargetType": "FRONT",
+          "targetNum": 1,
+          "mpUsage": 15,
+          "skillLevelCorrection": -2,
+          "defaultValue": 15,
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "abilityScriptList": [
+            {
+              "scriptName": "HealMpOnEndSkillSelf12"
+            }
+          ],
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "ScarletTakeDamageUp",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 19,
+          "abilityScriptList": [
+            {
+              "scriptName": "GiveBuffOnEndSkill",
+              "buffData": {
+                "buffKeyword": "Enhancement",
+                "target": "RandomAllyExceptSelf2",
+                "buffOwner": "",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "HealMpOnEndSkillSelf18"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 4,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "ScarletTakeDamageUp",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "targetNum": 2
+        }
+      ]
+    },
+    {
+      "id": 2110321,
+      "skillType": "EGO_EROSION",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "SCARLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "skillTargetType": "RANDOM",
+          "targetNum": 1,
+          "mpUsage": 15,
+          "skillLevelCorrection": -2,
+          "defaultValue": 21,
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 8,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "ScarletTakeDamageUp",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackTail",
+                  "buffData": {
+                    "buffKeyword": "Vulnerable",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackTail",
+                  "buffData": {
+                    "buffKeyword": "Vulnerable",
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 25,
+          "abilityScriptList": [
+            {
+              "scriptName": "GiveBuffOnEndSkill",
+              "buffData": {
+                "buffKeyword": "Enhancement",
+                "target": "RandomAllyExceptSelf2",
+                "buffOwner": "",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 8,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "ScarletTakeDamageUp",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vulnerable",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttackTail",
+                  "buffData": {
+                    "buffKeyword": "Vulnerable",
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "targetNum": 2
+        }
+      ]
+    },
+    {
+      "id": 2110411,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "SHAMROCK",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillTargetType": "FRONT",
+          "targetNum": 1,
+          "mpUsage": 20,
+          "skillLevelCorrection": 2,
+          "defaultValue": 19,
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "abilityScriptList": [
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 4,
+                "activeRound": 0
+              }
+            }
+          ],
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttack"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 26,
+          "abilityScriptList": [
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 4,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttack"
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "targetNum": 2,
+          "abilityScriptList": [
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 7,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 6,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttack"
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110421,
+      "skillType": "EGO_EROSION",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "SHAMROCK",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillTargetType": "RANDOM",
+          "targetNum": 1,
+          "mpUsage": 20,
+          "skillLevelCorrection": 2,
+          "defaultValue": 22,
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackLowestHpAbnormalityTarget"
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 5,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttack"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 29,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackLowestHpAbnormalityTarget"
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 7,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 4,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 4,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttack"
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "targetNum": 2,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackLowestHpAbnormalityTarget"
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 7,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 7,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 6,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 6,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Binding",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 3,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSuccessCriticalAttack"
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Sinking",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSuccessCriticalAttack",
+                  "buffData": {
+                    "buffKeyword": "Burst",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 0,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110511,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "CRIMSON",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillTargetType": "FRONT",
+          "targetNum": 3,
+          "mpUsage": 25,
+          "skillLevelCorrection": -2,
+          "defaultValue": 20,
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 11,
+              "abilityScriptList": [
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                },
+                {
+                  "scriptName": "2110511_4",
+                  "buffData": {
+                    "target": "LowestMpAlly2",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "HealMpOnEndCoin20LeastMpAlly2"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 11,
+              "abilityScriptList": [
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                },
+                {
+                  "scriptName": "2110511_4",
+                  "buffData": {
+                    "target": "LowestMpAlly3",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "HealMpOnEndCoin20LeastMpAlly3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 11,
+              "abilityScriptList": [
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                },
+                {
+                  "scriptName": "2110511_4",
+                  "buffData": {
+                    "target": "LowestMpAlly4",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "HealMpOnEndCoin20LeastMpAlly4"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110521,
+      "skillType": "EGO_EROSION",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "CRIMSON",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillTargetType": "RANDOM",
+          "targetNum": 3,
+          "mpUsage": 25,
+          "skillLevelCorrection": 3,
+          "defaultValue": 34,
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "2110521"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 15,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveMpDmgOnSucceedAttackTarget10"
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                },
+                {
+                  "scriptName": "2110521_1_3",
+                  "buffData": {
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "targetNum": 4,
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 15,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveMpDmgOnSucceedAttackTarget10"
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                },
+                {
+                  "scriptName": "2110521_1_3",
+                  "buffData": {
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "2110521_3_4",
+                  "buffData": {
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "targetNum": 5,
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 15,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveMpDmgOnSucceedAttackTarget10"
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                },
+                {
+                  "scriptName": "2110521_4_3",
+                  "buffData": {
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 2,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "2110521_3_4",
+                  "buffData": {
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110611,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "INDIGO",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillTargetType": "FRONT",
+          "targetNum": 5,
+          "mpUsage": 10,
+          "skillLevelCorrection": 0,
+          "defaultValue": 20,
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "OutisTiedKingAtkWeightAdderWithMax2"
+            },
+            {
+              "scriptName": "OutisTiedKingMpDmgOnRE10"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 10,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 4,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "SwitchVibrationOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VibrationCrack",
+                    "target": "",
+                    "buffOwner": "Target"
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "OutisTiedKingAtkWeightAdderWithMax2"
+            },
+            {
+              "scriptName": "OutisTiedKingBSDmgMulUp50"
+            },
+            {
+              "scriptName": "OutisTiedKingMpDmgOnRE9"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 10,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "SwitchVibrationOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VibrationCrack",
+                    "target": "",
+                    "buffOwner": "Target"
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "OutisTiedKingAtkWeightAdderWithMax2"
+            },
+            {
+              "scriptName": "OutisTiedKingBSDmgMulUp100"
+            },
+            {
+              "scriptName": "OutisTiedKingMpDmgOnRE8"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 10,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 6,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "SwitchVibrationOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VibrationCrack",
+                    "target": "",
+                    "buffOwner": "Target"
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110621,
+      "skillType": "EGO_EROSION",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "INDIGO",
+          "atkType": "HIT",
+          "defType": "ATTACK",
+          "skillTargetType": "RANDOM",
+          "targetNum": 5,
+          "mpUsage": 30,
+          "range": 999,
+          "skillLevelCorrection": 0,
+          "defaultValue": 32,
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "OutisTiedKingAtkWeightAdderWithMax2"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 14,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 4,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "SwitchVibrationOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VibrationCrack",
+                    "target": "",
+                    "buffOwner": "Target"
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "OutisTiedKingAtkWeightAdderWithMax2"
+            },
+            {
+              "scriptName": "OutisTiedKingBSDmgMulUp50"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 14,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 5,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "SwitchVibrationOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VibrationCrack",
+                    "target": "",
+                    "buffOwner": "Target"
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttackTail"
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "OutisTiedKingAtkWeightAdderWithMax2"
+            },
+            {
+              "scriptName": "OutisTiedKingBSDmgMulUp50"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 14,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "Vibration",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 6,
+                    "turn": 3,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "SwitchVibrationOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "VibrationCrack",
+                    "target": "",
+                    "buffOwner": "Target"
+                  }
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttackTail"
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttackTail"
+                },
+                {
+                  "scriptName": "VibrationExplosionOnSucceedAttack"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110711,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "VIOLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "skillTargetType": "FRONT",
+          "targetNum": 3,
+          "mpUsage": 25,
+          "skillLevelCorrection": 5,
+          "defaultValue": 21,
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EDimensionShredderTargetAddByMaxResonance_condition4_adder1_limit0"
+            },
+            {
+              "scriptName": "EDimensionShredderConvertSelfHpToBuff",
+              "buffData": {
+                  "buffKeyword": "Charge",
+                  "target": "Self",
+                  "stack": 0,
+                  "turn": 10,
+                  "activeRound": 0,
+                  "value": 15
+              }
+            },
+            {
+              "scriptName": "EDimensionShredderDmgMulitplierAfterUseBuffTurn_Charge40_value1_limit10"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 9,
+              "abilityScriptList": [
+                {
+                  "scriptName": "EDimensionShredderGiveBuffOnSucceedAttackBaseChargeStack",
+                  "buffData": {
+                    "buffKeyword": "DimensionRift",
+                    "target": "Target",
+                    "activeRound": 0,
+                    "value": -1,
+                    "limit": 1
+                  }
+                },
+                {
+                  "scriptName": "EDimensionShredderAddBuffSelfViaChargeStack_Agility_ChargeLoad_limit1"
+                },
+                {
+                  "scriptName": "GiveBuffOnKillTarget",
+                  "buffData": {
+                    "buffKeyword": "Charge",
+                    "buffOwner": "",
+                    "target": "Self",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 21,
+          "abilityScriptList": [
+            {
+              "scriptName": "EDimensionShredderTargetAddByMaxResonance_condition3_adder1_limit0"
+            },
+            {
+              "scriptName": "EDimensionShredderConvertSelfHpToBuff",
+              "buffData": {
+                  "buffKeyword": "Charge",
+                  "target": "Self",
+                  "stack": 0,
+                  "turn": 10,
+                  "activeRound": 0,
+                  "value": 15
+              }
+            },
+            {
+              "scriptName": "EDimensionShredderDmgMulitplierAfterUseBuffTurn_Charge40_value1_limit20"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 9,
+              "abilityScriptList": [
+                {
+                  "scriptName": "EDimensionShredderGiveBuffOnSucceedAttackBaseChargeStack",
+                  "buffData": {
+                    "buffKeyword": "DimensionRift",
+                    "target": "Target",
+                    "activeRound": 0,
+                    "value": -1,
+                    "limit": 2
+                  }
+                },
+                {
+                  "scriptName": "EDimensionShredderAddBuffSelfViaChargeStack_Agility_ChargeLoad_limit2"
+                },
+                {
+                  "scriptName": "GiveBuffOnKillTarget",
+                  "buffData": {
+                    "buffKeyword": "Charge",
+                    "buffOwner": "",
+                    "target": "Self",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "defaultValue": 21,
+          "targetNum": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "EDimensionShredderTargetAddByMaxResonanceSub_condition2_adder0_limit2"
+            },
+            {
+              "scriptName": "EDimensionShredderConvertSelfHpToBuff",
+              "buffData": {
+                  "buffKeyword": "Charge",
+                  "target": "Self",
+                  "stack": 0,
+                  "turn": 10,
+                  "activeRound": 0,
+                  "value": 10
+              }
+            },
+            {
+              "scriptName": "EDimensionShredderDmgMulitplierAfterUseBuffTurn_Charge40_value1_limit30"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 9,
+              "abilityScriptList": [
+                {
+                  "scriptName": "EDimensionShredderGiveBuffOnSucceedAttackBaseChargeStack",
+                  "buffData": {
+                    "buffKeyword": "DimensionRift",
+                    "target": "Target",
+                    "activeRound": 0,
+                    "value": -1,
+                    "limit": 2
+                  }
+                },
+                {
+                  "scriptName": "EDimensionShredderAddBuffSelfViaChargeStack_Agility_ChargeLoad_limit3"
+                },
+                {
+                  "scriptName": "GiveBuffOnKillTarget",
+                  "buffData": {
+                    "buffKeyword": "Charge",
+                    "buffOwner": "",
+                    "target": "Self",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110721,
+      "skillType": "EGO_EROSION",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "VIOLET",
+          "atkType": "SLASH",
+          "defType": "ATTACK",
+          "skillTargetType": "RANDOM",
+          "targetNum": 3,
+          "mpUsage": 30,
+          "skillLevelCorrection": 5,
+          "defaultValue": 32,
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "EDimensionShredderTargetAddByMaxResonance_condition4_adder1_limit0"
+            },
+            {
+              "scriptName": "EDimensionShredderConvertSelfHpToBuffMax",
+              "buffData": {
+                  "buffKeyword": "Charge",
+                  "target": "Self",
+                  "stack": 0,
+                  "turn": 30,
+                  "activeRound": 0,
+                  "value": 1.5
+              }
+            },
+            {
+              "scriptName": "EDimensionShredderDmgMulitplierAfterUseBuffTurn_Charge40_value2_limit20"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 13,
+              "abilityScriptList": [
+                {
+                  "scriptName": "EDimensionShredderGiveBuffOnSucceedAttackBaseChargeStack",
+                  "buffData": {
+                    "buffKeyword": "DimensionRift",
+                    "target": "Target",
+                    "activeRound": 0,
+                    "value": -1,
+                    "limit": 2
+                  }
+                },
+                {
+                  "scriptName": "EDimensionShredderAddBuffSelfViaChargeStack_Agility_ChargeLoad_limit2"
+                },
+                {
+                  "scriptName": "GiveBuffOnKillTarget",
+                  "buffData": {
+                    "buffKeyword": "Charge",
+                    "buffOwner": "",
+                    "target": "Self",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "defaultValue": 32,
+          "abilityScriptList": [
+            {
+              "scriptName": "EDimensionShredderTargetAddByMaxResonance_condition4_adder1_limit0"
+            },
+            {
+              "scriptName": "EDimensionShredderConvertSelfHpToBuffMax",
+              "buffData": {
+                  "buffKeyword": "Charge",
+                  "target": "Self",
+                  "stack": 0,
+                  "turn": 30,
+                  "activeRound": 0,
+                  "value": 1.2
+              }
+            },
+            {
+              "scriptName": "EDimensionShredderDmgMulitplierAfterUseBuffTurn_Charge40_value2_limit40"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 13,
+              "abilityScriptList": [
+                {
+                  "scriptName": "EDimensionShredderGiveBuffOnSucceedAttackBaseChargeStack",
+                  "buffData": {
+                    "buffKeyword": "DimensionRift",
+                    "target": "Target",
+                    "activeRound": 0,
+                    "value": -1,
+                    "limit": 2
+                  }
+                },
+                {
+                  "scriptName": "EDimensionShredderAddBuffSelfViaChargeStack_Agility_ChargeLoad_limit2"
+                },
+                {
+                  "scriptName": "GiveBuffOnKillTarget",
+                  "buffData": {
+                    "buffKeyword": "Charge",
+                    "buffOwner": "",
+                    "target": "Self",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "defaultValue": 32,
+          "targetNum": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "EDimensionShredderTargetAddByMaxResonanceSub_condition2_adder0_limit2"
+            },
+            {
+              "scriptName": "EDimensionShredderConvertSelfHpToBuffMax",
+              "buffData": {
+                  "buffKeyword": "Charge",
+                  "target": "Self",
+                  "stack": 0,
+                  "turn": 30,
+                  "activeRound": 0,
+                  "value": 1
+              }
+            },
+            {
+              "scriptName": "EDimensionShredderDmgMulitplierAfterUseBuffTurn_Charge40_value2_limit60"
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 13,
+              "abilityScriptList": [
+                {
+                  "scriptName": "EDimensionShredderGiveBuffOnSucceedAttackBaseChargeStack",
+                  "buffData": {
+                    "buffKeyword": "DimensionRift",
+                    "target": "Target",
+                    "activeRound": 0,
+                    "value": -1,
+                    "limit": 4
+                  }
+                },
+                {
+                  "scriptName": "EDimensionShredderAddBuffSelfViaChargeStack_Agility_ChargeLoad_limit3"
+                },
+                {
+                  "scriptName": "GiveBuffOnKillTarget",
+                  "buffData": {
+                    "buffKeyword": "Charge",
+                    "buffOwner": "",
+                    "target": "Self",
+                    "stack": 0,
+                    "turn": 2,
+                    "activeRound": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110811,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "INDIGO",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillTargetType": "FRONT",
+          "targetNum": 1,
+          "mpUsage": 25,
+          "skillLevelCorrection": 3,
+          "defaultValue": 22,
+          "canTeamKill": false,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "isManyCoinSkill" : true,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStackWithLimit10",
+              "buffData": {
+                "buffKeyword": "Combustion",
+                "buffOwner": "Target",
+                "stack": 3,
+                "turn": 0,
+                "value": 0.01
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviourIfNotHasStack21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviour21108",
+              "buffData": {
+                "buffKeyword": "",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndBehaviour21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "limit": 4
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnKill2110811",
+              "buffData": {
+                "buffKeyword": "DarkFlame",
+                "target": "Custom",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 14,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOSADuplicateStackDevideByValue21108",
+                  "buffData": {
+                    "buffKeyword": "Combustion",
+                    "target": "Target",
+                    "stack": -1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOSADuplicateStackDevideByValueLimitPerUnitPerTurn21108",
+                  "buffData": {
+                    "buffKeyword": "DarkFlame",
+                    "target": "Target",
+                    "stack": -1,
+                    "turn": 0,
+                    "activeRound": 0,
+                    "limit": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStackWithLimit20",
+              "buffData": {
+                "buffKeyword": "Combustion",
+                "buffOwner": "Target",
+                "stack": 3,
+                "turn": 0,
+                "value": 0.02
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviourIfNotHasStack21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviour21108",
+              "buffData": {
+                "buffKeyword": "",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndBehaviour21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "limit": 4
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnKill2110811",
+              "buffData": {
+                "buffKeyword": "DarkFlame",
+                "target": "Custom",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStackWithLimit30",
+              "buffData": {
+                "buffKeyword": "Combustion",
+                "buffOwner": "Target",
+                "stack": 3,
+                "turn": 0,
+                "value": 0.03
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviourIfNotHasStack21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviour21108",
+              "buffData": {
+                "buffKeyword": "",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndBehaviour21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "limit": 4
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnKill2110811",
+              "buffData": {
+                "buffKeyword": "DarkFlame",
+                "target": "Custom",
+                "stack": 4,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2110821,
+      "skillType": "EGO_EROSION",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "INDIGO",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "skillTargetType": "RANDOM",
+          "targetNum": 1,
+          "mpUsage": 30,
+          "skillLevelCorrection": 5,
+          "defaultValue": 40,
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "isManyCoinSkill" : true,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStackWithLimit10",
+              "buffData": {
+                "buffKeyword": "Combustion",
+                "buffOwner": "Target",
+                "stack": 3,
+                "turn": 0,
+                "value": 0.01
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviourIfNotHasStack21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviour21108",
+              "buffData": {
+                "buffKeyword": "",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndBehaviour21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "limit": 4
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnKill2110821",
+              "buffData": {
+                "buffKeyword": "DarkFlame",
+                "target": "Custom",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 20,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOSADuplicateStackDevideByValue21108",
+                  "buffData": {
+                    "buffKeyword": "Combustion",
+                    "target": "Target",
+                    "stack": -1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOSADuplicateStackDevideByValueLimitPerUnitPerTurn21108",
+                  "buffData": {
+                    "buffKeyword": "DarkFlame",
+                    "target": "Target",
+                    "stack": -1,
+                    "turn": 0,
+                    "activeRound": 0,
+                    "limit": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStackWithLimit20",
+              "buffData": {
+                "buffKeyword": "Combustion",
+                "buffOwner": "Target",
+                "stack": 3,
+                "turn": 0,
+                "value": 0.02
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviourIfNotHasStack21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviour21108",
+              "buffData": {
+                "buffKeyword": "",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndBehaviour21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "limit": 4
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnKill2110821",
+              "buffData": {
+                "buffKeyword": "DarkFlame",
+                "target": "Custom",
+                "stack": 5,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 20,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOSADuplicateStackDevideByValue21108",
+                  "buffData": {
+                    "buffKeyword": "Combustion",
+                    "target": "Target",
+                    "stack": -1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOSADuplicateTurnByStackDevideByValue21108",
+                  "buffData": {
+                    "buffKeyword": "Combustion",
+                    "target": "Target",
+                    "stack": 0,
+                    "turn": -1,
+                    "activeRound": 0,
+                    "value": 3
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOSADuplicateStackDevideByValueLimitPerUnitPerTurn21108",
+                  "buffData": {
+                    "buffKeyword": "DarkFlame",
+                    "target": "Target",
+                    "stack": -1,
+                    "turn": 0,
+                    "activeRound": 0,
+                    "limit": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStackWithLimit30",
+              "buffData": {
+                "buffKeyword": "Combustion",
+                "buffOwner": "Target",
+                "stack": 3,
+                "turn": 0,
+                "value": 0.03
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviourIfNotHasStack21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnStartBehaviour21108",
+              "buffData": {
+                "buffKeyword": "",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndBehaviour21108",
+              "buffData": {
+                "buffKeyword": "FreischutzShotCount",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "limit": 4
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnKill2110821",
+              "buffData": {
+                "buffKeyword": "DarkFlame",
+                "target": "Custom",
+                "stack": 7,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 20,
+              "abilityScriptList": [
+                {
+                  "scriptName": "GiveBuffOSADuplicateStackDevideByValue21108",
+                  "buffData": {
+                    "buffKeyword": "Combustion",
+                    "target": "Target",
+                    "stack": -1,
+                    "turn": 0,
+                    "activeRound": 0
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOSADuplicateTurnByStackDevideByValue21108",
+                  "buffData": {
+                    "buffKeyword": "Combustion",
+                    "target": "Target",
+                    "stack": 0,
+                    "turn": -1,
+                    "activeRound": 0,
+                    "value": 2
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOSADuplicateStackDevideByValueLimitPerUnitPerTurn21108",
+                  "buffData": {
+                    "buffKeyword": "DarkFlame",
+                    "target": "Target",
+                    "stack": -1,
+                    "turn": 0,
+                    "activeRound": 0,
+                    "limit": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "list": [
+    {
+      "id": "YURODIVY",
+      "buffA": {
+        "id": "Yurodivy_LowMorale",
+        "iconId": "Acclamation_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+          },
+          {
+            "ability": "GiveBuffOnTakeAttackDamageWithLimitCount_3",
+            "buffData": {
+              "buffKeyword": "Vibration",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 0,
+              "turn": 1,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Yurodivy_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnTakeAttackDamageWithLimitCount_3",
+            "buffData": {
+              "buffKeyword": "Vibration",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 0,
+              "turn": 2,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

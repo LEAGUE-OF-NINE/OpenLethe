@@ -1,0 +1,672 @@
+{
+  "list": [
+    {
+      "id": "WITHERED_WOOD",
+      "buffA": {
+        "id": "WitheredWood_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "Self",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "Self",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "BurstVulnerable",
+              "target": "Self",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "WitheredWood_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "Self",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "Self",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "BurstVulnerable",
+              "target": "Self",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "EVIL_HEART",
+      "buffA": {
+        "id": "EvilHeart_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdderViaBuffCheck",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "OminousTalisman",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "EvilHeart_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdderViaBuffCheck",
+            "value": 3,
+            "buffData": {
+              "buffKeyword": "OminousTalisman",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEEP_EVIL_HEART",
+      "buffA": {
+        "id": "DeepEvilHeart_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdderViaBuffCheck",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "OminousTalisman",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DeepEvilHeart_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdderViaBuffCheck",
+            "value": 3,
+            "buffData": {
+              "buffKeyword": "OminousTalisman",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 4,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "MAD_FEATHER",
+      "buffA": {
+        "id": "MadFeather_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "TakeHpHealIncrease",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnSA",
+            "buffData": {
+              "buffKeyword": "Burst",
+              "target": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnSA",
+            "buffData": {
+              "buffKeyword": "Laceration",
+              "target": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "MadFeather_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "TakeHpHealIncrease",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnSA",
+            "buffData": {
+              "buffKeyword": "Burst",
+              "target": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnSA",
+            "buffData": {
+              "buffKeyword": "Laceration",
+              "target": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEEP_ANGRY",
+      "buffA": {
+        "id": "DeepAngry_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdderViaBuffCheck",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "OminousTalisman",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DeepAngry_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdderViaBuffCheck",
+            "value": 3,
+            "buffData": {
+              "buffKeyword": "OminousTalisman",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "TAKE_BREATH",
+      "buffA": {
+        "id": "TakeBreath_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseUp",
+              "target": "Self",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "LoseBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Breath",
+              "target": "Self",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "TakeBreath_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseUp",
+              "target": "Self",
+              "stack": 5,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "LoseBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Breath",
+              "target": "Self",
+              "stack": 5,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "OUT_OF_CONTROL_AXE",
+      "buffA": {
+        "id": "UncontrolledChargeAxe_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "OutOfControlAxeGivebuff",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "Charge",
+              "target": "Self",
+              "stack": 0,
+              "turn": 3,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "OutOfControlAxeGivebuff",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "Self",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "UncontrolledChargeAxe_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "OutOfControlAxeGivebuff",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "Charge",
+              "target": "Self",
+              "stack": 0,
+              "turn": 5,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "OutOfControlAxeGivebuff",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "Self",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "OutOfControlAxeGivebuff",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "Self",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "QIU",
+      "buffA": {
+        "id": "Qiu_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierIfTargetCharacterIdNot_6",
+            "value": 0.1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Qiu_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierIfTargetCharacterIdNot_6",
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "JAR_MASTER",
+      "buffA": {
+        "id": "JarMaster_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "JarMasterGiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "JarMaster_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "JarMasterGiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

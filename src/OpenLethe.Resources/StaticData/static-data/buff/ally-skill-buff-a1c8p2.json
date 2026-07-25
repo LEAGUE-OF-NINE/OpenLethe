@@ -1,0 +1,150 @@
+{
+  "list": [
+    {
+      "id": "EntangledCurseTalisman",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "EntangledCurseTalismanOnTakeDamage",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "Burst",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0,
+            "value": 30,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 4,
+          "buffData": {
+            "buffKeyword": "Reduction",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "CentipedePoison",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 4,
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "CentipedePoison",
+          "value": 0.5,
+          "buffData": {
+            "buffKeyword": "CentipedePoison",
+            "target": "Target",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "BurstZilu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "BurstZilu",
+          "buffData": {
+            "buffKeyword": "Binding",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "value": 2,
+            "limit": 3
+          }
+        }
+      ],
+      "categoryKeywordList": [
+        "BURSTREACTIVE"
+      ]
+    },
+    {
+      "id": "SupportProtect",
+      "buffClass": "VolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "SupportProtect"
+        }
+      ],
+      "categoryKeywordList": [
+        "SUPPORTIVE_PROTECT"
+      ]
+    },
+    {
+      "id": "EnhanceZilu",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "BurstVulnerableZilu",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TakeAtkDamageMultiplierByStack",
+          "attribute": "SHAMROCK",
+          "value": 0.1
+        },
+        {
+          "ability": "BurstVulnerableZiluBurstReactive",
+          "value": 0.1
+        }
+      ]
+    }
+  ]
+}

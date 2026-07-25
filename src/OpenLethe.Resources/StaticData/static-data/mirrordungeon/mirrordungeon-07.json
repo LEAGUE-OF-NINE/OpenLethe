@@ -1,0 +1,556 @@
+{
+  "list": [
+    {
+      "id": 7,
+      "typeIndex": 0,
+      "basicEnemyLevelPerFloor": [ 60, 60, 60, 60, 60 ],
+      "isPersonalityLevelByUserData": false,
+      "startCost": 200,
+      "eventPoolOfEgoGifTierInFloor": [
+        { "list": [ 1, 1, 0, 0, 0 ] },
+        { "list": [ 1, 1, 1, 0, 0 ] },
+        { "list": [ 1, 1, 1, 1, 1 ] },
+        { "list": [ 1, 1, 1, 1, 1 ] },
+        { "list": [ 1, 1, 1, 1, 1 ] }
+      ],
+      "openCondition": {
+        "chapterCleared": {
+          "mainChapterId": 1,
+          "subChapterId": 102,
+          "nodeId": 10219,
+          "unlockCode": 102
+        },
+        "dungeonCleared": {
+          "isConditionExist": false
+        }
+      },
+      "gradeList": [ 5 ],
+      "levelList": [ 60 ],
+      "currentRewardId": 1,
+      "restingEvent": {
+        "heal": [
+          {
+            "index": 0,
+            "price": 100,
+            "isForAll": false,
+            "isHealHpPercentage": true,
+            "healHpAmount": 0.5,
+            "isHealMpPercentage": false,
+            "healMpAmount": 45
+          },
+          {
+            "index": 1,
+            "price": 100,
+            "isForAll": true,
+            "isHealHpPercentage": true,
+            "healHpAmount": 0.2,
+            "isHealMpPercentage": false,
+            "healMpAmount": 15
+          },
+          {
+            "index": 2,
+            "price": 100,
+            "isForAll": false,
+            "isRevive": true,
+            "isHealHpPercentage": true,
+            "healHpAmount": 1.0,
+            "isHealMpPercentage": false,
+            "healMpAmount": 0
+          }
+        ],
+        "changeFormation": {
+          "price": 100,
+          "changeableCount": 3
+        },
+        "egoGiftUpgrade": {
+          "isActive": true
+        },
+        "egoGiftComposite": {
+          "isActive": true
+        }
+      },
+      "shop": {
+        "heal": [
+          {
+            "index": 0,
+            "price": 100,
+            "isForAll": false,
+            "isHealHpPercentage": true,
+            "healHpAmount": 0.5,
+            "isHealMpPercentage": false,
+            "healMpAmount": 45
+          },
+          {
+            "index": 1,
+            "price": 100,
+            "isForAll": true,
+            "isHealHpPercentage": true,
+            "healHpAmount": 0.2,
+            "isHealMpPercentage": false,
+            "healMpAmount": 15
+          },
+          {
+            "index": 2,
+            "price": 100,
+            "isForAll": false,
+            "isRevive": true,
+            "isHealHpPercentage": true,
+            "healHpAmount": 1.0,
+            "isHealMpPercentage": false,
+            "healMpAmount": 0
+          }
+        ],
+        "upgradePersonality": [
+          {
+            "index": 0,
+            "fromSkill": 0,
+            "toSkill": 1,
+            "price": 45,
+            "detectingPrice": 90,
+            "detectingStarLight": 25
+          },
+          {
+            "index": 1,
+            "fromSkill": 1,
+            "toSkill": 2,
+            "price": 75,
+            "detectingPrice": 150,
+            "detectingStarLight": 50
+          },
+          {
+            "index": 2,
+            "fromSkill": 0,
+            "toSkill": 2,
+            "price": 120,
+            "detectingPrice": 240,
+            "detectingStarLight": 75
+          }
+        ],
+        "changeFormation": {
+          "price": 100,
+          "changeableCount": 3
+        },
+        "egoGiftSell": {
+          "isActive": true
+        },
+        "refreshShop": {
+          "isActive": true,
+          "shopKeywordRefreshCostAdder": 75
+        },
+        "egoGiftUpgrade": {
+          "isActive": true
+        },
+        "egoGiftComposite": {
+          "isActive": true
+        },
+        "shopInfoByType": [
+          {
+            "type": 0,
+            "skillSlotNum": 1,
+            "skillTargetingSlotNum": 0,
+            "egoGiftSlotNum": 4,
+            "changeFormationCount": 1
+          },
+          {
+            "type": 1,
+            "skillSlotNum": 2,
+            "skillTargetingSlotNum": 1,
+            "egoGiftSlotNum": 7,
+            "changeFormationCount": 1
+          }
+        ]
+      },
+      "winFloorIdx": 4,
+      "floors": [
+        {
+          "count": 0,
+          "eventNodePercentage":0.25,
+          "abnormalityBattlePercentage":0,
+          "hardBattlePercentage":0,
+          "hardAbBattlePercentage":0,
+          "fixedEncounters": [
+            {
+              "targetSector":-2,
+              "e":10,
+              "eid":0
+            }
+          ],
+          "enemyBuffPool": [ 992201, 992202, 992203, 992204, 992205, 992206 ]
+        },
+        {
+          "count": 1,
+          "eventNodePercentage":0.25,
+          "abnormalityBattlePercentage":0.12,
+          "hardBattlePercentage":0.08,
+          "hardAbBattlePercentage":0,
+          "fixedEncounters": [
+            {
+              "targetSector":-2,
+              "e":10,
+              "eid":0
+            }
+          ],
+          "enemyBuffPool": [ 992211, 992212, 992213, 992214, 992215, 992216, 992217 ]
+        },
+        {
+          "count": 2,
+          "eventNodePercentage":0.25,
+          "abnormalityBattlePercentage":0.15,
+          "hardBattlePercentage":0.10,
+          "hardAbBattlePercentage":0.10,
+          "fixedEncounters": [
+            {
+              "targetSector":-2,
+              "e":10,
+              "eid":0
+            }
+          ],
+          "enemyBuffPool": [ 992221, 992222, 992223, 992224, 992225, 992226, 992227, 992228 ]
+        },
+        {
+          "count": 3,
+          "eventNodePercentage":0.25,
+          "abnormalityBattlePercentage":0.18,
+          "hardBattlePercentage":0.12,
+          "hardAbBattlePercentage":0.10,
+          "fixedEncounters": [
+            {
+              "targetSector":-2,
+              "e":10,
+              "eid":0
+            }
+          ],
+          "enemyBuffPool": [ 992231, 992232, 992233, 992234, 992235, 992236, 992237, 992238, 992239 ]
+        },
+        {
+          "count": 4,
+          "eventNodePercentage":0.2,
+          "abnormalityBattlePercentage":0.18,
+          "hardBattlePercentage":0.12,
+          "hardAbBattlePercentage":0.10,
+          "fixedEncounters": [
+            {
+              "targetSector":-2,
+              "e":10,
+              "eid":0
+            }
+          ],
+          "enemyBuffPool": [ ]
+        }
+      ],
+      "rewardInfo":{
+        "bonusChanceId":10016,
+        "hardChanceId":10017,
+        "exitRewardListByCondition": [
+          {
+            "rewardId": 0,
+            "condition": {
+              "clearedfloorIndex": -1
+            },
+            "consumption": {
+              "bonusChanceConsumption": 0,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+            ]
+          },
+          {
+            "rewardId": 1000,
+            "condition": {
+              "clearedfloorIndex": 0
+            },
+            "consumption": {
+              "bonusChanceConsumption": 0,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "EXP",
+                "id": 0,
+                "num": 50
+              },
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 8
+              }
+            ]
+          },
+          {
+            "rewardId": 1010,
+            "condition": {
+              "clearedfloorIndex": 0
+            },
+            "consumption": {
+              "bonusChanceConsumption": 1,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "EXP",
+                "id": 0,
+                "num": 50
+              },
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 12
+              },
+              {
+                "type": "ITEM",
+                "id": 2,
+                "num": 75
+              }
+            ]
+          },
+          {
+            "rewardId": 2000,
+            "condition": {
+              "clearedfloorIndex": 1
+            },
+            "consumption": {
+              "bonusChanceConsumption": 0,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "EXP",
+                "id": 0,
+                "num": 25
+              },
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 8
+              }
+            ]
+          },
+          {
+            "rewardId": 2010,
+            "condition": {
+              "clearedfloorIndex": 1
+            },
+            "consumption": {
+              "bonusChanceConsumption": 1,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "EXP",
+                "id": 0,
+                "num": 25
+              },
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 12
+              },
+              {
+                "type": "ITEM",
+                "id": 2,
+                "num": 75
+              }
+            ]
+          },
+          {
+            "rewardId": 3000,
+            "condition": {
+              "clearedfloorIndex": 2
+            },
+            "consumption": {
+              "bonusChanceConsumption": 0,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "EXP",
+                "id": 0,
+                "num": 25
+              },
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 8
+              }
+            ]
+          },
+          {
+            "rewardId": 3010,
+            "condition": {
+              "clearedfloorIndex": 2
+            },
+            "consumption": {
+              "bonusChanceConsumption": 1,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "EXP",
+                "id": 0,
+                "num": 25
+              },
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 12
+              },
+              {
+                "type": "ITEM",
+                "id": 2,
+                "num": 50
+              }
+            ]
+          },
+          {
+            "rewardId": 4000,
+            "condition": {
+              "clearedfloorIndex": 3
+            },
+            "consumption": {
+              "bonusChanceConsumption": 0,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 3
+              }
+            ]
+          },
+          {
+            "rewardId": 4010,
+            "condition": {
+              "clearedfloorIndex": 3
+            },
+            "consumption": {
+              "bonusChanceConsumption": 1,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 4
+              },
+              {
+                "type": "ITEM",
+                "id": 2,
+                "num": 50
+              }
+            ]
+          },
+          {
+            "rewardId": 5000,
+            "condition": {
+              "clearedfloorIndex": 4
+            },
+            "consumption": {
+              "bonusChanceConsumption": 0,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 3
+              },
+              {
+                "type": "USERBANNER_RECORD",
+                "id":7,
+                "num":1
+              },
+              {
+                "type": "USERBANNER_RECORD",
+                "id":9,
+                "num":1
+              },
+              {
+                "type": "USERBANNER_RECORD",
+                "id":10,
+                "num":1
+              }
+            ]
+          },
+          {
+            "rewardId": 5010,
+            "condition": {
+              "clearedfloorIndex": 4
+            },
+            "consumption": {
+              "bonusChanceConsumption": 1,
+              "hardChanceConsumption": 0,
+              "moduleConsumption": 5
+            },
+            "rewardElements": [
+              {
+                "type": "BATTLEPASS_POINT",
+                "id": 0,
+                "num": 5
+              },
+              {
+                "type": "USERBANNER_RECORD",
+                "id":7,
+                "num":1
+              },
+              {
+                "type": "USERBANNER_RECORD",
+                "id":9,
+                "num":1
+              },
+              {
+                "type": "USERBANNER_RECORD",
+                "id":10,
+                "num":1
+              }
+            ]
+          }
+        ]
+      },
+      "uiConfig": {
+        "enterDescColor": "#e71f19",
+        "titleColor": "#e71f19",
+        "difficultyLabel": "[NORMAL]",
+        "themeListUI": {
+          "filters": [
+            {
+              "typeIndex": 0,
+              "isCheckFloorIndex": true,
+              "floorIndex" : 0
+            },
+            {
+              "typeIndex": 0,
+              "isCheckFloorIndex": true,
+              "floorIndex" : 1
+            },
+            {
+              "typeIndex": 0,
+              "isCheckFloorIndex": true,
+              "floorIndex" : 2
+            },
+            {
+              "typeIndex": 0,
+              "isCheckFloorIndex": true,
+              "floorIndex" : 3
+            },
+            {
+              "typeIndex": 0,
+              "isCheckFloorIndex": true,
+              "floorIndex" : 4
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

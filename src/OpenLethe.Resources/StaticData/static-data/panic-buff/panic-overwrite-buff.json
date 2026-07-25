@@ -1,0 +1,242 @@
+{
+  "list": [
+    {
+      "id": "EchoOfMansion",
+      "isPanicBuff": false,
+      "buffA": {
+        "id": "EchoOfMansion_Main",
+        "iconId": "EchoOfMansion",
+        "subIdList": [ "EchoOfMansion" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "EchoOfMansionCommon",
+            "value": 0.5,
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "",
+              "stack": 0,
+              "turn": 1,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "EchoOfMansionPanic",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "EchoOfMansion",
+              "target": "",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "OverwritePanicType_ACCLAMATION"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "EchoOfMansion_Sub",
+        "iconId": "EchoOfMansion",
+        "subIdList": [ "EchoOfMansion" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "EchoOfMansionCommon",
+            "value": 0.5,
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "",
+              "stack": 0,
+              "turn": 1,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "CoinProbAdder",
+            "value": -0.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "WanderingFootsteps",
+      "isPanicBuff": false,
+      "buffA": {
+        "id": "WanderingFootsteps_Main",
+        "iconId": "WanderingFootsteps",
+        "subIdList": [ "WanderingFootsteps" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "OverwritePanicType_WANDERINGFOOTSTEPS"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "WanderingFootsteps_Sub",
+        "iconId": "WanderingFootsteps",
+        "subIdList": [ "WanderingFootsteps" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "CoinProbAdder",
+            "value": -0.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "CrushMarks",
+      "isPanicBuff": false,
+      "buffA": {
+        "id": "CrushMarks_Main",
+        "iconId": "CrushMarks",
+        "subIdList": [ "CrushMarks" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "CrushMarksCommon",
+            "value" : 0.1
+          },
+          {
+            "ability": "OverwritePanicType_CRUSHMARKS"
+          },
+          {
+            "ability": "CrushMarksEffect"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "CrushMarks_Sub",
+        "iconId": "CrushMarks",
+        "subIdList": [ "CrushMarks" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "CrushMarksCommon",
+            "value" : 0.1
+          },
+          {
+            "ability": "ParryingResultAdder",
+            "value": -1
+          },
+          {
+            "ability": "CrushMarksEffect"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DelusionGregBigBird",
+      "isPanicBuff": false,
+      "buffA": {
+        "id": "DelusionGregBigBird_Main",
+        "iconId": "DelusionHohenheimBigBird",
+        "subIdList": [ "DelusionGregBigBird" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "DelusionGregBigBirdDmgMul_10",
+            "value": 0.005
+          },
+          {
+            "ability": "OverwritePanicType_DELUSIONGREGBIGBIRD"
+          },
+          {
+            "ability": "DelusionGregBigBirdEffect"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DelusionGregBigBird_Sub",
+        "iconId": "DelusionHohenheimBigBird",
+        "subIdList": [ "DelusionGregBigBird" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "DelusionGregBigBirdDmgMul_10",
+            "value": 0.005
+          },
+          {
+            "ability": "DefAdder",
+            "value": -2
+          },
+          {
+            "ability": "DelusionGregBigBirdEffect"
+          }
+        ]
+      }
+    },
+    {
+      "id": "GodokPanicType",
+      "isPanicBuff": false,
+      "buffA": {
+        "id": "GodokPanicType_Main",
+        "iconId": "Godok_Panic",
+        "subIdList": [ "GodokPanicType" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "TakeAtkDamageMultiplier",
+            "attribute": "AZURE",
+            "value": 0.1
+          },
+          {
+            "ability": "OverwritePanicType_GODOKPANICTYPE"
+          },
+          {
+            "ability": "GodokPanicTypeEffect"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "GodokPanicType_Sub",
+        "iconId": "Godok_Panic",
+        "subIdList": [ "GodokPanicType" ],
+        "buffClass": "ChangePanicTypeBuff",
+        "buffType": "Negative",
+        "canBeDespelled": true,
+        "list": [
+          {
+            "ability": "TakeAtkDamageMultiplier",
+            "attribute": "AZURE",
+            "value": 0.1
+          },
+          {
+            "ability": "GiveBuffOnRoundEnd",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 0,
+              "turn": 2,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GodokPanicTypeEffect"
+          }
+        ]
+      }
+    }
+  ]
+}

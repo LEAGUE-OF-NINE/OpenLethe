@@ -1,0 +1,266 @@
+{
+  "list": [
+    {
+      "id": "DuelDeclaration_Camille",
+      "iconId": "DuelDeclaration",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": true,
+      "canBeDuplicated": true,
+      "list": [
+        {
+          "ability": "DuelDeclaration"
+        },
+        {
+          "ability": "LoseAllStackOnDie"
+        }
+      ],
+      "categoryKeywordList": [ "DUEL_DECLARATION" ]
+    },
+    {
+      "id": "RecklessDuel",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RecklessDuel"
+        }
+      ]
+    },
+    {
+      "id": "ConcentratedAttack",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        
+      ],
+      "categoryKeywordList": [ "CONCENTRATED_ATTACK" ]
+    },
+    {
+      "id": "BloodScissor",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 10,
+      "list": [
+      ]
+    },
+    {
+      "id": "BloodScissorTwo",
+      "iconId": "BloodScissor",
+      "subIdList": [ "BloodScissor" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "BloodScissorsGetBuffOST",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloodScissorThree",
+      "iconId": "BloodScissor",
+      "subIdList": [ "BloodScissor" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "BloodScissorsGetBuffOST",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "LineCutting",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "LineCuttingEffect"
+        }
+      ]
+    },
+    {
+      "id": "BloodScissorScars",
+      "typoIconId": "TimeRental", 
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "BloodScissorScars"
+        }
+      ]
+    },
+    {
+      "id": "BloodDinner",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 999,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "BloodDinner_Accumulation",
+      "iconId": "BloodDinner_Accumulation",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 999,
+      "list": [
+      ],
+      "categoryKeywordList": [ ]
+    },
+    {
+      "id": "TrulyWeak",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnZero": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplier",
+          "value": -0.1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "RealPaperBear",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "list": [
+        
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "StarvingBarberOne",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -15
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "StarvingBarberTwo",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -25
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "BloodShooting",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "BloodShootingGiveDinner",
+          "value": 30
+        },
+        {
+          "ability": "BloodShootingGiveEgoRes",
+          "value": 2
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "RighteousFeeling",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "DefenseDown",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "RighteousFeeling"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "ScissorCutting",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 10,
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "list": []
+    }
+  ]
+}

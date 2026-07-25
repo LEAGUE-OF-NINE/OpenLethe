@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- ValList<T>.list is set only by JsonSerializer (IncludeFields) reflection,
+         never by ordinary assignment; same pattern as OpenLethe.Packets. -->
+    <NoWarn>$(NoWarn);CS0649</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Embed StaticData JSON with clean, path-based logical names so the reader
+         can folder-scan (mirrors Rust rust_embed over resources/StaticData).
+         ponytail: only StaticData is embedded - it is the only tree any handler
+         reads. Localize/Story live in the repo; add them here when a consumer needs them. -->
+    <EmbeddedResource Include="StaticData\**\*.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

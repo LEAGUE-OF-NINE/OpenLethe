@@ -1,0 +1,335 @@
+{
+  "list": [
+    {
+      "id": 4,
+      "requiredModule": 25,
+      "openChapterData": {
+        "mainChapterId": 1,
+        "subChapterId": 106,
+        "nodeId": 10648,
+        "unlockCode": 106
+      },
+      "challengeType": "CLEAR_TURN_COUNT_SPECIFIC_STAGE",
+      "isSaveBattleState": false,
+      "isLoadSinFromSave": false,
+      "isNotAbleToAddSlot": false,
+      "isGiveUpNodeWhenAllDead": false,
+      "hasRestHeal": true,
+      "restHPHealRate": 10,
+      "restMPHeal": 0,
+      "isResetMPAtRestNode": true,
+      "isResetAfterLose": false,
+      "disableDanteAbilityIds": [ 80101 ],
+      "danteAbilityCategory": 1,
+      "nodeIdCollection_ForLog": [
+        {
+          "collectionId": 1,
+          "nodeIds": [ 1 ],
+          "formationTargetNode": 1
+        },
+        {
+          "collectionId": 2,
+          "nodeIds": [ 3 ],
+          "formationTargetNode": 3
+        },
+        {
+          "collectionId": 3,
+          "nodeIds": [ 5 ],
+          "formationTargetNode": 5
+        },
+        {
+          "collectionId": 4,
+          "nodeIds": [ 7 ],
+          "formationTargetNode": 7
+        }
+      ],
+      "startDate": "2024-01-01T03:00:00.000Z",
+      "startDateForUI": "2024-07-04T03:00:00.000Z",
+      "endDate": "2025-12-30T15:00:00.000Z",
+      "endDateforUI": "2025-12-30T15:00:00.000Z",
+      "bannerRewards": [
+        {
+          "requiredConditions": [
+          ],
+          "reward": {
+            "type": "USERBANNER",
+            "id": 39,
+            "num": 1
+          },
+          "localizeId": "railway_dungeon_4_banner_reward_condition_1"
+        },
+        {
+          "clearTurn": 100,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_TURN_COUNT",
+              "count": 100
+            }
+          ],
+          "endDate": "2024-10-09T21:00:00.000Z",
+          "reward": {
+            "type": "USERBANNER",
+            "id": 40,
+            "num": 1
+          },
+          "localizeId": "railway_dungeon_4_banner_reward_condition_2"
+        }
+      ],
+      "extraRewards": [
+        {
+          "id": 1,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 1
+            }
+          ],
+          "rewards": [
+            {
+              "type": "ITEM",
+              "id": 214,
+              "num": 50
+            },
+            {
+              "type": "ITEM",
+              "id": 213,
+              "num": 20
+            },
+            {
+              "type": "ITEM",
+              "id": 224,
+              "num": 1
+            }
+          ],
+          "uiConfig": {
+            "showStationNumber": 1
+          }
+        },
+        {
+          "id": 2,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 3
+            }
+          ],
+          "rewards": [
+            {
+              "type": "ITEM",
+              "id": 201,
+              "num": 200
+            },
+            {
+              "type": "ITEM",
+              "id": 1104,
+              "num": 20
+            },
+            {
+              "type": "ITEM",
+              "id": 1204,
+              "num": 60
+            }
+          ],
+          "uiConfig": {
+            "showStationNumber": 2
+          }
+        },
+        {
+          "id": 3,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 5
+            }
+          ],
+          "rewards": [
+            {
+              "type": "ITEM",
+              "id": 102,
+              "num": 3
+            },
+            {
+              "type": "ITEM",
+              "id": 107,
+              "num": 1
+            }
+          ],
+          "uiConfig": {
+            "showStationNumber": 3
+          }
+        },
+        {
+          "id": 4,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 7
+            }
+          ],
+          "rewards": [
+            {
+              "type": "USER_TICKET_DECO_LEFT",
+              "id": 33,
+              "num": 1
+            },
+            {
+              "type": "USER_TICKET_DECO_RIGHT",
+              "id": 33,
+              "num": 1
+            },
+            {
+              "type": "USER_TICKET_DECO_EGOBG",
+              "id": 33,
+              "num": 1
+            }
+          ],
+          "uiConfig": {
+            "showStationNumber": 4
+          }
+        },
+        {
+          "id": 5,
+          "requiredConditions": [
+            {
+              "type": "CLEAR_NODE",
+              "count": 7
+            },
+            {
+              "type": "CLEAR_TURN_COUNT",
+              "count": 100
+            }
+          ],
+          "startDateForUI": "2024-07-04T03:00:00.000Z",
+          "endDate": "2024-10-09T21:00:00.000Z",
+          "rewards": [
+            {
+              "type": "USER_TICKET_DECO_LEFT",
+              "id": 34,
+              "num": 1
+            },
+            {
+              "type": "USER_TICKET_DECO_RIGHT",
+              "id": 34,
+              "num": 1
+            },
+            {
+              "type": "USER_TICKET_DECO_EGOBG",
+              "id": 34,
+              "num": 1
+            }
+          ],
+          "uiConfig": {
+            "isSpecialReward": true,
+            "descLocalizeId": "railway_dungeon_4_reward_condition_special_ticket",
+            "isHideAtNode": false
+          }
+        }
+      ],
+      "sector": [
+        {
+          "nodeId": 1,
+          "stageId": 401,
+          "spriteId": "stage1",
+          "nextNodes": [ 2 ],
+          "clearRequiredNodesForEnter": [],
+          "UI_nextMoveTargetId": 2,
+          "relatedNodes": [
+            {
+              "spriteId": "stage2",
+              "name": "02"
+            },
+            {
+              "spriteId": "stage3",
+              "name": "03"
+            }
+          ]
+        },
+        {
+          "nodeId": 2,
+          "stageId": 0,
+          "nextNodes": [ 1, 3 ],
+          "clearRequiredNodesForEnter": [ 1 ],
+          "UI_nextMoveTargetId": 3,
+          "nodeType": "Heal",
+          "nodeUIText": "04",
+          "uiConfig": {
+            "stageTextId": 402
+          }
+        },
+        {
+          "nodeId": 3,
+          "stageId": 403,
+          "spriteId": "stage5",
+          "nextNodes": [ 1, 2, 4 ],
+          "clearRequiredNodesForEnter": [ 2 ],
+          "UI_nextMoveTargetId": 4,
+          "relatedNodes": [
+            {
+              "spriteId": "stage6",
+              "name": "06"
+            },
+            {
+              "spriteId": "stage7",
+              "name": "07"
+            }
+          ],
+          "nodeUIText": "05"
+        },
+        {
+          "nodeId": 4,
+          "stageId": 0,
+          "nextNodes": [ 1, 2, 3, 5 ],
+          "clearRequiredNodesForEnter": [ 3 ],
+          "UI_nextMoveTargetId": 5,
+          "nodeType": "Heal",
+          "nodeUIText": "08",
+          "uiConfig": {
+            "stageTextId": 404
+          }
+        },
+        {
+          "nodeId": 5,
+          "stageId": 405,
+          "spriteId": "stage9",
+          "nextNodes": [ 1, 2, 3, 4, 6 ],
+          "clearRequiredNodesForEnter": [ 4 ],
+          "UI_nextMoveTargetId": 6,
+          "relatedNodes": [
+            {
+              "spriteId": "stage10",
+              "name": "10"
+            }
+          ],
+          "nodeUIText": "09"
+        },
+        {
+          "nodeId": 6,
+          "stageId": 0,
+          "nextNodes": [ 1, 2, 3, 4, 5, 7 ],
+          "clearRequiredNodesForEnter": [ 5 ],
+          "UI_nextMoveTargetId": 7,
+          "nodeType": "Heal",
+          "nodeUIText": "11",
+          "uiConfig": {
+            "stageTextId": 406
+          }
+        },
+        {
+          "nodeId": 7,
+          "stageId": 407,
+          "spriteId": "stage12",
+          "nextNodes": [],
+          "clearRequiredNodesForEnter": [ 6 ],
+          "isBossNode": true,
+          "relatedNodes": [
+            {
+              "spriteId": "stage13",
+              "name": "13"
+            }
+          ],
+          "nodeUIText": "12"
+        }
+      ]
+    }
+  ]
+}

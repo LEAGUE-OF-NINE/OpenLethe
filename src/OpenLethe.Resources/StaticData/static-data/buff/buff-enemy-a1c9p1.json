@@ -1,0 +1,306 @@
+{
+  "list": [
+    {
+      "id": "HowDareYouApple",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.2
+        }
+      ]
+    },
+    {
+      "id": "RapidGrowthApple",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "RapidGrowthApple"
+        }
+      ]
+    },
+    {
+      "id": "ObservationMoses",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "ObservationMoses",
+          "value": 0.25
+        }
+      ]
+    },
+    {
+      "id": "CalmAnalysisMoses",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "CalmAnalysisMoses",
+          "value": 0.25
+        }
+      ]
+    },
+    {
+      "id": "MuscleContraction",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 2,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.15
+        },
+        {
+          "ability": "MuscleContractionSuperCoin",
+          "value": 2
+        },
+        {
+          "ability": "MuscleContractionLoseCheck"
+        }
+      ]
+    },
+    {
+      "id": "DuelEdge",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 20,
+      "list": [
+        {
+          "ability": "DuelEdge"
+        }
+      ]
+    },
+    {
+      "id": "HostageCharon",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HostageCharonParryAdder",
+          "value": -1
+        },
+        {
+          "ability": "HostageCharonAtkMultiplier",
+          "value": -0.2
+        }
+      ]
+    },
+    {
+      "id": "SeveredTendon",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "SkillPowerAdderAsStack",
+          "value": -1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "DicipleLittleFinger",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 50,
+      "list": [
+        {
+          "ability": "DicipleLittleFingerShield",
+          "value": 5
+        },
+        {
+          "ability": "CriticalDmgUpViaBuffCheckDevideByStack",
+          "value": 0.01,
+          "buffData": {
+            "buffKeyword": "DicipleLittleFinger",
+            "buffOwner": "AbnormalitySelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 0
+          }
+        },
+        {
+          "ability": "DicipleLittleFingerLoseCheck"
+        }
+      ]
+    },
+    {
+      "id": "HumanFleshTheRings",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 2,
+      "enemyImportanceLevel": 1,
+      "list": [
+      ],
+      "categoryKeywordList": [ "CHARGE" ]
+    },
+    {
+      "id": "BoneBladeTheRings",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "enemyImportanceLevel": 2,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "SkillPowerUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 4,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdder",
+          "buffData": {
+            "buffKeyword": "Laceration",
+            "stack": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "UnsteadyTheRings",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "playerImportanceLevel": 3,
+      "list": [
+        {
+          "ability": "UnsteadyTheRingsAddSkillPower",
+          "value": -10
+        },
+        {
+          "ability": "UnsteadyTheRingsAttackEndCheck"
+        }
+      ]
+    },
+    {
+      "id": "RyoshuSlotPlusA1C9",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AddUnitSlotRightAfterGettingBuff"
+        },
+        {
+          "ability": "RyoshuSlotPlusA1C9DmgMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "RyoshuSlotPlusA1C9BreakRecover",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "CanNotRetreat"
+        },
+        {
+          "ability": "ImmortalIfNotAlone"
+        },
+        {
+          "ability": "TakingOtherStoryImmortalAbility"
+        }
+      ]
+    },
+    {
+      "id": "ElseRyoshuSlotPlusA1C9",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+      ]
+    },
+    {
+      "id": "TeachersCommand",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkAdder",
+          "value": -5
+        }
+      ]
+    },
+    {
+      "id": "RyoshuStartA1C9",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": false,
+      "destroyableOnRetreat": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RyoshuSlotPlusA1C9DmgMultiplier",
+          "value": 0.1
+        },
+        {
+          "ability": "RyoshuSlotPlusA1C9BreakRecover",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    }
+  ]
+}

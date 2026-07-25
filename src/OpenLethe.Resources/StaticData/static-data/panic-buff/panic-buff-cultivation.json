@@ -1,0 +1,114 @@
+{
+  "list": [
+    {
+      "id": "HORSE_WEI",
+      "buffA": {
+        "id": "RunawayHorseWei_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "RunawayHorseWei_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "WeiPanicSpeedAdder",
+            "value": 1
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DRUNK_DRIFTER",
+      "buffA": {
+        "id": "DrunkDrifter_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "TakeAtkDamageMultiplierByXichun",
+            "value": 0.1
+          },
+          {
+            "ability": "AtkDamageMultiplierCounter",
+            "value": 0.3
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DrunkDrifter_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "SkillPowerResultAdder",
+            "value": 1
+          },
+          {
+            "ability": "TakeAtkDamageMultiplierByXichun",
+            "value": 0.2
+          },
+          {
+            "ability": "AtkDamageMultiplierCounter",
+            "value": 0.5
+          }
+        ]
+      }
+    }
+  ]
+}

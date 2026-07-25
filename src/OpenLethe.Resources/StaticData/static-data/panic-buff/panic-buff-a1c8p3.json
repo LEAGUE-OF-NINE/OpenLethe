@@ -1,0 +1,586 @@
+{
+  "list": [
+    {
+      "id": "DARK_BEAST_SNAKE",
+      "buffA": {
+        "id": "DarkBeastSnake_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdder",
+            "value": -1
+          },
+          {
+            "ability": "TakeAtkDamageMultiplier",
+            "value": -0.1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DarkBeastSnake_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "ParryingResultAdder",
+            "value": -2
+          },
+          {
+            "ability": "TakeAtkDamageMultiplier",
+            "value": -0.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "EGOERODE_FLESH_SPATULA",
+      "buffA": {
+        "id": "NEgoFleshSpatula_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Laceration",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "NEgoFleshSpatula_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Laceration",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 10,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "EGOERODE_CONTEMPT",
+      "buffA": {
+        "id": "EgoErodeContempt_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "EgoErodeContempt_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "EGOERODE_MEMORY",
+      "buffA": {
+        "id": "EgoErodeMemory_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveAbsMpDmgSelfByValueOnSA",
+            "value": 3
+          },
+          {
+            "ability": "GiveBuffOnSA",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "Target",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "EgoErodeMemory_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnSA",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "Target",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnSA",
+            "buffData": {
+              "buffKeyword": "Sinking",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "BEAST_EYES",
+      "buffA": {
+        "id": "BeastEyes_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierIfLowerHpRatioPerDiff",
+            "buffData": {
+              "value": 0.5,
+              "limit": 10
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "BeastEyes_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierIfLowerHpRatioPerDiff",
+            "buffData": {
+              "value": 1,
+              "limit": 25
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "PlusCoinValueUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LE_REGOLE",
+      "buffA": {
+        "id": "LeRegole_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "NonvolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "LeRegoleAdvantage_Vibration",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "AmberDamageUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "LeRegoleAdvantage_Combustion",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "CrimsonDamageUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "LeRegolePenalty",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "LeRegoleCheckLowMorale"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "LeRegole_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "NonvolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "LeRegoleAdvantage_Vibration",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "AmberDamageUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "LeRegoleAdvantage_Combustion",
+            "value": 2,
+            "buffData": {
+              "buffKeyword": "CrimsonDamageUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0
+            }
+          },
+          {
+            "ability": "LeRegolePenalty",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "LeRegoleCheckPanic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "LASTINGHONGWONWILL",
+      "buffA": {
+        "id": "LastingHongwonWill_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnLoseDuelSpecifIdCharacterToBody_6_1",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnLoseDuelSpecifIdCharacterToBody_6_1",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "LastingHongwonWill_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnLoseDuelSpecifIdCharacterToBody_6_1",
+            "buffData": {
+              "buffKeyword": "AttackDmgUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          },
+          {
+            "ability": "GiveBuffOnLoseDuelSpecifIdCharacterToBody_6_1",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "LONGLASTINGHONGWONWILL",
+      "buffA": {
+        "id": "LongLastingHongwonWill_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "EveryAllyExceptSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "LongLastingHongwonWill",
+            "value": 0.2
+          }
+        ]
+      },
+      "buffB": {
+        "id": "LongLastingHongwonWill_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "EveryAllyExceptSelf",
+              "stack": 6,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "LongLastingHongwonWill",
+            "value": 0.3
+          }
+        ]
+      }
+    }
+  ]
+}

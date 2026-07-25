@@ -1,0 +1,137 @@
+{
+  "list": [
+    {
+      "id": 810001,
+      "canSkip": false,
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "judgement": {
+          "inclusiveValue": 12,
+          "exclusiveValue": 15,
+          "judgementDataList": [
+            {
+              "attributeType": "SCARLET"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 810101,
+      "canSkip": false,
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "judgement": {
+          "inclusiveValue": 12,
+          "exclusiveValue": 15,
+          "judgementDataList": [
+            {
+              "attributeType": "SHAMROCK"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 810602,
+      "canSkip": false,
+      "canDuplicateChoose": true,
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1,
+          "mustIncludeIdList": [
+            8
+          ]
+        },
+        "adderInfo": [
+          {
+            "correctionCase": "SpecificPersonality_10808",
+            "adder": 20
+          }
+        ],
+        "judgement": {
+          "inclusiveValue": 20,
+          "exclusiveValue": 20,
+          "judgementDataList": [
+            {
+              "attributeType": "INDIGO"
+            }
+          ]
+        },
+        "eventResults": [
+          {
+            "eventResult": "FAILURE",
+            "eventResultDataList": [
+              {
+                "resultIndex": 0,
+                "resultCondition": "Prob_1",
+                "nextEventID": 810603
+              }
+            ]
+          }
+        ],
+        "silenceCharacterUniqueIdList": [
+          8
+        ]
+      }
+    },
+    {
+      "id": 810603,
+      "canSkip": false,
+      "canDuplicateChoose": true,
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1,
+          "mustIncludeIdList": [
+            8
+          ]
+        },
+        "adderInfo": [
+          {
+            "correctionCase": "SpecificUnit_Ishmael",
+            "adder": 20
+          }
+        ],
+        "judgement": {
+          "inclusiveValue": 20,
+          "exclusiveValue": 20,
+          "judgementDataList": [
+            {
+              "attributeType": "INDIGO"
+            }
+          ]
+        },
+        "silenceCharacterUniqueIdList": [
+          8
+        ]
+      }
+    },
+    {
+      "id": 810201,
+      "canSkip": false,
+      "personalityEvent": {
+        "participantInfo": {
+          "min": 1,
+          "max": 1
+        },
+        "judgement": {
+          "inclusiveValue": 12,
+          "exclusiveValue": 17,
+          "judgementDataList": [
+            {
+              "attributeType": "INDIGO"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "list": [
+    {
+      "id": "AaCePbBa",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "list": [
+        {
+          "ability": "AaCePbBa",
+          "buffData": {
+            "buffKeyword": "AaCePbBb",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "MentalSystemResultDecreaseAdder",
+          "value": 2
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "AaCePbBb",
+      "buffClass": "VolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "ForceCoinResultTail"
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "AaCePbBi",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "AaCePbBi",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

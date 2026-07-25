@@ -1,0 +1,141 @@
+{
+  "list": [
+    {
+      "id": "ObservedPerson",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 30,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartSecondRound",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "ObservedPerson",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "ObservedPerson"
+        },
+        {
+          "ability":"TakeAtkDamageByEnemyMultiplierByStack",
+          "value": 0.04
+        },
+        {
+          "ability":"AtkDamageMultiplierByStack",
+          "value": 0.02
+        },
+        {
+          "ability": "TakeHpDamageOnSucceedAttackByStack",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "Bloodthirst",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -35
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "A1c971a",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "A1c971a"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "A1c971b",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "A1c971b"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "A1c971c",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "A1c971c"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "A1c971d",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "A1c971d"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "A1c971e",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "A1c971e"
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "A1c971f",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ],
+      "categoryKeywordList": []
+    }
+  ]
+}

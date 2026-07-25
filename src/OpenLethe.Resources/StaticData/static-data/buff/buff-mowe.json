@@ -1,0 +1,145 @@
+{
+  "list": [
+    {
+      "id": "KeptBlood",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 10,
+      "enemyImportanceLevel" : 3,
+      "list": [
+        {
+          "ability": "KeptBloodLoseStackAbility",
+          "value": 0.05
+        },
+        {
+          "ability": "KeptBloodHealAbility",
+          "value": 0.01
+        }
+      ]
+    },
+    {
+      "id": "BloodyCrave",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 1,
+      "enemyImportanceLevel" : 2,
+      "list": [
+        {
+          "ability": "GiveBuffAfterGettingBuff",
+          "buffData": {
+            "buffKeyword": "ParryingResultUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffAfterGettingBuff",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "BloodyCraveGiveBuffOnSucceedAbility",
+          "buffData": {
+            "buffKeyword": "ParryingResultUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "BloodyCraveGiveBuffOnSucceedAbility",
+          "buffData": {
+            "buffKeyword": "AttackDmgUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "GiveBuffOnSALimitPerSkill",
+          "buffData": {
+            "buffKeyword": "KeptBlood",
+            "target": "AbnormalitySelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "BloodyCraveGiveBuffOnFailedAbility",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "BloodyCraveGiveBuffOnFailedAbility",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "BloodyCraveGiveBuffOnFailedAbility",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 4,
+            "turn": 0,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "HardenedBlood",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "HardenedBlood"
+        }
+      ]
+    },
+    {
+      "id": "BloodArmorCasting",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "BloodArmorCasting",
+          "value": 1
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

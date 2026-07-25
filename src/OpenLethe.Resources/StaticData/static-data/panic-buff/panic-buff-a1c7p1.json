@@ -1,0 +1,147 @@
+{
+  "list": [
+    {
+      "id": "FAMINEBLOOD",
+      "buffA": {
+        "id": "FamineBlood_LowMorale",
+        "iconId": "Acclamation_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Binding",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "FamineBloodLowMorale"
+          }
+        ]
+      },
+      "buffB": {
+        "id": "FamineBlood_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Binding",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Enhancement",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 4,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "DUELLO",
+      "buffA": {
+        "id": "Duello_LowMorale",
+        "iconId": "Acclamation_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnLoseDuelWithLimitCount3",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 3,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "MinSpeedAdder",
+            "buffData": {
+              "value": -1
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Duello_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "AttackUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 4,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnLoseDuelWithLimitCount6",
+            "buffData": {
+              "buffKeyword": "DefenseDown",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 5,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "MinSpeedAdder",
+            "buffData": {
+              "value": -1
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

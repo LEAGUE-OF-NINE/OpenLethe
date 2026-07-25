@@ -1,0 +1,38 @@
+{
+  "list": [
+    {
+      "id": "AaCeSeBa",
+      "buffClass": "BuffClassAaCeSeBa",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AaCeSeBa"
+        }
+      ]
+    },
+    {
+      "id": "AaCeSeBb",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "IfAbnormalityAllPartsOrSelf",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AaCeSeBb"
+        }
+      ]
+    }
+  ]
+}

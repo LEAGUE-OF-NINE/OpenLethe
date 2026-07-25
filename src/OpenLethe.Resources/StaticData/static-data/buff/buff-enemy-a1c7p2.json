@@ -1,0 +1,262 @@
+{
+  "list": [
+    {
+      "id": "BloomingThorns",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "BloomingThornsEffect",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloomingThorns_2nd",
+      "subIdList": [ "BloomingThorns" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 3
+          }
+        },
+        {
+          "ability": "BloomingThornsEffect",
+          "value": 2
+        },
+        {
+          "ability": "LacerationStackAndTurnAdder",
+          "value": 1
+        },
+        {
+          "ability": "CoinScaleAdderIfBloodDinnerUsage",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "BloomingThorns_3rd",
+      "subIdList": [ "BloomingThorns" ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 5
+          }
+        },
+        {
+          "ability": "BloomingThornsEffect",
+          "value": 3
+        },
+        {
+          "ability": "LacerationStackAndTurnAdder",
+          "value": 2
+        },
+        {
+          "ability": "CoinScaleAdderIfBloodDinnerUsage",
+          "value": 2
+        },
+        {
+          "ability": "AttackDmgUpIfBloodDinnerUsage",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": "FestivalFever",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStartDivideByStack",
+          "buffData": {
+            "buffKeyword": "AttackUp",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "IncompleteParade",
+      "buffClass": "CumulativeStackReportBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 50,
+      "list": [
+        {
+          "ability": "IncompleteParade",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "BloodyHand",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 10,
+      "list": [
+        {
+          "ability": "BloodyHand"
+        }
+      ]
+    },
+    {
+      "id": "StarvingDolcineaServant",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -15
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "StarvingDolcineaOne",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -35
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "StarvingPriestOne",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "DefaultLevelAdder",
+          "value": -15
+        }
+      ],
+      "categoryKeywordList": [
+        "IGNORE_CHECED_CORRECTION_EXCLUSION"
+      ]
+    },
+    {
+      "id": "HonorableDuel_Don",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RemoveBreakSectionsOnRoundStart"
+        },
+        {
+          "ability": "MaxHpAdder",
+          "value": 1425
+        },
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Agility",
+            "target": "Self",
+            "stack": 5,
+            "turn": 0,
+            "activeRound": 1
+          }
+        },
+        {
+          "ability": "FixMentalLowerLimit",
+          "value": 45
+        },
+        {
+          "ability": "AtkSkillPowerResultAdderAsStack",
+          "value": 15
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "HonorableDuel_Knight",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnZero": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "RemoveBreakSectionsOnRoundStart"
+        },
+        {
+          "ability": "FixMentalLowerLimit",
+          "value": 45
+        }
+      ],
+      "categoryKeywordList": []
+    },
+    {
+      "id": "UnstoppableFunny",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "destroyableOnZero": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "UnstoppableFunny"
+        }
+      ]
+    }
+  ]
+}

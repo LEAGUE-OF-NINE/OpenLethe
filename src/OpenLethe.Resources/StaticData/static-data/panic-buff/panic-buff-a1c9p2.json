@@ -1,0 +1,175 @@
+{
+  "list": [
+    {
+      "id": "VESPA",
+      "buffA": {
+        "id": "Vespa_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "PenetrateResultUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "MentalIncreaseDown",
+              "target": "Self",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "Vespa_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "PenetrateResultUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "PenetrateDamageUp",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "MentalIncreaseDown",
+              "target": "Self",
+              "stack": 2,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "BLINDFAITH",
+      "buffA": {
+        "id": "BlindFaith_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierViaBuffCheck",
+            "buffData": {
+              "buffKeyword": "IndexPrescriptTargetToPersonality",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            },
+            "value": 0.2
+          },
+          {
+            "ability": "TakeAtkDamageMultiplierIfHasNotBuff",
+            "buffData": {
+              "buffKeyword": "IndexPrescriptTargetToPersonality",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            },
+            "value": 0.1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "BlindFaith_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "AtkDamageMultiplierViaBuffCheck",
+            "buffData": {
+              "buffKeyword": "IndexPrescriptTargetToPersonality",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            },
+            "value": 0.3
+          },
+          {
+            "ability": "TakeAtkDamageMultiplierIfHasNotBuff",
+            "buffData": {
+              "buffKeyword": "IndexPrescriptTargetToPersonality",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            },
+            "value": 0.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "SCAR_BY_GONE_DAYS",
+      "buffA": {
+        "id": "ScarBygoneDays_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveAttackAndTakeDamageMultiplierByRyoshu",
+            "value": 0.1
+          }
+        ]
+      },
+      "buffB": {
+        "id": "ScarBygoneDays_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveAttackAndTakeDamageMultiplierByRyoshu",
+            "value": 0.2
+          }
+        ]
+      }
+    }    
+  ]
+}

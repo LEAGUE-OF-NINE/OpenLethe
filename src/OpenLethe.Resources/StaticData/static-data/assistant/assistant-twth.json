@@ -1,0 +1,158 @@
+{
+  "list": [
+    {
+      "id": 400037,
+      "appearance": "400037_MiddleFinger_discipleAllyAppearance",
+      "unitKeywordList": [ "SMALL", "FINGER_CANCELED" ],
+      "associationList": [ "MIDDLE_FINGER_CANCELED", "SPIDER_HOUSE_CANCELED", "LIMBUS_COMPANY_LCE_UNSETTLED" ],
+      "level": 65,
+      "useUnlock": true,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "hp": {
+        "defaultStat": 82,
+        "incrementByLevel": 3.8
+      },
+      "defCorrection": 0,
+      "minSpeedList": [
+        3
+      ],
+      "maxSpeedList": [
+        5
+      ],
+      "patternID": "400037",
+      "unitScriptID": "400037",
+      "breakSection": {
+        "sectionList": [
+          30
+        ]
+      },
+      "mp": 0,
+      "lowMorale": -20,
+      "panic": -45,
+      "panicType": 1076,
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyMp10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAlly5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnLoseDuelAsParryingCountMultiply5AndPlus10Percent"
+              }
+            ]
+          }
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 1
+          },
+          {
+            "type": "PENETRATE",
+            "value": 1.25
+          },
+          {
+            "type": "HIT",
+            "value": 1
+          }
+        ],
+        "attributeResistList": [
+          {
+            "type": "CRIMSON",
+            "value": 1
+          },
+          {
+            "type": "SCARLET",
+            "value": 1
+          },
+          {
+            "type": "AMBER",
+            "value": 1
+          },
+          {
+            "type": "SHAMROCK",
+            "value": 1
+          },
+          {
+            "type": "AZURE",
+            "value": 1
+          },
+          {
+            "type": "INDIGO",
+            "value": 1
+          },
+          {
+            "type": "VIOLET",
+            "value": 1
+          },
+          {
+            "type": "WHITE",
+            "value": 2
+          },
+          {
+            "type": "BLACK",
+            "value": 2
+          }
+        ]
+      },
+      "startActionSlotNumList": [
+        1
+      ],
+      "maxActionSlotNum": 1,
+      "attributeList": [
+        {
+          "skillId": 40003701,
+          "number": 0
+        },
+        {
+          "skillId": 40003702,
+          "number": 0
+        },
+        {
+          "skillId": 40003703,
+          "number": 0
+        },
+        {
+          "skillId": 40003704,
+          "number": 0
+        },
+        {
+          "skillId": 40003705,
+          "number": 0
+        },
+        {
+          "skillId": 40003706,
+          "number": 0
+        }
+      ],
+      "patternList": [
+      ],
+      "passiveSet": {
+        "passiveIdList": [
+          40003701,
+          40003702,
+          40003703
+        ]
+      }
+    }
+  ]
+}

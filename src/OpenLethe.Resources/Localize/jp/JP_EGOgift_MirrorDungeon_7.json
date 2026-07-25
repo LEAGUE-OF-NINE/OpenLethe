@@ -1,0 +1,652 @@
+{
+  "dataList": [
+    {
+      "id": 9209,
+      "name": "都市を愛するあなたのための",
+      "desc": "ダメージを受けた味方の体力が30%未満なら、次のターンにその味方が体力を最大値の80%だけ回復し、残りの味方が体力を最大値の40%だけ回復 (戦闘ごとに1回)\n- 最大値を超えて回復した分だけバリアとして付与\n- 当該効果で体力を50以上回復したなら、[AttackUp]3, [DefenseDown]3を得る",
+      "simpleDesc": [
+        {
+          "abilityID": 9209,
+          "simpleDesc": "体力回復"
+        }
+      ]
+    },
+    {
+      "id": 9210,
+      "name": "ミートハンマー",
+      "desc": "[編成4番人格専用効果]\n\n打撃攻撃スキルを2つ以上保有している場合、ターン開始時に[ParryingResultUp]1を得る",
+      "simpleDesc": [
+        {
+          "abilityID": 9210,
+          "simpleDesc": "[ParryingResultUp]を得る"
+        }
+      ]
+    },
+    {
+      "id": 19210,
+      "name": "ミートハンマー+",
+      "desc": "[編成4番人格専用効果]\n\n打撃攻撃スキルを2つ以上保有している場合、ターン開始時に[ParryingResultUp]<style=\"upgradeHighlight\">2</style>を得る",
+      "simpleDesc": [
+        {
+          "abilityID": 19210,
+          "simpleDesc": "[ParryingResultUp]を得る"
+        }
+      ]
+    },
+    {
+      "id": 29210,
+      "name": "ミートハンマー++",
+      "desc": "[編成4・<style=\"upgradeHighlight\">5</style>番人格専用効果]\n\n打撃攻撃スキルを2つ以上保有している場合、ターン開始時に[ParryingResultUp]2を得る",
+      "simpleDesc": [
+        {
+          "abilityID": 29210,
+          "simpleDesc": "[ParryingResultUp]を得る"
+        }
+      ]
+    },
+    {
+      "id": 9207,
+      "name": "確率と選択",
+      "desc": "最左端スロットに登録したE.G.Oスキルのダメージ量が、-50%か+150%のどちらかにランダムに適用 (1ターンにつき1回)",
+      "simpleDesc": [
+        {
+          "abilityID": 9207,
+          "simpleDesc": "E.G.Oスキルのダメージ量が増加または減少"
+        }
+      ]
+    },
+    {
+      "id": 9208,
+      "name": "絡まる因縁",
+      "desc": "戦闘開始時、完全共鳴が7以上なら全味方がこのターンの間最終威力 +5 (戦闘ごとに1回)",
+      "simpleDesc": [
+        {
+          "abilityID": 9208,
+          "simpleDesc": "最終威力増加"
+        }
+      ]
+    },
+    {
+      "id": 9211,
+      "name": "暗雲",
+      "desc": "ターン開始時、敵全体の[Sinking]威力と[Sinking]回数の合計が30以上なら、下記の効果を適用\n\n- [Sinking]威力・回数を付与するスキルの最終威力 +1 (特殊沈潜を含む、E.G.Oスキルを除く)\n\n- [Sinking]威力・[Sinking]回数または特殊沈潜を付与する攻撃スキルを保有した人格が6名以上なら、追加で[Sinking]威力・回数を付与するスキルのダメージ量 +20% (特殊沈潜を含む、E.G.Oスキルを除く。待機人員を含む)\n・攻撃対象の精神力が-45なら、追加でダメージ量 +10%\n\n- [Sinking]威力・[Sinking]回数または特殊沈潜を付与する攻撃スキルを保有した人格が10名以上なら、追加で[Sinking]威力・回数を付与する加算コインスキルのコイン威力 +1 (特殊沈潜を含む、E.G.Oスキルを除く。待機人員を含む)\n・減算コインスキルの場合、コイン威力の代わりに基本威力 +(4÷コイン数) (最小1, 小数点切り捨て)",
+      "simpleDesc": [
+        {
+          "abilityID": 9211,
+          "simpleDesc": "沈潜スキルの最終威力増加"
+        },
+        {
+          "abilityID": 92111,
+          "simpleDesc": "沈潜スキルのダメージ量増加"
+        },
+        {
+          "abilityID": 92112,
+          "simpleDesc": "沈潜スキルのコイン/基本威力増加"
+        }
+      ]
+    },
+    {
+      "id": 9212,
+      "name": "全ての悪の終わり",
+      "desc": "編成されたピークォド号所属人格が3人以上の時に発動 (待機人員を含む)\n\n[Laceration]または特殊出血が付与された敵に攻撃スキル的中時、[Breath]回数2増加または[Breath]3を得る (人格別に1ターンにつき3回発動)\n\nスキル的中時にクリティカルが発生したなら、80%の確率で次のターンに[PenetrateResultUp]1を得る (人格別に1ターンにつき2回発動。E.G.Oスキルと反撃を含む)\n- ピークォド号所属人格なら、追加で次のターンに[PlusCoinValueUp]1を得る (人格別に1ターンにつき1回発動)\n\n基本スキルでクリティカル表面的中時、そのコインで付与するマイナス効果の数値が1増加する。(人格別に1ターンにつき1回発動。E.G.Oスキルを除く、反撃を含む)\n\n敵または味方が死亡時、この戦闘の間ピークォド号所属人格が毎ターン[PenetrateResultUp]1, [Protection]1, [CriticalDamageUp]1を得る (戦闘ごとに最大3回発動)\n\nピークォド号所属人格が攻撃を的中させたなら、編成順が最も早いピークォド号所属人格の精神力を7回復 (スキルごとに1回)\n\n味方が敵討伐時、編成順が最も早いピークォド号所属人格の精神力が減少したなら、精神力を15回復。",
+      "simpleDesc": [
+        {
+          "abilityID": 9212,
+          "simpleDesc": "呼吸を得る"
+        },
+        {
+          "abilityID": 92121,
+          "simpleDesc": "クリティカル的中時に一定確率で次のターンに[PenetrateResultUp]を得る、条件を満たした場合は次のターンに[PlusCoinValueUp]を得る、マイナス効果の付与量が増加"
+        },
+        {
+          "abilityID": 92122,
+          "simpleDesc": "[PenetrateResultUp]・[Protection]・[CriticalDamageUp]を得る"
+        },
+        {
+          "abilityID": 92123,
+          "simpleDesc": "精神力を回復"
+        }
+      ]
+    },
+    {
+      "id": 9213,
+      "name": "ミニチュア大観覧車",
+      "desc": "血鬼の全味方の基本スキルのコイン威力 +1, 自分の([BloodDinner_Accumulation] ÷ 10)%だけスキル<noparse>ダメージ量が増加</noparse>\n\nターン終了時、[Laceration]を保有した味方のうち体力が最も少ない人格2名が、体力を最大値の5%だけ回復して次のターン開始時に[SwirlingBloodPersonality]10を得る\n\n敵討伐時、その敵の(本体の体力最大値÷10)だけ[BloodDinner]を生成 (最大50)\n\nターン終了時、このターンに死亡した味方がいるなら、次のターンに全味方が[Enhancement]2を得る\n\n敵が増員される戦闘にて新しい敵が登場すると、戦闘開始時にその敵へ[Laceration]5, [Laceration]回数3を付与。\n味方に<血鬼>がいるなら、敵が増員されるときに全ての敵の[Laceration]を2回発動させて、全ての敵の[Laceration]回数が2減少",
+      "simpleDesc": [
+        {
+          "abilityID": 9213,
+          "simpleDesc": "基本スキルのコイン威力増加"
+        },
+        {
+          "abilityID": 92131,
+          "simpleDesc": "体力を回復し、[SwirlingBloodPersonality]を得る"
+        },
+        {
+          "abilityID": 92132,
+          "simpleDesc": "攻撃威力増加を得る"
+        },
+        {
+          "abilityID": 92133,
+          "simpleDesc": "出血威力、回数付与"
+        }
+      ]
+    },
+    {
+      "id": 9214,
+      "name": "熱せられたハンマー",
+      "desc": "敵に[VibrationIgnition]がある場合、下記の効果を適用\n- 基本スキル的中時、[Combustion]威力1を付与 (スキルごとに最大3回)\n- 基本スキル的中時、[VibrationIgnition]が15以上なら、[Combustion]回数が1増加 (スキルごとに最大2回)\n- [Combustion]3につき、[VibrationExplosion]による混乱区間前進量 +1% (最大15%)",
+      "simpleDesc": [
+        {
+          "abilityID": 9214,
+          "simpleDesc": "火傷を付与"
+        },
+        {
+          "abilityID": 92141,
+          "simpleDesc": "振動爆発ダメージ増加"
+        }
+      ]
+    },
+    {
+      "id": 9215,
+      "name": "赤色のネクタイ",
+      "desc": "[Combustion]威力・[Combustion]回数または特殊火傷を付与するスキル3のマッチ威力 +2, ダメージ量 +30%",
+      "simpleDesc": [
+        {
+          "abilityID": 9215,
+          "simpleDesc": "マッチ威力, ダメージ量増加"
+        }
+      ]
+    },
+    {
+      "id": 9216,
+      "name": "制式服 - リウ協会",
+      "desc": "ターン開始時、[Combustion]威力・[Combustion]回数または特殊火傷を付与する攻撃スキルを保有した人格が5名以上なら、この戦闘の間発動(E.G.Oスキルを除く、待機人員を除く)\n\nリウ協会所属人格が基本攻撃スキルの加算コイン威力 +2 (減算コインスキルの場合、基本威力 +(8÷コイン数) (最小1, 小数点切り捨て))\n\n[Combustion]威力・[Combustion]回数または特殊火傷を付与する、スキル3ではないスキルのダメージ量 +20% (E.G.Oスキルを含む)\n\n[Combustion]威力・[Combustion]回数または特殊火傷を付与するスキル3の加算コイン威力 +1 (減算コインスキルの場合、基本威力 +(4÷コイン数) (最低1, 小数点切り捨て)), ダメージ量 +30%\n- 同じ所属の人格を編成した数だけ、当該所属人格のそのスキルダメージ量が5%増加 (最大20%, 待機人員を含む)\n\nターン終了時、精神力が最も低い味方2名の精神力を8回復\n- 対象の精神力が0以下なら、追加で5回復",
+      "simpleDesc": [
+        {
+          "abilityID": 9216,
+          "simpleDesc": "スキル威力、ダメージ量増加"
+        }
+      ]
+    },
+    {
+      "id": 9217,
+      "name": "誰かの端末機",
+      "desc": "攻撃終了時に[IndexPrescriptTargetToEnemy]が死亡したなら、[IndexPrescriptTargetToEnemy]を倒した味方が次のターンに[AzureResultUp]1を得て生存したランダムな敵1名の[Sinking]回数が3増加 (1ターンにつき1回)\n- [IndexPrescriptTargetToEnemy]を倒した味方が人差し指所属なら、[AzureResultUp]の代わりに次のターンにて[Enhancement]1を得る (1ターンにつき1回)\n\nターン終了時に人差し指所属なら、体力最大値の(保有した[KarmaOfIndexAlly]数値)%だけダメージを受ける\n(この効果で混乱状態にならず、体力が最大値の20%未満に下がらない)\n以降、当該効果でダメージを受けた人格が次のターンに(保有した[KarmaOfIndexAlly]数値÷5)だけ[ResultEnhancement]を得る (最大2)",
+      "simpleDesc": [
+        {
+          "abilityID": 9217,
+          "simpleDesc": "憂鬱威力増加を得る、人差し指所属なら攻撃威力増加を得る"
+        },
+        {
+          "abilityID": 92171,
+          "simpleDesc": "人差し指所属ならダメージを受けて、次のターンに威力増加を得る"
+        }
+      ]
+    },
+    {
+      "id": 9218,
+      "name": "指令の庇護",
+      "desc": "前のターンにて、スキル効果で[Sinking]・[Sinking]回数または特殊沈潜を付与したなら、ターン開始時に[Breath]威力3または[Breath]回数2を得る (人格ごとに1ターンにつき1回)\n\nこの戦闘の間、この効果で[Breath]を累計3回以上得たなら、次のターンから当該囚人のクリティカルダメージ量 +30%",
+      "simpleDesc": [
+        {
+          "abilityID": 9218,
+          "simpleDesc": "呼吸威力、回数を得る"
+        },
+        {
+          "abilityID": 92181,
+          "simpleDesc": "クリティカルダメージ量増加"
+        }
+      ]
+    },
+    {
+      "id": 9219,
+      "name": "万能ツール",
+      "desc": "敵に同じ攻撃タイプのスキルが12回的中したとき、当該攻撃タイプの物理耐性 +0.1 (幻想体の場合は全部位、敵ごとに戦闘につき3回適用。この効果によって耐性が2.0を超過しない)",
+      "simpleDesc": [
+        {
+          "abilityID": 9219,
+          "simpleDesc": "物理耐性弱化"
+        }
+      ]
+    },
+    {
+      "id": 19219,
+      "name": "万能ツール+",
+      "desc": "敵に同じ攻撃タイプのスキルを<style=\"upgradeHighlight\">9回</style>的中したとき、当該攻撃タイプの物理耐性 +0.1 (幻想体の場合は全部位、敵ごとに戦闘につき3回適用。この効果によって耐性が2.0を超過しない)",
+      "simpleDesc": [
+        {
+          "abilityID": 19219,
+          "simpleDesc": "物理耐性弱化"
+        }
+      ]
+    },
+    {
+      "id": 29219,
+      "name": "万能ツール++",
+      "desc": "敵に同じ攻撃タイプのスキルを<style=\"upgradeHighlight\">6回</style>的中したとき、当該攻撃タイプの物理耐性 +0.1 (幻想体の場合は全部位、敵ごとに戦闘につき3回適用。この効果によって耐性が2.0を超過しない)",
+      "simpleDesc": [
+        {
+          "abilityID": 29219,
+          "simpleDesc": "物理耐性弱化"
+        }
+      ]
+    },
+    {
+      "id": 9220,
+      "name": "盗まれたフィクサー雑誌",
+      "desc": "ターン開始時、[HitResultUp]1を得る\n\n嫉妬完全共鳴を発動したなら、戦闘開始時に[HitDamageUp]1を得る\n\n中指所属人格が4名以上いるなら、ステージ開始時にランダムな敵1名へ[RetaliationBook]を付与",
+      "simpleDesc": [
+        {
+          "abilityID": 9220,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9221,
+      "name": "熱線武器",
+      "desc": "嫉妬属性スキルまたは反撃スキル的中時、[Laceration]回数または[Combustion]回数が1増加 (1ターンにつき3回)\n\n戦闘中、敵の[Laceration]回数が1未満になるとき、その敵が保有する[Combustion]回数が2以上なら、[Laceration]回数の代わりに[Combustion]回数が減少 (1ターンにつき3回)",
+      "simpleDesc": [
+        {
+          "abilityID": 9221,
+          "simpleDesc": "出血・火傷回数が増加"
+        },
+        {
+          "abilityID": 92211,
+          "simpleDesc": "火傷回数が減少"
+        }
+      ]
+    },
+    {
+      "id": 9222,
+      "name": "真っ白なキャンバス",
+      "desc": "[Laceration]が15以上ある敵に加算コイン攻撃スキル的中時、精神力が3回復 (人格ごとに1ターンにつき1回)\n- 自分あるいは対象のマイナス効果が3種以上なら、代わりに精神力が6回復",
+      "simpleDesc": [
+        {
+          "abilityID": 9222,
+          "simpleDesc": "精神力を回復"
+        }
+      ]
+    },
+    {
+      "id": 9223,
+      "name": "凡作",
+      "desc": "薬指所属人格が[Inspire]を得る\n\n[Inspire]を保有した薬指所属人格の色欲属性、または斬撃属性スキルが的中した敵に、次のターンにて[ObjectOfExploration]を付与\n- 敵が[ObjectOfExploration]を既に保有しているとき、[ObjectOfExploration]が[PaintingMaterial]に入れ替わる\n\n[PaintingMaterial]がある対象を[Inspire]を保有する薬指所属人格が倒したなら、次のターンに[PlusCoinValueUp]1を得る (1ターンにつき1回)",
+      "simpleDesc": [
+        {
+          "abilityID": 9223,
+          "simpleDesc": "[ObjectOfExploration]を付与"
+        },
+        {
+          "abilityID": 92231,
+          "simpleDesc": "[PlusCoinValueUp]を得る"
+        }
+      ]
+    },
+    {
+      "id": 9224,
+      "name": "秀作",
+      "desc": "薬指所属人格が[Inspire]を得る\n\n[Inspire]を保有した薬指所属人格の攻撃スキルが的中した敵に[ObjectOfExploration]を付与\n- 敵が[ObjectOfExploration]を既に保有しているとき、[ObjectOfExploration]が[PaintingMaterial]に入れ替わる\n\n[PaintingMaterial]がある対象を[Inspire]を保有する薬指所属人格が倒したなら、\nその薬指所属人格が[Inspire]を失って、[GreatAesthetics]を得る\n\n[Laceration]が15以上ある敵に加算コインの攻撃スキル的中時、精神力が3回復 (人格別に1ターンにつき1回)\n- 自分または対象にマイナス効果が3種以上あるなら、代わりに精神力を6回復",
+      "simpleDesc": [
+        {
+          "abilityID": 9224,
+          "simpleDesc": "[Inspire]を得る"
+        },
+        {
+          "abilityID": 92241,
+          "simpleDesc": "[ObjectOfExploration]を付与"
+        },
+        {
+          "abilityID": 92242,
+          "simpleDesc": "[GreatAesthetics]を得る"
+        }
+      ]
+    },
+    {
+      "id": 9225,
+      "name": "蜘蛛の糸",
+      "desc": "守備スキル使用時、次のターンのスキル3ダメージ量 +10% (1ターンにつき1回)",
+      "simpleDesc": [
+        {
+          "abilityID": 9225,
+          "simpleDesc": "スキル3のダメージ量増加"
+        }
+      ]
+    },
+    {
+      "id": 19225,
+      "name": "蜘蛛の糸+",
+      "desc": "守備スキル使用時、次のターンのスキル3ダメージ量 <style=\"upgradeHighlight\">+15%</style> (1ターンにつき1回)",
+      "simpleDesc": [
+        {
+          "abilityID": 19225,
+          "simpleDesc": "スキル3のダメージ量増加"
+        }
+      ]
+    },
+    {
+      "id": 29225,
+      "name": "蜘蛛の糸++",
+      "desc": "守備スキル使用時、次のターンのスキル3ダメージ量 <style=\"upgradeHighlight\">+20%</style> (1ターンにつき1回)",
+      "simpleDesc": [
+        {
+          "abilityID": 29225,
+          "simpleDesc": "スキル3のダメージ量増加"
+        }
+      ]
+    },
+    {
+      "id": 9226,
+      "name": "誰かの蒼い刀",
+      "desc": "戦闘開始時にバリアがあるなら、[CriticalDamageUp]1を得る\n味方のスキルがクリティカル的中時、次のターンにその味方が([Breath]の数値÷5)だけバリアを得る (最大15)",
+      "simpleDesc": [
+        {
+          "abilityID": 9226,
+          "simpleDesc": "[CriticalDamageUp]を得る"
+        },
+        {
+          "abilityID": 92261,
+          "simpleDesc": "バリアを得る"
+        }
+      ]
+    },
+    {
+      "id": 9227,
+      "name": "鬼気の宿る環刀",
+      "desc": "戦闘を6回勝利するとき、当該E.G.Oギフトが変わる\n{0}\n\n全味方の被ダメージ量が20%増加、マッチ威力 -1",
+      "simpleDesc": [
+        {
+          "abilityID": 9227,
+          "simpleDesc": "被ダメージ量増加、マッチ威力減少"
+        }
+      ]
+    },
+    {
+      "id": 9228,
+      "name": "身剣合一",
+      "desc": "全味方の与ダメージ量が25%増加",
+      "simpleDesc": [
+        {
+          "abilityID": 9228,
+          "simpleDesc": "与ダメージ量増加"
+        }
+      ]
+    },
+    {
+      "id": 9229,
+      "name": "色褪せたガントレット",
+      "desc": "戦闘を6回勝利するとき、当該E.G.Oギフトが変わる\n{0}\n\n全味方の速度の最小・最大値が5減少 (1未満に下がらない)",
+      "simpleDesc": [
+        {
+          "abilityID": 9229,
+          "simpleDesc": "速度が減少"
+        }
+      ]
+    },
+    {
+      "id": 9230,
+      "name": "ゴールデンアワー",
+      "desc": "全味方の速度の最小・最大値が3増加\n自分より速度が4以上低い対象へのスキルの最終威力 +2\n敵に攻撃的中時、次のターンに束縛1を付与 (1ターンにつき4回)",
+      "simpleDesc": [
+        {
+          "abilityID": 9230,
+          "simpleDesc": "速度増加、最終威力増加"
+        }
+      ]
+    },
+    {
+      "id": 9231,
+      "name": "あの日の記録",
+      "desc": "戦闘を6回勝利するとき、当該E.G.Oギフトが変わる\n{0}\n\nターン開始時、混乱状態ではないランダムな味方1名に強制混乱が発生",
+      "simpleDesc": [
+        {
+          "abilityID": 9231,
+          "simpleDesc": "混乱"
+        }
+      ]
+    },
+    {
+      "id": 9232,
+      "name": "可能性",
+      "desc": "ダメージによる混乱状態になったとき、混乱状態を解除。体力最大値の50%だけバリアを得て、自分に付与された解除可能なマイナス効果のうちランダムに1つを除去\n(強制混乱を除く、戦闘ごとに2回発動)\n上記の効果発動後、次のターン開始時に呼吸威力20を得る (1ターンにつき1回)",
+      "simpleDesc": [
+        {
+          "abilityID": 9232,
+          "simpleDesc": "混乱状態を解除、マイナス効果を除去"
+        }
+      ]
+    },
+    {
+      "id": 9242,
+      "name": "ボンちゃん人形",
+      "desc": "階層クリア時、保有コストが1.5倍ずつ増加する\n\n- 保有したギフト個数1つにつき、ダメージ量が0.5%増加 (現在{0}%, 最大100%)\n- 保有したギフト個数20につき、ターン開始時に[Enhancement]1を得る (現在{1}獲得、最大10)",
+      "simpleDesc": [
+        {
+          "abilityID": 9242,
+          "simpleDesc": "ダメージ量増加"
+        },
+        {
+          "abilityID": 92421,
+          "simpleDesc": "[Enhancement]を得る"
+        }
+      ]
+    },
+    {
+      "id": 9256,
+      "name": "不完全な予知眼",
+      "desc": "味方が使用するスキルのコイン威力 +(8 ÷ コイン数) (加算コインの場合), 最終威力 +(8 ÷ コイン数) (減算コインの場合) (最小増加値1, 小数点切り捨て、E.G.Oスキルを含む)\n\n[編成1番人格専用効果]\n- マッチ進行時、マッチ一発ごとに自分が[LookingFutureMirror]1を得る。対象に[Vibration]と[Combustion]2を付与 (スキルごとに最大10回)\n- マッチ勝利時、メインターゲットに[VibrationIgnition]へ[Switch_Vibration]して、[VibrationExplosion]。対象の[Vibration]回数が1減少\n- スキル的中時、対象が混乱状態なら与ダメージ量 +30%\n- クリティカル的中時、[VibrationExplosion]。対象の[Vibration]回数が1減少 (スキルごとに2回)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9257,
+      "name": "遺された神託",
+      "desc": "味方が使用するスキルのコイン威力 +(8 ÷ コイン数) (加算コインの場合), 最終威力 +(8 ÷ コイン数) (減算コインの場合) (最小増加値1, 小数点切り捨て、E.G.Oスキルを含む)\n\nマッチ進行時、対象の[Sinking]と自分の[Breath]の合計30につき、マッチ威力 +1 (最大5)\n\n[SuperCoin]のダメージ量 +25%\n[SuperCoin]による被ダメージ量 -25%\n\n[人差し指所属人格専用効果]\n- 戦場に初めて出現するとき、[BlessingOfIndexPrescriptAlly]6を得る\n・[UnlockBuff_Base]を獲得可能な人格の場合、追加で[UnlockBuffAlly_2]を得る\n- [IndexPrescriptTargetToEnemy]を保有した敵への与ダメージ量 +50%",
+      "simpleDesc": [
+        {
+          "abilityID": 98270,
+          "simpleDesc": "味方のコイン威力または最終威力が大幅増加"
+        },
+        {
+          "abilityID": 9257,
+          "simpleDesc": "対象の沈潜と自分の呼吸の合計に比例してマッチ威力が増加"
+        },
+        {
+          "abilityID": 92571,
+          "simpleDesc": "破壊不能コインのダメージ量 +25%"
+        },
+        {
+          "abilityID": 92572,
+          "simpleDesc": "指令対象を保有した敵への、与ダメージ量 +50%"
+        }
+      ]
+    },
+    {
+      "id": 9258,
+      "name": "仕返し帳簿 : 番外",
+      "desc": "味方が使用するスキルのコイン威力 +(8 ÷ コイン数) (加算コインの場合), 最終威力 +(8 ÷ コイン数) (減算コインの場合) (最小増加値1, 小数点切り捨て、E.G.Oスキルを含む)\n\nステージ開始時、戦場にいる中指所属の味方1名につき、全味方がバリアを50ずつ得る (待機人員を含まない、この効果で獲得したバリアはターン終了時にも消えない)\n\n中指所属の味方が嫉妬属性または打撃属性の基本スキルの攻撃終了時に与えたスキルダメージ量の10%だけ体力を回復\n- 反撃スキルで発動した場合、代わりに与えたスキルダメージ量の20%だけ体力を回復\n- 超過した体力回復量はバリアとして獲得する (この効果で獲得したバリアはターン終了時にも消えない)\n\n戦闘開始時、装着した守備スキル数だけこのターンの間、中指所属の味方の攻撃レベルが増加 (最大12)\n- 装着した守備スキル数が6以上なら、嫉妬属性基本スキルのダメージ量 +30%, 超過した守備スキルの数だけ追加で +10% (最大追加増加量60%)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9259,
+      "name": "作品になったマエストロリング",
+      "desc": "味方が使用するスキルのコイン威力 +(8 ÷ コイン数) (加算コインの場合), 最終威力 +(8 ÷ コイン数) (減算コインの場合) (最小増加値1, 小数点切り捨て、E.G.Oスキルを含む)\n\n薬指所属人格が基本攻撃スキル使用時、対象に付与されたマイナス効果の種類数によって当該スキルに下記の効果を適用\n- 2～ : マッチ威力 +2\n- 4～ : ダメージ量 +15%\n- 6～ : コイン効果で付与するマイナス効果の威力、回数付与値 +1\n- 7～ : 基本威力 +2\n- 8～ : ダメージ量 +35%",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9250,
+      "name": "廉価版K社アンプル",
+      "desc": "[編成順1番人格専用効果]\nステージ開始時に、[KAmpouleMirror]1を得る",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9251,
+      "name": "燃える運命",
+      "desc": "[Combustion]威力の最大値 +30\n\n[Combustion]を保有した対象とマッチ勝利時、対象の[Combustion]を1回発動し、対象の[Combustion]回数が1減少 (人格ごとに1回)\n\n[Combustion]を保有した敵へスキル使用時、メインターゲットの([Combustion]威力 ÷ 10)だけ、そのスキルの攻撃レベルが増加 (最大8)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9252,
+      "name": "釘と金鎚",
+      "desc": "N社の狂信者所属なら、基本スキルの基本威力 +3\n\nN社の狂信者所属人格が[AssemblePersonality]を得るとき、全てのN社の狂信者所属人格も当該数値だけ[AssemblePersonality]を得る (1ターンにつき1回、自分を含む)\n- 色欲完全共鳴があるなら、付与量が3倍に増加\n\nステージ開始時、全ての敵へ[NailPersonality]2を付与\n\nN社の狂信者所属人格が[NailPersonality]を持つ対象と基本スキルでマッチ進行時、[Laceration]3を付与 (スキルごとに1回)\n\nN社の狂信者所属人格が[NailPersonality]を持つ対象への基本スキルによる与ダメージ量 +100%",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9253,
+      "name": "回転木馬の模型",
+      "desc": "最初のターン開始時、[BloodDinner]300を得る\n[BloodDinner]が[Laceration]効果で生成されるとき、2倍になる\n[BloodDinner]を消耗するスキル使用時、当該スキルで消耗した値だけ攻撃終了時に[BloodDinner]を追加で消耗する\n\n[ラ・マンチャランド人格専用効果]\nラ・マンチャランド所属人格が戦闘に参加時、人格によって下記の効果を適用\n- ラ・マンチャランド室長 ドンキホーテ: [BloodArmorPersonalityFirst]15を得る\n- ラ・マンチャランドの姫 ロージャ: [BloomingThornsRodionFirst]15を得る\n- ラ・マンチャランド神父 グレゴール: [BloodyHandGregFirst]15を得る\n- ラ・マンチャランド理髪師 ウーティス: [BloodScissorPersonalityFirst]15を得る\n- ラ・マンチャランドの王子 ムルソー: [BloodArmorMeursault]3を得る\n\n[ラ・マンチャランド室長 ドンキホーテ専用効果]\n- 自分を除くラ・マンチャランド所属人格1名につき、ラ・マンチャランド室長 ドンキホーテの基本スキル最終威力 +1, 与ダメージ量 +30% (最大4, 120%, 待機人員を含む、死亡人員を含む、未編成人格を除く)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9254,
+      "name": "もう一杯！",
+      "desc": "[Vibration]回数や[Charge]回数を消耗する基本スキルのダメージ量 +20% (特殊<noparse>充電</noparse>を含む、威力固定の特殊<noparse>充電</noparse>を除く)\n\n基本スキルで[Vibration]回数か[Charge]回数を消耗したなら、スキル終了時に消耗した回数の半分を返還 (最小1, 小数点切り捨て、特殊<noparse>充電</noparse>を含む、威力固定の特殊<noparse>充電</noparse>を除く)",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9255,
+      "name": "拍手ぺちぺち！",
+      "desc": "敵に[Vibration]威力、[Vibration]回数または特殊振動を付与する基本スキルでマッチ勝利時、下記の特殊<noparse>振動</noparse>のうちランダムな特殊<noparse>振動</noparse>へ[FusionVibration] (1ターンにつき最大1回)\n- [VibrationIgnition]\n- [VibrationBleeding]\n- [VibrationEcho]\n- [VibrationCollapse]\n- [VibrationChainPersonality]",
+      "simpleDesc": [
+        {}
+      ]
+    },
+    {
+      "id": 9273,
+      "name": "赤くもつれた蜘蛛の巣",
+      "desc": "死亡した味方人格1名につき、全味方の攻撃レベル1、防御レベル1増加 (最大10)\n\n蜘蛛の巣の刀 良秀がデッキに編成されているなら、蜘蛛の巣の刀 良秀以外の人格が死亡した場合、戦闘終了後に復活が発動しない (ボス階層、隠しノードクリア)\n\n[編成1番人格専用効果]\n\nターン開始時、自分を除く全味方が死亡した場合、[RedButterfly]を得る\n\n[蜘蛛の巣の刀 良秀専用効果]\n\nステージに初登場時、死亡した蜘蛛の巣所属味方人格1名につき、[PhantomIncisionTotalID]5を得る\n死亡した蜘蛛の巣所属味方人格2名につき、最終威力 +1, コイン威力 +1, 与ダメージ量 +10% (それぞれ最大3, 30%)\n蜘蛛の巣の刀 良秀以外に生存している味方がいないなら、全選択肢での補正 +12",
+      "simpleDesc": [
+        {
+          "abilityID": 9273,
+          "simpleDesc": "攻撃レベル、防御レベルが増加"
+        },
+        {
+          "abilityID": 92731,
+          "simpleDesc": "[RedButterfly]を得る"
+        },
+        {
+          "abilityID": 92732,
+          "simpleDesc": "[PhantomIncisionTotalID]を得る"
+        },
+        {
+          "abilityID": 92733,
+          "simpleDesc": "最終威力、コイン威力、与ダメージ量が増加"
+        }
+      ]
+    },
+    {
+      "id": 9274,
+      "name": "投げ縄",
+      "desc": "敵にクリティカル的中時、次のターンに[Binding]1を付与 (1ターンにつき2回)\n[Binding]を保有した敵にスキル的中時、[Breath]1を得る (人格ごとに1ターンにつき2回)\n\nターン開始時、[Laceration]を保有した全ての敵が自身の[Binding]数値だけ[AttackDown]を得る (最大5)\n\nターン開始時、全ての敵(集中戦闘の場合は部位で判定)に[Binding]が付与されているなら、全味方が[Breath]3を得る",
+      "simpleDesc": [
+        {
+          "abilityID": 9274,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9275,
+      "name": "N社固定チームの鞄",
+      "desc": "[Laceration]威力・[Laceration]回数または特殊出血を付与するスキルで敵に的中時、[NailPersonality]1を付与 (スキルごとに1回)\n[NailPersonality]を保有した敵に[VibrationExplosion]を適用したなら、次のターンに[Binding]1を付与 (1ターンにつき3回)",
+      "simpleDesc": [
+        {
+          "abilityID": 9275,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9276,
+      "name": "白磁の硯滴",
+      "desc": "味方人格が[SupportProtect]を得るとき、[AttackDmgUp]2, [Protection]2を得る\n\n[編成1番人格専用効果]\nターン終了時、次のターンに[Agility]2を得る\n人格の速度が敵より速ければ、速度差1につきダメージ量 +3% (最大30%)",
+      "simpleDesc": [
+        {
+          "abilityID": 9276,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9277,
+      "name": "菖蒲剣",
+      "desc": "味方がこのターンに敵から攻撃を受けなかったなら、次のターンに[SlashDamageUp]1を得る\n味方が敵から攻撃を受けた場合、[Breath]を4得て、このターンと次のターンに[CriticalDamageUp]1を得る (人格ごとに1ターンにつき1回)\n- 剣契所属人格なら、このギフトの効果が2倍で適用される",
+      "simpleDesc": [
+        {
+          "abilityID": 9277,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9278,
+      "name": "砕けた木製刑具",
+      "desc": "斬撃スキルを使用して敵に的中時、次のターンに[DefenseDown]1を付与 (スキルごとに2回)\n味方が攻撃する敵より速度が速ければ、速度差1につき基本攻撃スキルのダメージ量 +3% (最大12%)\n- 敵が[Binding]状態なら、ダメージ量増加量と最大値が2倍で適用される",
+      "simpleDesc": [
+        {
+          "abilityID": 9278,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9279,
+      "name": "無文の鍔",
+      "desc": "[Breath]1につき、斬撃スキルのダメージ量 +1% (最大15%)",
+      "simpleDesc": [
+        {
+          "abilityID": 9279,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9280,
+      "name": "本国剣譜",
+      "desc": "敵の斬撃耐性が1.5以下の場合、斬撃耐性 +0.3\n斬撃スキルの攻撃レベル +2\n斬撃耐性が弱点(耐性1.0超過、混乱状態を除く)である敵を攻撃時、斬撃ダメージ量 +(5 + 対象の斬撃耐性 × 10)% (最大25%)\n\n[Breath]1につき、斬撃スキルのダメージ量 +1.5% (最大30%)\n\n剣契所属人格を除く、編成順が最も早いS社所属人格1名を剣契所属として扱い、毎ターン[BongukGiftEnhance]を付与\n\nターン開始時、剣契所属人格が3名以上なら発動 (出撃人員を基準とする)\n- 戦闘開始時、憤怒・傲慢スキルを装着した剣契所属の味方人格へ[BongukGiftEnhance]1を付与",
+      "simpleDesc": [
+        {
+          "abilityID": 9280,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9282,
+      "name": "翼の形をした蝋燭",
+      "desc": "ターン開始時、<noparse>夜明事務所</noparse>所属人格が3名以上のときに発動 (編成人員を基準とする)\n最初のターンなら、全味方に[DawnLight]2を付与\n<noparse>夜明事務所</noparse>フィクサー シンクレアが戦闘開始時に精神力を10回復し、「不安定な自我の殻」パッシブ効果によって不安定E.G.O::蜜蝋の翼状態になる精神力条件が25へ減少\n\n[<noparse>夜明事務所</noparse>所属人格専用効果]\n基本スキルの攻撃的中時、対象へ[Combustion]2, [Vibration]2を付与 (スキルごとに1回)\n<noparse>夜明事務所</noparse>所属人格は[Combustion]・[Vibration]を付与する人格として扱われる\n- この効果により、基本スキルが[Combustion]・[Vibration]を付与するスキルとして扱われる\nステージ開始時、<noparse>夜明事務所</noparse>フィクサー ファウスト人格が戦闘に出場しているなら、[Firstlight]1を付与",
+      "simpleDesc": [
+        {
+          "abilityID": 9281,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9283,
+      "name": "上納されたシガー",
+      "desc": "ターン開始時、親指所属人格が3名以上のときに発動 (出撃人員を基準とする)\n親指所属人格がターン開始時に[PlusCoinValueUp]1, [AttackDmgUp]2を得る\n親指所属人格1名につき、親指所属人格が[AttackUp]1を得る (最大4)\n対象が保有する[VibrationIgnition]1につきダメージ量 +1% (最大20%)\n- [Bullet]を消耗するスキルなら、追加で +1% (最大20%)\n- 親指所属なら、追加で +1% (最大20%)\n\n自分のスキル効果で[VibrationExplosion]が発動したなら、次のターンに[AttackUp]2を得る (1ターンにつき3回)\n\n蜘蛛の巣 親指の親方ロージャのスキル3攻撃終了時、蜘蛛の巣 親指の子方ヒースクリフへ[EvolvingManual]1を付与",
+      "simpleDesc": [
+        {
+          "abilityID": 9282,
+          "simpleDesc": ""
+        }
+      ]
+    }
+  ]
+}

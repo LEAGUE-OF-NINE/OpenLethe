@@ -1,0 +1,3955 @@
+{
+    "list": [
+        {
+            "id": 9017301,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "SLASH",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultAdderViaOnUseBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackHead",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017302,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "VIOLET",
+                    "atkType": "SLASH",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultUpSelfOnUseOrCondition_Self_FestivalFever5_Target_Laceration6_adder1_limit2"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUse",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 15,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackIfHasStack_Laceration6",
+                                    "buffData": {
+                                        "buffKeyword": "HardenedBlood",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloomingThorns",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017303,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUse",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 15,
+                                "turn": 2,
+                                "activeRound": 0,
+                                "value": 2
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self"
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "target": "Self"
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax20",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.025
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "target": "Self",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017304,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "NONE",
+                    "defType": "EVADE",
+                    "skillMotion": "Default",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 2,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultAdderViaOnUseBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "stack": 5,
+                                "turn": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "GiveBuffOnBattleStart",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 2,
+                                "turn": 0
+                            }
+                        },
+                        {
+                            "scriptName": "LoseBuffOnFailedEvade",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 2,
+                                "turn": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 7,
+                            "abilityScriptList": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017401,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "SLASH",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultAdderViaOnUseBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 3,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackHead",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017402,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "VIOLET",
+                    "atkType": "SLASH",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultUpSelfOnUseOrCondition_Self_FestivalFever5_Target_Laceration6_adder1_limit2"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUse",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 15,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackIfHasStack_Laceration6",
+                                    "buffData": {
+                                        "buffKeyword": "HardenedBlood",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloomingThorns",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017403,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUse",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 15,
+                                "turn": 2,
+                                "activeRound": 0,
+                                "value": 2
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self"
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "target": "Self"
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax20",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.025
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "target": "Self",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017404,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "NONE",
+                    "defType": "EVADE",
+                    "skillMotion": "Default",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 2,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultAdderViaOnUseBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "stack": 5,
+                                "turn": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "GiveBuffOnBattleStart",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 2,
+                                "turn": 0
+                            }
+                        },
+                        {
+                            "scriptName": "LoseBuffOnFailedEvade",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 2,
+                                "turn": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 7,
+                            "abilityScriptList": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017501,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultAdderViaOnUseBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 2
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackHead",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017502,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "VIOLET",
+                    "atkType": "SLASH",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultUpSelfOnUseOrCondition_Self_FestivalFever5_Target_Laceration6_adder1_limit3"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUseIfHasNoBloodDinner_20",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 20,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "UseBloodDinnerOnEndSkill[20:20:20]"
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackDevideByStackWithLimit2_Laceration6",
+                                    "buffData": {
+                                        "buffKeyword": "HardenedBlood",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "grade": 2,
+                            "color": "GREY",
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "SuperCoin"
+                                  },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackAfterWinDuel",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 3,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GetBloomingThornsRandomOnSucceedAttack_min2_max3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017503,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderOnStartTurnViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "ParryingPowerResultAdderOnStartTurnSelfViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 6,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 3,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackAfterWinDuel",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017504,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S4",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 5,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUseIfHasNoBloodDinner_40",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 20,
+                                "turn": 2,
+                                "activeRound": 0,
+                                "value": 2
+                            }
+                        },
+                        {
+                            "scriptName": "UseBloodDinnerOnEndSkill[40:40:40]"
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self"
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "target": "Self"
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax40",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.04
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "grade": 2,
+                            "color": "GREY",
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "SuperCoin"
+                                  },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloomingThorns",
+                                        "buffOwner": "",
+                                        "target": "Self",
+                                        "stack": 5,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 838604,
+            "textID": 9017504,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "iconID": 9017504,
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S4",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 5,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUseIfHasNoBloodDinner_40",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 20,
+                                "turn": 2,
+                                "activeRound": 0,
+                                "value": 2
+                            }
+                        },
+                        {
+                            "scriptName": "UseBloodDinnerOnEndSkill[40:40:40]"
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self"
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "target": "Self"
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax40",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.04
+                                    }
+                                },
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax40",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "AbnormalitySelf",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.04
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "grade": 2,
+                            "color": "GREY",
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "SuperCoin"
+                                  },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloomingThorns",
+                                        "buffOwner": "",
+                                        "target": "Self",
+                                        "stack": 5,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017505,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "NONE",
+                    "defType": "EVADE",
+                    "skillMotion": "Default",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultAdderViaOnUseBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "stack": 5,
+                                "turn": 0,
+                                "value": 2
+                            }
+                        },
+                        {
+                            "scriptName": "GiveBuffOnBattleStart",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 3,
+                                "turn": 0
+                            }
+                        },
+                        {
+                            "scriptName": "LoseBuffOnFailedEvade",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 3,
+                                "turn": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 7,
+                            "abilityScriptList": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017601,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultAdderViaOnUseBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 2
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackHead",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017602,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "VIOLET",
+                    "atkType": "SLASH",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultUpSelfOnUseOrCondition_Self_FestivalFever5_Target_Laceration6_adder1_limit3"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUseIfHasNoBloodDinner_20",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 20,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "UseBloodDinnerOnEndSkill[20:20:20]"
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackDevideByStackWithLimit2_Laceration6",
+                                    "buffData": {
+                                        "buffKeyword": "HardenedBlood",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4,
+                            "grade": 2,
+                            "color": "GREY",
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "SuperCoin"
+                                  },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackAfterWinDuel",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 3,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GetBloomingThornsRandomOnSucceedAttack_min2_max3"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017603,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderOnStartTurnViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "ParryingPowerResultAdderOnStartTurnSelfViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 6,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 3,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackAfterWinDuel",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017604,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S4",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 5,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUseIfHasNoBloodDinner_40",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 20,
+                                "turn": 2,
+                                "activeRound": 0,
+                                "value": 2
+                            }
+                        },
+                        {
+                            "scriptName": "UseBloodDinnerOnEndSkill[40:40:40]"
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self"
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "target": "Self"
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax40",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.04
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "grade": 2,
+                            "color": "GREY",
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "SuperCoin"
+                                  },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloomingThorns",
+                                        "buffOwner": "",
+                                        "target": "Self",
+                                        "stack": 5,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 838704,
+            "textID": 9017604,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "iconID": 9017604,
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "PENETRATE",
+                    "defType": "ATTACK",
+                    "skillMotion": "S4",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 5,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveLacerationAndActiveOnUseIfHasNoBloodDinner_40",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 20,
+                                "turn": 2,
+                                "activeRound": 0,
+                                "value": 2
+                            }
+                        },
+                        {
+                            "scriptName": "UseBloodDinnerOnEndSkill[40:40:40]"
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self"
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnRoundEnd",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "target": "Self"
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackByDuplicateStack_HardenedBlood",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "buffOwner": "Self",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax40",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.04
+                                    }
+                                },
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax40",
+                                    "buffData": {
+                                        "buffKeyword": "FestivalFever",
+                                        "buffOwner": "Self",
+                                        "target": "AbnormalitySelf",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.04
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "grade": 2,
+                            "color": "GREY",
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "SuperCoin"
+                                },                                
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloomingThorns",
+                                        "buffOwner": "",
+                                        "target": "Self",
+                                        "stack": 5,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017605,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "NONE",
+                    "defType": "EVADE",
+                    "skillMotion": "Default",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerResultAdderViaOnUseBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "Self",
+                                "stack": 5,
+                                "turn": 0,
+                                "value": 2
+                            }
+                        },
+                        {
+                            "scriptName": "GiveBuffOnBattleStart",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 3,
+                                "turn": 0
+                            }
+                        },
+                        {
+                            "scriptName": "LoseBuffOnFailedEvade",
+                            "buffData": {
+                                "buffKeyword": "FestivalFever",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 3,
+                                "turn": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 7,
+                            "abilityScriptList": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9015801,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "VIOLET",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "BurstSkillAddBuffIfCheckConditionWhenOnUse_Laceration_0_1",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 1,
+                                "turn": 0,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9015802,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 5,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "BurstSkillAddBuffIfCheckConditionWhenOnUse_Laceration_2_0",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 3,
+                                "turn": 0,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackIfHasStack_Laceration1",
+                                    "buffData": {
+                                        "buffKeyword": "HardenedBlood",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9015803,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 2,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Vulnerable",
+                                        "target": "Target",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 2,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 2,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 2,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "DmgUpByBuff",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Target",
+                                        "target": "",
+                                        "stack": 10,
+                                        "turn": 0,
+                                        "activeRound": 0,
+                                        "value": 0.2
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9015804,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "NONE",
+                    "defType": "GUARD",
+                    "skillMotion": "Default",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 6,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnUseIfMTHasBuffStack_Laceration1",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9015901,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "VIOLET",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "BurstSkillAddBuffIfCheckConditionWhenOnUse_Laceration_0_1",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 1,
+                                "turn": 0,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 1,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9015902,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 5,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "BurstSkillAddBuffIfCheckConditionWhenOnUse_Laceration_1_0",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 3,
+                                "turn": 0,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 1,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 1,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 1,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackIfHasStack_Laceration1",
+                                    "buffData": {
+                                        "buffKeyword": "HardenedBlood",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9015903,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 2,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Vulnerable",
+                                        "target": "Target",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 2,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Burst",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 2,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 1,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 2,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "DmgUpByBuff",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Target",
+                                        "target": "",
+                                        "stack": 10,
+                                        "turn": 0,
+                                        "activeRound": 0,
+                                        "value": 0.2
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9015904,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "NONE",
+                    "defType": "GUARD",
+                    "skillMotion": "Default",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 6,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnUseIfMTHasBuffStack_Laceration1",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 4
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9016901,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "AZURE",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnLoseDuel",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 10,
+                                "turn": 1,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 7,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffAndGiveLacerationToBuffOwnerOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloodyHand",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0,
+                                        "value": 10
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9016902,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "AttackDmgUpByRatioOnUseViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 8,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 0.2
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackIfHasStack_Laceration6",
+                                    "buffData": {
+                                        "buffKeyword": "HardenedBlood",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffAndGiveLacerationToBuffOwnerOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloodyHand",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0,
+                                        "value": 20
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9016903,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerAdderOnUseViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 6,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "90169032"
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnEndSkill",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self"
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnEndSkill",
+                            "buffData": {
+                                "buffKeyword": "BloodyHand",
+                                "target": "Self"
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 5,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 5,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax20",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.01
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9016904,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "COUNTER",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 6,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerAdderOnUseViaBuffCheckDevideByStackWithLimit99",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackHead",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017001,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "AZURE",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnLoseDuel",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "target": "Self",
+                                "stack": 10,
+                                "turn": 1,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 7,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffAndGiveLacerationToBuffOwnerOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloodyHand",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0,
+                                        "value": 10
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017002,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 3,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "AttackDmgUpByRatioOnUseViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 4,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 0.1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackIfHasStack_Laceration6",
+                                    "buffData": {
+                                        "buffKeyword": "HardenedBlood",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffAndGiveLacerationToBuffOwnerOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "BloodyHand",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0,
+                                        "value": 20
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017003,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerAdderOnUseViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 6,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "90169032"
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnEndSkill",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "target": "Self"
+                            }
+                        },
+                        {
+                            "scriptName": "UseBuffAllStackOnEndSkill",
+                            "buffData": {
+                                "buffKeyword": "BloodyHand",
+                                "target": "Self"
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 5,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 5,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax20",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.01
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017004,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "COUNTER",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 6,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerAdderOnUseViaBuffCheckDevideByStackWithLimit99",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackHead",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017101,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "AZURE",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnUse",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 5,
+                                "turn": 1,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017102,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 6,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnUse",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 5,
+                                "turn": 1,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 7,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackIfHasStack_Laceration5",
+                                    "buffData": {
+                                        "buffKeyword": "BloodyHand",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017103,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnUseWithBloodDinner[10:50:10]",
+                            "buffData": {
+                                "buffKeyword": "BloodyHand",
+                                "target": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "activeRound": 0
+                            }
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderOnStartTurnViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 5,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 5,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffAndGiveLacerationToBuffOwnerOnEndAttackIfFailUseBloodDinner",
+                                    "buffData": {
+                                        "buffKeyword": "BloodyHand",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0,
+                                        "value": 10
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017104,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "SLASH",
+                    "defType": "ATTACK",
+                    "skillMotion": "S4",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 5,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderOnStartTurnViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "ParryingPowerResultAdderOnUseDivideByBuff",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "value": 1,
+                                "limit": 3
+                            }
+                        },
+                        {
+                            "scriptName": "LoseBuffSelfOnLoseDuel",
+                            "buffData": {
+                                "buffKeyword": "BloodyHand",
+                                "target": "",
+                                "stack": 2
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "901710431"
+                                },
+                                {
+                                    "scriptName": "901710432"
+                                },
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax30",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.01
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017105,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "COUNTER",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 6,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerAdderOnUseViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "BloodyHand",
+                                "buffOwner": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderOnStartTurnViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 3,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017201,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "iconID": 9017101,
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "AZURE",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnUse",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 5,
+                                "turn": 1,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 2,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017202,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "CRIMSON",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S2",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 6,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnUse",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "",
+                                "target": "Self",
+                                "stack": 5,
+                                "turn": 1,
+                                "activeRound": 0
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 7,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 0,
+                                        "turn": 3,
+                                        "activeRound": 0
+                                    }
+                                },
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttackIfHasStack_Laceration5",
+                                    "buffData": {
+                                        "buffKeyword": "BloodyHand",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 1,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017203,
+            "skillTier": 2,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "ATTACK",
+                    "skillMotion": "S3",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 4,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "GiveBuffOnUseWithBloodDinner[10:50:10]",
+                            "buffData": {
+                                "buffKeyword": "BloodyHand",
+                                "target": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "activeRound": 0
+                            }
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderOnStartTurnViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 5,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 3,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 5,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffAndGiveLacerationToBuffOwnerOnEndAttackIfFailUseBloodDinner",
+                                    "buffData": {
+                                        "buffKeyword": "BloodyHand",
+                                        "buffOwner": "Self",
+                                        "target": "Self",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0,
+                                        "value": 20
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017204,
+            "skillTier": 3,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": true,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "SLASH",
+                    "defType": "ATTACK",
+                    "skillMotion": "S4",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 5,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderOnStartTurnViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "Laceration",
+                                "buffOwner": "Target",
+                                "target": "",
+                                "stack": 5,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "ParryingPowerResultAdderOnUseDivideByBuff",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "value": 1,
+                                "limit": 3
+                            }
+                        },
+                        {
+                            "scriptName": "LoseBuffSelfOnLoseDuel",
+                            "buffData": {
+                                "buffKeyword": "BloodyHand",
+                                "target": "",
+                                "stack": 2
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 4,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "operatorType": "ADD",
+                            "scale": 3,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "901710431"
+                                },
+                                {
+                                    "scriptName": "901710432"
+                                },
+                                {
+                                    "scriptName": "HealHpOnSucceedAttackViaBuffStackCheckByRatioMax30",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "buffOwner": "Target",
+                                        "target": "Self",
+                                        "stack": 0,
+                                        "turn": 0,
+                                        "value": 0.01
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 9017205,
+            "skillTier": 1,
+            "skillType": "SKILL",
+            "skillData": [
+                {
+                    "skillTargetType": "FRONT",
+                    "canTeamKill": false,
+                    "canDuel": false,
+                    "canChangeTarget": true,
+                    "attributeType": "SCARLET",
+                    "atkType": "HIT",
+                    "defType": "COUNTER",
+                    "skillMotion": "S1",
+                    "viewType": "BATTLE",
+                    "parryingCloseType": "NEAR",
+                    "targetNum": 1,
+                    "defaultValue": 6,
+                    "skillLevelCorrection": 0,
+                    "abilityScriptList": [
+                        {
+                            "scriptName": "EmptyBody"
+                        },
+                        {
+                            "scriptName": "SkillPowerAdderOnUseViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "BloodyHand",
+                                "buffOwner": "Self",
+                                "stack": 1,
+                                "turn": 0,
+                                "value": 1
+                            }
+                        },
+                        {
+                            "scriptName": "CoinScaleAdderOnStartTurnViaBuffCheck",
+                            "buffData": {
+                                "buffKeyword": "HardenedBlood",
+                                "buffOwner": "Self",
+                                "target": "",
+                                "stack": 3,
+                                "turn": 0,
+                                "activeRound": 0,
+                                "value": 1
+                            }
+                        }
+                    ],
+                    "coinList": [
+                        {
+                            "operatorType": "ADD",
+                            "scale": 6,
+                            "abilityScriptList": [
+                                {
+                                    "scriptName": "GiveBuffOnSucceedAttack",
+                                    "buffData": {
+                                        "buffKeyword": "Laceration",
+                                        "target": "Target",
+                                        "stack": 2,
+                                        "turn": 0,
+                                        "activeRound": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
