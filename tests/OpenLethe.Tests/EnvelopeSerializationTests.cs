@@ -54,8 +54,13 @@ public class EnvelopeSerializationTests
     [Fact]
     public void Envelope_OmitsNullOptionalMembers()
     {
+        // Ok() now seeds ambient `updated`/`synchronized` (the real server sends them on
+        // nearly every response - see EnvelopeAmbientTests), so null them explicitly to
+        // exercise the JsonIgnore(WhenWritingNull) contract this test is about.
         var env = ResponsePacket<ResPacket_EnterBossRaid>.Ok(
             new ResPacket_EnterBossRaid(), 1696);
+        env.updated = null;
+        env.synchronized = null;
 
         var json = JsonSerializer.Serialize(env, PacketJson.Options);
 

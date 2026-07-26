@@ -71,9 +71,12 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
             root.GetProperty("packetId").GetInt64());
         Assert.True(root.TryGetProperty("result", out _));
 
-        // Optional envelope members must be absent, not null.
-        Assert.False(root.TryGetProperty("updated", out _));
-        Assert.False(root.TryGetProperty("synchronized", out _));
+        // The real server sends the ambient `updated`/`synchronized` blocks on nearly
+        // every response (728/760 and 730/760 captured records); a static endpoint is no
+        // exception. Omitting them leaves the client stuck on a 200. See
+        // EnvelopeAmbientTests for the block's shape.
+        Assert.True(root.TryGetProperty("updated", out _));
+        Assert.True(root.TryGetProperty("synchronized", out _));
     }
 
     [Fact]

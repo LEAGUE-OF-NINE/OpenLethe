@@ -46,5 +46,14 @@ public class ResponsePacket<T>
     {
         result = result,
         packetId = packetId,
+        updated = new OpenLethe.Server.Wire.UpdatedFormat
+        {
+            isInitialized = false,
+            isResetMirrorDungeon = false,
+            mailList = new(),
+            missionList = new(),
+            userUnlockCodeList = new(),
+        },
+        synchronized = new OpenLethe.Server.Wire.SynchronizedFormat { version = 513 },
     };
 }

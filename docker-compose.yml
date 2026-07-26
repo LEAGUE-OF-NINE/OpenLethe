@@ -25,6 +25,9 @@ services:
       ConnectionStrings__Postgres: "Host=db;Port=5432;Database=openlethe;Username=openlethe;Password=openlethe"
       ASPNETCORE_URLS: "http://+:8080"
       ASPNETCORE_ENVIRONMENT: "Development"
+      Auth__DevAcceptAnyToken: "true"
+      Logging__LogLevel__Microsoft.AspNetCore: "Information"
+      Logging__LogLevel__Microsoft.AspNetCore.HttpLogging: "Information"
       # Optional: set a fixed secret so login tokens survive server restarts.
       # Without it a random secret is generated each boot (fine for local testing).
       # Auth__JwtSecret: "replace-with-a-long-random-string"

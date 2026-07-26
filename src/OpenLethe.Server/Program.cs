@@ -20,6 +20,17 @@ var jwtSecret = builder.Configuration["Auth:JwtSecret"]
     ?? Convert.ToBase64String(System.Security.Cryptography.RandomNumberGenerator.GetBytes(32));
 builder.Services.AddSingleton(new JwtService(jwtSecret, TimeSpan.FromHours(72)));
 
+builder.Services.AddHttpLogging(o =>
+{
+    o.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.RequestPath
+        | Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.RequestBody
+        | Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.ResponseStatusCode
+        | Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.ResponseBody;
+    o.RequestBodyLogLimit = 256 * 1024;
+    o.ResponseBodyLogLimit = 256 * 1024;
+    o.MediaTypeOptions.AddText("application/json");
+});
+
 var app = builder.Build();
 
 // Migrate on startup only when a database is actually configured, so tests that
@@ -38,6 +49,8 @@ app.UsePathSanitizer();
 // against the ORIGINAL (unsanitized) path before UsePathSanitizer ever runs,
 // regardless of the source-order of app.Use() calls relative to Map* calls.
 app.UseRouting();
+
+app.UseHttpLogging();   // before UseJwtAuth so it sees the raw, unconsumed body
 
 app.UseJwtAuth();   // 401s protected routes lacking a valid token; exempts /login,/auth,/health
 

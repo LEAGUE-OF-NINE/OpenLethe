@@ -27,6 +27,11 @@ public sealed class UpdatedFormat
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public List<EventRewardState>? eventRewardStateList;
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public List<DanteAbility>? danteAbilityList;
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public List<PersonalitySkin>? personalitySkinList;
+    // Part of the ambient `updated` block the real server sends on nearly every response
+    // (see ResponsePacket.Ok). missionList is a passthrough - the captures only ever show
+    // [] or opaque mission rows, so no Mission class.
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public List<JsonNode>? missionList;
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)] public bool? isResetMirrorDungeon;
 }
 
 public sealed class UserInfo
