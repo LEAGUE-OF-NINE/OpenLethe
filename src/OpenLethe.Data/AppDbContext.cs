@@ -22,7 +22,7 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbCon
             nameof(Account.Announcers), nameof(Account.UserInfo), nameof(Account.CustomTheme),
             nameof(Account.CustomIdentities), nameof(Account.CustomEgos),
             nameof(Account.MdSaveInfo), nameof(Account.StorySaveInfo), nameof(Account.StoryMdSaveInfo),
-            nameof(Account.RailwaySaveInfo), nameof(Account.RailwayNodeData), nameof(Account.RailwayBuffs),
+            nameof(Account.RailwaySaveInfo),
             nameof(Account.ChapterState), nameof(Account.BossRaidSaveInfo),
         })
         {

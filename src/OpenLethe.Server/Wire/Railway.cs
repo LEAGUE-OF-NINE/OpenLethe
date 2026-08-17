@@ -3,10 +3,12 @@ using System.Text.Json.Nodes;
 
 namespace OpenLethe.Server.Wire;
 
-// Server-authored ports of lethe-server/models/src/types.rs railway structs. Field
-// names are the wire contract (match Rust serde exactly). All Rust fields use
-// #[serde(default)] (always serialized), so no [JsonIgnore]; lists/strings init to
-// empty to serialize as []/"" not null. PacketJson.Options has IncludeFields=true.
+// Railway wire types. Shapes come from the client (packets/_shared.cs
+// Railway*Format) reconciled field-for-field against the Refraction Railway
+// capture in docs/flows(2) - the capture is the source of truth where the two
+// drift (it carries `startdate`/`clearnumber`, which the bundled client header
+// predates). PacketJson.Options has IncludeFields=true and no naming policy, so
+// field names ARE the wire contract.
 
 public sealed class Egos
 {
@@ -24,6 +26,7 @@ public sealed class Personalities
     public long sp;
     public long gi;
     public long pord;
+    public long sid;
 }
 
 public sealed class Extrarewardstate
@@ -43,6 +46,25 @@ public sealed class Buffsetsbyegogift
 {
     public long nid;
     public List<Buffs1> buffs = new();
+}
+
+/// One accumulated rotation buff inside a buff set (RailwayBuffFormat).
+public sealed class RailwayBuff
+{
+    public long id;
+    public long count;
+    public List<long> targetids = new();
+}
+
+/// A dungeon's rotation buff set (RailwayBuffSetFormat). Which of `recentbuffid`
+/// and `currentbuffids` is maintained depends on the set's static `selectOption`
+/// - see RailwayRules.ApplyBuffSelection.
+public sealed class Buffsets
+{
+    public long setid;
+    public List<RailwayBuff> buffs = new();
+    public long recentbuffid;
+    public List<long> currentbuffids = new();
 }
 
 public sealed class EgoSkillStock1
@@ -70,6 +92,7 @@ public sealed class PrevStatusData
     public long lv;
     public long g;
     public long gi;
+    public long sid;
     public long pord;
 }
 
@@ -80,14 +103,6 @@ public sealed class Statistics1
     public long rd;
 }
 
-public sealed class PrevEnemyData
-{
-    public long lastWave;
-    public long lastTurn;
-    // client-authored, only stored/echoed - passthrough (no AbnoSaveData/PartsData port)
-    public List<JsonNode> abnoSaveDataList = new();
-}
-
 public sealed class UpdateNodeDatas
 {
     public long nodeid;
@@ -96,7 +111,11 @@ public sealed class UpdateNodeDatas
     public long clearturn;
     public long playturn;
     public List<Statistics1> statistics = new();
-    public PrevEnemyData enemy = new();
+    // Client-authored blobs the server only stores and echoes. `enemy` is
+    // SaveDataForRailwayDungeon and `battleStates` RailwayBattleStateFormat[] in
+    // the client; neither is ever read server-side, so they stay passthrough.
+    public JsonNode enemy = new JsonObject();
+    public List<JsonNode> battleStates = new();
     public long nodestate;
 }
 
@@ -123,13 +142,14 @@ public sealed class RailwaySaveInfo
     public long payreward;
     public long rewardstate;
     public List<Extrarewardstate> extrarewardstate = new();
-    public string firstcleardate = "";
-    public long currentclearrotation;
+    // Both dates are null (not "") until they happen - the capture sends JSON null.
+    public string? firstcleardate;
+    public string? startdate;
+    public long clearnumber;
     public long lastenternodeid;
+    public long currentclearrotation;
     public long lastclearrotation;
-    // ponytail: buffsets is only populated by the out-of-scope SelectRailwayDungeonBuff
-    // handler; empty here. Port the Buffsets type when that handler lands.
-    public List<object> buffsets = new();
+    public List<Buffsets> buffsets = new();
     public List<Buffsetsbyegogift> buffsetsbyegogift = new();
     public long initseed;
     public long currentseed;
@@ -144,24 +164,35 @@ public sealed class CurrentLog
     public long clearturn;
     public List<Turnspernode> turnspernode = new();
     public long clearrotation;
-    public List<object> buffsets = new();
+    public List<Buffsets> buffsets = new();
     public List<Buffsetsbyegogift> buffsetsbyegogift = new();
+    // Only ever [] in the capture, and omitted entirely from the freshly built
+    // currentLog ExitRailwayDungeon returns - we always emit it (the client
+    // declares it) and mask that one omit-when-empty quirk in the replay.
+    public List<JsonNode> battleStatesPerNode = new();
     public string date = "";
+    public string? startdate;
     public long deadunitnumber;
+    public long prevclearnode;
+    public long currentnode;
 }
 
-// ---- request params (mirror Rust RequestParamApi*) ----
+// ---- request params ----
 
 public sealed class EnterRailwayDungeonParams
 {
     public long dungeonId;
-    public List<Personalities> personalities = new();
+    public List<Personalities>? personalities;
 }
 
 public sealed class EnterRailwayDungeonNodeParams
 {
     public long dungeonId;
     public long nodeid;
+    public List<long>? abnormalityids;
+    public List<long>? participatedPIds;
+    public List<JsonNode>? abnormalityLogs;
+    public List<Personalities>? personalities;
 }
 
 public sealed class ExitRailwayDungeonParams
@@ -174,20 +205,49 @@ public sealed class ExitRailwayDungeonNodeParams
 {
     public long dungeonId;
     public long nodeid;
-    public List<PrevStatusData> unitStatusList = new();
-    public List<EgoSkillStock1> egoSkillStockList = new();
-    public List<Statistics1> statistics = new();
+    public List<PrevStatusData>? unitStatusList;
+    public List<EgoSkillStock1>? egoSkillStockList;
+    public List<JsonNode>? abnormalityLogs;
+    public List<Statistics1>? statistics;
     public long clearTurn;
     public bool iswin;
-    public PrevEnemyData enemy = new();
-    public Buffsetsbyegogift buffsetbyegogift = new();
+    public JsonNode? enemy;
+    public Buffsetsbyegogift? buffsetbyegogift;
+    public List<JsonNode>? battleStates;
 }
 
 public sealed class ExitRailwayDungeonRestNodeParams
 {
     public long dungeonId;
     public long nodeid;
-    public List<Personalities> personalities = new();
+    public List<Personalities>? personalities;
+}
+
+public sealed class SelectRailwayDungeonBuffParams
+{
+    public long dungeonId;
+    public List<SelectedBuff>? selectedBuffs;
+}
+
+public sealed class SelectedBuff
+{
+    public long setId;
+    public long buffId;
+    public long targetId;
+}
+
+/// Note the lowercase `dungeonid` - the client declares this one differently
+/// from every sibling railway packet (packets/api_GiveUpRailwayDungeonNodeInBattle.cs).
+public sealed class GiveUpRailwayDungeonNodeInBattleParams
+{
+    public long dungeonid;
+    public long nodeid;
+    public List<JsonNode>? abnormalityLogs;
+}
+
+public sealed class AcquireRailwayDungeonRewardParams
+{
+    public long dungeonId;
 }
 
 public sealed class GetRailwayDungeonNodeAndLogAllParams
@@ -195,7 +255,12 @@ public sealed class GetRailwayDungeonNodeAndLogAllParams
     public long dungeonId;
 }
 
-// ---- response results (mirror Rust ResponseResultApi*) ----
+public sealed class GetRailwayDungeonExtraRewardStatesParams
+{
+    public List<long>? dungeonIds;
+}
+
+// ---- response results ----
 
 public sealed class EnterRailwayDungeonResult
 {
@@ -207,10 +272,10 @@ public sealed class EnterRailwayDungeonNodeResult
 {
     public long nodeid;
     public List<long> deletedNodeIds = new();
-    public List<object> abnormalityLogs = new();
+    public List<AbnormalityLogEntry> abnormalityLogs = new();
     public List<PrevStatusData> prevStatusData = new();
     public List<EgoSkillStock1> prevEgoStockData = new();
-    public PrevEnemyData prevEnemyData = new();
+    public JsonNode prevEnemyData = new JsonObject();
     public long prevClearNodeId;
     public long currentNodeId;
     public List<Buffsetsbyegogift> buffsetsbyegogift = new();
@@ -224,11 +289,13 @@ public sealed class ExitRailwayDungeonResult
     public List<Element> rewards = new();
 }
 
+/// The client also declares a singular `nodeData` here; the real server does not
+/// send it (checked against every ExitRailwayDungeonNode flow in the capture), so
+/// neither do we - `updateNodeDatas` carries the same node.
 public sealed class ExitRailwayDungeonNodeResult
 {
+    public List<AbnormalityLogEntry> abnormalityLogs = new();
     public RailwaySaveInfo saveInfo = new();
-    public List<object> abnormalityLogs = new();
-    public UpdateNodeDatas nodeData = new();
     public List<UpdateNodeDatas> updateNodeDatas = new();
 }
 
@@ -239,20 +306,29 @@ public sealed class ExitRailwayDungeonRestNodeResult
     public UpdateNodeDatas nodeData = new();
 }
 
+public sealed class SelectRailwayDungeonBuffResult
+{
+    public RailwaySaveInfo saveInfo = new();
+    public UpdateNodeDatas nodeData = new();
+}
+
+public sealed class GiveUpRailwayDungeonNodeInBattleResult
+{
+    public UpdateNodeDatas nodeData = new();
+    public List<AbnormalityLogEntry> abnormalityLogs = new();
+}
+
+public sealed class AcquireRailwayDungeonRewardResult
+{
+    public RailwaySaveInfo saveInfo = new();
+    public List<Element> rewardList = new();
+}
+
 public sealed class GetRailwayDungeonNodeAndLogAllResult
 {
-    // Client-declared but absent from Rust's ResponseResultApi...::new(node_data, Vec::new()).
-    // Client wins on shape; additive, so nothing reading the old response breaks.
     public RailwaySaveInfo railwaySaveInfo = new();
     public List<UpdateNodeDatas> nodeDatas = new();
     public List<CurrentLog> logDatas = new();
-}
-
-// ---- client-only granular getters (no Rust reference; shapes from packets/api_*.cs) ----
-
-public sealed class GetRailwayDungeonExtraRewardStatesParams
-{
-    public List<long>? dungeonIds;
 }
 
 public sealed class GetRailwayDungeonSaveInfoResult
@@ -267,9 +343,6 @@ public sealed class GetRailwayDungeonNodeDatasResult
 
 public sealed class GetRailwayDungeonLogsResult
 {
-    // ponytail: nothing in the port persists Railway logs - ExitRailwayDungeon builds a
-    // CurrentLog and returns it without storing it, and GetRailwayDungeonNodeAndLogAll
-    // likewise answers with an empty list. Populate here when logs gain storage.
     public List<CurrentLog> logDatas = new();
 }
 

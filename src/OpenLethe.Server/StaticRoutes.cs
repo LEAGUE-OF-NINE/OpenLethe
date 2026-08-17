@@ -20,7 +20,6 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_AcquireDailyLoginReward, ResPacket_AcquireDailyLoginReward>("/api/AcquireDailyLoginReward");
         app.MapPacket<ReqPacket_AcquireHellsChickenReward, ResPacket_AcquireHellsChickenReward>("/api/AcquireHellsChickenReward");
         app.MapPacket<ReqPacket_AcquireMissionRewards, ResPacket_AcquireMissionRewards>("/api/AcquireMissionRewards");
-        app.MapPacket<ReqPacket_AcquireRailwayDungeonReward, ResPacket_AcquireRailwayDungeonReward>("/api/AcquireRailwayDungeonReward");
         app.MapPacket<ReqPacket_BattlePassExLevelReward, ResPacket_BattlePassExLevelReward>("/api/BattlePassExLevelReward");
         app.MapPacket<ReqPacket_BattlePassMissionReward, ResPacket_BattlePassMissionReward>("/api/BattlePassMissionReward");
         app.MapPacket<ReqPacket_BattlePassMissionRewardAll, ResPacket_BattlePassMissionRewardAll>("/api/BattlePassMissionRewardAll");
@@ -75,7 +74,6 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_GetUserBanners, ResPacket_GetUserBanners>("/api/GetUserBanners");
         app.MapPacket<ReqPacket_GetCouponFailState, ResPacket_GetCouponFailState>("/api/GetUserCouponState");
         app.MapPacket<ReqPacket_GiveUpRailwayDungeonNode, ResPacket_GiveUpRailwayDungeonNode>("/api/GiveUpRailwayDungeonNode");
-        app.MapPacket<ReqPacket_GiveUpRailwayDungeonNodeInBattle, ResPacket_GiveUpRailwayDungeonNodeInBattle>("/api/GiveUpRailwayDungeonNodeInBattle");
         app.MapPacket<ReqPacket_InitPurchase, ResPacket_InitPurchase>("/iap/InitPurchase");
         app.MapPacket<ReqPacket_InitPurchaseAsSteam, ResPacket_InitPurchaseAsSteam>("/iap/InitPurchaseAsSteam");
         app.MapPacket<ReqPacket_LinkWithAnother, ResPacket_LinkWithAnother>("/login/LinkWithAnother");
@@ -112,7 +110,6 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_ReportModifiedHashCatalog, ResPacket_ReportModifiedHashCatalog>("/log/ReportModifiedHash");
         app.MapPacket<ReqPacket_ReportSpeedHack, ResPacket_ReportSpeedHack>("/log/ReportSpeedHack");
         app.MapPacket<ReqPacket_SaveMiniStoryWeek, ResPacket_SaveMiniStoryWeek>("/api/SaveMiniStoryWeek");
-        app.MapPacket<ReqPacket_SelectRailwayDungeonBuff, ResPacket_SelectRailwayDungeonBuff>("/api/SelectRailwayDungeonBuff");
         app.MapPacket<ReqPacket_SendFriendRequest, ResPacket_SendFriendRequest>("/api/SendFriendRequest");
         app.MapPacket<ReqPacket_SendMirrorDungeonLogError, ResPacket_SendMirrorDungeonLogError>("/api/SendMirrorDungeonLogError");
         app.MapPacket<ReqPacket_SendMirrorDungeonShopExit, ResPacket_SendMirrorDungeonShopExit>("/api/SendMirrorDungeonShopExit");
@@ -144,13 +141,12 @@ public static class StaticRoutes
         app.MapPacket<ReqPacket_UseItem, ResPacket_UseItem>("/api/UseItem");
         app.MapPacket<ReqPacket_UsePersonalityExpItem, ResPacket_UsePersonalityExpItem>("/api/UsePersonalityExpItem");
         // NOT IN CLIENT: /api/EgoGacksung
-        // NOT IN CLIENT: /api/EnterMirrordungeonMapNodeBattleAfterChoice
         // NOT IN CLIENT: /api/EnterStoryDungeonMapNodeBattleAfterChoice
         // NOT IN CLIENT: /api/GetStoryDungeonNodeRecord
         // NOT IN CLIENT: /api/PersonalityGacksung
         return app;
     }
 
-    public static int RegisteredCount => 132;
+    public static int RegisteredCount => 125;
 }
 

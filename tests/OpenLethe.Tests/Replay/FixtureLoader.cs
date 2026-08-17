@@ -12,6 +12,16 @@ public static class FixtureLoader
         ("run2", "md-extreme-run-2.jsonl"),
     };
 
+    /// Refraction Railway capture (docs/flows(2)), scoped to the /api/*Railway*
+    /// flows. Separate from Runs because it drives a different replay + tracker.
+    public static readonly IReadOnlyList<(string RunId, string File)> RailwayRuns = new[]
+    {
+        ("rr2", "railway-rr2-run.jsonl"),
+    };
+
+    /// Every committed fixture - what the secret guard has to cover.
+    public static IEnumerable<(string RunId, string File)> All => Runs.Concat(RailwayRuns);
+
     public static string PathFor(string file) =>
         System.IO.Path.Combine(AppContext.BaseDirectory, "fixtures", file);
 

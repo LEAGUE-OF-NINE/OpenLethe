@@ -12,6 +12,58 @@ public static class ReplayMasks
 
     private static readonly Dictionary<string, string[]> ByPath = new()
     {
+        // ---- Refraction Railway (docs/flows(2)) ----
+        // Seeds are freshly rolled server-side and startdate is a wall-clock stamp;
+        // neither can byte-match another server's run. Everything else on the save
+        // (the preserved lastclearnode/clearnumber/firstcleardate/lastclearrotation,
+        // the reset prevclearnode/rotation/buffsets) is byte-verified.
+        ["/api/EnterRailwayDungeon"] = new[]
+        {
+            "result.saveInfo.startdate",
+            "result.saveInfo.initseed",
+            "result.saveInfo.currentseed",
+        },
+        // Clearing a node re-rolls currentseed (initseed stays and IS byte-verified).
+        // The abnormality log entries are rebuilt from static data: their ids and `ps`
+        // body-part ids byte-verify, while k/s/p and the atrr/atkr permutations are
+        // per-battle RNG rolls - the same masks MD's abno logs already carry.
+        ["/api/ExitRailwayDungeonNode"] = new[]
+        {
+            "result.saveInfo.currentseed",
+            "result.abnormalityLogs[*].k",
+            "result.abnormalityLogs[*].s",
+            "result.abnormalityLogs[*].p",
+            "result.abnormalityLogs[*].ps[*].atrr",
+            "result.abnormalityLogs[*].ps[*].atkr",
+        },
+        ["/api/GiveUpRailwayDungeonNodeInBattle"] = new[]
+        {
+            "result.abnormalityLogs[*].k",
+            "result.abnormalityLogs[*].s",
+            "result.abnormalityLogs[*].p",
+            "result.abnormalityLogs[*].ps[*].atrr",
+            "result.abnormalityLogs[*].ps[*].atkr",
+        },
+        // The clear record's `date` is a wall-clock stamp, and firstcleardate is that
+        // same stamp on the run that first clears the dungeon. battleStatesPerNode is
+        // an upstream omit-when-empty quirk: the real server leaves the key off the
+        // freshly built currentLog but stores it as [] (it comes back as [] from
+        // GetRailwayDungeonNodeAndLogAll, where it IS byte-verified).
+        ["/api/ExitRailwayDungeon"] = new[]
+        {
+            "result.currentLog.date",
+            "result.currentLog.battleStatesPerNode",
+            "result.saveInfo.firstcleardate",
+        },
+        // Dates round-trip through the real server's store at SECOND precision: the
+        // millisecond-carrying values its own Exit responses returned come back
+        // truncated here. We keep the stored string verbatim, so the injected
+        // ground-truth value differs in its milliseconds only.
+        ["/api/GetRailwayDungeonNodeAndLogAll"] = new[]
+        {
+            "result.railwaySaveInfo.firstcleardate",
+            "result.logDatas[*].date",
+        },
         // startdate is a server-set wall-clock timestamp - inherently non-deterministic.
         ["/api/EnterMirrorDungeon"] = new[] { "result.saveInfo.startdate" },
         // SelectFormation builds the run's roster from the request. startdate is the same
@@ -578,6 +630,28 @@ public static class ReplayMasks
         // SelectThemeFloor new-theme floors: sbmlos/snft/csnft are DERIVED (byte-green); only the
         // dul[*].mlos inheriting the blocked egmlos is masked. (seq408 is a non-new-theme floor whose
         // csnft is now derived to 0 - no mask needed.)
+        // ---- Refraction Railway ----
+        // MISSING UPSTREAM STATIC DATA, not RNG and not a logic gap: the bundled
+        // static-data dump has no railway-dungeon-1002.json, so Refraction Railway 2's
+        // rerun has no extra-reward definitions to resolve. Clearing node 7 therefore
+        // cannot unlock its rewards 6-10 (seq 94), acquiring them grants nothing
+        // (seq 98), and the 5 unlocked-but-unrewarded states stay as stored. Everything
+        // else on those records byte-verifies. Drop the real 1002 definition into
+        // static-data/railway-dungeon/ and these three masks go away.
+        [("rr2", 94)] = new[] { "result.saveInfo.extrarewardstate" },
+        [("rr2", 98)] = new[] { "result.saveInfo.extrarewardstate", "result.rewardList" },
+        // ExitRailwayDungeon's `rewards` are the dungeon's bannerRewards (profile
+        // banners). The port owns no banner inventory, so the list is always empty.
+        [("rr2", 144)] = new[] { "result.rewards" },
+        // One un-played node (7) whose stored record predates its first entry carries
+        // no battleStates key at all upstream; every other never-entered node in the
+        // same capture reports []. Upstream inconsistency on a passthrough blob.
+        [("rr2", 21)] = new[] { "result.nodeData.battleStates" },
+        // Same second-precision store as the getter mask above: this is the first
+        // response after EnterRailwayDungeon, so the injected startdate is still the
+        // millisecond-carrying value the real server's own Enter reply returned.
+        [("rr2", 107)] = new[] { "result.saveInfo.startdate" },
+
         [("run2", 379)] = new[] { "result.saveInfo.currentInfo.dul[*].mlos" },
         [("run2", 436)] = new[] { "result.saveInfo.currentInfo.dul[*].mlos" },
     };

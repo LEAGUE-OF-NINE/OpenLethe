@@ -42,5 +42,5 @@ public class FixtureGuardTests
     }
 
     public static IEnumerable<object[]> FixtureFiles() =>
-        FixtureLoader.Runs.Select(r => new object[] { r.File });
+        FixtureLoader.All.Select(r => new object[] { r.File });
 }

@@ -49,13 +49,13 @@ public class StaticRouteCoverageTests : IClassFixture<StaticRouteCoverageTests.F
         // /api/GetMirrorDungeonEgoGiftRecord, /api/ExitMirrorDungeon) use
         // static_response with NON-default data the generic MapPacket can't
         // reproduce, so they're force-excluded and served by real handlers instead.
-        Assert.Equal(132, StaticRoutes.RegisteredCount);
+        Assert.Equal(125, StaticRoutes.RegisteredCount);
     }
 
     [Fact]
     public void Application_BootsWithoutError()
     {
-        // Confirms the app still starts cleanly with all 132 routes wired.
+        // Confirms the app still starts cleanly with all 125 routes wired.
         var client = _factory.CreateClient();
         Assert.NotNull(client);
     }

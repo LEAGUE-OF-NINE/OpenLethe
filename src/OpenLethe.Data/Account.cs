@@ -24,9 +24,9 @@ public sealed class Account
     public string MdSaveInfo { get; set; } = "{}";
     public string StorySaveInfo { get; set; } = "{}";
     public string StoryMdSaveInfo { get; set; } = "{}";
+    // dungeonId -> RailwayRun (save + node data + clear logs). One column, because
+    // railway state is per dungeon and every handler reads and writes it as a unit.
     public string RailwaySaveInfo { get; set; } = "{}";
-    public string RailwayNodeData { get; set; } = "{}";
-    public string RailwayBuffs { get; set; } = "{}";
     public string ChapterState { get; set; } = "{}";
     public string BossRaidSaveInfo { get; set; } = "{}";
 }
