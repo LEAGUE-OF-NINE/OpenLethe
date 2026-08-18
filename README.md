@@ -124,6 +124,11 @@ without them. Leave them unset and the features stay dormant.
 | `DISCORD_TOKEN` | *(none)* | Bot token used for the membership check and avatar lookup |
 | `DISCORD_WHITELIST_IDS` | *(none)* | Comma-separated user snowflakes that bypass the guild check (upstream hard-codes these in source) |
 | `CAPTCHA_SECRET_KEY` | *(none)* | Cloudflare Turnstile secret for `/auth/captcha`, which issues the cookie `/misc/locale` requires |
+| `MOD_FILES_DIR` | `modfiles` | Directory served at the server root as `/Lethe.dll`, `/ModularSkillScripts.dll`, `/motions.dll`, `/limbus-manifest.txt`, `/noticeMeta.json` — what LetheLauncher downloads before launching. Docker mounts `./modfiles` here |
+| `RELEASE_CHANNEL_ID` | *(none)* | Discord channel to source `Lethe.dll` from when there is no local file (needs `DISCORD_TOKEN`) |
+| `MODULAR_RELEASE_CHANNEL_ID` | *(none)* | Same, for `ModularSkillScripts.dll` |
+| `MOTIONS_RELEASE_CHANNEL_ID` | falls back to `RELEASE_CHANNEL_ID` | Same, for `motions.dll` — set it to publish motions separately |
+| `LIMBUS_MANIFEST_URL` | `https://files.lethelc.site/limbus-manifest.txt` | Where `/limbus-manifest.txt` redirects when no local file is present |
 | `OPENAI_API_KEY` | *(none)* | Required by `/misc/locale*`; any OpenAI-compatible chat-completions endpoint |
 | `OPENAI_BASE_URL` | `https://api.openai.com/v1` | Point at a proxy or a local model server |
 | `OPENAI_MODEL` | `gpt-3.5-turbo` | Model used for skill-text generation |

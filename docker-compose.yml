@@ -38,6 +38,11 @@ services:
       # Optional: set a fixed secret so login tokens survive server restarts.
       # Without it a random secret is generated each boot (fine for local testing).
       # Auth__JwtSecret: "replace-with-a-long-random-string"
+    volumes:
+      # Files LetheLauncher downloads (Lethe.dll, ModularSkillScripts.dll,
+      # motions.dll, limbus-manifest.txt, noticeMeta.json). Drop them in ./modfiles
+      # on the host; missing files just 404.
+      - ./modfiles:/app/modfiles
     ports:
       - "8080:8080"   # server reachable at http://localhost:8080 (health: /health)
     restart: unless-stopped

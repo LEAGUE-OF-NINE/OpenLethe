@@ -69,6 +69,7 @@ app.UseHttpLogging();   // before UseJwtAuth so it sees the raw, unconsumed body
 app.UseJwtAuth();   // 401s protected routes lacking a valid token; exempts /login,/auth,/health
 
 app.MapGet("/health", () => "ok");
+app.MapModFiles();   // /Lethe.dll etc - LetheLauncher fetches these before launch
 app.MapAuth();
 app.MapDiscordAuth();
 app.MapLocale();

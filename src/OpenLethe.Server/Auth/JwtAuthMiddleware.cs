@@ -66,6 +66,10 @@ public sealed class JwtAuthMiddleware(RequestDelegate next, JwtService jwt)
             // never in a userAuth envelope; Rust hangs it off the outer router too.
             || s.StartsWith("/misc/", StringComparison.OrdinalIgnoreCase)
             || s.Equals("/serverinfos", StringComparison.OrdinalIgnoreCase)
+            // Launcher downloads these before login, so they cannot require a token.
+            || s.EndsWith(".dll", StringComparison.OrdinalIgnoreCase)
+            || s.Equals("/limbus-manifest.txt", StringComparison.OrdinalIgnoreCase)
+            || s.Equals("/noticeMeta.json", StringComparison.OrdinalIgnoreCase)
             || s.Equals("/health", StringComparison.OrdinalIgnoreCase);
     }
 }
