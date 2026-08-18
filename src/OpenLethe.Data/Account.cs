@@ -8,6 +8,10 @@ public sealed class Account
     public Guid Id { get; set; }
     public string Username { get; set; } = "";
     public int IngameId { get; set; }
+    /// Discord snowflake, set by the /auth OAuth flow. Null for accounts made
+    /// through the username-only dev login, so it is nullable and only unique
+    /// among the rows that have one.
+    public string? DiscordId { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 

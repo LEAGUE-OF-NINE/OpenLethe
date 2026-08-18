@@ -2,12 +2,20 @@ using Microsoft.EntityFrameworkCore;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
 using OpenLethe.Server.Handlers;
+using OpenLethe.Server.Locale;
 using OpenLethe.Server.Login;
 
 // Load a .env (searching up from the CWD) into process environment BEFORE the builder
 // reads configuration, so ConnectionStrings__Postgres / Auth__JwtSecret can live in a
 // local .env. Real environment variables already set take precedence; absent file is a no-op.
-DotNetEnv.Env.NoClobber().TraversePath().Load();
+// Skipped under the test runner (which sets this): .env values become process
+// environment variables, which outrank anything a WebApplicationFactory passes via
+// UseSetting - so a developer's ConnectionStrings__Postgres would make every
+// DB-free test migrate against their own database at startup.
+if (Environment.GetEnvironmentVariable("OPENLETHE_NO_DOTENV") is null)
+{
+    DotNetEnv.Env.NoClobber().TraversePath().Load();
+}
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +27,12 @@ builder.Services.AddScoped<AccountStore>();
 var jwtSecret = builder.Configuration["Auth:JwtSecret"]
     ?? Convert.ToBase64String(System.Security.Cryptography.RandomNumberGenerator.GetBytes(32));
 builder.Services.AddSingleton(new JwtService(jwtSecret, TimeSpan.FromHours(72)));
+
+// Backing store for the OAuth session handoff, the avatar/modular-doc caches, the
+// locale rate limiter and the translation job store - all short-lived and per-process,
+// which is what Rust's ExpiringMap was too.
+builder.Services.AddMemoryCache();
+builder.Services.AddHttpClient();
 
 builder.Services.AddHttpLogging(o =>
 {
@@ -56,6 +70,9 @@ app.UseJwtAuth();   // 401s protected routes lacking a valid token; exempts /log
 
 app.MapGet("/health", () => "ok");
 app.MapAuth();
+app.MapDiscordAuth();
+app.MapLocale();
+app.MapDashboard();
 app.MapSignInAsSteam();
 app.MapGetTermsOfUseStateAll(); // real handler: returns terms as accepted (excluded from StaticRoutes)
 app.MapStaticPackets();

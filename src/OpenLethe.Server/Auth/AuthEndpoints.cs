@@ -19,7 +19,10 @@ public static class AuthEndpoints
             if (string.IsNullOrWhiteSpace(req.username))
                 return Results.BadRequest();
 
-            await store.GetOrCreateByUsernameAsync(req.username, ct);
+            // Null means the name belongs to a Discord account - it is not claimable here.
+            if (await store.GetOrCreateByUsernameAsync(req.username, ct) is null)
+                return Results.Conflict("That username belongs to a Discord account; sign in through /auth/discord.");
+
             return Results.Json(new LoginResponse { token = jwt.Mint(req.username) });
         });
 

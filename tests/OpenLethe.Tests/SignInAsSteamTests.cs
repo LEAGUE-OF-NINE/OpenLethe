@@ -27,7 +27,7 @@ public class SignInAsSteamTests(PostgresFixture db)
         using (var scope = factory.Services.CreateScope())
         {
             var store = new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>());
-            var acc = await store.GetOrCreateByUsernameAsync(name);
+            var acc = (await store.GetOrCreateByUsernameAsync(name))!;
             ingameId = acc.IngameId;
             jwt = scope.ServiceProvider.GetRequiredService<JwtService>().Mint(name);
         }

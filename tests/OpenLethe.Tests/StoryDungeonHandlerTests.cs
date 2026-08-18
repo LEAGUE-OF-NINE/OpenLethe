@@ -174,7 +174,7 @@ public class StoryDungeonHandlerTests(PostgresFixture db)
         using (var scope = f.Services.CreateScope())
         {
             var ctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-            var acc = await new AccountStore(ctx).GetOrCreateByUsernameAsync(name);
+            var acc = (await new AccountStore(ctx).GetOrCreateByUsernameAsync(name))!;
             acc.ChapterState = AccountFields.Set(new List<MainChapterState>
             {
                 new() { id = 1, subcss = new() { new Subcss { id = 1, nss = new() { new Nss { id = 500 } }, rss = new() } } },

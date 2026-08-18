@@ -78,9 +78,51 @@ public static class StaticData
         return result;
     }
 
+    /// Port of Rust get_embed_data::<Localize, DataList<T>>: a Localize file is one
+    /// { "dataList": [ T, ... ] } document. Path is relative to the Localize root.
+    public static List<T> GetLocalizeList<T>(string resourcePath)
+    {
+        var name = "Localize/" + resourcePath.Replace('\\', '/').TrimStart('/');
+        using var stream = Asm.GetManifestResourceStream(name);
+        if (stream is null) return new List<T>();
+
+        try { return JsonSerializer.Deserialize<DataList<T>>(stream, Options)?.dataList ?? new List<T>(); }
+        catch (JsonException) { return new List<T>(); }
+    }
+
+    /// Port of Rust get_embed_data::<Localize, DataList<T>>(folder): Rust matches by
+    /// path PREFIX, not by folder, so "en/EN_Skills" pulls in EN_Skills.json AND every
+    /// EN_Skills_*.json beside it. Files that fail to parse are skipped, as in Rust.
+    public static List<T> GetLocalizeListByPrefix<T>(string prefix)
+    {
+        var full = "Localize/" + prefix.Replace('\\', '/').TrimStart('/');
+        var result = new List<T>();
+
+        foreach (var name in Asm.GetManifestResourceNames())
+        {
+            var norm = name.Replace('\\', '/');
+            if (!norm.StartsWith(full, StringComparison.OrdinalIgnoreCase)) continue;
+            if (!norm.EndsWith(".json", StringComparison.OrdinalIgnoreCase)) continue;
+
+            using var stream = Asm.GetManifestResourceStream(name)!;
+            try
+            {
+                var doc = JsonSerializer.Deserialize<DataList<T>>(stream, Options);
+                if (doc?.dataList is not null) result.AddRange(doc.dataList);
+            }
+            catch (JsonException) { }
+        }
+        return result;
+    }
+
     private sealed class ValList<T>
     {
         public List<T>? list;
+    }
+
+    private sealed class DataList<T>
+    {
+        public List<T>? dataList;
     }
 }
 

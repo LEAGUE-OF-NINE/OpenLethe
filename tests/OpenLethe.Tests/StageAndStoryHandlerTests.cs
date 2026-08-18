@@ -24,7 +24,7 @@ public class StageAndStoryHandlerTests(PostgresFixture db)
         var name = $"stage_{Guid.NewGuid():N}";
         using var scope = f.Services.CreateScope();
         var ctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        var account = await new AccountStore(ctx).GetOrCreateByUsernameAsync(name);
+        var account = (await new AccountStore(ctx).GetOrCreateByUsernameAsync(name))!;
         var state = new List<MainChapterState>
         {
             new() { id = 1, subcss = new() { new Subcss { id = 1, nss = new() { new Nss { id = nodeId } }, rss = new() } } },

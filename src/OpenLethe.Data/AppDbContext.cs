@@ -13,6 +13,8 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbCon
         a.HasKey(x => x.Id);
         a.HasIndex(x => x.Username).IsUnique();
         a.HasIndex(x => x.IngameId).IsUnique();
+        // Filtered: dev-login accounts share DiscordId == null.
+        a.HasIndex(x => x.DiscordId).IsUnique().HasFilter("\"DiscordId\" IS NOT NULL");
         a.Property(x => x.Username).IsRequired();
 
         // Every game-data column is jsonb.

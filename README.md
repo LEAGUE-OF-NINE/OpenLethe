@@ -109,6 +109,25 @@ curl http://localhost:5055/health   # -> ok
 | — | `ASPNETCORE_URLS` | `http://localhost:5055` (launch profile) | Host/port to bind. `.env` value applies only without a launch profile (see note above) |
 | — | `ASPNETCORE_ENVIRONMENT` | `Development` (launch profile) | `Development` or `Production`. `.env` value applies only without a launch profile |
 
+#### Optional: Discord login and skill translation
+
+Neither group is needed to play - the game routes and the `/auth/login` dev login work
+without them. Leave them unset and the features stay dormant.
+
+| Env var | Default | Purpose |
+| --- | --- | --- |
+| `CLIENT_ID`, `CLIENT_SECRET` | *(none)* | Discord OAuth app credentials; required by `/auth/discord` and `/auth/authorized` |
+| `FRONTEND_URL` | *(none)* | Where the non-launcher flow redirects back to; required by every `/auth` route |
+| `REDIRECT_URL` | `http://localhost:8080/auth/authorized` | OAuth callback registered with Discord. Must match the portal entry exactly and point at the port you actually reach the server on (8080 via Docker, 5055 under `dotnet run`) |
+| `AUTH_URL`, `TOKEN_URL` | Discord's endpoints | Override to point at a different OAuth provider |
+| `DISCORD_GUILD_ID` | *(none)* | Set to require membership of that server to log in. **Unset means no whitelist** - upstream always gates on a guild |
+| `DISCORD_TOKEN` | *(none)* | Bot token used for the membership check and avatar lookup |
+| `DISCORD_WHITELIST_IDS` | *(none)* | Comma-separated user snowflakes that bypass the guild check (upstream hard-codes these in source) |
+| `CAPTCHA_SECRET_KEY` | *(none)* | Cloudflare Turnstile secret for `/auth/captcha`, which issues the cookie `/misc/locale` requires |
+| `OPENAI_API_KEY` | *(none)* | Required by `/misc/locale*`; any OpenAI-compatible chat-completions endpoint |
+| `OPENAI_BASE_URL` | `https://api.openai.com/v1` | Point at a proxy or a local model server |
+| `OPENAI_MODEL` | `gpt-3.5-turbo` | Model used for skill-text generation |
+
 All keys can go in `.env` (loaded on startup); real environment variables override `.env`.
 
 ## Tests

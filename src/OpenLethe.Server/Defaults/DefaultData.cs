@@ -21,7 +21,8 @@ public static class DefaultData
     private static readonly Lazy<List<ResultPersonality>> _personalities = new(BuildFormattedPersonalities);
     private static readonly Lazy<List<UserUnlockCode>> _userCodes = new(BuildFormattedUserCodes);
     private static readonly Lazy<List<long>> _danteIds = new(BuildDanteAbilityIds);
-    private static readonly Lazy<List<MainChapterState>> _chapterState = new(BuildMainChapterState);
+    private static readonly Lazy<List<MainChapterState>> _chapterState = new(() => BuildMainChapterState(ct: 2, cn: 1));
+    private static readonly Lazy<List<MainChapterState>> _chapterStateInit = new(() => BuildMainChapterState(ct: 0, cn: 0));
 
     // static-data/ego/ -> owned-ego defaults.
     public static List<Ego> GetFormattedEgos() => new(_egos.Value);
@@ -70,7 +71,10 @@ public static class DefaultData
     // consecutive over unsorted iteration order; identical for ordered data.
     public static List<MainChapterState> LoadMainChapterState() => new(_chapterState.Value);
 
-    private static List<MainChapterState> BuildMainChapterState()
+    /// Port of Rust init_main_chapter_state: the same tree with every node un-cleared.
+    public static List<MainChapterState> InitMainChapterState() => new(_chapterStateInit.Value);
+
+    private static List<MainChapterState> BuildMainChapterState(long ct, long cn)
     {
         var nodeIds = StaticData.GetList<NodeIdStruct>("static-data/stagenodereward/")
             .Select(n => n.nodeid)
@@ -88,7 +92,7 @@ public static class DefaultData
                     {
                         id = sub.Key,
                         rss = new List<long> { 1, 2, 3, 10 },
-                        nss = sub.Select(nodeId => new Nss { id = nodeId, ct = 2, cn = 1, dn = 0 }).ToList(),
+                        nss = sub.Select(nodeId => new Nss { id = nodeId, ct = ct, cn = cn, dn = 0 }).ToList(),
                     })
                     .ToList(),
             })

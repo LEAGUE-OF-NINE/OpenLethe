@@ -20,6 +20,13 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    # Discord OAuth / captcha / translation config lives in .env (see .env.example).
+    # Optional: the server runs fine without it, those features just stay dormant.
+    # `environment:` below wins over anything here, so a .env pointing at a local
+    # Postgres cannot override the compose-internal `db` host.
+    env_file:
+      - path: .env
+        required: false
     environment:
       # Npgsql connection string the server reads (ConnectionStrings:Postgres).
       ConnectionStrings__Postgres: "Host=db;Port=5432;Database=openlethe;Username=openlethe;Password=openlethe"

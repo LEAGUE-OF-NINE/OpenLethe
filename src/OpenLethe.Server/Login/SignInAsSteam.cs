@@ -39,11 +39,18 @@ public static class SignInAsSteamEndpoint
             {
                 if (!JwtService.TryReadSubjectUnverified(token, out sub)) return Results.BadRequest();
                 account = await store.GetOrCreateByUsernameAsync(sub, ct);
+                if (account is null) return Results.BadRequest();
                 authCode = jwt.Mint(sub);
             }
             else
             {
-                if (!jwt.TryVerify(token, out sub)) return Results.BadRequest();
+                if (!jwt.TryVerifyClaims(token, out var claims)
+                    || claims.Ephemeral
+                    || claims.Captcha)
+                {
+                    return Results.BadRequest();
+                }
+                sub = claims.Sub;
                 account = await store.FindByUsernameAsync(sub, ct);
                 if (account is null) return Results.BadRequest();
                 authCode = token;

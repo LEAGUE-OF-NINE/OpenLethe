@@ -17,6 +17,16 @@
     <EmbeddedResource Include="StaticData\**\*.json">
       <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
     </EmbeddedResource>
+    <!-- The one Localize file with a consumer: /dashboard/personalities/localize. -->
+    <EmbeddedResource Include="Localize\en\EN_Personalities.json">
+      <LogicalName>Localize/en/EN_Personalities.json</LogicalName>
+    </EmbeddedResource>
+    <!-- /misc/locale: EN_Skills* are the few-shot examples, EN_SkillTag the tag glossary.
+         ~4.6MB; the alternative is shipping them beside the binary, which Docker would
+         then have to copy separately. -->
+    <EmbeddedResource Include="Localize\en\EN_Skills*.json;Localize\en\EN_SkillTag.json">
+      <LogicalName>Localize/en/%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
