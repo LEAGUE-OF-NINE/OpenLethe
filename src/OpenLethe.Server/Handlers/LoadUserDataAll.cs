@@ -50,7 +50,7 @@ public static class LoadUserDataAllEndpoint
 
             // personalities: re-derive each read (defaults overlaid by stored edits),
             // ordered by personality_id (Rust BTreeMap).
-            var personalities = AccountDefaults.DerivePersonalities(account.Personalities);
+            var personalities = AccountDefaults.DerivePersonalities(account);
 
             // user_info: fixed default when absent or uid==0; persist the reset.
             var userInfo = AccountFields.Get<UserInfo>(account.UserInfo);

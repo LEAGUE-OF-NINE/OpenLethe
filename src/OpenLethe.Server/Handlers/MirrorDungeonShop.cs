@@ -301,7 +301,7 @@ public static class MirrorDungeonShopEndpoints
             var p = await HandlerContext.ReadParamsAsync<SelectFormationMirrorDungeonParams>(ctx);
             if (p is null) return Results.BadRequest();
 
-            var personalities = AccountDefaults.DerivePersonalities(account.Personalities);
+            var personalities = AccountDefaults.DerivePersonalities(account);
             var levelMap = personalities.ToDictionary(x => x.personality_id, x => x.level);
             // account-state (like l): a fresh replay account has no real per-identity awakening
             // (gacksung) investment, so this falls back to DefaultData's uniform 4 - masked in

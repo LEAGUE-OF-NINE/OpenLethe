@@ -23,13 +23,17 @@ public static class DashboardEndpoints
         // Thirteen of the routes are get/set on one opaque Account column. They differ
         // only in the field name the payload travels under and whether the response
         // wraps it - so they share one generic mapper.
+        // Both derive: Rust reads these columns raw but seeds them with the shipped
+        // defaults when the account is created, so a raw read there is never empty.
         MapColumn<List<Ego>>(app, "/dashboard/egos", "/dashboard/egos/update", "list", wrap: true,
             a => a.Egos, (a, v) => a.Egos = v,
-            merge: (cur, inc) => AccountFields.MergeById(cur, inc, e => e.ego_id));
+            merge: (cur, inc) => AccountFields.MergeById(cur, inc, e => e.ego_id),
+            derive: AccountDefaults.DeriveEgos);
 
         MapColumn<List<ResultPersonality>>(app, "/dashboard/personalities", "/dashboard/personalities/update", "list", wrap: true,
             a => a.Personalities, (a, v) => a.Personalities = v,
-            merge: (cur, inc) => AccountFields.MergeById(cur, inc, p => p.personality_id));
+            merge: (cur, inc) => AccountFields.MergeById(cur, inc, p => p.personality_id),
+            derive: AccountDefaults.DerivePersonalities);
 
         MapColumn<UserInfo>(app, "/dashboard/userinfo", "/dashboard/userinfo/update", "userInfo", wrap: false,
             a => a.UserInfo, (a, v) => a.UserInfo = v);
@@ -144,10 +148,16 @@ public static class DashboardEndpoints
         bool wrap,
         Func<Account, string> read,
         Action<Account, string> write,
-        Func<T, T, T>? merge = null) where T : new()
+        Func<T, T, T>? merge = null,
+        Func<Account, T>? derive = null) where T : new()
     {
+        // `derive` supplies the shipped defaults for columns OpenLethe fills lazily
+        // (personalities are never written by the game at all) - without it these
+        // routes answer with an empty list for a fresh account.
+        T Current(Account a) => derive is not null ? derive(a) : AccountFields.Get<T>(read(a)) ?? new T();
+
         app.MapPost(getPath, Route((account, _, _) =>
-            Task.FromResult(Json(Shape(field, wrap, AccountFields.Get<T>(read(account)) ?? new T())))));
+            Task.FromResult(Json(Shape(field, wrap, Current(account))))));
 
         app.MapPost(updatePath, Route(async (account, body, ctx) =>
         {
@@ -159,7 +169,7 @@ public static class DashboardEndpoints
 
             // egos/personalities upsert by id (Rust update_egos/update_personalities);
             // every other column is replaced wholesale.
-            if (merge is not null) value = merge(AccountFields.Get<T>(read(account)) ?? new T(), value);
+            if (merge is not null) value = merge(Current(account), value);
 
             write(account, AccountFields.Set(value));
             await SaveAsync(ctx);
@@ -256,13 +266,6 @@ public static class DashboardEndpoints
     private sealed class IngameIdResponse { public int ingameId; }
 
     private sealed class TokenResponse { public string token = ""; }
-
-    /// Rust models/src/data/mod.rs Identity - the shape of the CustomIdentities column.
-    private sealed class CustomIdentity
-    {
-        public long id { get; set; }
-        public long characterId { get; set; }
-    }
 
     /// Rust dashboard.rs IdentityLocalizeFormat. No serde rename here, so `sinner_id`
     /// stays snake_case on the wire.

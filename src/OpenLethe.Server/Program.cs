@@ -22,7 +22,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Rust: RequestBodyLimitLayer::new(2 * 1024 * 1024). Kestrel's own default is 30MB,
 // which is a lot of memory to hand an unauthenticated caller once this is public.
-// Configurable because /custom/upload (not yet ported) will need a bigger ceiling.
+// Configurable so a large /custom/upload payload can be allowed without a code change.
 var maxBodyBytes = builder.Configuration.GetValue("MAX_REQUEST_BODY_BYTES", 2 * 1024 * 1024);
 builder.WebHost.ConfigureKestrel(o => o.Limits.MaxRequestBodySize = maxBodyBytes);
 
@@ -120,6 +120,7 @@ app.MapAuth();
 app.MapDiscordAuth();
 app.MapLocale();
 app.MapDashboard();
+app.MapCustomUpload();
 app.MapSignInAsSteam();
 app.MapGetTermsOfUseStateAll(); // real handler: returns terms as accepted (excluded from StaticRoutes)
 app.MapStaticPackets();

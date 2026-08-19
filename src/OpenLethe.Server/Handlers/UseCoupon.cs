@@ -20,7 +20,7 @@ public static class UseCouponEndpoints
             var updated = new UpdatedFormat
             {
                 userInfo = userInfo,
-                personalityList = AccountDefaults.DerivePersonalities(account.Personalities),
+                personalityList = AccountDefaults.DerivePersonalities(account),
             };
             var result = new global::ResPacket_UseCoupon { state = 1, rewards = new() };
             var response = global::ResponsePacket<global::ResPacket_UseCoupon>.Ok(result, packetId);

@@ -46,6 +46,11 @@ public class DashboardEndpointTests(PostgresFixture db)
         var (f, client, name, jwt) = await NewUserAsync();
         await using var _ = f;
 
+        // Base is the shipped default list (Rust seeds it at account creation).
+        var baseline = (await PostAsync(client, "/dashboard/egos", new { token = jwt }))
+            .GetProperty("list").GetArrayLength();
+        Assert.True(baseline > 0);
+
         await PostAsync(client, "/dashboard/egos/update", new
         {
             token = jwt,
@@ -61,15 +66,31 @@ public class DashboardEndpointTests(PostgresFixture db)
                 new { ego_id = 2L, gacksung = 1L, acquire_time = "t2" },
             },
         });
-        Assert.Equal(2, updated.GetProperty("list").GetArrayLength());
+        Assert.Equal(baseline + 2, updated.GetProperty("list").GetArrayLength());
 
         var got = await PostAsync(client, "/dashboard/egos", new { token = jwt });
         var egos = got.GetProperty("list").Deserialize<List<Ego>>(global::PacketJson.Options)!;
-        Assert.Equal(2, egos.Count);
+        Assert.Equal(baseline + 2, egos.Count);
         Assert.Equal(4, egos.Single(e => e.ego_id == 1).gacksung);
 
         var stored = AccountFields.Get<List<Ego>>((await ReloadAsync(f, name)).Egos)!;
-        Assert.Equal(2, stored.Count);
+        Assert.Equal(baseline + 2, stored.Count);
+    }
+
+    [SkippableFact]
+    public async Task GetsReturnShippedDefaultsForAFreshAccount()
+    {
+        db.RequireDb();
+        var (f, client, _, jwt) = await NewUserAsync();
+        await using var _f = f;
+
+        // Rust seeds both columns at account creation; OpenLethe fills them lazily, so
+        // these routes must derive the defaults or the frontend sees an empty list.
+        var egos = await PostAsync(client, "/dashboard/egos", new { token = jwt });
+        Assert.True(egos.GetProperty("list").GetArrayLength() > 0);
+
+        var personalities = await PostAsync(client, "/dashboard/personalities", new { token = jwt });
+        Assert.True(personalities.GetProperty("list").GetArrayLength() > 0);
     }
 
     [SkippableFact]
@@ -78,6 +99,10 @@ public class DashboardEndpointTests(PostgresFixture db)
         db.RequireDb();
         var (f, client, _, jwt) = await NewUserAsync();
         await using var _f = f;
+
+        var baseline = (await PostAsync(client, "/dashboard/personalities", new { token = jwt }))
+            .GetProperty("list").GetArrayLength();
+        Assert.True(baseline > 0);
 
         await PostAsync(client, "/dashboard/personalities/update", new
         {
@@ -92,8 +117,9 @@ public class DashboardEndpointTests(PostgresFixture db)
 
         var got = await PostAsync(client, "/dashboard/personalities", new { token = jwt });
         var list = got.GetProperty("list").Deserialize<List<ResultPersonality>>(global::PacketJson.Options)!;
-        Assert.Single(list);
-        Assert.Equal(45, list[0].level);
+        // 10101 is a shipped id, so the edit merges in place rather than appending.
+        Assert.Equal(baseline, list.Count);
+        Assert.Equal(45, list.Single(p => p.personality_id == 10101L).level);
     }
 
     [SkippableFact]

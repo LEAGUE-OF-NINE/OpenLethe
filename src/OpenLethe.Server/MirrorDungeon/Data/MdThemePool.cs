@@ -10,7 +10,10 @@ public sealed class MdThemePool
 {
     public readonly Dictionary<long, ThemeStatic> pools;
 
-    // ponytail: no DB custom-theme table in this port; vanilla loads static themes only.
+    // ponytail: vanilla static themes only. POST /custom/upload/mirrordungeon-theme-floor
+    // fills Account.CustomTheme, but Rust's per-user overlay (ThemePool::load_from_db_or_default)
+    // would mean threading the account through all eight construction sites, most of them deep
+    // in the rules layer. Add it when a custom theme actually needs to affect map gen.
     public MdThemePool()
     {
         pools = MdThemeData.AllThemes().ToDictionary(t => t.id, t => t);

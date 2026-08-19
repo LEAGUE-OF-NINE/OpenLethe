@@ -62,6 +62,14 @@ public sealed class ResultPersonality
     public string acquire_time = "";
 }
 
+/// Rust models/src/data/mod.rs Identity - the shape of the CustomIdentities
+/// column, written by POST /custom/upload/personality.
+public sealed class CustomIdentity
+{
+    public long id;
+    public long characterId;
+}
+
 public sealed class MainChapterState
 {
     public long id;
