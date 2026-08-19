@@ -1,0 +1,42 @@
+app = 'openlethe'
+primary_region = 'iad'
+
+[build]
+  dockerfile = 'Dockerfile'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+# Only non-identifying deployment toggles belong here.
+[env]
+  ASPNETCORE_ENVIRONMENT = 'Production'
+
+  # The passwordless dev login hands a token to anyone naming a username.
+  # It must never be reachable on a public deployment; Discord OAuth is the
+  # real login path. Kept in the file rather than in secrets so the safe
+  # setting is visible and version-controlled.
+  Auth__EnableLocalLogin = 'false'
+
+  # SignInAsSteam's dev backdoor: accepts any JWT WITHOUT verifying its
+  # signature, reads the subject, and mints a real token for that account -
+  # including Discord-linked ones. Anyone could forge a subject and take over
+  # any account. The code default is already false, and docker-compose.yml's
+  # 'true' does not reach a Dockerfile deploy; pinned here so the safe value
+  # survives regardless of how this app is launched.
+  Auth__DevAcceptAnyToken = 'false'
+
+[[restart]]
+  policy = 'always'
+  retries = 10
+
+[[vm]]
+  # Benchmarked: ~240MB working set under heavy load, throughput is
+  # Postgres-bound long before 1 shared vCPU saturates.
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1

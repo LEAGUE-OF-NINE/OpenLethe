@@ -107,6 +107,7 @@ curl http://localhost:5055/health   # -> ok
 | `ConnectionStrings:Postgres` | `ConnectionStrings__Postgres` | *(none)* | Postgres connection string; migrations run on startup when set |
 | `Auth:JwtSecret` | `Auth__JwtSecret` | ephemeral random (per boot) | HS256 signing secret; leave unset for localhost (tokens just don't survive a restart) |
 | `Auth:EnableLocalLogin` | `Auth__EnableLocalLogin` | `true` | The passwordless `/auth/login` dev login. **Set `false` on any public deployment** - it hands out a token for any non-Discord username, no proof required |
+| `Auth:DevAcceptAnyToken` | `Auth__DevAcceptAnyToken` | `false` (but `true` in `docker-compose.yml`) | Dev backdoor: `SignInAsSteam` accepts any JWT **without verifying its signature**, then mints a real token for whatever subject it names - including Discord-linked accounts. **Must be `false` on anything reachable**; a forged subject is full account takeover |
 | `Auth:RateLimitPerMinute` | `Auth__RateLimitPerMinute` | `60` | Per-IP fixed-window rate limit on the unauthenticated `/auth/*` routes; exceeding it returns 429 |
 | — | `ASPNETCORE_URLS` | `http://localhost:5055` (launch profile) | Host/port to bind. `.env` value applies only without a launch profile (see note above) |
 | — | `ASPNETCORE_ENVIRONMENT` | `Development` (launch profile) | `Development` or `Production`. `.env` value applies only without a launch profile |
