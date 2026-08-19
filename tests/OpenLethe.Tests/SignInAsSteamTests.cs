@@ -47,6 +47,59 @@ public class SignInAsSteamTests(PostgresFixture db)
         Assert.Equal(ingameId, result.GetProperty("userAuth").GetProperty("uid").GetInt64());
     }
 
+    // An account that has logged in through Discord has Username == DiscordId, and
+    // a token minted by our OAuth carries that snowflake as its subject. The dev
+    // path must resolve it, not try to claim it - claiming is refused, which turned
+    // every Discord user's steam login into a 400.
+    [SkippableFact]
+    public async Task DevLogin_ResolvesAnExistingDiscordAccount()
+    {
+        db.RequireDb();
+        await using var factory = new DevWebAppFactory(db.ConnectionString);
+        var discordId = Random.Shared.NextInt64(1, long.MaxValue).ToString();
+
+        using (var scope = factory.Services.CreateScope())
+        {
+            var store = new AccountStore(scope.ServiceProvider.GetRequiredService<AppDbContext>());
+            Assert.NotNull(await store.GetOrCreateByDiscordIdAsync(discordId));
+        }
+
+        var resp = await factory.CreateClient().PostAsJsonAsync("/login/SignInAsSteam", new
+        {
+            userAuth = new { uid = 0, dbid = 0, authCode = "", version = "1", synchronousDataVersion = 0 },
+            parameters = new
+            {
+                steamToken = HexEncode(UnsignedToken(discordId)),
+                version = "1",
+                deviceModel = "pc",
+                deviceLanguage = "en",
+            },
+        });
+
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+    }
+
+    private sealed class DevWebAppFactory(string conn) : DbWebAppFactory(conn)
+    {
+        protected override void ConfigureWebHost(Microsoft.AspNetCore.Hosting.IWebHostBuilder b)
+        {
+            base.ConfigureWebHost(b);
+            b.UseSetting("Auth:DevAcceptAnyToken", "true");
+        }
+    }
+
+    /// The dev path reads the subject WITHOUT verifying the signature, so a
+    /// well-formed but unsigned token is a faithful stand-in.
+    private static string UnsignedToken(string sub)
+    {
+        static string Part(string json) =>
+            Convert.ToBase64String(Encoding.UTF8.GetBytes(json)).TrimEnd('=')
+                .Replace('+', '-').Replace('/', '_');
+
+        var exp = DateTimeOffset.UtcNow.AddHours(1).ToUnixTimeSeconds();
+        return $"{Part("""{"alg":"HS256","typ":"JWT"}""")}.{Part($$"""{"sub":"{{sub}}","exp":{{exp}}}""")}.sig";
+    }
+
     [SkippableFact]
     public async Task SignInAsSteam_RejectsNonHexToken()
     {

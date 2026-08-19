@@ -32,7 +32,11 @@ services:
       ConnectionStrings__Postgres: "Host=db;Port=5432;Database=openlethe;Username=openlethe;Password=openlethe"
       ASPNETCORE_URLS: "http://+:8080"
       ASPNETCORE_ENVIRONMENT: "Development"
-      Auth__DevAcceptAnyToken: "true"
+      # Dev backdoor: accepts any JWT without verifying its signature, so the game
+      # client can sign in with a token from anywhere. On by default for local
+      # testing. Override per-machine in .env (Auth__DevAcceptAnyToken=false)
+      # rather than editing this file; turn it off for anything reachable.
+      Auth__DevAcceptAnyToken: "${Auth__DevAcceptAnyToken:-true}"
       Logging__LogLevel__Microsoft.AspNetCore: "Information"
       Logging__LogLevel__Microsoft.AspNetCore.HttpLogging: "Information"
       # Optional: set a fixed secret so login tokens survive server restarts.

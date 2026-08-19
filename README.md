@@ -124,6 +124,8 @@ without them. Leave them unset and the features stay dormant.
 | `DISCORD_TOKEN` | *(none)* | Bot token used for the membership check and avatar lookup |
 | `DISCORD_WHITELIST_IDS` | *(none)* | Comma-separated user snowflakes that bypass the guild check (upstream hard-codes these in source) |
 | `CAPTCHA_SECRET_KEY` | *(none)* | Cloudflare Turnstile secret for `/auth/captcha`, which issues the cookie `/misc/locale` requires |
+| `REQUEST_TIMEOUT_SECONDS` | `15` | Per-request timeout; exceeding it returns 504. The `/Lethe.dll`-style routes are exempt (they stream large files) |
+| `MAX_REQUEST_BODY_BYTES` | `2097152` (2 MB) | Request body cap; exceeding it returns 413. Kestrel's own default is 30 MB |
 | `MOD_FILES_DIR` | `modfiles` | Directory served at the server root as `/Lethe.dll`, `/ModularSkillScripts.dll`, `/motions.dll`, `/limbus-manifest.txt`, `/noticeMeta.json` — what LetheLauncher downloads before launching. Docker mounts `./modfiles` here |
 | `RELEASE_CHANNEL_ID` | *(none)* | Discord channel to source `Lethe.dll` from when there is no local file (needs `DISCORD_TOKEN`) |
 | `MODULAR_RELEASE_CHANNEL_ID` | *(none)* | Same, for `ModularSkillScripts.dll` |

@@ -21,7 +21,7 @@ public sealed class JwtService(string secret, TimeSpan lifetime)
     /// Short-lived token for the dashboard (Rust create_ephemeral_jwt). Carries
     /// eph=true so it cannot be used to mint another one.
     public string MintEphemeral(string sub) =>
-        Mint(new PayloadDto { sub = sub, eph = true }, TimeSpan.FromHours(1));
+        Mint(new PayloadDto { sub = sub, eph = true }, TimeSpan.FromHours(36));
 
     /// Rust create_jwt_with_profile: the Discord login token, carrying display
     /// name and avatar hash so the frontend needs no second Discord round-trip.

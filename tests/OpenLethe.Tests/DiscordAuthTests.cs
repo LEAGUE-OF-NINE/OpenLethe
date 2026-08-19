@@ -221,13 +221,16 @@ public class NarrowTokenRejectionTests : IClassFixture<JwtMiddlewareTests.NoDbFa
         Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions
             .GetRequiredService<JwtService>(_f.Services);
 
+    // Crux mints this via /dashboard/auth/token and hands it to the game, so it MUST
+    // work as a game credential - the short lifetime is the mitigation, not a ban.
+    // Rejecting it here broke SignInAsSteam and every subsequent /api call.
     [Fact]
-    public async Task EphemeralDashboardToken_IsNotAGameCredential()
+    public async Task EphemeralDashboardToken_IsAValidGameCredential()
     {
         var resp = await _f.CreateClient()
             .PostAsJsonAsync("/api/AcquireAttendanceReward", Body(Jwt().MintEphemeral("anyone")));
 
-        Assert.Equal(HttpStatusCode.Unauthorized, resp.StatusCode);
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
     }
 
     [Fact]

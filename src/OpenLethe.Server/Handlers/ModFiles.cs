@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Timeouts;
 using System.Text.Json;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -89,7 +90,12 @@ public static class ModFiles
                         + "from a release channel.",
                         "text/plain", statusCode: StatusCodes.Status404NotFound),
                 };
-            });
+            })
+            // Exempt from the global request timeout: these stream multi-megabyte
+            // files, and 15s is a handler budget, not a download budget. Upstream
+            // never hits this because it always redirects to the Discord CDN - our
+            // local-file tier serves the bytes itself.
+            .DisableRequestTimeout();
         }
 
         return app;

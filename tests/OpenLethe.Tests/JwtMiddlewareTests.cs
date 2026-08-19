@@ -36,6 +36,30 @@ public class JwtMiddlewareTests : IClassFixture<JwtMiddlewareTests.NoDbFactory>
         Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
     }
 
+    // An unrouted path has no envelope to demand. Rejecting it as a malformed
+    // packet turned a plain GET / into a 400, which reads as "your request was
+    // wrong" rather than "no such route" - Crux hit exactly this.
+    [Theory]
+    [InlineData("/")]
+    [InlineData("/api/NoSuchEndpoint")]
+    [InlineData("/definitely/not/a/route")]
+    public async Task UnroutedPaths_Are404_Not400(string path)
+    {
+        var resp = await _factory.CreateClient().GetAsync(path);
+
+        Assert.Equal(HttpStatusCode.NotFound, resp.StatusCode);
+    }
+
+    // The guard must not weaken a route that DOES exist.
+    [SkippableFact]
+    public async Task RoutedApiPath_StillRequiresAToken()
+    {
+        var resp = await _factory.CreateClient()
+            .PostAsJsonAsync("/api/AcquireAttendanceReward", Body("garbage"));
+
+        Assert.Equal(HttpStatusCode.Unauthorized, resp.StatusCode);
+    }
+
     [SkippableFact]
     public async Task ProtectedApiRoute_WithInvalidToken_Returns401()
     {

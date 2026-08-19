@@ -10,6 +10,17 @@ public sealed class JwtAuthMiddleware(RequestDelegate next, JwtService jwt)
 {
     public async Task Invoke(HttpContext ctx)
     {
+        // Nothing matched this path, so there is no envelope to demand: let routing
+        // answer 404. Without this the middleware rejects every unrouted request as a
+        // malformed packet, which is how a plain GET / became a confusing 400 instead
+        // of "no such route" (Rust layers this only over the game router, so an
+        // unmatched path 404s there too).
+        if (ctx.GetEndpoint() is null)
+        {
+            await next(ctx);
+            return;
+        }
+
         if (IsExempt(ctx.Request.Path))
         {
             await next(ctx);
@@ -34,13 +45,16 @@ public sealed class JwtAuthMiddleware(RequestDelegate next, JwtService jwt)
             ctx.Request.Body.Position = 0;
         }
 
-        // Ephemeral (dashboard) and captcha (abuse_exemption cookie) tokens are
-        // narrower credentials that happen to be signed with the same key. Without
-        // this they would work as full game auth codes, so a frontend leaking either
-        // one would leak account access.
+        // The captcha token backs the abuse_exemption cookie and is a different
+        // credential class - it must never be a game auth code.
+        //
+        // The EPHEMERAL token deliberately is one: Crux mints it via
+        // /dashboard/auth/token and hands it to the game precisely so the long-lived
+        // browser token never reaches the game process. Its short life IS the
+        // mitigation, and /dashboard/auth/token refuses to mint another from it.
+        // Rejecting it here broke login for every real client.
         if (authCode is null
             || !jwt.TryVerifyClaims(authCode, out var claims)
-            || claims.Ephemeral
             || claims.Captcha)
         {
             ctx.Response.StatusCode = StatusCodes.Status401Unauthorized;

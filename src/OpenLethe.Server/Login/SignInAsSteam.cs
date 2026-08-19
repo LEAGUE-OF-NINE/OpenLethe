@@ -38,15 +38,22 @@ public static class SignInAsSteamEndpoint
             if (cfg.GetValue("Auth:DevAcceptAnyToken", false))
             {
                 if (!JwtService.TryReadSubjectUnverified(token, out sub)) return Results.BadRequest();
-                account = await store.GetOrCreateByUsernameAsync(sub, ct);
+                // Resolve before create. GetOrCreateByUsernameAsync refuses a
+                // Discord-linked row so that /auth/login cannot CLAIM someone's
+                // account - but here we are identifying, not claiming, and a token
+                // minted by our own OAuth carries the snowflake as its subject,
+                // which is exactly that row's Username. Without the lookup first,
+                // every account that has logged in through Discord gets a 400.
+                account = await store.FindByUsernameAsync(sub, ct)
+                    ?? await store.GetOrCreateByUsernameAsync(sub, ct);
                 if (account is null) return Results.BadRequest();
                 authCode = jwt.Mint(sub);
             }
             else
             {
-                if (!jwt.TryVerifyClaims(token, out var claims)
-                    || claims.Ephemeral
-                    || claims.Captcha)
+                // Ephemeral is expected here: it is the token Crux hands the game.
+                // Only the captcha token is out of place.
+                if (!jwt.TryVerifyClaims(token, out var claims) || claims.Captcha)
                 {
                     return Results.BadRequest();
                 }

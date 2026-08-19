@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.EntityFrameworkCore;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
@@ -19,6 +20,22 @@ if (Environment.GetEnvironmentVariable("OPENLETHE_NO_DOTENV") is null)
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Rust: RequestBodyLimitLayer::new(2 * 1024 * 1024). Kestrel's own default is 30MB,
+// which is a lot of memory to hand an unauthenticated caller once this is public.
+// Configurable because /custom/upload (not yet ported) will need a bigger ceiling.
+var maxBodyBytes = builder.Configuration.GetValue("MAX_REQUEST_BODY_BYTES", 2 * 1024 * 1024);
+builder.WebHost.ConfigureKestrel(o => o.Limits.MaxRequestBodySize = maxBodyBytes);
+
+// Rust: TimeoutLayer::new(Duration::from_secs(15)). Seconds rather than a TimeSpan
+// so it can be turned down in tests, which is the only way to prove it fires.
+var requestTimeout = TimeSpan.FromSeconds(
+    builder.Configuration.GetValue("REQUEST_TIMEOUT_SECONDS", 15.0));
+builder.Services.AddRequestTimeouts(o => o.DefaultPolicy = new RequestTimeoutPolicy
+{
+    Timeout = requestTimeout,
+    TimeoutStatusCode = StatusCodes.Status504GatewayTimeout,
+});
+
 var connString = builder.Configuration.GetConnectionString("Postgres");
 builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(connString));
 builder.Services.AddScoped<AccountStore>();
@@ -33,6 +50,27 @@ builder.Services.AddSingleton(new JwtService(jwtSecret, TimeSpan.FromHours(72)))
 // which is what Rust's ExpiringMap was too.
 builder.Services.AddMemoryCache();
 builder.Services.AddHttpClient();
+
+// Port of Rust's CorsLayer: the Crux frontend is a different origin, and it sends
+// credentials, so the origin must be named exactly - "*" is illegal with
+// AllowCredentials. Comma-separated to allow a second origin (e.g. a preview
+// deploy) without a code change.
+//
+// Unlike Rust, an unset FRONTEND_URL is not fatal: a self-hosted server with no
+// frontend simply has no cross-origin caller to allow.
+var corsOrigins = (builder.Configuration["FRONTEND_URL"] ?? "")
+    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+    .Select(o => o.TrimEnd('/'))
+    .ToArray();
+
+if (corsOrigins.Length > 0)
+{
+    builder.Services.AddCors(o => o.AddDefaultPolicy(p => p
+        .WithOrigins(corsOrigins)
+        .WithMethods("GET", "POST")
+        .WithHeaders("Cookie", "Content-Type", "Referer")
+        .AllowCredentials()));
+}
 
 builder.Services.AddHttpLogging(o =>
 {
@@ -64,11 +102,19 @@ app.UsePathSanitizer();
 // regardless of the source-order of app.Use() calls relative to Map* calls.
 app.UseRouting();
 
+// Before UseJwtAuth: a preflight OPTIONS carries no packet envelope, so the JWT
+// middleware would reject it with a 400 and the browser would report a CORS
+// failure instead of the real error.
+if (corsOrigins.Length > 0) app.UseCors();
+
+app.UseRequestTimeouts();
+
 app.UseHttpLogging();   // before UseJwtAuth so it sees the raw, unconsumed body
 
 app.UseJwtAuth();   // 401s protected routes lacking a valid token; exempts /login,/auth,/health
 
 app.MapGet("/health", () => "ok");
+
 app.MapModFiles();   // /Lethe.dll etc - LetheLauncher fetches these before launch
 app.MapAuth();
 app.MapDiscordAuth();
