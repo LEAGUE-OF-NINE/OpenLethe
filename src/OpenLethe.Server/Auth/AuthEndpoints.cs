@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Data;
 
@@ -13,9 +14,16 @@ public static class AuthEndpoints
 
     public static IEndpointRouteBuilder MapAuth(this IEndpointRouteBuilder app)
     {
-        // Simplified localhost login: username-only, trust on first use.
-        app.MapPost("/auth/login", async (LoginRequest req, AccountStore store, JwtService jwt, CancellationToken ct) =>
+        // Simplified localhost login: username-only, trust on first use. That is an
+        // account-takeover hole on a public deployment (anyone can claim any
+        // non-Discord name), so Auth:EnableLocalLogin=false hides the route and
+        // leaves Discord OAuth as the only way in.
+        app.MapPost("/auth/login", async (LoginRequest req, AccountStore store, JwtService jwt,
+            IConfiguration cfg, CancellationToken ct) =>
         {
+            if (!cfg.GetValue("Auth:EnableLocalLogin", true))
+                return Results.NotFound();
+
             if (string.IsNullOrWhiteSpace(req.username))
                 return Results.BadRequest();
 

@@ -31,7 +31,11 @@ public sealed class AccountStore(AppDbContext ctx)
         // One save, not two: a row written without its DiscordId would be an
         // unclaimed account named after the snowflake, which /auth/login would then
         // hand to anyone asking for it.
-        return await CreateAsync(discordId, ct, discordId);
+        var created = await CreateAsync(discordId, ct, discordId);
+        if (created is not null) return created;
+
+        // Lost the insert race to a concurrent first login; their row is ours too.
+        return await FindByDiscordIdAsync(discordId, ct);
     }
 
     /// Null when the username belongs to a Discord-linked account. Those are
@@ -43,27 +47,41 @@ public sealed class AccountStore(AppDbContext ctx)
         var existing = await FindByUsernameAsync(username, ct);
         if (existing is not null) return existing.DiscordId is null ? existing : null;
 
-        return await CreateAsync(username, ct);
+        var created = await CreateAsync(username, ct);
+        if (created is not null) return created;
+
+        // Lost the insert race to a concurrent first login; re-apply the same rule.
+        existing = await FindByUsernameAsync(username, ct);
+        return existing?.DiscordId is null ? existing : null;
     }
 
-    private async Task<Account> CreateAsync(string username, CancellationToken ct, string? discordId = null)
+    /// Null on a unique-key collision: a concurrent request created the row between
+    /// our find and our insert. Callers re-fetch; the unique indexes guarantee the
+    /// winner's row is the one they get. IngameId itself is DB-generated (identity),
+    /// so ids never collide no matter how many writers race.
+    private async Task<Account?> CreateAsync(string username, CancellationToken ct, string? discordId = null)
     {
-        // ponytail: naive max+1 id assignment; a localhost server has no concurrent
-        // writers. Add a sequence/allocation guard only if multi-writer becomes real.
-        var nextIngameId = (await ctx.Accounts.MaxAsync(a => (int?)a.IngameId, ct) ?? 0) + 1;
-
         var now = DateTime.UtcNow;
         var account = new Account
         {
             Id = Guid.NewGuid(),
             Username = username,
             DiscordId = discordId,
-            IngameId = nextIngameId,
             CreatedAt = now,
             UpdatedAt = now,
         };
         ctx.Accounts.Add(account);
-        await ctx.SaveChangesAsync(ct);
+        try
+        {
+            await ctx.SaveChangesAsync(ct);
+        }
+        catch (DbUpdateException e) when (
+            e.InnerException is Npgsql.PostgresException { SqlState: Npgsql.PostgresErrorCodes.UniqueViolation })
+        {
+            // Detach the failed insert so this context stays usable for the re-fetch.
+            ctx.Entry(account).State = EntityState.Detached;
+            return null;
+        }
         return account;
     }
 }

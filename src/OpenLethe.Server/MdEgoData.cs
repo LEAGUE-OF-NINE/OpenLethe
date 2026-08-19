@@ -65,7 +65,15 @@ public static class MdEgoData
 
     public static long DetectThemeFloorDefaultPoint => DetectThemeFloorDefaultPointValue.Value;
 
-    public static MdEgo? GetById(long id) => Data.Value.FirstOrDefault(e => e.id == id);
+    // First-wins on duplicate id, preserving the old FirstOrDefault scan's answer.
+    private static readonly Lazy<Dictionary<long, MdEgo>> ById = new(() =>
+    {
+        var d = new Dictionary<long, MdEgo>();
+        foreach (var e in Data.Value) d.TryAdd(e.id, e);
+        return d;
+    });
+
+    public static MdEgo? GetById(long id) => ById.Value.GetValueOrDefault(id);
 
     public static List<long> AllIds() => Data.Value.Select(e => e.id).ToList();
 

@@ -37,8 +37,27 @@ builder.Services.AddRequestTimeouts(o => o.DefaultPolicy = new RequestTimeoutPol
 });
 
 var connString = builder.Configuration.GetConnectionString("Postgres");
-builder.Services.AddDbContext<AppDbContext>(o => o.UseNpgsql(connString));
+builder.Services.AddDbContextPool<AppDbContext>(o => o.UseNpgsql(connString));
 builder.Services.AddScoped<AccountStore>();
+
+// The /auth surface is unauthenticated (login, captcha, OAuth handoff), so it is
+// the brute-force target. Per-IP fixed window; generous enough for the frontend's
+// 1/s token polling. Everything else passes through unlimited.
+var authPermitsPerMinute = builder.Configuration.GetValue("Auth:RateLimitPerMinute", 60);
+builder.Services.AddRateLimiter(o =>
+{
+    o.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    o.GlobalLimiter = System.Threading.RateLimiting.PartitionedRateLimiter.Create<HttpContext, string>(ctx =>
+        ctx.Request.Path.StartsWithSegments("/auth")
+            ? System.Threading.RateLimiting.RateLimitPartition.GetFixedWindowLimiter(
+                "auth:" + (ctx.Connection.RemoteIpAddress?.ToString() ?? "unknown"),
+                _ => new System.Threading.RateLimiting.FixedWindowRateLimiterOptions
+                {
+                    PermitLimit = authPermitsPerMinute,
+                    Window = TimeSpan.FromMinutes(1),
+                })
+            : System.Threading.RateLimiting.RateLimitPartition.GetNoLimiter("none"));
+});
 
 // HS256 secret from config; generated ephemeral default so localhost needs no setup.
 var jwtSecret = builder.Configuration["Auth:JwtSecret"]
@@ -106,6 +125,8 @@ app.UseRouting();
 // middleware would reject it with a 400 and the browser would report a CORS
 // failure instead of the real error.
 if (corsOrigins.Length > 0) app.UseCors();
+
+app.UseRateLimiter();
 
 app.UseRequestTimeouts();
 
