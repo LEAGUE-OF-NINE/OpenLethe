@@ -2,7 +2,6 @@ using System.Net;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Xunit;
 
 // The Crux frontend is a separate origin and sends credentials, so without these
 // headers the browser blocks every dashboard call before it leaves the page.

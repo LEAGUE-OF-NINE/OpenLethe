@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OpenLethe.Server.MirrorDungeon.Model;
 
 // The Mirror Dungeon run aggregate. Foundation complete: every field is a readable,

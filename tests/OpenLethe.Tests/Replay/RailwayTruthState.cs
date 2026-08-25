@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Text.Json.Nodes;
 
 namespace OpenLethe.Tests.Replay;

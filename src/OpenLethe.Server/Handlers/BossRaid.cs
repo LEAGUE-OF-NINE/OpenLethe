@@ -1,8 +1,3 @@
-using System.Linq;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-
 namespace OpenLethe.Server.Handlers;
 
 /// Boss-raid stateful endpoints. Save state lives in Account.BossRaidSaveInfo as a

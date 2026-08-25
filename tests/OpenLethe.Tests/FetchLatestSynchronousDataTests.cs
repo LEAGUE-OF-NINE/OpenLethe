@@ -4,7 +4,6 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Server.Auth;
-using Xunit;
 
 // /api/FetchLatestSynchronousData hand-builds a `synchronized` payload (the
 // "Welcome to Lethe" notice + a mail); the client needs this 200 to proceed past

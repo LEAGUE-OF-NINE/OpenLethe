@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using OpenLethe.Data;
 using OpenLethe.Server.Wire;
 

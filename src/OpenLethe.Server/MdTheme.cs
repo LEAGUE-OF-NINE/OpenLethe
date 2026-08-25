@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Serialization;
 using OpenLethe.Resources;
 // Namespace alias (not a type alias) to disambiguate Wire.Element against the global `Element`
 // decompiled client-packet type (packets/_shared.cs) - same shape, different type.
-using Wire = OpenLethe.Server.Wire;
 
 namespace OpenLethe.Server;
 

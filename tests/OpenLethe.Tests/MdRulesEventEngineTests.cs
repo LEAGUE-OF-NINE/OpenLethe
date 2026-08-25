@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using System.Linq;
 using OpenLethe.Server.MirrorDungeon.Data;
 using OpenLethe.Server.MirrorDungeon.Model;
 using OpenLethe.Server.MirrorDungeon.Rules;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 namespace OpenLethe.Tests;
 

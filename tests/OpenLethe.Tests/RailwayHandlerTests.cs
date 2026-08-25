@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -6,8 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Data;
 using OpenLethe.Server;
 using OpenLethe.Server.Auth;
-using OpenLethe.Server.Wire;
-using Xunit;
 
 [Collection("postgres")]
 public class RailwayHandlerTests(PostgresFixture db)

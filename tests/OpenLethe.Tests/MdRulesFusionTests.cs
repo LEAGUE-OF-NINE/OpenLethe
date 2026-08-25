@@ -1,6 +1,5 @@
 using OpenLethe.Server.MirrorDungeon.Model;
 using OpenLethe.Server.MirrorDungeon.Rules;
-using Xunit;
 
 namespace OpenLethe.Tests;
 

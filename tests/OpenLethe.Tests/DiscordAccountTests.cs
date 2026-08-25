@@ -1,5 +1,4 @@
 using OpenLethe.Data;
-using Xunit;
 
 // The account half of the OAuth callback. The invariant under test is that a
 // Discord login produces a row whose Username is the snowflake - because Username

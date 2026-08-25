@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OpenLethe.Server.MirrorDungeon.Model;
 
 // One sinner in the run's party (wire dul[*]). Opaque codes (Cm/Mhos/Isp/Sid/Mlos) kept

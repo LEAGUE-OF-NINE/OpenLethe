@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-
 namespace OpenLethe.Server.Login;
 
 /// /login/GetTermsOfUseStateAll returns the terms of use as ALREADY ACCEPTED

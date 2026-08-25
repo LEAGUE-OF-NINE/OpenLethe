@@ -3,7 +3,6 @@ using System.Text.Json.Nodes;
 using OpenLethe.Server.MirrorDungeon.Mapping;
 using OpenLethe.Server.Wire;
 using OpenLethe.Tests.Replay;
-using Xunit;
 
 namespace OpenLethe.Tests;
 

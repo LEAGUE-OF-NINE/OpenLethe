@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using OpenLethe.Data;
-using Xunit;
 
 [Collection("postgres")]
 public class AccountPersistenceTests(PostgresFixture db)

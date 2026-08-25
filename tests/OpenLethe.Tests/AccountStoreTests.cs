@@ -1,5 +1,4 @@
 using OpenLethe.Data;
-using Xunit;
 
 [Collection("postgres")]
 public class AccountStoreTests(PostgresFixture db)

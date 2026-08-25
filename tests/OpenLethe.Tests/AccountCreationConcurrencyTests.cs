@@ -1,5 +1,4 @@
 using OpenLethe.Data;
-using Xunit;
 
 // Multi-user hardening: concurrent signups must not collide on IngameId
 // (DB-generated identity, not max+1) and concurrent first logins for the SAME

@@ -1,5 +1,4 @@
 using OpenLethe.Server.Defaults;
-using Xunit;
 
 namespace OpenLethe.Tests;
 

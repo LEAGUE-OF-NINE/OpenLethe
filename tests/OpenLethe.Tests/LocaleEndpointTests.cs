@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using OpenLethe.Server.Auth;
 using OpenLethe.Server.Locale;
-using Xunit;
 
 // /misc/locale calls out to an OpenAI-compatible endpoint, so these cover the
 // parts that answer without one: the captcha gate, the rate limiter, job lookup,

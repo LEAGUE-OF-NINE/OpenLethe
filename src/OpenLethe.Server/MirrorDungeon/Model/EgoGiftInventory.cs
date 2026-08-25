@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OpenLethe.Server.MirrorDungeon.Model;
 
 // One acquired E.G.O gift (wire egs[*] / AcquiredEgogifts).

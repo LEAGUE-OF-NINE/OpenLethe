@@ -1,6 +1,5 @@
 using System.Text.Json.Nodes;
 using OpenLethe.Tests.Replay;
-using Xunit;
 
 public class JsonDiffTests
 {

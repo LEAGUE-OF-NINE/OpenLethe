@@ -1,6 +1,5 @@
 using System.Net;
 using System.Net.Http.Json;
-using Xunit;
 
 // Public-deployment hardening: /auth/login is trust-on-first-use and must be
 // switchable off, and the unauthenticated /auth surface must be rate-limited.

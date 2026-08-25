@@ -2,7 +2,6 @@ using System.Net;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using Xunit;
 
 // LetheLauncher GETs these from the server root before the user has logged in, so
 // they must serve without a token and 404 informatively when the operator has not

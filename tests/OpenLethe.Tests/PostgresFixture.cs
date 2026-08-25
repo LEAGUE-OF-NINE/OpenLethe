@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using OpenLethe.Data;
 using Testcontainers.PostgreSql;
-using Xunit;
 
 // Shared Postgres for all DB-backed tests. Prefers a Testcontainers container;
 // falls back to DATABASE_TEST_URL if set; if neither is available the collection

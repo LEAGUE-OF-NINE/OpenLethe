@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OpenLethe.Server.MirrorDungeon.Model;
 
 // The party's current position (wire cn / Currentnode).

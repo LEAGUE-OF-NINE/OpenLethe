@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OpenLethe.Server.MirrorDungeon.Model;
 
 // A single shop slot (wire shop.slots[*] / ShopSlot). t = kind ("eg" ego gift, "up"

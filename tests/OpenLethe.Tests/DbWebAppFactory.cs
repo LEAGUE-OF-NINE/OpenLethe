@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.Configuration;
 
 // Boots the real app against the fixture's Postgres and a fixed JWT secret so
 // tests can mint tokens the running server will accept. Extra settings land on

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OpenLethe.Server.MirrorDungeon.Model;
 
 // A queued reward/event popup the client must resolve (wire rre[*] / RemainRewardEvent).

@@ -6,7 +6,6 @@ using OpenLethe.Data;
 using OpenLethe.Server;
 using OpenLethe.Server.Auth;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 [Collection("postgres")]
 public class LoadUserDataAllTests(PostgresFixture db)

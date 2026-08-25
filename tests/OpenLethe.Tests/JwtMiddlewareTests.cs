@@ -2,7 +2,6 @@ using System.Net;
 using System.Net.Http.Json;
 using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Server.Auth;
-using Xunit;
 
 // These need no database: middleware is signature-only, and the stateless
 // static routes ignore the account. Uses a DB-free factory with a fixed secret.

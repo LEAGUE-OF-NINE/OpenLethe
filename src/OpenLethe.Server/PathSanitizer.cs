@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-
 /// Collapses duplicate slashes in request paths before routing.
 /// Ported from lethe-server/middleware/src/lib.rs::sanitize_path - the Limbus client
 /// emits paths like "//api//Foo", which would otherwise 404.

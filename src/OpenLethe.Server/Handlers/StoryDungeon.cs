@@ -1,8 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using OpenLethe.Server.Wire;
 
 namespace OpenLethe.Server.Handlers;

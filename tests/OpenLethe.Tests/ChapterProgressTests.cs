@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using OpenLethe.Data;
 using OpenLethe.Server;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 public class ChapterProgressTests
 {

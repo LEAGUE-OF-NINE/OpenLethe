@@ -1,8 +1,3 @@
-using System.Linq;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-
 namespace OpenLethe.Server.Handlers;
 
 /// Port of change_current_announcer.rs at the client route /api/UpdateAnnouncerPreset

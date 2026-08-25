@@ -6,7 +6,6 @@ using OpenLethe.Data;
 using OpenLethe.Server;
 using OpenLethe.Server.Auth;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 /// Covers the /dashboard/* port of lethe-server/server/src/dashboard.rs. These
 /// routes carry the token in the request BODY (no game envelope), so they are

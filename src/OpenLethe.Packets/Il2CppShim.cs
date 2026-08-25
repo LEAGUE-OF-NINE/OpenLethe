@@ -6,8 +6,6 @@
 // ponytail: List<T> subclass, not a faithful array wrapper. Upgrade only if a packet ever
 // needs fixed-length or index-assignment semantics the wire format actually depends on.
 
-using System.Collections.Generic;
-
 public class Il2CppReferenceArray<T> : List<T>
 {
     public Il2CppReferenceArray() { }

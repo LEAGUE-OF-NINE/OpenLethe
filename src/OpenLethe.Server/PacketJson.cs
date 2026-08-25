@@ -1,5 +1,4 @@
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 /// The one and only serializer configuration for Limbus wire traffic.
 /// Every one of these settings is load-bearing - see EnvelopeSerializationTests.

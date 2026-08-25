@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
 using OpenLethe.Tests.Replay;
-using Xunit;
 
 [Collection("postgres")]
 public class MdExtremeReplayTests(PostgresFixture db)

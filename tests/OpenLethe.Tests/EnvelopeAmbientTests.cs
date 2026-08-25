@@ -1,5 +1,4 @@
 using System.Text.Json;
-using Xunit;
 
 // ResponsePacket.Ok must emit the ambient `updated` / `synchronized` blocks. The real
 // server sends them on 728/760 and 730/760 captured records; without them the client

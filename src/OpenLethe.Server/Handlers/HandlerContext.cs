@@ -1,9 +1,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Data;
 
 namespace OpenLethe.Server.Handlers;

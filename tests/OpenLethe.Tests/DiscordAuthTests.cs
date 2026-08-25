@@ -4,7 +4,6 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using OpenLethe.Server.Auth;
-using Xunit;
 
 // The /auth OAuth surface, minus the legs that need Discord itself. What is
 // exercised here is everything OpenLethe owns: session-id validation, the cookie

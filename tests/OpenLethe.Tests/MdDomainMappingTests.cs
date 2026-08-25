@@ -1,6 +1,5 @@
 using OpenLethe.Server.MirrorDungeon.Mapping;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 namespace OpenLethe.Tests;
 

@@ -5,7 +5,6 @@ using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
-using Xunit;
 
 [Collection("postgres")]
 public class SignInAsSteamTests(PostgresFixture db)

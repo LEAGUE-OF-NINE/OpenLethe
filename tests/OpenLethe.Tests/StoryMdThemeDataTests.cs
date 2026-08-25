@@ -1,6 +1,4 @@
-using System.Linq;
 using OpenLethe.Server;
-using Xunit;
 
 namespace OpenLethe.Tests;
 

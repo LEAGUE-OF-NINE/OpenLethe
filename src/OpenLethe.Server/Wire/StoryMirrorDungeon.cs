@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace OpenLethe.Server.Wire;
 
 // Server-authored ports of the Rust story-mirror-dungeon structs (models/src/types.rs).

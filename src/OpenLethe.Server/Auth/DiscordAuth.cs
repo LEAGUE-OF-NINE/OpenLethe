@@ -1,10 +1,5 @@
-using System.Net.Http.Json;
 using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
 using OpenLethe.Data;
 
 namespace OpenLethe.Server.Auth;

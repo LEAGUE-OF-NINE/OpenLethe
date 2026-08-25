@@ -2,7 +2,6 @@ using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Xunit;
 
 // /login/GetTermsOfUseStateAll must return the terms as ALREADY ACCEPTED
 // (version 1, state 1) so the client skips the user-agreement prompt. It is a

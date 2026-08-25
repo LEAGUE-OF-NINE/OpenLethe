@@ -1,5 +1,4 @@
 using OpenLethe.Resources;
-using Xunit;
 
 public class StaticDataReaderTests
 {

@@ -3,7 +3,6 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using OpenLethe.Server.Auth;
-using Xunit;
 
 // Auth:DevAcceptAnyToken - SignInAsSteam accepts ANY jwt as an identity (subject
 // read without verifying the signature), auto-creates the account, and returns a

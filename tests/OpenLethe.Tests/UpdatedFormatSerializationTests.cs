@@ -1,6 +1,5 @@
 using System.Text.Json;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 public class UpdatedFormatSerializationTests
 {

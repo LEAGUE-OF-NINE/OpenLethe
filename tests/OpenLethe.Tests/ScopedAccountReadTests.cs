@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
-using Xunit;
 
 // HandlerContext.ResolveAsync(ctx, SaveColumn) reads Id + one jsonb column instead of
 // the whole fourteen-column row, which is what the MD/Railway packet storms pay for on

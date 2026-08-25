@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Server.Auth;
-using Xunit;
 
 // Rust wraps the whole app in TimeoutLayer(15s) and RequestBodyLimitLayer(2MB).
 // Both only start mattering once the server is publicly reachable.

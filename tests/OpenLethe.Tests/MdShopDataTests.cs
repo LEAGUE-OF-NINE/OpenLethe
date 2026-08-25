@@ -1,7 +1,6 @@
 using System.Text.Json;
 using OpenLethe.Server;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 public class MdShopDataTests
 {

@@ -1,9 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using OpenLethe.Server.MirrorDungeon.Data;
 using OpenLethe.Server.MirrorDungeon.Mapping;
 using OpenLethe.Server.MirrorDungeon.Rules;
 using OpenLethe.Server.Wire;

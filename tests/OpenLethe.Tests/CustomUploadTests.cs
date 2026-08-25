@@ -6,7 +6,6 @@ using OpenLethe.Data;
 using OpenLethe.Server;
 using OpenLethe.Server.Auth;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 /// Covers the /custom/upload/* port of lethe-server/server/src/custom/mod.rs.
 [Collection("postgres")]

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -7,7 +6,6 @@ using OpenLethe.Data;
 using OpenLethe.Server;
 using OpenLethe.Server.Auth;
 using OpenLethe.Server.Wire;
-using Xunit;
 
 [Collection("postgres")]
 public class StageAndStoryHandlerTests(PostgresFixture db)

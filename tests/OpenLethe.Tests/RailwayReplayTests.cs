@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
 using OpenLethe.Tests.Replay;
-using Xunit;
 
 /// Replays the Refraction Railway capture (docs/flows(2), dungeon 1002 - the
 /// rerun of Refraction Railway 2) against the live server: before every request

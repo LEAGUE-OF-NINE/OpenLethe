@@ -1,8 +1,4 @@
 using System.Text;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Configuration;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
 
