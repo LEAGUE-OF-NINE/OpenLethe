@@ -16,7 +16,7 @@ public static class StoryDungeonEndpoints
         var enterId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnterStoryDungeon>();
         app.MapPost("/api/EnterStoryDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Story);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<EnterStoryDungeonParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -47,7 +47,7 @@ public static class StoryDungeonEndpoints
         var reEnterId = global::PacketRouting.ResolvePacketId<global::ResPacket_ReEnterStoryDungeon>();
         app.MapPost("/api/ReEnterStoryDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Story);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StorySaveInfo>(account.StorySaveInfo) ?? new StorySaveInfo();
             var result = new ReEnterStoryDungeonResult { saveInfo = save };
@@ -57,7 +57,7 @@ public static class StoryDungeonEndpoints
         var enterNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnterStoryDungeonMapNode>();
         app.MapPost("/api/EnterStoryDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Story);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<EnterStoryDungeonMapNodeParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -78,7 +78,9 @@ public static class StoryDungeonEndpoints
         var exitId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitStoryDungeon>();
         app.MapPost("/api/ExitStoryDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            // ChapterState, not StorySaveInfo: this one records chapter progress and
+            // never touches the run's save (RegisterWonNode below).
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Chapter);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<ExitStoryDungeonParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -94,7 +96,7 @@ public static class StoryDungeonEndpoints
         var exitNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitStoryDungeonMapNode>();
         app.MapPost("/api/ExitStoryDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Story);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<ExitStoryDungeonMapNodeParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -136,7 +138,7 @@ public static class StoryDungeonEndpoints
         var savePointId = global::PacketRouting.ResolvePacketId<global::ResPacket_ReturnSavePointStoryDungeonMap>();
         app.MapPost("/api/ReturnSavePointStoryDungeonMap", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Story);
             if (account is null) return Results.Unauthorized();
 
             var save = OpenLethe.Server.AccountFields.Get<StorySaveInfo>(account.StorySaveInfo) ?? new StorySaveInfo();
@@ -178,7 +180,7 @@ public static class StoryDungeonEndpoints
         var updateMapNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_UpdateStoryDungeonMapNode>();
         app.MapPost("/api/UpdateStoryDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Story);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StorySaveInfo>(account.StorySaveInfo);
             if (save is null) return Results.StatusCode(500);

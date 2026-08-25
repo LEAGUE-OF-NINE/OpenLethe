@@ -41,7 +41,7 @@ public static class RailwayEndpoints
         var enterId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnterRailwayDungeon>();
         app.MapPost("/api/EnterRailwayDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<EnterRailwayDungeonParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -77,7 +77,7 @@ public static class RailwayEndpoints
         var enterNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnterRailwayDungeonNode>();
         app.MapPost("/api/EnterRailwayDungeonNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<EnterRailwayDungeonNodeParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -110,7 +110,7 @@ public static class RailwayEndpoints
         var exitNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitRailwayDungeonNode>();
         app.MapPost("/api/ExitRailwayDungeonNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<ExitRailwayDungeonNodeParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -162,7 +162,7 @@ public static class RailwayEndpoints
         var buffId = global::PacketRouting.ResolvePacketId<global::ResPacket_SelectRailwayDungeonBuff>();
         app.MapPost("/api/SelectRailwayDungeonBuff", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<SelectRailwayDungeonBuffParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -181,7 +181,7 @@ public static class RailwayEndpoints
         var giveUpId = global::PacketRouting.ResolvePacketId<global::ResPacket_GiveUpRailwayDungeonNodeInBattle>();
         app.MapPost("/api/GiveUpRailwayDungeonNodeInBattle", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<GiveUpRailwayDungeonNodeInBattleParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -210,7 +210,7 @@ public static class RailwayEndpoints
         var restNodeId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitRailwayDungeonRestNode>();
         app.MapPost("/api/ExitRailwayDungeonRestNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<ExitRailwayDungeonRestNodeParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -244,7 +244,7 @@ public static class RailwayEndpoints
         var exitId = global::PacketRouting.ResolvePacketId<global::ResPacket_ExitRailwayDungeon>();
         app.MapPost("/api/ExitRailwayDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<ExitRailwayDungeonParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -289,7 +289,7 @@ public static class RailwayEndpoints
         var acquireId = global::PacketRouting.ResolvePacketId<global::ResPacket_AcquireRailwayDungeonReward>();
         app.MapPost("/api/AcquireRailwayDungeonReward", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<AcquireRailwayDungeonRewardParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -307,7 +307,7 @@ public static class RailwayEndpoints
         var getAllId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonNodeAndLogAll>();
         app.MapPost("/api/GetRailwayDungeonNodeAndLogAll", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<GetRailwayDungeonNodeAndLogAllParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -322,7 +322,7 @@ public static class RailwayEndpoints
         var saveInfoId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonSaveInfo>();
         app.MapPost("/api/GetRailwayDungeonSaveInfo", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<GetRailwayDungeonNodeAndLogAllParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -334,7 +334,7 @@ public static class RailwayEndpoints
         var nodeDatasId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonNodeDatas>();
         app.MapPost("/api/GetRailwayDungeonNodeDatas", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<GetRailwayDungeonNodeAndLogAllParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -346,7 +346,7 @@ public static class RailwayEndpoints
         var logsId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonLogs>();
         app.MapPost("/api/GetRailwayDungeonLogs", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<GetRailwayDungeonNodeAndLogAllParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -358,7 +358,7 @@ public static class RailwayEndpoints
         var extraRewardId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetRailwayDungeonExtraRewardStates>();
         app.MapPost("/api/GetRailwayDungeonExtraRewardStates", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Railway);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<GetRailwayDungeonExtraRewardStatesParams>(ctx);
             if (p is null) return Results.BadRequest();

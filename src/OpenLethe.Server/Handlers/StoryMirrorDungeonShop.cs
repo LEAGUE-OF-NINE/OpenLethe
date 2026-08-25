@@ -28,7 +28,7 @@ public static class StoryMirrorDungeonShopEndpoints
 
         app.MapPost("/api/PurchaseEgoGiftStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -63,7 +63,7 @@ public static class StoryMirrorDungeonShopEndpoints
 
         app.MapPost("/api/SellEgoGiftStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -97,7 +97,7 @@ public static class StoryMirrorDungeonShopEndpoints
 
         app.MapPost("/api/UpgradeEgoGiftStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -132,7 +132,7 @@ public static class StoryMirrorDungeonShopEndpoints
 
         app.MapPost("/api/RefreshShopEgoGiftsStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -163,7 +163,7 @@ public static class StoryMirrorDungeonShopEndpoints
 
         app.MapPost("/api/PurchaseHealStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -210,7 +210,7 @@ public static class StoryMirrorDungeonShopEndpoints
 
         app.MapPost("/api/AcquireRewardEgoGiftsStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -254,7 +254,7 @@ public static class StoryMirrorDungeonShopEndpoints
         // fixed-recipe data should anyone ever wire a non-stub set up.
         app.MapPost("/api/CombineEgoGiftStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);

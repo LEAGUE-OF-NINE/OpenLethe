@@ -17,7 +17,7 @@ public static class MirrorDungeonEventsEndpoints
 
         app.MapPost("/api/UpdateMirrorDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);

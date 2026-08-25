@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Builder;
@@ -38,30 +39,48 @@ public static class PacketRouting
         string route)
         where TRes : new()
     {
-        // Resolved once at startup, not per request. A miss defaults to 0 - the
-        // client ignores packetId, so this can never block the server from booting.
-        var packetId = ResolvePacketId<TRes>();
+        // Every response this route will ever send is the same bytes: `new TRes()` is a
+        // constant and so is the ambient envelope around it. Serialize once at startup
+        // instead of rebuilding and re-serializing the graph on each of the 100+ static
+        // routes' requests. (ResolvePacketId throws on a non-response type, so a bad
+        // registration fails at boot rather than per request.)
+        var body = JsonSerializer.SerializeToUtf8Bytes(
+            ResponsePacket<TRes>.Ok(new TRes(), ResolvePacketId<TRes>()), PacketJson.Options);
 
         app.MapPost(route, async (HttpContext ctx) =>
         {
-            // Body is read and discarded. Stateless endpoints ignore their input,
-            // but we must still drain it so the client sees a clean request cycle.
+            // Stateless endpoints discard their input, but a body that is unparseable
+            // OR whose `parameters` don't fit TReq is still a 400, never a 500 with a
+            // leaked stack trace - that is what axum's Json<T> extractor does, and it
+            // type-checks the target. JwtAuthMiddleware validated only the ENVELOPE, so
+            // its stash saves the re-tokenization here, not this type check. Routes it
+            // exempts (/login/*) leave no stash and still read the stream.
             try
             {
-                _ = await System.Text.Json.JsonSerializer
-                    .DeserializeAsync<RequestPacket<TReq>>(ctx.Request.Body, PacketJson.Options);
+                if (ctx.Items[OpenLethe.Server.Handlers.HandlerContext.ParamsItemKey] is JsonElement p)
+                {
+                    // Undefined = no `parameters` key at all, always legal on these routes.
+                    if (p.ValueKind != JsonValueKind.Undefined) _ = p.Deserialize<TReq>(PacketJson.Options);
+                }
+                else
+                {
+                    _ = await JsonSerializer.DeserializeAsync<RequestPacket<TReq>>(
+                        ctx.Request.Body, PacketJson.Options);
+                }
             }
-            catch (System.Text.Json.JsonException)
+            catch (JsonException)
             {
-                // Mirrors axum's Json<T> extractor: an unparseable body (empty,
-                // absent, or malformed) is rejected with 400 before any handler
-                // logic runs, never a 500 with a leaked stack trace.
-                return Results.BadRequest();
+                ctx.Response.StatusCode = StatusCodes.Status400BadRequest;
+                return;
             }
 
-            return Results.Json(
-                ResponsePacket<TRes>.Ok(new TRes(), packetId),
-                PacketJson.Options);
+            // Written straight out rather than through Results.Json, which streams with
+            // no known length and so frames the response chunked. Setting ContentLength
+            // sends it unchunked instead: same body bytes, and the framing now matches
+            // axum's Json (serialize to a buffer, emit Content-Length).
+            ctx.Response.ContentType = "application/json; charset=utf-8";
+            ctx.Response.ContentLength = body.Length;
+            await ctx.Response.Body.WriteAsync(body);
         });
 
         return app;

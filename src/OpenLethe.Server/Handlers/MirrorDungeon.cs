@@ -19,7 +19,7 @@ public static class MirrorDungeonEndpoints
         var enterId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnterMirrorDungeon>();
         app.MapPost("/api/EnterMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<EnterMirrorDungeonParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -36,7 +36,7 @@ public static class MirrorDungeonEndpoints
         var reEnterId = global::PacketRouting.ResolvePacketId<global::ResPacket_ReEnterMirrorDungeon>();
         app.MapPost("/api/ReEnterMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo) ?? new MirrorOriginSaveInfo();
             var save = WireMapper.ToWire(WireMapper.ToDomain(loaded));
@@ -53,7 +53,7 @@ public static class MirrorDungeonEndpoints
         var enterExtremeId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnterExtremeMode>();
         app.MapPost("/api/EnterExtremeMode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo) ?? new MirrorOriginSaveInfo();
             var run = WireMapper.ToDomain(loaded);
@@ -66,7 +66,7 @@ public static class MirrorDungeonEndpoints
         var enterInfiniteId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnterInfiniteMode>();
         app.MapPost("/api/EnterInfiniteMode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo) ?? new MirrorOriginSaveInfo();
             var run = WireMapper.ToDomain(loaded);
@@ -84,7 +84,7 @@ public static class MirrorDungeonEndpoints
         var getStartBuffInfoId = global::PacketRouting.ResolvePacketId<global::ResPacket_GetStartBuffFInfoMirrorDungeon>();
         app.MapPost("/api/GetStartBuffFInfoMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<GetStartBuffFInfoMirrorDungeonParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -101,7 +101,7 @@ public static class MirrorDungeonEndpoints
         var enableStartBuffId = global::PacketRouting.ResolvePacketId<global::ResPacket_EnableStartBuffMirrorDungeon>();
         app.MapPost("/api/EnableStartBuffMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -133,7 +133,7 @@ public static class MirrorDungeonEndpoints
         var detectStarlightId = global::PacketRouting.ResolvePacketId<global::ResPacket_DetectMirrorDungeonEgogiftByStarlight>();
         app.MapPost("/api/DetectMirrorDungeonEgogiftByStarlight", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -158,7 +158,7 @@ public static class MirrorDungeonEndpoints
         var acquireConstraintsId = global::PacketRouting.ResolvePacketId<global::ResPacket_AcquireMirrorDungeonConstraints>();
         app.MapPost("/api/AcquireMirrorDungeonConstraints", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (save is null) return Results.StatusCode(500);

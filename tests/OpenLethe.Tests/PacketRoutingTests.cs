@@ -117,6 +117,25 @@ public class PacketRoutingTests : IClassFixture<PacketRoutingTests.Factory>
         Assert.Equal(HttpStatusCode.BadRequest, resp.StatusCode);
     }
 
+    // Regression: JwtAuthMiddleware type-checks only the ENVELOPE, so when MapPacket
+    // started trusting its stash it stopped checking `parameters` against TReq and all
+    // four of these silently became 200s. Rust's axum Json<T> extractor rejects them,
+    // and the exempt /login/* routes never stopped doing so, so /api/* must match.
+    [Theory]
+    [InlineData("\"hello\"")]
+    [InlineData("[]")]
+    [InlineData("5")]
+    [InlineData("{\"partid\":\"not-an-int\"}")]
+    public async Task StaticEndpoint_ParametersNotMatchingReqPacket_ReturnsBadRequest(string parameters)
+    {
+        var body = $$"""{"userAuth":{"authCode":"{{_token}}"},"parameters":{{parameters}}}""";
+
+        var resp = await _factory.CreateClient().PostAsync("/api/AcquireAttendanceReward",
+            new StringContent(body, System.Text.Encoding.UTF8, "application/json"));
+
+        Assert.Equal(HttpStatusCode.BadRequest, resp.StatusCode);
+    }
+
     [Fact]
     public async Task StaticEndpoint_MalformedJson_ReturnsBadRequest()
     {

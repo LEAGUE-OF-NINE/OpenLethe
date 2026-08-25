@@ -25,7 +25,7 @@ public static class StoryMirrorDungeonEndpoints
 
         app.MapPost("/api/EnterStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<EnterStoryMirrorDungeonParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -68,7 +68,7 @@ public static class StoryMirrorDungeonEndpoints
 
         app.MapPost("/api/UpdateStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -101,7 +101,7 @@ public static class StoryMirrorDungeonEndpoints
 
         app.MapPost("/api/AcquireStartEgoGiftsStoryMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -132,7 +132,7 @@ public static class StoryMirrorDungeonEndpoints
 
         app.MapPost("/api/EnterStoryMirrorDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -159,7 +159,7 @@ public static class StoryMirrorDungeonEndpoints
 
         app.MapPost("/api/UpdateStoryMirrorDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);
@@ -201,7 +201,7 @@ public static class StoryMirrorDungeonEndpoints
 
         app.MapPost("/api/ExitStoryMirrorDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.StoryMd);
             if (account is null) return Results.Unauthorized();
             var save = OpenLethe.Server.AccountFields.Get<StoryMirrorSaveInfo>(account.StoryMdSaveInfo);
             if (save is null) return Results.StatusCode(500);

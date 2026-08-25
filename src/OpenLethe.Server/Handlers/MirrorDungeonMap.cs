@@ -26,7 +26,7 @@ public static class MirrorDungeonMapEndpoints
 
         app.MapPost("/api/AcquireStartEgoGiftsAndCreateThemePoolMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -45,7 +45,7 @@ public static class MirrorDungeonMapEndpoints
 
         app.MapPost("/api/RecreateThemeFloorPoolMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -65,7 +65,7 @@ public static class MirrorDungeonMapEndpoints
 
         app.MapPost("/api/SelectThemeFloorMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -91,7 +91,7 @@ public static class MirrorDungeonMapEndpoints
 
         app.MapPost("/api/EnterMirrorDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -134,7 +134,7 @@ public static class MirrorDungeonMapEndpoints
         // this call on all 3 records).
         app.MapPost("/api/EnterMirrordungeonMapNodeBattleAfterChoice", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var p = await HandlerContext.ReadParamsAsync<EnterMirrordungeonMapNodeBattleAfterChoiceParams>(ctx);
             if (p is null) return Results.BadRequest();
@@ -147,7 +147,7 @@ public static class MirrorDungeonMapEndpoints
 
         app.MapPost("/api/ExitMirrorDungeonMapNode", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = OpenLethe.Server.AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);

@@ -15,34 +15,25 @@ public sealed class JwtAuthMiddleware(RequestDelegate next, JwtService jwt)
         // malformed packet, which is how a plain GET / became a confusing 400 instead
         // of "no such route" (Rust layers this only over the game router, so an
         // unmatched path 404s there too).
-        if (ctx.GetEndpoint() is null)
+        if (ctx.GetEndpoint() is null || IsExempt(ctx.Request.Path))
         {
             await next(ctx);
             return;
         }
 
-        if (IsExempt(ctx.Request.Path))
-        {
-            await next(ctx);
-            return;
-        }
-
-        ctx.Request.EnableBuffering(); // so MapPacket can re-read the body afterward
         string? authCode;
+        JsonElement parameters;
         try
         {
             var env = await JsonSerializer.DeserializeAsync<global::RequestPacket<JsonElement>>(
                 ctx.Request.Body, global::PacketJson.Options);
             authCode = env?.userAuth?.auth_code;
+            parameters = env?.parameters ?? default;
         }
         catch
         {
             ctx.Response.StatusCode = StatusCodes.Status400BadRequest;
             return;
-        }
-        finally
-        {
-            ctx.Request.Body.Position = 0;
         }
 
         // The captcha token backs the abuse_exemption cookie and is a different
@@ -62,6 +53,13 @@ public sealed class JwtAuthMiddleware(RequestDelegate next, JwtService jwt)
         }
 
         ctx.Items["sub"] = claims.Sub;
+
+        // Hand the parsed `parameters` on rather than rewinding the body for the handler
+        // to parse again, so every protected request parses once. Stashed only after the
+        // credential check, so a rejected request drops the document straight away rather
+        // than holding it for the life of the response. The JsonElement is backed by its
+        // own document, not by the request stream, so it stays valid from here on.
+        ctx.Items[Handlers.HandlerContext.ParamsItemKey] = parameters;
         await next(ctx);
     }
 

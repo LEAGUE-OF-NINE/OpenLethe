@@ -25,7 +25,7 @@ public static class MirrorDungeonRewardsEndpoints
 
         app.MapPost("/api/CombineEgoGiftMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -55,7 +55,7 @@ public static class MirrorDungeonRewardsEndpoints
 
         app.MapPost("/api/RefreshShopEgoGiftsMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -80,7 +80,7 @@ public static class MirrorDungeonRewardsEndpoints
 
         app.MapPost("/api/GetMirrorDungeonEgoGiftRecord", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
 
             var body = new GetMirrorDungeonEgoGiftRecordResult
@@ -93,7 +93,7 @@ public static class MirrorDungeonRewardsEndpoints
 
         app.MapPost("/api/ExitMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
 
             // isEndDungeon/isclear are flat 1/1. statistics is the per-sinner battle-outcome tally
@@ -124,7 +124,7 @@ public static class MirrorDungeonRewardsEndpoints
 
         app.MapPost("/api/AcquireRewardEgoGiftsWithEnemyBufMirrorDungeon", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
@@ -154,7 +154,7 @@ public static class MirrorDungeonRewardsEndpoints
 
         app.MapPost("/api/AcquireMirrorDungeonBattleReward", async (HttpContext ctx) =>
         {
-            var account = await HandlerContext.ResolveAsync(ctx);
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
             var loaded = AccountFields.Get<MirrorOriginSaveInfo>(account.MdSaveInfo);
             if (loaded is null) return Results.StatusCode(500);
