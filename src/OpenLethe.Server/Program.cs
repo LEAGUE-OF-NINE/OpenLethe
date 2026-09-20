@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Http.Timeouts;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using OpenLethe.Data;
 using OpenLethe.Server.Auth;
@@ -40,10 +41,21 @@ var connString = builder.Configuration.GetConnectionString("Postgres");
 builder.Services.AddDbContextPool<AppDbContext>(o => o.UseNpgsql(connString));
 builder.Services.AddScoped<AccountStore>();
 
+// Behind a proxy RemoteIpAddress is the edge's, identical for every caller, so the
+// limiter below would bucket the whole internet as one. Fly's edge isn't in a
+// private range, hence clearing the default known-proxy allowlist.
+builder.Services.Configure<ForwardedHeadersOptions>(o =>
+{
+    o.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    o.KnownNetworks.Clear();
+    o.KnownProxies.Clear();
+});
+
 // The /auth surface is unauthenticated (login, captcha, OAuth handoff), so it is
-// the brute-force target. Per-IP fixed window; generous enough for the frontend's
-// 1/s token polling. Everything else passes through unlimited.
-var authPermitsPerMinute = builder.Configuration.GetValue("Auth:RateLimitPerMinute", 60);
+// the brute-force target. Per-IP fixed window; everything else passes unlimited.
+// 600 is deliberately loose: LetheLauncher polls /auth/token/poll at 1/s for up to
+// 120s per login, so a tight ceiling breaks the normal flow, not just abuse.
+var authPermitsPerMinute = builder.Configuration.GetValue("Auth:RateLimitPerMinute", 600);
 builder.Services.AddRateLimiter(o =>
 {
     o.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
@@ -111,6 +123,8 @@ if (!string.IsNullOrWhiteSpace(connString))
     using var scope = app.Services.CreateScope();
     scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.Migrate();
 }
+
+app.UseForwardedHeaders();   // before the rate limiter: it needs the real client IP
 
 // Must precede routing: collapses "//api//Foo" so it matches "/api/Foo".
 app.UsePathSanitizer();
