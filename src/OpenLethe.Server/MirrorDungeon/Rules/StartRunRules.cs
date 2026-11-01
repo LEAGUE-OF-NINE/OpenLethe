@@ -32,14 +32,6 @@ public static class StartRunRules
         if (save is not null && save.dungeonId > 0) save.dungeonId = NormalizeDungeonIdValue(save.dungeonId);
     }
 
-    // The level-cap offsets now come from the buffs THIS run enabled (Run.StartBuffIds, persisted
-    // by EnableStartBuff). The old fixed {106,102} set was a replay-only crutch: both captured
-    // runs enable exactly those two, so the golden stayed green while any other pick did nothing.
-    // Fallback for a run that never stored its picks.
-    private static MdLevelOffsets LevelOffsetsOf(Run run) => run.StartBuffIds.Count > 0
-        ? MdStartBuffs.LevelOffsets(run.StartBuffIds)
-        : MdStartBuffs.LevelOffsets(new long[] { 106, 102 });
-
     // Verbatim port of Handlers/MirrorDungeon.cs BuildFreshSave (:193-246), built directly as a
     // Run instead of the wire MirrorOriginSaveInfo. Fields left unset take Run's own defaults,
     // which mirror the wire type's field initializers exactly (e.g. Starlight.Pslp=383,
@@ -197,6 +189,7 @@ public static class StartRunRules
         // theme and on battle win; ADDITIONAL_START_COST) derive from them instead of the capture's
         // hardcoded pair. Stored before the point math so every branch keeps them.
         run.StartBuffIds = buffids.Distinct().OrderBy(id => id).ToList();
+        run.StartBuffsChosen = true;
 
         var cost = run.Cost;
         if (enableConvertedCost)
@@ -289,21 +282,21 @@ public static class StartRunRules
     // (Handlers/MirrorDungeonMap.cs :186-208). The theme-pool contents are RNG (masked in
     // replay); MapGenerator doesn't exist yet (Task 5), so this keeps calling the existing
     // MdMapGen.PickThemes and translates its wire output into run.ThemePools.
-    public static void AcquireStartAndCreateThemePool(Run run, long selectedSetId, List<long> selectedEgoGiftIds, bool detectToggle)
+    // customThemes: the account's uploaded packs, which the run-start offer can include.
+    public static void AcquireStartAndCreateThemePool(Run run, long selectedSetId, List<long> selectedEgoGiftIds, bool detectToggle,
+        IReadOnlyList<ThemeStatic>? customThemes = null)
     {
         run.Gifts.Items.AddRange(selectedEgoGiftIds.Select(id => new EgoGift { Id = id }));
         // sepsId records which starter set was chosen (= the request's selectedSetId).
         run.SepsId = selectedSetId;
-        // ADDITIONAL_START_COST from the enabled start buffs lands on the run's `cost` budget
-        // here - the buffs aren't persisted, but the count of extra ego-gift selections reveals
-        // them (buff103: +1 select => +400).
-        // The enabled buffs' own ADDITIONAL_START_COST (buff 103's +400). The persisted picks are
+        // The enabled buffs' own ADDITIONAL_START_COST (Star of the Beginning +150/+250/+250,
+        // Star-shower +400/+500/+700) lands on the run's `cost` budget here. The persisted picks are
         // authoritative; the extra-select count is only the replay fallback for a run that never
         // stored them (both captured runs' golden depends on that reconstruction).
-        run.Cost += run.StartBuffIds.Count > 0
+        run.Cost += run.StartBuffsChosen || run.StartBuffIds.Count > 0
             ? MdStartBuffs.StartCostOf(run.StartBuffIds)
             : MdStartBuffs.AdditionalStartCost(selectedEgoGiftIds.Count - 1);
-        run.ThemePools = OpenLethe.Server.MdMapGen.PickThemes(SharedRules.CurrentFloor(run))
+        run.ThemePools = OpenLethe.Server.MdMapGen.PickThemes(SharedRules.CurrentFloor(run), null, StartBuffEffects.ThemePoolSize(run), customThemes)
             .Select(t => new ThemePool { Idx = t.idx, Tfid = t.tfid, Egs = t.egs, Upegs = t.upegs })
             .ToList();
         // startKeyword is fixed by the chosen starter theme-set's keyword - look it up in the
@@ -314,8 +307,12 @@ public static class StartRunRules
         run.SepsCreated += 1;
         run.Starlight.Ieedt = detectToggle ? 1 : 0;
         // Floor-1 personality level cap = the enabled start buffs' ENTER_1ST_FLOOR offset.
-        run.LevelOffsets.Sbmlos = LevelOffsetsOf(run).EnterFirstFloor;
+        run.LevelOffsets.Sbmlos = StartBuffEffects.LevelOffsets(run).EnterFirstFloor;
         var startLevelCap = run.LevelOffsets.Sbmlos + run.LevelOffsets.Egmlos;
         foreach (var u in run.Party) u.Mlos = startLevelCap;
+
+        // Perfected Possibility's "upon entry" Vestiges and Keyword pick popup - after startKeyword
+        // is set, which the picks draw from. (Moon Star-shop's floor-1 gifts come with floor 1.)
+        StartBuffEffects.OnEnterFirstFloor(run);
     }
 }

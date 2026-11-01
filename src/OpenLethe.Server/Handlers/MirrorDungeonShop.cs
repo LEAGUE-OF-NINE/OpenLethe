@@ -289,9 +289,8 @@ public static class MirrorDungeonShopEndpoints
                 rewardList = granted,
                 saveInfo = save,
                 history = new MirrorDungeonHistories { dungeonid = save.dungeonId },
-                // No persisted source for the run's enabled start-buff ids - see the wire
-                // type's comment. Masked in the replay.
-                enabledStartbufIds = new(),
+                // The run's enabled start-buff ids (retail seq321: [102, 106]). Masked in the replay.
+                enabledStartbufIds = run.StartBuffIds,
                 startBuffInfo = new StartBuffInfo { dungeonid = save.dungeonId },
                 mdpassOriginalAmount = 0, // masked
                 mdpassCurrentChanceUsage = 0, // masked

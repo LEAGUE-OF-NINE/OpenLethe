@@ -35,6 +35,13 @@ public sealed class AbStage
 {
     public long id;
     public List<AbReward> rewardList = new();
+    public AbParticipantInfo? participantInfo;
+}
+
+public sealed class AbParticipantInfo
+{
+    public long min;
+    public long max;
 }
 
 public sealed class AbReward

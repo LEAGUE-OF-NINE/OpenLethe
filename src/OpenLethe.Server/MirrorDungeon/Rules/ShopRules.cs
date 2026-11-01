@@ -153,7 +153,8 @@ public static class ShopRules
     internal static long WealthFix(Run run, long price) =>
         price > 1 && run.Gifts.Items.Any(g => g.Id == WealthGift) ? 1 : price;
 
-    // Verbatim port of SellEgoGiftMirrorDungeon (Handlers/MirrorDungeonShop.cs :223-233).
+    // Verbatim port of SellEgoGiftMirrorDungeon (Handlers/MirrorDungeonShop.cs :223-233), plus
+    // Cumulating Starcloud's once-per-shop sale bonus (StartBuffEffects.SellPrice).
     public static void SellEgoGift(Run run, long id)
     {
         var egs = run.Gifts.Items;
@@ -161,7 +162,7 @@ public static class ShopRules
         if (index < 0) return;
         var info = OpenLethe.Server.MdEgoData.GetById(egs[index].Id);
         if (info is null) return;
-        run.Cost += info.price / 2;
+        run.Cost += StartBuffEffects.SellPrice(run, info.price / 2);
         egs.RemoveAt(index);
     }
 
@@ -173,23 +174,47 @@ public static class ShopRules
     // literal "None"), and the price comes from the tables - shopRefreshCostPerCount * rc, plus
     // shop.refreshShop.shopKeywordRefreshCostAdder for a keyword refresh.
     // customThemes: the account's uploaded packs (see MapNodeRules.EnterNode).
+    // A shop visit's first refresh(es) can be free: Star of the Beginning's normal ones (shop.fre,
+    // the number left) and Moon Star-shop's keyword ones (shop.fkre). A free refresh charges
+    // nothing and does not raise the paid refresh count (rc) the price escalates on.
     public static void RefreshShop(Run run, string? keyword, IReadOnlyList<ThemeStatic>? customThemes = null)
     {
         var giftSlots = run.Shop.Slots.Where(s => s.T == "eg" && s.S == 1).ToList();
         var randomGifts = new MdThemePool(customThemes).SelectRandomShopEgos(
             SharedRules.ThemePackId(run), Math.Min(giftSlots.Count, 30), SharedRules.CurrentFloor(run), keyword,
-            SharedRules.OwnedGiftIds(run));
+            SharedRules.OwnedGiftIds(run), StartBuffEffects.ShopHighTierMultiplier(run));
 
         var giftQueue = new Queue<long>(randomGifts);
         foreach (var slot in giftSlots)
             if (giftQueue.Count > 0) slot.Id = giftQueue.Dequeue();
+
+        // The skill-replacement slots still on sale get a new random sinner too; bought ones keep
+        // theirs and "upt" is untouched (md-extreme-run-2 seq284 -> 286: slot 1 rerolls, the sold
+        // slot 2 stays 11012). The new picks stay distinct from the shop's other "up" slots.
+        var upSlots = run.Shop.Slots.Where(s => s.T == "up" && s.S == 1).ToList();
+        var keptPids = run.Shop.Slots.Where(s => s.T == "up" && s.S != 1).Select(s => s.Id);
+        var sinnerQueue = new Queue<long>(SharedRules.RandomLivingSinners(run, keptPids));
+        foreach (var slot in upSlots)
+            if (sinnerQueue.Count > 0) slot.Id = sinnerQueue.Dequeue();
+
+        var keywordRefresh = !string.IsNullOrEmpty(keyword) && keyword != "None";
+        if (keywordRefresh && run.Shop.Fkre > 0)
+        {
+            run.Shop.Fkre -= 1;
+            return;
+        }
+        if (!keywordRefresh && run.Shop.Fre > 0)
+        {
+            run.Shop.Fre -= 1;
+            return;
+        }
 
         run.Shop.Rc += 1;
         // 9188 "Pre-order Discount" says "Shop Regular Refresh Cost -30%", so it covers the
         // regular part only; the keyword adder is a separate fee and stays full price.
         var price = Effects.ApplyShopDiscount(run, ShopDiscountRefreshGift,
             Effects.ApplyRaisedMarketPrice(run, MdCommonTable.RefreshCostPerCount * run.Shop.Rc));
-        if (!string.IsNullOrEmpty(keyword) && keyword != "None")
+        if (keywordRefresh)
             price += Effects.ApplyRaisedMarketPrice(run, MdShopTable.KeywordRefreshCostAdder);
         run.Cost -= price;
         run.UsedCost += price; // cumulative shop-spend this floor.

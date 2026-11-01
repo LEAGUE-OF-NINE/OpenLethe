@@ -39,18 +39,22 @@ public sealed class MdThemePool
 
     // weightMultiplier is the shop-keyword boost (shopKeywordRefreshWeightMultiplier, 12.5): an
     // on-keyword gift weighs that much more than its tier share alone would give it.
-    public static List<long> EgoGiftWeighted(long floor, long egoId, double weightMultiplier = 1.0)
+    // highTierMultiplier scales the Tier 3+ shares (Binary Star-shop's high-tier shop chance).
+    public static List<long> EgoGiftWeighted(long floor, long egoId, double weightMultiplier = 1.0,
+        double highTierMultiplier = 1.0)
     {
         var tier = (MdEgoData.DetermineEgoTier(egoId) ?? 1) - 1;
         var weights = GetEgoGiftWeights(floor);
         var prob = tier >= 0 && tier < weights.Length ? weights[tier] : 0;
+        if (tier >= 2) prob *= highTierMultiplier;
         var weight = (int)(100 * prob * weightMultiplier);
         return Enumerable.Repeat(egoId, weight).ToList();
     }
 
-    public static long? SelectRandomEgoFromPool(List<long> pool, long floor, Func<long, bool> filter, double weightMultiplier = 1.0)
+    public static long? SelectRandomEgoFromPool(List<long> pool, long floor, Func<long, bool> filter, double weightMultiplier = 1.0,
+        double highTierMultiplier = 1.0)
     {
-        var weighted = pool.Where(filter).SelectMany(id => EgoGiftWeighted(floor, id, weightMultiplier)).ToList();
+        var weighted = pool.Where(filter).SelectMany(id => EgoGiftWeighted(floor, id, weightMultiplier, highTierMultiplier)).ToList();
         return weighted.Count == 0 ? null : weighted[Random.Shared.Next(weighted.Count)];
     }
 
@@ -112,10 +116,28 @@ public sealed class MdThemePool
         return giftPool.ToList();
     }
 
+    // The gifts a start buff hands out with no pack attached ("gain a random Tier 1 E.G.O Gift"):
+    // the season's drop pool less its excluded and globally excluded gifts, every pack's exclusives
+    // and the fusion-only recipe outputs. Vestiges (9991-9995) are not in it.
+    public List<long> GeneralGiftPool()
+    {
+        var dropPool = SeasonDropPool();
+        if (dropPool is null) return new List<long>();
+
+        var giftPool = new HashSet<long>(dropPool.egoGifts);
+        giftPool.ExceptWith(dropPool.excludeEgoGifts);
+        giftPool.ExceptWith(dropPool.globalExcludeEgoGifts);
+        foreach (var t in pools.Values)
+            giftPool.ExceptWith(t.specificEgoGiftPool);
+        giftPool.ExceptWith(MdEgoFusion.EgoRecipeMapping.Values);
+        return giftPool.OrderBy(id => id).ToList();
+    }
+
     // owned: gifts the run already has. A shop never offers those, so they leave the pool up front
     // (rather than being filtered out of the result) and every slot still fills with one the run lacks.
+    // highTierMultiplier: see EgoGiftWeighted.
     public List<long> SelectRandomShopEgos(long themeId, int count, long floor, string? keyword,
-        IReadOnlyCollection<long>? owned = null)
+        IReadOnlyCollection<long>? owned = null, double highTierMultiplier = 1.0)
     {
         var giftPool = ShopEgoGiftsPool(themeId);
         if (owned is { Count: > 0 }) giftPool.RemoveAll(owned.Contains);
@@ -132,7 +154,7 @@ public sealed class MdThemePool
         for (var i = 0; i < matchingCount; i++)
         {
             var picked = SelectRandomEgoFromPool(giftPool, floor, id =>
-                !chosen.Contains(id) && MdEgoData.GetById(id) is { } g && g.keyword == keyword, keywordBoost);
+                !chosen.Contains(id) && MdEgoData.GetById(id) is { } g && g.keyword == keyword, keywordBoost, highTierMultiplier);
             if (picked is { } id2) chosen.Add(id2);
         }
 
@@ -140,7 +162,7 @@ public sealed class MdThemePool
         for (var i = 0; i < remaining; i++)
         {
             var picked = SelectRandomEgoFromPool(giftPool, floor, id =>
-                !chosen.Contains(id) && MdEgoData.GetById(id) is { } g && g.keyword != keyword);
+                !chosen.Contains(id) && MdEgoData.GetById(id) is { } g && g.keyword != keyword, 1.0, highTierMultiplier);
             if (picked is { } id2) chosen.Add(id2);
         }
 

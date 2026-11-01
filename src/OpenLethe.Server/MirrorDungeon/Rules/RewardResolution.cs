@@ -19,20 +19,31 @@ public static class RewardResolution
     // deliberately-invented control-flow exception). Returns the actually-granted entry (post
     // Vestige-transform, not necessarily the raw pool id) - the DTO itself still reads the full
     // egs list off ToWire(run), same as before.
+    // A popup with se > 1 (the start buffs' Perfected Possibility / floor gifts) takes up to se
+    // distinct indices from one request; a battle's se == 1 popup keeps taking just the first.
     public static List<EgoGift> AcquireReward(Run run, List<long> selectIndexList)
     {
         var ev = run.RewardEvents.FirstOrDefault(e => e.Rt == "GetEgogift")
             ?? throw new KeyNotFoundException("no GetEgogift reward event queued");
-        var index = (int)(selectIndexList.Count > 0 ? selectIndexList[0] : 0);
-        if (index < 0 || index >= ev.Pool.Count)
+        var indices = (selectIndexList.Count > 0 ? selectIndexList : new List<long> { 0 })
+            .Distinct()
+            .Take((int)Math.Max(1, ev.Se))
+            .ToList();
+        // Range-check in long before any int cast (a huge index must not wrap into range).
+        if (indices.Any(i => i < 0 || i >= ev.Pool.Count))
             throw new KeyNotFoundException("selectIndexList out of range for GetEgogift pool");
 
-        SharedRules.GrantEgoGift(run, ev.Pool[index]);
+        var granted = new List<EgoGift>();
+        foreach (var index in indices)
+        {
+            SharedRules.GrantEgoGift(run, ev.Pool[(int)index]);
+            granted.Add(run.Gifts.Items[^1]);
+        }
         // Consume ONLY the GetEgogift popup; any sibling reward events queued alongside it
         // (GetBattleRewardCase, GetConfirmedEgogiftOnWinBattle) stay in RewardEvents and are
         // echoed back as remainRewardEvent by the caller (capture seq54/84/107/192).
         run.RewardEvents.Remove(ev);
-        return new List<EgoGift> { run.Gifts.Items[^1] };
+        return granted;
     }
 
     // Verbatim port of RejectRewardEgoGiftsMirrorDungeon (Handlers/MirrorDungeonShop.cs
@@ -44,7 +55,9 @@ public static class RewardResolution
     // THEN all pool_v2 picks - grouped, not interleaved. Returns the actually-granted entries
     // (post Vestige-transform) plus the run's full LevelAdders (same list instance run.LevelAdders
     // - the caller doesn't need a copy, just the count for its DTO).
-    public static (List<EgoGift> Granted, List<long> LevelAdders) AcquireWithEnemyBuf(Run run, List<long> selectIndexList)
+    // customThemes: the account's uploaded packs, for the bonus pick and the next floor's pool.
+    public static (List<EgoGift> Granted, List<long> LevelAdders) AcquireWithEnemyBuf(Run run, List<long> selectIndexList,
+        IReadOnlyList<OpenLethe.Server.ThemeStatic>? customThemes = null)
     {
         // Per boss-clear, two per-unit level-up amounts are appended to leveladders (count 2
         // verified on all 10 records). The VALUES are per-unit battle-driven level gains we can't
@@ -73,6 +86,25 @@ public static class RewardResolution
             // Consume only this popup; any sibling reward events (a leading
             // GetConfirmedEgogiftOnWinBattle, a trailing GetConstraints) stay queued.
             run.RewardEvents.Remove(popup);
+
+            // Picks whose enemy levels (pool_v3) add up to minEnemyLevelBuffForAdditionalEgoGift (4:
+            // two +2 picks) earn one more gift: a 1-of-3 GetEgogift from the cleared floor's pack,
+            // queued after every remaining event. Retail does exactly this on every capture whose
+            // picks sum to 4 (md-extreme-run seq106/191, run-2 seq44/128/170/208/373/402/430) and
+            // never on a 3 or less.
+            var poolV3 = popup.PoolV3 ?? new List<long>();
+            var enemyLevels = selectIndexList.Distinct()
+                .Sum(index => index >= 0 && index < poolV3.Count ? poolV3[(int)index] : 0);
+            if (enemyLevels >= MdCommonTable.MinEnemyLevelForAdditionalGift)
+            {
+                var bonus = new MdThemePool(customThemes)
+                    .SelectRandomEgosFromPool(SharedRules.ThemePackId(run), 3, SharedRules.CurrentFloor(run));
+                if (bonus.Count > 0)
+                    run.RewardEvents.Add(new RewardEvent
+                    {
+                        Rt = "GetEgogift", Se = 1, Sh = bonus.Count, Pool = bonus, PoolV2 = new(), PoolV3 = new(),
+                    });
+            }
         }
 
         // The boss clear rolls the theme-floor pool for the NEXT floor (cn.f + 1): 4 themes, idx
@@ -83,7 +115,7 @@ public static class RewardResolution
         // ...: tfpsCreated stays whatever it already was, seps is never touched here). Using the
         // shared helper wholesale would regress the byte-green replay, so this inlines just the
         // tfps assignment.
-        run.ThemePools = MapGenerator.NextFloorPools(run);
+        run.ThemePools = MapGenerator.NextFloorPools(run, customThemes);
 
         return (granted, run.LevelAdders);
     }
@@ -93,7 +125,7 @@ public static class RewardResolution
     // the acquire above - the theme selection that followed a skip offered nothing. A skip is the
     // same floor clear minus the gifts: the boss-clear level adders, the popup consumed, the next
     // pool rolled.
-    public static List<long> RejectWithEnemyBuf(Run run)
+    public static List<long> RejectWithEnemyBuf(Run run, IReadOnlyList<OpenLethe.Server.ThemeStatic>? customThemes = null)
     {
         var popup = run.RewardEvents.FirstOrDefault(re => re.Rt == "GetEgogiftWithEnemyBuf");
         if (popup is not null)
@@ -102,7 +134,7 @@ public static class RewardResolution
             run.LevelAdders.Add(1);
             run.RewardEvents.Remove(popup);
         }
-        run.ThemePools = MapGenerator.NextFloorPools(run);
+        run.ThemePools = MapGenerator.NextFloorPools(run, customThemes);
         return run.LevelAdders;
     }
 
@@ -185,6 +217,8 @@ public static class RewardResolution
                         if (StarlightState.PinnedPslp is long pin && run.Starlight.Pslp < pin + rolled)
                             run.Starlight.Pslp = pin + rolled;
                     }
+                    // Star-shower+/++: "When Choosing Starlight from Encounter Reward Cards, Cost +75/+150".
+                    run.Cost += StartBuffEffects.StarlightCardCost(run);
                     break;
             }
         }

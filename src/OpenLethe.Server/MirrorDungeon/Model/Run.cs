@@ -43,6 +43,10 @@ public sealed class Run
     /// the capture's hardcoded pair. Empty when the player enabled none.
     public List<long> StartBuffIds { get; set; } = new();
 
+    /// True once EnableStartBuff has stored the picks, even an empty pick: an empty StartBuffIds
+    /// is then "no buffs", not "never stored" (StartBuffEffects.EnabledIds).
+    public bool StartBuffsChosen { get; set; }
+
     /// The current floor's event nodes that turned into hidden bosses, with the event each one
     /// was - what EscapeMirrorDungeonHiddenNode restores. Cleared on every new floor.
     public List<HiddenNodeOrigin> HiddenNodeOrigins { get; set; } = new();

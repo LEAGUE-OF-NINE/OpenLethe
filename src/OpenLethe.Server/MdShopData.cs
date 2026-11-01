@@ -127,6 +127,12 @@ public sealed class MdCommonData
     public long shopRefreshChipForAnyCount = 10;
     public List<long> acquireChipPerFloor = new();
     public double shopKeywordRefreshWeightMultiplier = 12.5;
+    // Theme packs offered per selection (per difficulty group) and free re-rolls per floor, before
+    // the start buffs' ADDITIONAL_FLOOR_THEME_SLOT / ADDITIONAL_FLOOR_THEME_REFRESH.
+    public long themePoolNum = 3;
+    public long themePoolRecreateCount = 1;
+    // Enemy levels a boss-reward pick must add up to for one extra gift pick (4 in md7/md8).
+    public long minEnemyLevelBuffForAdditionalEgoGift = 4;
     public MdHiddenBattleInfo? hiddenBattleInfo;
     // Battle-victory cost: a base per encounter type (normal / hard difficulty), scaled by the
     // floor's weight row - see MdCost.BattleVictoryCost.
@@ -203,4 +209,12 @@ public static class MdCommonTable
 
     // Weight multiplier an on-keyword gift gets in a keyword refresh.
     public static double KeywordRefreshWeightMultiplier => Data.Value.shopKeywordRefreshWeightMultiplier;
+
+    // themePoolNum (3) / themePoolRecreateCount (1) of the current season - see StartBuffEffects.
+    public static long ThemePoolNum => Current.Value.themePoolNum;
+    public static long ThemePoolRecreateCount => Current.Value.themePoolRecreateCount;
+
+    // minEnemyLevelBuffForAdditionalEgoGift of the current season - see
+    // RewardResolution.AcquireWithEnemyBuf.
+    public static long MinEnemyLevelForAdditionalGift => Current.Value.minEnemyLevelBuffForAdditionalEgoGift;
 }

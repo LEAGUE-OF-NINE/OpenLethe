@@ -60,6 +60,8 @@ public static class FusionRules
         }
 
         run.Gifts.Items.Add(result);
+        // Chance Comet's extra lower-tier gift lands right after the result (once per shop visit).
+        StartBuffEffects.OnCombine(run, result.Id);
         return result;
     }
 
