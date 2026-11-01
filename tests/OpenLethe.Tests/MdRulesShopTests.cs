@@ -291,4 +291,32 @@ public class MdRulesShopTests
         Assert.Equal(2, run.Shop.Rc);
         Assert.Equal(1000 - 15 - 30, run.Cost); // 1st refresh 15*1, 2nd 15*2
     }
+
+    [Fact]
+    public void RefreshShop_RerollsOnSaleSkillReplacementTargets()
+    {
+        // Retail (md-extreme-run-2 seq284 -> 286): an on-sale "up" slot gets a new random living
+        // sinner, a bought one keeps its sinner, and the reroll never duplicates it or picks the dead.
+        var seen = new HashSet<long>();
+        for (var i = 0; i < 200; i++)
+        {
+            var run = new Run { Cost = 1000 };
+            run.Party.Add(new PartyUnit { PersonalityId = 11, CurrentHp = 10000 });
+            run.Party.Add(new PartyUnit { PersonalityId = 12, CurrentHp = 10000 });
+            run.Party.Add(new PartyUnit { PersonalityId = 13, CurrentHp = 0 });
+            run.Party.Add(new PartyUnit { PersonalityId = 14, CurrentHp = 10000 });
+            run.Shop.Slots.Add(new ShopSlotState { T = "upt", Id = 0, S = 1 });
+            run.Shop.Slots.Add(new ShopSlotState { T = "up", Id = 11, S = 1 });
+            run.Shop.Slots.Add(new ShopSlotState { T = "up", Id = 12, S = 0 });
+
+            ShopRules.RefreshShop(run, "None");
+
+            Assert.Equal(0, run.Shop.Slots[0].Id);
+            Assert.Equal(12, run.Shop.Slots[2].Id);
+            Assert.Equal(1, run.Shop.Slots[1].S);
+            seen.Add(run.Shop.Slots[1].Id);
+        }
+
+        Assert.Equal(new long[] { 11, 14 }, seen.OrderBy(x => x));
+    }
 }

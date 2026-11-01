@@ -29,7 +29,8 @@ public static class MirrorDungeonMapEndpoints
             if (p is null) return Results.BadRequest();
 
             var run = WireMapper.ToDomain(loaded);
-            StartRunRules.AcquireStartAndCreateThemePool(run, p.selectedSetId, p.selectedEgoGiftIds, p.isEnableEgogiftDetectionToggle);
+            StartRunRules.AcquireStartAndCreateThemePool(run, p.selectedSetId, p.selectedEgoGiftIds, p.isEnableEgogiftDetectionToggle,
+                await HandlerContext.ReadCustomThemesAsync(ctx, account.Id));
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = OpenLethe.Server.AccountFields.Set(save);
@@ -49,7 +50,7 @@ public static class MirrorDungeonMapEndpoints
             if (p is null) return Results.BadRequest();
 
             var run = WireMapper.ToDomain(loaded);
-            MapGenerator.RecreateThemePool(run);
+            MapGenerator.RecreateThemePool(run, await HandlerContext.ReadCustomThemesAsync(ctx, account.Id));
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = OpenLethe.Server.AccountFields.Set(save);
@@ -182,8 +183,9 @@ public static class MirrorDungeonMapEndpoints
             var exitResult = RewardEngine.ResolveNodeExit(
                 run, p.currentnode, p.dungeonunitlist, p.noderesult, p.choiceEventData,
                 p.isupdatedEgoSkillStock == 1, p.egoSkillStockList, p.abnormalityLogs,
-                // Abno / hard battles offer a gift from the floor's pack, possibly an uploaded one.
-                matchingNode.E is 5 or 2 ? await HandlerContext.ReadCustomThemesAsync(ctx, account.Id) : null);
+                // Abno / hard battles offer a gift from the floor's pack, and a boss clear rolls the
+                // next floor's packs - either can involve an uploaded pack.
+                matchingNode.E is 5 or 2 or 6 ? await HandlerContext.ReadCustomThemesAsync(ctx, account.Id) : null);
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = OpenLethe.Server.AccountFields.Set(save);

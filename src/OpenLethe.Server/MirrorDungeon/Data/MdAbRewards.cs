@@ -14,4 +14,8 @@ public static class MdAbRewards
 
     public static List<AbReward>? GetByNodeId(long encounterId) =>
         Stages.Value.FirstOrDefault(s => s.id == encounterId)?.rewardList;
+
+    // How many identities the stage deploys (participantInfo.max), or null for an unknown stage.
+    public static long? MaxParticipants(long encounterId) =>
+        Stages.Value.FirstOrDefault(s => s.id == encounterId)?.participantInfo?.max;
 }

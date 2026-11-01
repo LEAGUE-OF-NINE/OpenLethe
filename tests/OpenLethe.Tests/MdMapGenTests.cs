@@ -129,7 +129,7 @@ public class MdMapGenTests
     {
         for (var run = 0; run < 10; run++)
         {
-            var picked = MdMapGen.PickThemes(0);
+            var picked = MdMapGen.PickThemes(0, null, 4);
 
             Assert.True(picked.Count <= 8);
             foreach (var tfp in picked)
@@ -177,5 +177,23 @@ public class MdMapGenTests
 
         Assert.Equal(new long[] { 9000006 }, MdMapGen.UnbeatenHiddenBattles(info, new long[] { 9256 })); // 9000007's gift
         Assert.Equal(new long[] { 9000007, 9000006 }, MdMapGen.UnbeatenHiddenBattles(info, Array.Empty<long>()));
+    }
+
+    [Fact]
+    public void GenerateNewFloor_NeverRepeatsAnEventOnOneFloor()
+    {
+        foreach (var theme in MdThemeData.AllThemes())
+        {
+            for (var run = 0; run < 5; run++)
+            {
+                var save = new MirrorOriginSaveInfo();
+
+                MdMapGen.GenerateNewFloor(3, theme.id, save);
+
+                var eids = save.dungeonMap.ns.Where(n => n.e == 3).Select(n => n.eid).ToList();
+                Assert.True(eids.Count == eids.Distinct().Count(),
+                    $"theme {theme.id} repeated an event: {string.Join(",", eids)}");
+            }
+        }
     }
 }

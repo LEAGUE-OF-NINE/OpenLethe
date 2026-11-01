@@ -261,8 +261,9 @@ public static class MdMapGen
     // is unknown (Rust returns diesel::NotFound); the handler layer maps that to a 500.
     // customThemes: the account's uploaded packs, so a custom pack picked after a starlight
     // detection can be entered (an uploaded id wins over a static one, as in MdThemePool).
+    // selectedIdx: the offer group the pick came from (see UpdateResult).
     public static void GenerateNewFloor(long floor, long themeId, MirrorOriginSaveInfo save,
-        IReadOnlyList<ThemeStatic>? customThemes = null)
+        IReadOnlyList<ThemeStatic>? customThemes = null, long? selectedIdx = null)
     {
         var theme = customThemes?.FirstOrDefault(t => t is not null && t.id == themeId)
             ?? MdThemeData.GetThemeById(themeId)
@@ -331,12 +332,48 @@ public static class MdMapGen
             graph = new List<Ns>();
         }
 
+        DedupeEvents(graph, theme);
         save.dungeonMap.ns.AddRange(graph);
-        UpdateResult(save, floor, themeId);
+        UpdateResult(save, floor, themeId, selectedIdx);
     }
 
-    // Port of update_result.
-    public static void UpdateResult(MirrorOriginSaveInfo save, long floor, long selectedTheme)
+    // An event appears at most once per floor. Every event node draws its id on its own (above and
+    // in GenerateBattleNode), so a floor with a few event nodes kept rolling the same id twice.
+    // Walking the floor in map order, a repeat takes an id the floor has not used yet: from the
+    // pack's own pools first, then - on an MD4 floor, whose nodes are freely typed - it becomes one
+    // of the pack's regular battles, and only a fixed layout falls back to the dungeon-wide pool.
+    // When even that is used up the repeat stays, rather than leaving an unresolvable eid 0.
+    private static void DedupeEvents(List<Ns> graph, ThemeStatic theme)
+    {
+        var opt = theme.mapGenOption;
+        var packEvents = (opt.specialEventPool ?? new List<long>()).Concat(opt.eventPool).Distinct().ToList();
+        var used = new HashSet<long>();
+        foreach (var node in graph.Where(n => n.e == 3).OrderBy(n => n.s).ThenBy(n => n.nid))
+        {
+            if (used.Add(node.eid)) continue;
+
+            var fresh = packEvents.Where(id => !used.Contains(id)).ToList();
+            if (fresh.Count == 0 && theme.mapGenSequence.FirstOrDefault()?.type_ != "CREATE_FIXED_FLOOR"
+                && opt.battlePool.Count > 0)
+            {
+                node.e = 1;
+                node.eid = opt.battlePool[Random.Shared.Next(opt.battlePool.Count)];
+                continue;
+            }
+            if (fresh.Count == 0) fresh = DungeonEventPool.Value.Where(id => !used.Contains(id)).ToList();
+            if (fresh.Count == 0) continue;
+
+            node.eid = fresh[Random.Shared.Next(fresh.Count)];
+            used.Add(node.eid);
+        }
+    }
+
+    // Port of update_result. selectedIdx: the offer group the pick came from (the request's
+    // selectedIdx, == that entry's tfps idx). A pack can sit in both groups of one offer (all 8
+    // floor-0 normal packs are also floor-0 hard packs), and the hard copy carries 4 reward gifts
+    // to the normal copy's 3 - matching on tfid alone took the normal entry, so a hard floor's
+    // boss offered only 3 gifts.
+    public static void UpdateResult(MirrorOriginSaveInfo save, long floor, long selectedTheme, long? selectedIdx = null)
     {
         if (floor != 0)
         {
@@ -346,7 +383,8 @@ public static class MdMapGen
             save.currentInfo.eid = 0;
         }
 
-        var selectedThemeFloor = save.currentInfo.tfps.FirstOrDefault(t => t.tfid == selectedTheme);
+        var selectedThemeFloor = save.currentInfo.tfps.FirstOrDefault(t => t.tfid == selectedTheme && t.idx == selectedIdx)
+            ?? save.currentInfo.tfps.FirstOrDefault(t => t.tfid == selectedTheme);
         var egoRewards = selectedThemeFloor?.egs ?? new List<long>();
         var upgradeRewards = selectedThemeFloor?.upegs ?? new List<long>();
 
@@ -368,9 +406,14 @@ public static class MdMapGen
     // needs both groups in the pool to flip instantly. With only the normal group the client
     // showed "Hard unlocks from the next Theme Pack menu" and never offered it.
     // visited: packs this run already played - see Unvisited.
-    public static List<Tfps> PickThemes(long floor, IReadOnlyCollection<long>? visited = null)
+    // count: packs per group - themePoolNum (3) plus the start buffs' theme slots
+    // (StartBuffEffects.ThemePoolSize); 4 in both captures (buff 102).
+    // customThemes: the account's uploaded packs, offered on the floors their own
+    // exceptionConditions name, like any static pack.
+    public static List<Tfps> PickThemes(long floor, IReadOnlyCollection<long>? visited, int count,
+        IReadOnlyList<ThemeStatic>? customThemes = null)
     {
-        var themePool = new MdThemePool();
+        var themePool = new MdThemePool(customThemes);
         // The client's theme-floor table (dumpedData/limbus_data/mirrordungeon-theme-floor/<n>.json)
         // writes exceptionConditions with the act in dungeonIdx (same 1-based value the wire uses)
         // and a 0-based offset inside that act in selectableFloors (empty = any floor of the act).
@@ -388,9 +431,9 @@ public static class MdMapGen
         var hard = Unvisited(themePool.pools.Values.Where(t => Fits(t, startAct)).ToList(), visited);
 
         var result = new List<Tfps>();
-        foreach (var theme in ChooseMultiple(easy, 4))
+        foreach (var theme in ChooseMultiple(easy, count))
             result.Add(BuildTfps(themePool, theme, floor, hard: false));
-        foreach (var theme in ChooseMultiple(hard, 4))
+        foreach (var theme in ChooseMultiple(hard, count))
             result.Add(BuildTfps(themePool, theme, floor, hard: true));
         return result;
     }
@@ -406,16 +449,17 @@ public static class MdMapGen
     }
 
     // RecreateThemeFloorPool re-rolls the pool for selecting the NEXT floor (cn.f + 1). Unlike
-    // the start-of-run pool (PickThemes returns 8 = 4 easy + 4 hard, idx = difficulty tier),
-    // a re-roll returns exactly 4 themes for the upcoming floor, each idx = that floor's act
+    // the start-of-run pool (PickThemes returns 2 x count = count easy + count hard, idx =
+    // difficulty tier), a re-roll returns `count` themes for the upcoming floor (4 in the capture), each idx = that floor's act
     // number, drawn from the tier whose dungeonIdx equals the act (act-1 conditions list
     // explicit selectableFloors; act>=2 conditions leave selectableFloors empty = any floor in
     // the act). Verified against all 19 captured RecreateThemeFloorPool records (floors 0-9):
     // count == 4, idx == act, and dungeonIdx-eligibility hold every time. tfid/egs/upegs are
     // RNG (masked in replay) - only count and idx are byte-verified. This is the hard-run pool; a
     // normal run's floors use PickThemes (see MapGenerator.NextFloorPools).
-    // visited: packs this run already played - see Unvisited.
-    public static List<Tfps> RecreateThemes(long selectionFloor, IReadOnlyCollection<long>? visited = null)
+    // visited: packs this run already played - see Unvisited. customThemes: see PickThemes.
+    public static List<Tfps> RecreateThemes(long selectionFloor, IReadOnlyCollection<long>? visited, int count,
+        IReadOnlyList<ThemeStatic>? customThemes = null)
     {
         // Conventions (settled against the capture + the client's own table):
         //   * the wire idx IS the price-1 act: floor / 5 + 1 (1-based) - byte-verified;
@@ -428,7 +472,7 @@ public static class MdMapGen
         // Tier 0 exists only for the run-start "easy" group (PickThemes) - those packs carry a d1
         // condition too, so they stay reachable once the run is under way.
         var offset = selectionFloor % 5;    // selectableFloors
-        var themePool = new MdThemePool();
+        var themePool = new MdThemePool(customThemes);
         // A floor past the table's last act (dungeonIdx 3, the extreme floors) keeps drawing from
         // that last act instead of an empty tier.
         var lastAct = themePool.pools.Values
@@ -442,7 +486,7 @@ public static class MdMapGen
                 && (c.selectableFloors.Count == 0 || c.selectableFloors.Contains(offset))))
             .ToList(), visited);
 
-        return ChooseMultiple(eligible, 4)
+        return ChooseMultiple(eligible, count)
             .Select(theme => new Tfps
             {
                 idx = act,

@@ -228,13 +228,13 @@ public class MdRulesMapNodeTests
     {
         // eid==0 -> normal shop: shopInfoByType[0] = 1 named "up" slot + 4 gift slots.
         var run = RunWithNode(nid: 100, e: 10, eid: 0);
-        run.Party.Add(new PartyUnit { PersonalityId = 11 });
-        run.Party.Add(new PartyUnit { PersonalityId = 12 });
+        run.Party.Add(new PartyUnit { PersonalityId = 11, CurrentHp = 10000 });
+        run.Party.Add(new PartyUnit { PersonalityId = 12, CurrentHp = 10000 });
 
         MapNodeRules.EnterNode(run, new Currentnode { f = 0, s = 0, nid = 100 });
 
         Assert.Equal(new[] { "up", "eg", "eg", "eg", "eg" }, run.Shop.Slots.Select(s => s.T));
-        Assert.Equal(11, run.Shop.Slots[0].Id);
+        Assert.Contains(run.Shop.Slots[0].Id, new long[] { 11, 12 });
         Assert.All(run.Shop.Slots, s => Assert.Equal(1, s.S));
     }
 
@@ -276,15 +276,39 @@ public class MdRulesMapNodeTests
         // eid!=0 -> super shop: shopInfoByType[1] = 1 "upt" + 2 named "up" + 7 gift slots,
         // targeting slot first (md-extreme-run seq67/96).
         var run = RunWithNode(nid: 100, e: 10, eid: 1);
-        run.Party.Add(new PartyUnit { PersonalityId = 11 });
-        run.Party.Add(new PartyUnit { PersonalityId = 12 });
-        run.Party.Add(new PartyUnit { PersonalityId = 13 });
+        run.Party.Add(new PartyUnit { PersonalityId = 11, CurrentHp = 10000 });
+        run.Party.Add(new PartyUnit { PersonalityId = 12, CurrentHp = 10000 });
+        run.Party.Add(new PartyUnit { PersonalityId = 13, CurrentHp = 10000 });
 
         MapNodeRules.EnterNode(run, new Currentnode { f = 0, s = 0, nid = 100 });
 
         Assert.Equal(new[] { "upt", "up", "up" }, run.Shop.Slots.Take(3).Select(s => s.T));
-        Assert.Equal(new long[] { 11, 12 }, run.Shop.Slots.Skip(1).Take(2).Select(s => s.Id));
+        var named = run.Shop.Slots.Skip(1).Take(2).Select(s => s.Id).ToList();
+        Assert.Equal(2, named.Distinct().Count());
+        Assert.All(named, id => Assert.Contains(id, new long[] { 11, 12, 13 }));
         Assert.Equal(7, run.Shop.Slots.Count(s => s.T == "eg"));
+    }
+
+    [Fact]
+    public void EnterNode_ShopNode_OffersSkillReplacementToRandomLivingSinners()
+    {
+        // The named slot used to always go to party[0]; it must be drawn from every living sinner
+        // and never from a dead one.
+        var seen = new HashSet<long>();
+        for (var i = 0; i < 200; i++)
+        {
+            var run = RunWithNode(nid: 100, e: 10, eid: 0);
+            run.Party.Add(new PartyUnit { PersonalityId = 11, CurrentHp = 10000 });
+            run.Party.Add(new PartyUnit { PersonalityId = 12, CurrentHp = 0 });
+            run.Party.Add(new PartyUnit { PersonalityId = 13, CurrentHp = 500 });
+            run.Party.Add(new PartyUnit { PersonalityId = 14, CurrentHp = 10000 });
+
+            MapNodeRules.EnterNode(run, new Currentnode { f = 0, s = 0, nid = 100 });
+
+            seen.Add(run.Shop.Slots.Single(s => s.T == "up").Id);
+        }
+
+        Assert.Equal(new long[] { 11, 13, 14 }, seen.OrderBy(x => x));
     }
 
     [Fact]

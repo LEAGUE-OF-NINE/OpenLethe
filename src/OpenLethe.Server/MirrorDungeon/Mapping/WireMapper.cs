@@ -75,6 +75,7 @@ public static class WireMapper
             StartKeyword = c.startKeyword,
             StartBuffPoint = c.startBufPoint,
             StartBuffIds = c.enabledStartbufIds ?? new(),
+            StartBuffsChosen = c.enabledStartbufIds is not null,
             HiddenNodeOrigins = c.hiddenNodeOrigins?.Select(o => new HiddenNodeOrigin { Nid = o.nid, Eid = o.eid }).ToList() ?? new(),
             ConstraintScores = c.cfs.Select(f => new ConstraintScore { Floor = f.floor, Difficulty = f.difficulty }).ToList(),
             LevelOffsets = new LevelOffsets
@@ -180,7 +181,8 @@ public static class WireMapper
             leveladders = r.LevelAdders,
             startKeyword = r.StartKeyword,
             startBufPoint = r.StartBuffPoint,
-            enabledStartbufIds = r.StartBuffIds.Count == 0 ? null : r.StartBuffIds,
+            // [] (not omitted) once an empty pick was stored, so "no buffs" survives the round trip.
+            enabledStartbufIds = r.StartBuffIds.Count == 0 && !r.StartBuffsChosen ? null : r.StartBuffIds,
             hiddenNodeOrigins = r.HiddenNodeOrigins.Count == 0
                 ? null
                 : r.HiddenNodeOrigins.Select(o => new HiddenNodeOriginInfo { nid = o.Nid, eid = o.Eid }).ToList(),

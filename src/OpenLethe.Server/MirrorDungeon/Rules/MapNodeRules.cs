@@ -61,16 +61,28 @@ public static class MapNodeRules
             // eg slots) - see md-extreme-run seq67/96.
             for (var i = 0; i < (type?.skillTargetingSlotNum ?? 0); i++)
                 slots.Add(new ShopSlotState { T = "upt", Id = 0, S = 1 });
+            // Each named slot goes to a different sinner, drawn at random from the ones still
+            // standing - taking the party in order offered only sinner 1 (and 2 in a super shop).
             var namedUpgradeSlots = (int)(type?.skillSlotNum ?? 0);
-            for (var i = 0; i < namedUpgradeSlots && i < run.Party.Count; i++)
-                slots.Add(new ShopSlotState { T = "up", Id = run.Party[i].PersonalityId, S = 1 });
+            foreach (var pid in SharedRules.RandomLivingSinners(run).Take(namedUpgradeSlots))
+                slots.Add(new ShopSlotState { T = "up", Id = pid, S = 1 });
 
             slots.AddRange(new MdThemePool(customThemes).SelectRandomShopEgos(
                     SharedRules.ThemePackId(run), (int)SharedRules.ShopGiftCount(run), SharedRules.CurrentFloor(run), null,
-                    SharedRules.OwnedGiftIds(run))
+                    SharedRules.OwnedGiftIds(run), StartBuffEffects.ShopHighTierMultiplier(run))
                 .Select(id => new ShopSlotState { T = "eg", Id = id, S = 1 }));
 
-            run.Shop = new ShopState { Slots = slots };
+            // fre/fkre: the visit's free normal / keyword refreshes still available (start buffs).
+            run.Shop = new ShopState
+            {
+                Slots = slots,
+                Fre = StartBuffEffects.FreeRefreshes(run),
+                Fkre = StartBuffEffects.FreeKeywordRefreshes(run),
+            };
+
+            // The start buffs' shop-entry rewards (Binary Star-shop+ Cost, Chance Comet Vestige),
+            // once per visit - the response's cost/egogifts carry them to the client.
+            if (firstEntry) StartBuffEffects.OnEnterShop(run);
         }
 
         // True only on the entry that revealed the node: the client then reloads its map from the

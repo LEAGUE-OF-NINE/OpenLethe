@@ -14,14 +14,6 @@ namespace OpenLethe.Server.MirrorDungeon.Rules;
 // See the handler-migration Task 7 brief.
 public static class RewardEngine
 {
-    // The level-cap offsets now come from the buffs THIS run enabled (Run.StartBuffIds, persisted
-    // by EnableStartBuff). The old fixed {106,102} set was a replay-only crutch: both captured
-    // runs enable exactly those two, so the golden stayed green while any other pick did nothing.
-    // Fallback for a run that never stored its picks.
-    private static MdLevelOffsets LevelOffsetsOf(Run run) => run.StartBuffIds.Count > 0
-        ? MdStartBuffs.LevelOffsets(run.StartBuffIds)
-        : MdStartBuffs.LevelOffsets(new long[] { 106, 102 });
-
     // Owned ego gift 9187 "Special Catalogue" - verbatim port of
     // Handlers/MirrorDungeonMap.cs EncounterCardBonusGift (:84).
     private const long EncounterCardBonusGift = 9187;
@@ -80,6 +72,10 @@ public static class RewardEngine
         IReadOnlyList<ThemeStatic>? customThemes = null)
     {
         run.Floor.Current = new CurrentPosition { F = node.f, S = node.s, Nid = node.nid };
+
+        // Who could fight this encounter: the sinners standing before the client's battle result
+        // lands (Milepost of Survival counts the participants, and the request lists everyone).
+        var livingBeforeBattle = run.Party.Count(u => u.CurrentHp > 0);
 
         // Merge the client-reported battle-mutated roster onto the authoritative party (same
         // per-pid merge SharedRules.MergeParty already implements for EnterMapNode/UpdateMapNode).
@@ -226,12 +222,12 @@ public static class RewardEngine
             // The theme-floor pool is consumed on clear; the next floor re-rolls it. Hard runs roll
             // it in the boss-reward step (retail: tfps empty here, verified). A normal run rolls it
             // right away, so its next selection never hinges on that hard-mode enemy-buff popup.
-            run.ThemePools = MapGenerator.IsNormalMode(run) ? MapGenerator.NextFloorPools(run) : new();
+            run.ThemePools = MapGenerator.IsNormalMode(run) ? MapGenerator.NextFloorPools(run, customThemes) : new();
 
             // Raise the per-run personality level cap. Sbmlos = base + min(clears, cap)*perClear
             // + snft*perNewTheme, all read from the enabled start buffs' effects. Clearing floor
             // cnf means cnf+1 floors cleared. Absolute (idempotent).
-            run.LevelOffsets.Sbmlos = LevelOffsetsOf(run).SbmlosAt(cnf + 1, run.LevelOffsets.Snft);
+            run.LevelOffsets.Sbmlos = StartBuffEffects.LevelOffsets(run).SbmlosAt(cnf + 1, run.LevelOffsets.Snft);
             var levelCap = run.LevelOffsets.Sbmlos + run.LevelOffsets.Egmlos;
             foreach (var u in run.Party) u.Mlos = levelCap;
 
@@ -322,6 +318,10 @@ public static class RewardEngine
                 .ToList();
             run.Gifts.Items.AddRange(hiddenGiftIds.Select(id => new EgoGift { Id = id }));
 
+            // A hidden-boss clear revives the party (md-extreme-run-2 seq339: every dead unit
+            // comes back at 10000 with cm 0).
+            SharedRules.ReviveAll(run);
+
             run.RewardEvents = new() { BuildBattleRewardCase(cnf, EncounterCardBonus(run)) };
         }
 
@@ -346,9 +346,11 @@ public static class RewardEngine
         // Pay what the client shows on the node: the common table's victory cost for this
         // encounter type and difficulty, weighted by the floor being cleared (cnf - `floor` runs
         // ahead of it, which paid the wrong row and nothing at all for bosses past floor 4), plus
-        // the 9079 Golden Urn / 9242 Bongy Plush bonuses.
+        // the 9079 Golden Urn / 9242 Bongy Plush bonuses and Binary Star-shop's Encounter Reward
+        // Cost +20/30/40%.
         var costGain = MdCost.BattleVictoryCost(matchingNode.E, cnf, hard: !MapGenerator.IsNormalMode(run));
         run.Cost += MdCost.ApplyCostGifts(run, matchingNode.E, costGain);
+        run.Cost += MdCost.MilepostOfSurvivalBonus(run, matchingNode.E, matchingNode.Eid, livingBeforeBattle);
 
         // Echo the client's abno logs sorted by id. The server regenerates the RNG content
         // (k, s, p, ps[*].atrr/atkr) which the replay masks; the deterministic outer length +

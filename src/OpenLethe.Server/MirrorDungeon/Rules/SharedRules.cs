@@ -27,11 +27,12 @@ public static class SharedRules
 
     // Port of map/mod.rs shop_gift_count (MirrorDungeonMap.cs:50-55), but the counts come from
     // the retail table now (shopInfoByType.egoGiftSlotNum: 4 regular / 7 super) instead of the
-    // reference server's hardcoded 5/10.
+    // reference server's hardcoded 5/10, plus the start buffs' "Shop E.G.O Gift Choice +1"
+    // (Star of the Beginning, Binary Star-shop).
     public static long ShopGiftCount(Run run) => IsSuperShop(run) switch
     {
-        true => MdShopTable.GiftSlots(true),
-        false => MdShopTable.GiftSlots(false),
+        true => MdShopTable.GiftSlots(true) + StartBuffEffects.ShopGiftSlotBonus(run),
+        false => MdShopTable.GiftSlots(false) + StartBuffEffects.ShopGiftSlotBonus(run),
         null => 0,
     };
 
@@ -49,6 +50,40 @@ public static class SharedRules
             foreach (var ego in unit.EgoSkills) ego.G = 0;
         }
         return incoming;
+    }
+
+    // The sinners a named skill-replacement ("up") shop slot can go to: the living ones, in a
+    // random order, leaving out the pids in `exclude` (the shop's other "up" slots).
+    public static IEnumerable<long> RandomLivingSinners(Run run, IEnumerable<long>? exclude = null)
+    {
+        var taken = exclude?.ToHashSet() ?? new HashSet<long>();
+        var living = run.Party.Where(u => u.CurrentHp > 0 && !taken.Contains(u.PersonalityId))
+            .Select(u => u.PersonalityId).ToArray();
+        Random.Shared.Shuffle(living);
+        return living;
+    }
+
+    // 9273 "Spiderweb Entangled in Red": while Blade of the House of Spiders Ryoshu (10415) is in
+    // the party, no other defeated identity is revived after clearing a floor boss or a hidden node.
+    private const long SpiderwebEntangledInRedGift = 9273;
+    private const long BladeOfTheHouseOfSpidersRyoshu = 10415;
+
+    // The "revive all" after a floor boss (applied on the next floor's start) and a hidden-boss
+    // clear: every unit back to full hp, and a unit revived from 0 hp also has its Cm (corrosion)
+    // cleared - live units keep their Cm (md-extreme-run-2 seq339). Shop revives don't go here.
+    public static void ReviveAll(Run run)
+    {
+        var noRevive = run.Gifts.Items.Any(g => g.Id == SpiderwebEntangledInRedGift)
+            && run.Party.Any(u => u.PersonalityId == BladeOfTheHouseOfSpidersRyoshu);
+        foreach (var u in run.Party)
+        {
+            if (u.CurrentHp == 0)
+            {
+                if (noRevive && u.PersonalityId != BladeOfTheHouseOfSpidersRyoshu) continue;
+                u.Cm = 0;
+            }
+            u.CurrentHp = 10000;
+        }
     }
 
     // Port of RecomputeEgmlos (MirrorDungeonMap.cs:117).

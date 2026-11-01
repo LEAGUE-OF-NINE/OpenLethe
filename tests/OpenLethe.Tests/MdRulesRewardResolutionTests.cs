@@ -136,6 +136,62 @@ public class MdRulesRewardResolutionTests
         Assert.Single(run.StartPools);
     }
 
+    [Theory]
+    [InlineData(new long[] { 0, 1 }, true)]    // +2 +2 = 4: one bonus pick
+    [InlineData(new long[] { 0, 2 }, false)]   // +2 +1 = 3: none
+    public void AcquireWithEnemyBuf_PicksAddingUpToFourEnemyLevels_QueueOneBonusGiftPick(long[] picks, bool bonus)
+    {
+        var run = new Run { Idx = 1 };
+        run.ThemeFloors.Add(new ThemeFloor { F = 0, Idx = 1, Tfid = 1202 });
+        var packPool = new OpenLethe.Server.MirrorDungeon.Data.MdThemePool().ThemeDropPool(1202);
+        var trailing = new RewardEvent { Rt = "GetConstraints", Pool = new() { 1 } };
+        run.RewardEvents.Add(new RewardEvent
+        {
+            Rt = "GetEgogiftWithEnemyBuf",
+            Se = 2,
+            Sh = 3,
+            Pool = new() { 9004, 9005, 9006 },
+            PoolV2 = new() { 992201, 992202, 992203 },
+            PoolV3 = new() { 2, 2, 1 },
+        });
+        run.RewardEvents.Add(trailing);
+
+        RewardResolution.AcquireWithEnemyBuf(run, picks.ToList());
+
+        if (!bonus)
+        {
+            Assert.Equal(new[] { trailing }, run.RewardEvents);
+            return;
+        }
+        // Retail appends it after every remaining event: a 1-of-3 GetEgogift from the floor's pack.
+        Assert.Equal(2, run.RewardEvents.Count);
+        Assert.Same(trailing, run.RewardEvents[0]);
+        var extra = run.RewardEvents[1];
+        Assert.Equal("GetEgogift", extra.Rt);
+        Assert.Equal(1, extra.Se);
+        Assert.Equal(3, extra.Sh);
+        Assert.Equal(3, extra.Pool.Distinct().Count());
+        Assert.All(extra.Pool, id => Assert.Contains(id, packPool));
+    }
+
+    [Fact]
+    public void AcquireWithEnemyBuf_BonusPickOnACustomPackDrawsFromIt()
+    {
+        var custom = new OpenLethe.Server.ThemeStatic { id = 990001, egoGiftPool = new() { 9101, 9102, 9103 } };
+        var run = new Run { Idx = 1 };
+        run.ThemeFloors.Add(new ThemeFloor { F = 0, Idx = 1, Tfid = 990001 });
+        run.RewardEvents.Add(new RewardEvent
+        {
+            Rt = "GetEgogiftWithEnemyBuf", Se = 2, Sh = 2,
+            Pool = new() { 9004, 9005 }, PoolV2 = new() { 992201, 992202 }, PoolV3 = new() { 2, 2 },
+        });
+
+        RewardResolution.AcquireWithEnemyBuf(run, new() { 0, 1 }, new[] { custom });
+
+        var extra = Assert.Single(run.RewardEvents);
+        Assert.Equal(new long[] { 9101, 9102, 9103 }, extra.Pool.OrderBy(id => id).ToArray());
+    }
+
     [Fact]
     public void RejectWithEnemyBuf_ConsumesPopupAddsLevelAddersAndRollsNextFloorPool()
     {

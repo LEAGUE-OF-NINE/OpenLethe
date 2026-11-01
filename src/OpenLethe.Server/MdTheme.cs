@@ -57,6 +57,7 @@ public sealed class DungeonEgoGiftDropPool
     public long dungeonId;
     public List<long> egoGifts = new();
     public List<long> excludeEgoGifts = new();
+    public List<long> globalExcludeEgoGifts = new();
 }
 
 public static class MdThemeData

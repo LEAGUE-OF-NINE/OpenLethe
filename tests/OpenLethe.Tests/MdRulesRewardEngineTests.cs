@@ -315,4 +315,81 @@ public class MdRulesRewardEngineTests
         Assert.Equal(575 + 1000, run.Cost);
         Assert.Equal("GetBattleRewardCase", Assert.Single(run.RewardEvents).Rt);
     }
+
+    private static List<Dungeonunitlist1> Roster(params (long pid, long ch, long cm)[] units) =>
+        units.Select(u => new Dungeonunitlist1 { pid = u.pid, ch = u.ch, cm = u.cm }).ToList();
+
+    [Fact]
+    public void ResolveNodeExit_HiddenBoss_RevivesTheParty()
+    {
+        // md-extreme-run-2 seq339: the dead come back at full hp with cm cleared, the living are
+        // healed and keep their cm.
+        var run = RunWithNode(nid: 100102, e: 15, eid: 9000007, f: 10);
+
+        Exit(run, 100102, Roster((10306, 0, 45), (11115, 2153, 30)));
+
+        Assert.Equal(new long[] { 10000, 10000 }, run.Party.Select(u => u.CurrentHp));
+        Assert.Equal(new long[] { 0, 30 }, run.Party.Select(u => u.Cm));
+    }
+
+    [Fact]
+    public void ResolveNodeExit_HiddenBoss_SpiderwebWithBladeRyoshu_KeepsOthersDead()
+    {
+        var run = RunWithNode(nid: 100102, e: 15, eid: 9000007, f: 10);
+        run.Gifts.Items.Add(new EgoGift { Id = 9273 });
+
+        Exit(run, 100102, Roster((10306, 0, 45), (10415, 0, 20), (11115, 2153, 30)));
+
+        Assert.Equal(new long[] { 0, 10000, 10000 }, run.Party.Select(u => u.CurrentHp));
+    }
+
+    [Fact]
+    public void ResolveNodeExit_HiddenBoss_SpiderwebWithoutBladeRyoshu_StillRevives()
+    {
+        var run = RunWithNode(nid: 100102, e: 15, eid: 9000007, f: 10);
+        run.Gifts.Items.Add(new EgoGift { Id = 9273 });
+
+        Exit(run, 100102, Roster((10306, 0, 45), (11115, 2153, 30)));
+
+        Assert.All(run.Party, u => Assert.Equal(10000, u.CurrentHp));
+    }
+
+    [Fact]
+    public void ResolveNodeExit_BossClear_MilepostOfSurvivalPaysPerParticipant()
+    {
+        // Stage 2067134 deploys 7. Eight sinners were standing, so 7 took part: 80 + 7*5 = 115 on
+        // top of the floor-2 hard boss's 300, and Golden Urn's +20% does not scale it.
+        var run = RunWithNode(nid: 600, e: 6, eid: 2067134, f: 1);
+        run.Idx = 1;
+        run.ThemeFloors.Add(new ThemeFloor { F = 0, Idx = 1, Tfid = 1202, Egs = new List<long> { 111 } });
+        run.ThemeFloors.Add(new ThemeFloor { F = 1, Idx = 1, Tfid = 1202, Egs = new List<long> { 111 } });
+        run.Gifts.Items.Add(new EgoGift { Id = 9080 });
+        run.Gifts.Items.Add(new EgoGift { Id = 9079 });
+        run.Party.AddRange(Enumerable.Range(0, 12).Select(i => new PartyUnit { PersonalityId = 100 + i, CurrentHp = i < 8 ? 10000 : 0 }));
+        run.Cost = 0;
+
+        RewardEngine.ResolveNodeExit(
+            run, new Currentnode { f = 1, s = 0, nid = 600 }, new List<Dungeonunitlist1>(), 0,
+            new ChoiceEventData(), false, new List<EgoSkillStock>(), new List<JsonNode>());
+
+        Assert.Equal(300 * 120 / 100 + 115, run.Cost);
+    }
+
+    [Fact]
+    public void ResolveNodeExit_BossClear_MilepostOfSurvivalCountsOnlyStandingSinners()
+    {
+        var run = RunWithNode(nid: 600, e: 6, eid: 2067134, f: 1);
+        run.Idx = 1;
+        run.ThemeFloors.Add(new ThemeFloor { F = 0, Idx = 1, Tfid = 1202, Egs = new List<long> { 111 } });
+        run.ThemeFloors.Add(new ThemeFloor { F = 1, Idx = 1, Tfid = 1202, Egs = new List<long> { 111 } });
+        run.Gifts.Items.Add(new EgoGift { Id = 9080 });
+        run.Party.AddRange(Enumerable.Range(0, 12).Select(i => new PartyUnit { PersonalityId = 100 + i, CurrentHp = i < 3 ? 10000 : 0 }));
+        run.Cost = 0;
+
+        RewardEngine.ResolveNodeExit(
+            run, new Currentnode { f = 1, s = 0, nid = 600 }, new List<Dungeonunitlist1>(), 0,
+            new ChoiceEventData(), false, new List<EgoSkillStock>(), new List<JsonNode>());
+
+        Assert.Equal(300 + 80 + 3 * 5, run.Cost);
+    }
 }
