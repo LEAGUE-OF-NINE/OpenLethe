@@ -44,11 +44,6 @@ public sealed class MdCommonSource
 
     private static readonly Lazy<MdCommonSource> StaticSource = new(() => new MdCommonSource(StaticFile()));
 
-    // Built sources by the account column they came from, so a request does not re-parse and
-    // re-derive an upload it has seen before. Cleared wholesale when it grows past a bound.
-    private static readonly ConcurrentDictionary<string, MdCommonSource> ByColumn = new();
-    private const int ByColumnLimit = 256;
-
     public static MdCommonSource Static => StaticSource.Value;
 
     // The request's account upload laid over the static file, or the static file alone.
@@ -89,19 +84,10 @@ public sealed class MdCommonSource
         return new MdCommonSource(merged);
     }
 
-    // Account.CustomMdCommonData (a list of uploaded files) as a source; null for none.
-    public static MdCommonSource? FromColumn(string? column)
-    {
-        var uploads = AccountFields.Get<List<JsonObject?>>(column);
-        if (uploads is not { Count: > 0 }) return null;
-        if (ByColumn.TryGetValue(column!, out var cached)) return cached;
-
-        var built = Overlay(uploads);
-        if (built is null) return null;
-        if (ByColumn.Count >= ByColumnLimit) ByColumn.Clear();
-        ByColumn[column!] = built;
-        return built;
-    }
+    // Account.CustomMdCommonData (a list of uploaded files) as a source; null for none. Built once
+    // per upload: the MdCatalog holding it is cached per account (HandlerContext.CatalogAsync).
+    public static MdCommonSource? FromColumn(string? column) =>
+        Overlay(AccountFields.Get<List<JsonObject?>>(column));
 
     // Why this upload cannot be used (a section of the wrong shape), or null when it can.
     public static string? Validate(JsonObject upload)

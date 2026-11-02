@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using OpenLethe.Data;
 using OpenLethe.Server.MirrorDungeon.Data;
 
@@ -67,12 +68,9 @@ internal static class HandlerContext
                 Expression.MemberInit(Expression.New(typeof(Account)), binds), a);
         });
 
-    /// The uploads MdCatalog is built from. See the Md branch in ResolveAsync.
-    private static readonly string[] CatalogColumns =
-    {
-        nameof(Account.CustomTheme), nameof(Account.CustomEgoGifts), nameof(Account.CustomEgoGiftDropPools),
-        nameof(Account.CustomMdBattles), nameof(Account.CustomMdCommonData),
-    };
+    /// How long an account's built MdCatalog stays cached after its last MD request. Keyed on
+    /// Account.CustomMdRevision, so a changed upload is never served stale; this only bounds memory.
+    private static readonly TimeSpan CatalogCacheSliding = TimeSpan.FromMinutes(15);
 
     /// Account's writable string columns. See the blanking loop in ResolveAsync.
     private static readonly PropertyInfo[] StringColumns = typeof(Account)
@@ -107,11 +105,12 @@ internal static class HandlerContext
 
         var names = columns.Select(c => ColumnNames[c]).Distinct().ToArray();
 
-        // A Mirror Dungeon request also reads the account's uploaded packs, gifts, drop pools,
-        // battles and common data in the same SELECT and makes them the request's MdCatalog, so every rule below sees them. They
-        // stay out of `names`: the blanking loop clears them again and the handler can't write them.
+        // A Mirror Dungeon request also makes the account's uploaded packs, gifts, drop pools,
+        // battles and common data the request's MdCatalog, so every rule below sees them. The SELECT
+        // only adds the upload stamp (CustomMdRevision); the documents themselves are read and built
+        // once per stamp - see CatalogAsync.
         var loadCatalog = columns.Contains(SaveColumn.Md) || columns.Contains(SaveColumn.StoryMd);
-        var selected = loadCatalog ? names.Union(CatalogColumns).ToArray() : names;
+        var selected = loadCatalog ? names.Append(nameof(Account.CustomMdRevision)).ToArray() : names;
 
         var db = ctx.RequestServices.GetRequiredService<AppDbContext>();
         var account = await db.Accounts
@@ -122,9 +121,7 @@ internal static class HandlerContext
         if (account is null) return null;
 
         if (loadCatalog)
-            MdCatalog.SetCurrent(MdCatalog.FromColumns(
-                account.CustomTheme, account.CustomEgoGifts, account.CustomEgoGiftDropPools,
-                account.CustomMdBattles, account.CustomMdCommonData));
+            MdCatalog.SetCurrent(await CatalogAsync(ctx, db, account.Id, account.CustomMdRevision));
 
         // Blank the columns the projection didn't load, BEFORE Attach snapshots them.
         // They arrive holding Account's field initializers ("{}", "[]"), so a handler
@@ -140,6 +137,30 @@ internal static class HandlerContext
         db.Attach(account);
         ctx.Items[ScopeItemKey] = names;
         return account;
+    }
+
+    /// The account's MdCatalog at this upload stamp: none for 0 (never uploaded), else the cached one,
+    /// or - first request after an upload, or after the cache let it go - built from the five
+    /// documents in a query of its own. A built catalog is read-only, so requests share it.
+    private static async Task<MdCatalog?> CatalogAsync(HttpContext ctx, AppDbContext db, Guid accountId, long revision)
+    {
+        if (revision == 0) return null;
+
+        var cache = ctx.RequestServices.GetRequiredService<IMemoryCache>();
+        var key = (nameof(MdCatalog), accountId, revision);
+        if (cache.TryGetValue(key, out MdCatalog? cached)) return cached;
+
+        var docs = await db.Accounts
+            .AsNoTracking()
+            .Where(a => a.Id == accountId)
+            .Select(a => new { a.CustomTheme, a.CustomEgoGifts, a.CustomEgoGiftDropPools, a.CustomMdBattles, a.CustomMdCommonData })
+            .SingleOrDefaultAsync();
+        if (docs is null) return null;
+
+        var catalog = MdCatalog.FromColumns(docs.CustomTheme, docs.CustomEgoGifts, docs.CustomEgoGiftDropPools,
+            docs.CustomMdBattles, docs.CustomMdCommonData);
+        cache.Set(key, catalog, new MemoryCacheEntryOptions { SlidingExpiration = CatalogCacheSliding });
+        return catalog;
     }
 
     /// Deserialize the envelope and return its `parameters`.

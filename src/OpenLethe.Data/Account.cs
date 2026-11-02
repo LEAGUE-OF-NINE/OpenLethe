@@ -33,6 +33,10 @@ public sealed class Account
     // custom_limbus_data/mirror-dungeon-common-data: the uploaded files, laid over the season's
     // common data key by key - see OpenLethe.Server MdCommonSource.
     public string CustomMdCommonData { get; set; } = "[]";
+    // Stamped by AppDbContext whenever one of the custom MD columns above (CustomTheme included)
+    // changes; 0 = the account never uploaded any. The server caches each account's built
+    // MdCatalog under this stamp, so an MD request reads one bigint instead of five documents.
+    public long CustomMdRevision { get; set; }
     public string MdSaveInfo { get; set; } = "{}";
     public string StorySaveInfo { get; set; } = "{}";
     public string StoryMdSaveInfo { get; set; } = "{}";
