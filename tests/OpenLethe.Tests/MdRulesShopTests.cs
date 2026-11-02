@@ -143,6 +143,20 @@ public class MdRulesShopTests
     }
 
     [Fact]
+    public void PurchaseEgoGift_ComponentOfHeldFusionGift_IsNotSold()
+    {
+        // 9049 Thorny Path is a component of the held 9176 Impending Wave: it counts as owned.
+        var run = new Run { Cost = 1000 };
+        run.Gifts.Items.Add(new EgoGift { Id = 9176 });
+        run.Shop.Slots.Add(new ShopSlotState { T = "eg", Id = 9049, S = 1 });
+
+        Assert.Empty(ShopRules.PurchaseEgoGift(run, 0));
+        Assert.Equal(1000, run.Cost);
+        Assert.Equal(1, run.Shop.Slots[0].S);
+        Assert.DoesNotContain(run.Gifts.Items, g => g.Id == 9049);
+    }
+
+    [Fact]
     public void PurchaseEgoGift_IdxOutOfEgSlotRange_IsNoOp()
     {
         var run = new Run { Cost = 1000 };

@@ -116,8 +116,8 @@ public static class MdShopTable
     public static long KeywordRefreshCostAdder => Shop.refreshShop.shopKeywordRefreshCostAdder;
 }
 
-// mirror-dungeon-common-data-md7.json is one unlisted object per file (StaticData.GetUnlisted):
-// only the shop-relevant subset and hiddenBattleInfo are modelled, the rest of the file is
+// mirror-dungeon-common-data (the current season's file, with the account's upload laid over it -
+// see MdCommonSource): only the sections the server reads are modelled, the rest of the file is
 // ignored by name.
 public sealed class MdCommonData
 {
@@ -139,6 +139,31 @@ public sealed class MdCommonData
     public List<MdBattleVictoryCost> originbattlevictorycostvalueList = new();
     public List<MdBattleVictoryCost> originbattlevictorycostvalueListHardLevel = new();
     public List<MdBattleCostWeights> battleCostWeightsByFloor = new();
+    // The run-start E.G.O gift sets (one per keyword) offered before floor 1.
+    public List<MdStartEgoGiftPoolData> startEgoGiftPools = new();
+    // The chance a random fusion keeps the requested keyword, by material count.
+    public MdRandomCombineProbs? egogiftRandomCombineProbs;
+}
+
+public sealed class MdStartEgoGiftPoolData
+{
+    public string keyword = "";
+    public List<long> normalpool = new();
+    public List<long> buffpool = new();
+}
+
+public sealed class MdRandomCombineProbs
+{
+    // The plain fusion's table. enabledStarlight is the starlight-boosted one, which no rule
+    // here applies yet.
+    public List<MdCombineProb> origin = new();
+    public List<MdCombineProb> enabledStarlight = new();
+}
+
+public sealed class MdCombineProb
+{
+    public long materialCount;
+    public double prob;
 }
 
 public sealed class MdBattleVictoryCost
@@ -181,40 +206,44 @@ public sealed class MdHiddenBattleProb
 
 public static class MdCommonTable
 {
-    private static readonly Lazy<List<MdCommonData>> Files = new(() =>
-        StaticData.GetUnlisted<MdCommonData>("static-data/mirror-dungeon-common-data"));
-
-    private static readonly Lazy<MdCommonData> Data = new(() => Files.Value.FirstOrDefault() ?? new MdCommonData());
-
-    // The current season's file (currentDungeonId 8 = mirror-dungeon-common-data-md8.json), or the
-    // first one when no file names it.
-    private static readonly Lazy<MdCommonData> Current = new(() =>
-        Files.Value.FirstOrDefault(d => d.currentDungeonId == OpenLethe.Server.MirrorDungeon.Rules.StartRunRules.CurrentDungeonId)
-            ?? Data.Value);
+    // The current season's file with the request's upload laid over it (MdCommonSource.Current).
+    private static MdCommonData Current => OpenLethe.Server.MirrorDungeon.Data.MdCommonSource.Current.View<MdCommonData>();
 
     // The current season's hiddenBattleInfo; empty (no hidden battles) when the file has none.
-    public static MdHiddenBattleInfo HiddenBattle => Current.Value.hiddenBattleInfo ?? new MdHiddenBattleInfo();
+    public static MdHiddenBattleInfo HiddenBattle => Current.hiddenBattleInfo ?? new MdHiddenBattleInfo();
 
     // The current season's battle-victory cost tables (originbattlevictorycostvalueList /
     // ...ListHardLevel and battleCostWeightsByFloor).
     public static List<MdBattleVictoryCost> VictoryCosts(bool hard) => hard
-        ? Current.Value.originbattlevictorycostvalueListHardLevel
-        : Current.Value.originbattlevictorycostvalueList;
+        ? Current.originbattlevictorycostvalueListHardLevel
+        : Current.originbattlevictorycostvalueList;
 
-    public static List<MdBattleCostWeights> CostWeightsByFloor => Current.Value.battleCostWeightsByFloor;
+    public static List<MdBattleCostWeights> CostWeightsByFloor => Current.battleCostWeightsByFloor;
 
     // Module points charged per shop refresh, multiplied by how many refreshes this floor already
     // had (shop.rc) - the reference server hardcoded the same 15, now it is read.
-    public static long RefreshCostPerCount => Data.Value.shopRefreshCostPerCount;
+    public static long RefreshCostPerCount => Current.shopRefreshCostPerCount;
 
     // Weight multiplier an on-keyword gift gets in a keyword refresh.
-    public static double KeywordRefreshWeightMultiplier => Data.Value.shopKeywordRefreshWeightMultiplier;
+    public static double KeywordRefreshWeightMultiplier => Current.shopKeywordRefreshWeightMultiplier;
 
     // themePoolNum (3) / themePoolRecreateCount (1) of the current season - see StartBuffEffects.
-    public static long ThemePoolNum => Current.Value.themePoolNum;
-    public static long ThemePoolRecreateCount => Current.Value.themePoolRecreateCount;
+    public static long ThemePoolNum => Current.themePoolNum;
+    public static long ThemePoolRecreateCount => Current.themePoolRecreateCount;
 
     // minEnemyLevelBuffForAdditionalEgoGift of the current season - see
     // RewardResolution.AcquireWithEnemyBuf.
-    public static long MinEnemyLevelForAdditionalGift => Current.Value.minEnemyLevelBuffForAdditionalEgoGift;
+    public static long MinEnemyLevelForAdditionalGift => Current.minEnemyLevelBuffForAdditionalEgoGift;
+
+    // startEgoGiftPools: the run-start gift sets, in order (a set's index is its setId). An upload
+    // that empties the list keeps the static sets - a run cannot start without one.
+    public static List<MdStartEgoGiftPoolData> StartEgoGiftPools =>
+        Current.startEgoGiftPools is { Count: > 0 } pools
+            ? pools
+            : OpenLethe.Server.MirrorDungeon.Data.MdCommonSource.Static.View<MdCommonData>().startEgoGiftPools;
+
+    // egogiftRandomCombineProbs.origin, ordered by material count.
+    public static List<MdCombineProb> RandomCombineProbs =>
+        (Current.egogiftRandomCombineProbs?.origin ?? new List<MdCombineProb>())
+            .OrderBy(p => p.materialCount).ToList();
 }

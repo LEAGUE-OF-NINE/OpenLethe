@@ -3,7 +3,9 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using OpenLethe.Data;
+using OpenLethe.Server.MirrorDungeon.Data;
 
 namespace OpenLethe.Server.Handlers;
 
@@ -12,6 +14,7 @@ internal enum SaveColumn
 {
     Md, StoryMd, Railway, Story, Chapter, Chapter10Rpg,
     BossRaid, Formations, Announcers, UserInfo, Egos, Personalities, CustomIdentities, CustomTheme,
+    CustomEgoGifts, CustomEgoGiftDropPools, CustomMdBattles, CustomMdCommonData,
 }
 
 /// Shared boilerplate for stateful handlers: resolve the authed account, read the
@@ -42,6 +45,10 @@ internal static class HandlerContext
         [SaveColumn.Personalities] = nameof(Account.Personalities),
         [SaveColumn.CustomIdentities] = nameof(Account.CustomIdentities),
         [SaveColumn.CustomTheme] = nameof(Account.CustomTheme),
+        [SaveColumn.CustomEgoGifts] = nameof(Account.CustomEgoGifts),
+        [SaveColumn.CustomEgoGiftDropPools] = nameof(Account.CustomEgoGiftDropPools),
+        [SaveColumn.CustomMdBattles] = nameof(Account.CustomMdBattles),
+        [SaveColumn.CustomMdCommonData] = nameof(Account.CustomMdCommonData),
     };
 
     /// `a => new Account { Id = a.Id, <col> = a.<col>, ... }`, which EF turns into
@@ -60,6 +67,10 @@ internal static class HandlerContext
             return Expression.Lambda<Func<Account, Account>>(
                 Expression.MemberInit(Expression.New(typeof(Account)), binds), a);
         });
+
+    /// How long an account's built MdCatalog stays cached after its last MD request. Keyed on
+    /// Account.CustomMdRevision, so a changed upload is never served stale; this only bounds memory.
+    private static readonly TimeSpan CatalogCacheSliding = TimeSpan.FromMinutes(15);
 
     /// Account's writable string columns. See the blanking loop in ResolveAsync.
     private static readonly PropertyInfo[] StringColumns = typeof(Account)
@@ -93,13 +104,24 @@ internal static class HandlerContext
         if (ctx.Items["sub"] is not string sub) return null;
 
         var names = columns.Select(c => ColumnNames[c]).Distinct().ToArray();
+
+        // A Mirror Dungeon request also makes the account's uploaded packs, gifts, drop pools,
+        // battles and common data the request's MdCatalog, so every rule below sees them. The SELECT
+        // only adds the upload stamp (CustomMdRevision); the documents themselves are read and built
+        // once per stamp - see CatalogAsync.
+        var loadCatalog = columns.Contains(SaveColumn.Md) || columns.Contains(SaveColumn.StoryMd);
+        var selected = loadCatalog ? names.Append(nameof(Account.CustomMdRevision)).ToArray() : names;
+
         var db = ctx.RequestServices.GetRequiredService<AppDbContext>();
         var account = await db.Accounts
             .AsNoTracking()
             .Where(a => a.Username == sub)
-            .Select(Projection(names))
+            .Select(Projection(selected))
             .SingleOrDefaultAsync();
         if (account is null) return null;
+
+        if (loadCatalog)
+            MdCatalog.SetCurrent(await CatalogAsync(ctx, db, account.Id, account.CustomMdRevision));
 
         // Blank the columns the projection didn't load, BEFORE Attach snapshots them.
         // They arrive holding Account's field initializers ("{}", "[]"), so a handler
@@ -117,18 +139,28 @@ internal static class HandlerContext
         return account;
     }
 
-    /// The account's uploaded custom MD packs (Account.CustomTheme), read as a plain scalar query
-    /// next to a scoped resolve so it never touches the tracked stub (whose other columns stay
-    /// null and unwritable). Empty when nothing was uploaded.
-    public static async Task<List<ThemeStatic>> ReadCustomThemesAsync(HttpContext ctx, Guid accountId)
+    /// The account's MdCatalog at this upload stamp: none for 0 (never uploaded), else the cached one,
+    /// or - first request after an upload, or after the cache let it go - built from the five
+    /// documents in a query of its own. A built catalog is read-only, so requests share it.
+    private static async Task<MdCatalog?> CatalogAsync(HttpContext ctx, AppDbContext db, Guid accountId, long revision)
     {
-        var db = ctx.RequestServices.GetRequiredService<AppDbContext>();
-        var json = await db.Accounts
+        if (revision == 0) return null;
+
+        var cache = ctx.RequestServices.GetRequiredService<IMemoryCache>();
+        var key = (nameof(MdCatalog), accountId, revision);
+        if (cache.TryGetValue(key, out MdCatalog? cached)) return cached;
+
+        var docs = await db.Accounts
             .AsNoTracking()
             .Where(a => a.Id == accountId)
-            .Select(a => a.CustomTheme)
+            .Select(a => new { a.CustomTheme, a.CustomEgoGifts, a.CustomEgoGiftDropPools, a.CustomMdBattles, a.CustomMdCommonData })
             .SingleOrDefaultAsync();
-        return AccountFields.Get<List<ThemeStatic>>(json) ?? new List<ThemeStatic>();
+        if (docs is null) return null;
+
+        var catalog = MdCatalog.FromColumns(docs.CustomTheme, docs.CustomEgoGifts, docs.CustomEgoGiftDropPools,
+            docs.CustomMdBattles, docs.CustomMdCommonData);
+        cache.Set(key, catalog, new MemoryCacheEntryOptions { SlidingExpiration = CatalogCacheSliding });
+        return catalog;
     }
 
     /// Deserialize the envelope and return its `parameters`.

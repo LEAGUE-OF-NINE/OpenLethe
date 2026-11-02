@@ -25,6 +25,18 @@ public sealed class Account
     public string CustomTheme { get; set; } = "{}";
     public string CustomIdentities { get; set; } = "{}";
     public string CustomEgos { get; set; } = "{}";
+    // The client mod's custom_limbus_data/ego-gift-mirrordungeon, mirrordungeon-egogift-droppool
+    // and battle-mirrordungeon uploads - see OpenLethe.Server MdCatalog.
+    public string CustomEgoGifts { get; set; } = "[]";
+    public string CustomEgoGiftDropPools { get; set; } = "[]";
+    public string CustomMdBattles { get; set; } = "[]";
+    // custom_limbus_data/mirror-dungeon-common-data: the uploaded files, laid over the season's
+    // common data key by key - see OpenLethe.Server MdCommonSource.
+    public string CustomMdCommonData { get; set; } = "[]";
+    // Stamped by AppDbContext whenever one of the custom MD columns above (CustomTheme included)
+    // changes; 0 = the account never uploaded any. The server caches each account's built
+    // MdCatalog under this stamp, so an MD request reads one bigint instead of five documents.
+    public long CustomMdRevision { get; set; }
     public string MdSaveInfo { get; set; } = "{}";
     public string StorySaveInfo { get; set; } = "{}";
     public string StoryMdSaveInfo { get; set; } = "{}";

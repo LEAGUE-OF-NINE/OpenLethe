@@ -29,7 +29,7 @@ public static class MirrorDungeonRewardsEndpoints
             if (p is null) return Results.BadRequest();
 
             var run = WireMapper.ToDomain(loaded);
-            var fused = FusionRules.Combine(run, p.materialEgoGiftIds, p.keyword, p.isOrigin, await HandlerContext.ReadCustomThemesAsync(ctx, account.Id));
+            var fused = FusionRules.Combine(run, p.materialEgoGiftIds, p.keyword, p.isOrigin);
             var save = WireMapper.ToWire(run);
             // FusionRules.Combine appends the fused result, then any start-buff bonus gift (Chance
             // Comet) - egs maps Gifts.Items one to one, so everything from the result on is new.
@@ -63,7 +63,7 @@ public static class MirrorDungeonRewardsEndpoints
             var run = WireMapper.ToDomain(loaded);
             // The request's keyword now reaches the shop rules (a plain refresh sends ""/"None";
             // a keyword refresh sends the real keyword and pays the extra adder).
-            ShopRules.RefreshShop(run, p.keyword, await HandlerContext.ReadCustomThemesAsync(ctx, account.Id));
+            ShopRules.RefreshShop(run, p.keyword);
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = AccountFields.Set(save);
@@ -83,6 +83,8 @@ public static class MirrorDungeonRewardsEndpoints
             var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
 
+            // Every pack and gift counts as explored, the account's uploaded ones included (the
+            // request's MdCatalog) - left out, the compendium showed them as never picked.
             var body = new GetMirrorDungeonEgoGiftRecordResult
             {
                 acquiredegogifts = MdEgoData.AllIds(),
@@ -132,7 +134,7 @@ public static class MirrorDungeonRewardsEndpoints
             if (p is null) return Results.BadRequest();
 
             var run = WireMapper.ToDomain(loaded);
-            RewardResolution.AcquireWithEnemyBuf(run, p.selectIndexList, await HandlerContext.ReadCustomThemesAsync(ctx, account.Id));
+            RewardResolution.AcquireWithEnemyBuf(run, p.selectIndexList);
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = AccountFields.Set(save);
@@ -163,7 +165,7 @@ public static class MirrorDungeonRewardsEndpoints
             if (p is null) return Results.BadRequest();
 
             var run = WireMapper.ToDomain(loaded);
-            RewardResolution.RejectWithEnemyBuf(run, await HandlerContext.ReadCustomThemesAsync(ctx, account.Id));
+            RewardResolution.RejectWithEnemyBuf(run);
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = AccountFields.Set(save);
@@ -189,7 +191,7 @@ public static class MirrorDungeonRewardsEndpoints
             if (p is null) return Results.BadRequest();
 
             var run = WireMapper.ToDomain(loaded);
-            RewardResolution.AcquireBattleReward(run, p.selectIndexList, await HandlerContext.ReadCustomThemesAsync(ctx, account.Id));
+            RewardResolution.AcquireBattleReward(run, p.selectIndexList);
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = AccountFields.Set(save);
