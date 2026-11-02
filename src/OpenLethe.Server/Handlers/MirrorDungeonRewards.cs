@@ -83,10 +83,13 @@ public static class MirrorDungeonRewardsEndpoints
             var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.Md);
             if (account is null) return Results.Unauthorized();
 
+            // Every pack counts as explored, the account's uploaded custom packs included - left
+            // out, the compendium showed them as never picked (no boss, no floor).
+            var customThemes = await HandlerContext.ReadCustomThemesAsync(ctx, account.Id);
             var body = new GetMirrorDungeonEgoGiftRecordResult
             {
                 acquiredegogifts = MdEgoData.AllIds(),
-                themeFloorIds = new MdThemePool().pools.Values.Select(t => t.id).ToList(),
+                themeFloorIds = new MdThemePool(customThemes).pools.Values.Select(t => t.id).ToList(),
             };
             return Results.Json(global::ResponsePacket<GetMirrorDungeonEgoGiftRecordResult>.Ok(body, recordId), global::PacketJson.Options);
         });

@@ -39,6 +39,51 @@ public class MdRulesSharedTests
         Assert.Equal(9155, run.Gifts.Items[^1].Oid);
     }
 
+    [Theory]
+    [InlineData(9049, 9991)] // Thorny Path, TIER_1 -> Dark Vestige (was a second Thorny Path)
+    [InlineData(9176, 9994)] // Impending Wave, TIER_4 -> Brilliant Vestige
+    public void GrantEgoGift_OwnedTier1Or4_BecomesItsTiersVestige(long giftId, long vestigeId)
+    {
+        var run = new Run();
+        run.Gifts.Items.Add(new EgoGift { Id = giftId });
+        SharedRules.GrantEgoGift(run, giftId);
+        Assert.Single(run.Gifts.Items, g => g.Id == giftId);
+        Assert.Equal(vestigeId, run.Gifts.Items[^1].Id);
+        Assert.Equal(giftId, run.Gifts.Items[^1].Oid);
+    }
+
+    [Fact]
+    public void OwnedGiftIds_FixedFusionGift_CountsItsComponentsNested()
+    {
+        // 9176 Impending Wave <- 9049 Thorny Path + 9125 Distant Star + 9175 Surging Globe,
+        // and 9175 <- 9172 Cantabile + 9173 Faded Overcoat.
+        var run = new Run();
+        run.Gifts.Items.Add(new EgoGift { Id = 9176 });
+
+        var owned = SharedRules.OwnedGiftIds(run);
+        foreach (var id in new long[] { 9176, 9049, 9125, 9175, 9172, 9173 })
+        {
+            Assert.Contains(id, owned);
+            Assert.True(SharedRules.OwnsGift(run, id));
+        }
+        Assert.False(SharedRules.OwnsGift(run, 9001));
+
+        // Granting a component again yields its tier's Vestige, not the component.
+        SharedRules.GrantEgoGift(run, 9049);
+        Assert.DoesNotContain(run.Gifts.Items, g => g.Id == 9049);
+        Assert.Equal(9991, run.Gifts.Items[^1].Id);
+    }
+
+    [Fact]
+    public void OwnedGiftIds_LunarMemory_LeavesItsPartsObtainable()
+    {
+        // 9083 Lunar Memory is the mixed recipe (2 of group A + 3 of group B): the exception.
+        var run = new Run();
+        run.Gifts.Items.Add(new EgoGift { Id = 9083 });
+        Assert.Equal(new HashSet<long> { 9083 }, SharedRules.OwnedGiftIds(run));
+        Assert.False(SharedRules.OwnsGift(run, 9105));
+    }
+
     [Fact]
     public void GrantEgoGift_OwnedUntieredEnemyBuffGift_AddsAsIs()
     {

@@ -96,6 +96,42 @@ public static class MdEgoFusion
 
     public static IReadOnlyDictionary<long, long> EgoRecipeMapping => RecipeMapping.Value;
 
+    // Fixed-recipe result -> every gift it is made from: each of its recipe rows' a/b/c and
+    // requiredEgoGiftIds, and those components' own components (9176 Impending Wave -> 9049,
+    // 9125, 9175 Surging Globe -> 9172, 9173). A run holding the result counts these as owned.
+    // The mixed recipe (9083 Lunar Memory) is deliberately not in here: its parts stay obtainable.
+    private static readonly Lazy<Dictionary<long, HashSet<long>>> ComponentsByResult = new(() =>
+    {
+        var direct = new Dictionary<long, HashSet<long>>();
+        foreach (var c in FixedCombinations.Value)
+        {
+            if (!direct.TryGetValue(c.resultEgoGiftId, out var parts))
+                direct[c.resultEgoGiftId] = parts = new HashSet<long>();
+            foreach (var id in c.requiredEgoGiftIds.Concat(new[] { c.aEgoGiftId, c.bEgoGiftId, c.cEgoGiftId }
+                         .Where(id => id is not null).Select(id => id!.Value)))
+                if (id != 0 && id != c.resultEgoGiftId) parts.Add(id);
+        }
+
+        var closed = new Dictionary<long, HashSet<long>>();
+        foreach (var result in direct.Keys)
+        {
+            var all = new HashSet<long>();
+            var stack = new Stack<long>(direct[result]);
+            while (stack.Count > 0)
+            {
+                var id = stack.Pop();
+                if (id == result || !all.Add(id)) continue;
+                if (direct.TryGetValue(id, out var sub))
+                    foreach (var s in sub) stack.Push(s);
+            }
+            closed[result] = all;
+        }
+        return closed;
+    });
+
+    public static IReadOnlyCollection<long> FusionComponents(long resultEgoGiftId) =>
+        ComponentsByResult.Value.TryGetValue(resultEgoGiftId, out var parts) ? parts : Array.Empty<long>();
+
     // Rust get_md_ego_gift_combinations() loads the folder unlisted and the combine handler
     // takes .first(); the file carries many other top-level keys, which STJ ignores.
     private static readonly Lazy<CombineTierData?> TierTable = new(() =>

@@ -160,4 +160,58 @@ public class MdThemeDataTests
         Assert.DoesNotContain(9701L, shop);  // 1101's
         Assert.DoesNotContain(9156L, shop);  // season-excluded
     }
+
+    [Fact]
+    public void ShopEgoGiftsPool_HardRun_SellsTheHardOnlyGifts()
+    {
+        // The season table excludes its excludeEgoGifts from normal runs only
+        // (excludeTargetIdxList [0]): 9164 Wobbling Keg / 9160 Ruptured Blood Sac are in the
+        // season pool and hard-only (pack 1018 lists them itself, 1104 does not).
+        var pool = new MdThemePool();
+
+        var normal = pool.ShopEgoGiftsPool(1104, dungeonIdx: 0);
+        Assert.DoesNotContain(9164L, normal);
+        Assert.DoesNotContain(9160L, normal);
+
+        var hard = pool.ShopEgoGiftsPool(1104, dungeonIdx: 1);
+        Assert.Contains(9164L, hard);
+        Assert.Contains(9160L, hard);
+        Assert.DoesNotContain(9164L, pool.ThemeDropPool(1018, dungeonIdx: 0));
+        Assert.Contains(9164L, pool.ThemeDropPool(1018, dungeonIdx: 1));
+        // Still out in a hard run: other packs' exclusives, fusion outputs, global excludes.
+        Assert.DoesNotContain(9701L, hard);
+        Assert.DoesNotContain(9227L, hard); // NO_SALE
+        Assert.DoesNotContain(9800L, hard); // Wealth
+    }
+
+    [Fact]
+    public void ShopEgoGiftsPool_NeverSellsGlobalExcludes()
+    {
+        var global = MdThemeData.DropPools().OrderByDescending(p => p.dungeonId).First().globalExcludeEgoGifts;
+        var shop = new MdThemePool().ShopEgoGiftsPool(1001);
+        Assert.All(global, excluded => Assert.DoesNotContain(excluded, shop));
+    }
+
+    [Fact]
+    public void SelectRandomShopEgos_NoKeyword_DoesNotFavourKeywordNoneGifts()
+    {
+        // A plain refresh sends "None": the ten "None"-keyword economy gifts (Rebate Token,
+        // Pamphlet, ...) used to fill half of every shop. Drawn from the whole pool they are a
+        // small share of it.
+        var pool = new MdThemePool();
+        var noneGifts = 0;
+        var total = 0;
+        for (var i = 0; i < 300; i++)
+        {
+            foreach (var keyword in new[] { "None", null })
+            {
+                var chosen = pool.SelectRandomShopEgos(1001, 4, 2, keyword);
+                Assert.Equal(4, chosen.Count);
+                Assert.Equal(chosen.Count, chosen.Distinct().Count());
+                total += chosen.Count;
+                noneGifts += chosen.Count(id => MdEgoData.GetById(id)?.keyword == "None");
+            }
+        }
+        Assert.True(noneGifts < total * 0.15, $"{noneGifts}/{total} picks were \"None\"-keyword gifts");
+    }
 }

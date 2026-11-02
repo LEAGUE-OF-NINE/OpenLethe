@@ -57,7 +57,16 @@ public sealed class DungeonEgoGiftDropPool
     public long dungeonId;
     public List<long> egoGifts = new();
     public List<long> excludeEgoGifts = new();
+    // The run difficulties (run.Idx: 0 normal, 1+ hard/infinite/extreme) excludeEgoGifts applies
+    // to - [0] in the shipped tables, so the list holds the hard-only gifts (the gen2 fusion
+    // materials, the hard packs' exclusives) and the fusion-only outputs.
+    public List<long> excludeTargetIdxList = new();
     public List<long> globalExcludeEgoGifts = new();
+
+    // Whether excludeEgoGifts applies to a run of this difficulty. No difficulty given, or a table
+    // that names none, keeps the exclusion (the normal-mode pool).
+    public bool ExcludesFor(long? dungeonIdx) =>
+        dungeonIdx is not { } idx || excludeTargetIdxList.Count == 0 || excludeTargetIdxList.Contains(idx);
 }
 
 public static class MdThemeData

@@ -164,7 +164,7 @@ public static class RewardEngine
             var confirmedRre = new List<RewardEvent>();
             foreach (var giftId in collector.GiftIds)
             {
-                if (run.Gifts.Items.Any(g => g.Id == giftId)) continue;
+                if (SharedRules.OwnsGift(run, giftId)) continue;
                 run.Gifts.Items.Add(new EgoGift { Id = giftId });
                 confirmedRre.Add(new RewardEvent
                 {
@@ -199,7 +199,7 @@ public static class RewardEngine
             RewardEvent? leadingConfirmed = null;
             if (bossGifts.Count > 0)
             {
-                var survivors = bossGifts.Where(id => !run.Gifts.Items.Any(g => g.Id == id)).ToList();
+                var survivors = bossGifts.Where(id => !SharedRules.OwnsGift(run, id)).ToList();
                 run.Gifts.Items.AddRange(survivors.Select(id => new EgoGift { Id = id }));
                 leadingConfirmed = new RewardEvent
                 {
@@ -292,7 +292,9 @@ public static class RewardEngine
             if (rewards is { Count: > 0 })
             {
                 var rewardEgos = rewards.Where(r => r.rewardType == "EGO_GIFT").Select(r => r.rewardId).ToList();
-                run.Gifts.Items.AddRange(rewardEgos.Select(id => new EgoGift { Id = id }));
+                // Through GrantEgoGift, not a raw add: an owned gift (or fusion component) turns
+                // into its tier's Vestige instead of landing a second copy.
+                foreach (var id in rewardEgos) SharedRules.GrantEgoGift(run, id);
                 run.RewardEvents = rewardEgos.Select(id => new RewardEvent
                 {
                     Rt = "GetConfirmedEgogiftOnWinBattle",
@@ -314,7 +316,7 @@ public static class RewardEngine
             && OpenLethe.Server.MdMapGen.IsHiddenBattle(matchingNode.Eid))
         {
             var hiddenGiftIds = OpenLethe.Server.MdMapGen.HiddenGiftsOf(matchingNode.Eid)
-                .Where(id => !run.Gifts.Items.Any(g => g.Id == id))
+                .Where(id => !SharedRules.OwnsGift(run, id))
                 .ToList();
             run.Gifts.Items.AddRange(hiddenGiftIds.Select(id => new EgoGift { Id = id }));
 

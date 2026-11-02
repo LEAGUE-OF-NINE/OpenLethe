@@ -78,23 +78,34 @@ public sealed class MdThemePool
     private static DungeonEgoGiftDropPool? SeasonDropPool() =>
         MdThemeData.DropPools().OrderByDescending(p => p.dungeonId).FirstOrDefault();
 
+    // The season's excludeEgoGifts when they apply to a run of this difficulty (see
+    // DungeonEgoGiftDropPool.ExcludesFor), empty otherwise.
+    private static HashSet<long> ExcludedGifts(DungeonEgoGiftDropPool? dropPool, long? dungeonIdx) =>
+        dropPool is not null && dropPool.ExcludesFor(dungeonIdx)
+            ? new HashSet<long>(dropPool.excludeEgoGifts)
+            : new HashSet<long>();
+
     // What the pack itself hands out: its egoGiftPool plus its exclusive (specific) gifts, minus
-    // the gifts the season's drop pool excludes - the fusion-only ones (9156, 9160, ...) that
-    // nearly every built-in pack lists but nothing may drop. Empty for an unknown pack.
-    public List<long> ThemeDropPool(long themeId)
+    // the gifts the season's drop pool excludes - the hard-only ones (9156, 9160, ...) that
+    // nearly every built-in pack lists but a normal run may not get. Empty for an unknown pack.
+    // dungeonIdx: the run's difficulty (run.Idx); null keeps the normal-mode exclusion.
+    public List<long> ThemeDropPool(long themeId, long? dungeonIdx = null)
     {
         if (!pools.TryGetValue(themeId, out var theme)) return new List<long>();
-        var excluded = new HashSet<long>(SeasonDropPool()?.excludeEgoGifts ?? new List<long>());
+        var excluded = ExcludedGifts(SeasonDropPool(), dungeonIdx);
         return GetCombinedEgoGiftPool(theme).Where(id => !excluded.Contains(id)).Distinct().ToList();
     }
 
-    public List<long> ShopEgoGiftsPool(long themeId)
+    // dungeonIdx: the run's difficulty (run.Idx). The season table only excludes its
+    // excludeEgoGifts from normal runs (excludeTargetIdxList [0]), so a hard run's shop sells the
+    // hard-only gifts too; null keeps the normal-mode pool.
+    public List<long> ShopEgoGiftsPool(long themeId, long? dungeonIdx = null)
     {
         var dropPool = SeasonDropPool();
         if (dropPool is null) return new List<long>();
 
         var giftPool = new HashSet<long>(dropPool.egoGifts);
-        giftPool.ExceptWith(dropPool.excludeEgoGifts);
+        giftPool.ExceptWith(ExcludedGifts(dropPool, dungeonIdx));
 
         // Rust removes every theme's specific_ego_gift_pool (including this one), then
         // re-adds this theme's - net effect: only this theme's specific pool survives.
@@ -108,10 +119,15 @@ public sealed class MdThemePool
         // The pack's own gifts are always on sale on its floor. For every built-in pack this adds
         // nothing (its ThemeDropPool already sits inside the season pool plus its specific gifts);
         // a custom pack's egoGiftPool is how its gifts reach the shop at all.
-        giftPool.UnionWith(ThemeDropPool(themeId));
+        giftPool.UnionWith(ThemeDropPool(themeId, dungeonIdx));
 
         // Rust removes every fixed-recipe OUTPUT from the shop pool (those are craft-only).
         giftPool.ExceptWith(MdEgoFusion.EgoRecipeMapping.Values);
+
+        // Never on sale in any mode: the globally excluded gifts - Wealth (9800), A Certain
+        // Philosophy (9799), the NO_SALE ones, ... Wealth and 9799 sit in the season pool and
+        // outside excludeEgoGifts, so only this keeps them off the shelves.
+        giftPool.ExceptWith(dropPool.globalExcludeEgoGifts);
 
         return giftPool.ToList();
     }
@@ -135,20 +151,35 @@ public sealed class MdThemePool
 
     // owned: gifts the run already has. A shop never offers those, so they leave the pool up front
     // (rather than being filtered out of the result) and every slot still fills with one the run lacks.
-    // highTierMultiplier: see EgoGiftWeighted.
+    // highTierMultiplier: see EgoGiftWeighted. dungeonIdx: the run's difficulty, see ShopEgoGiftsPool.
     public List<long> SelectRandomShopEgos(long themeId, int count, long floor, string? keyword,
-        IReadOnlyCollection<long>? owned = null, double highTierMultiplier = 1.0)
+        IReadOnlyCollection<long>? owned = null, double highTierMultiplier = 1.0, long? dungeonIdx = null)
     {
-        var giftPool = ShopEgoGiftsPool(themeId);
+        var giftPool = ShopEgoGiftsPool(themeId, dungeonIdx);
         if (owned is { Count: > 0 }) giftPool.RemoveAll(owned.Contains);
         var chosen = new List<long>();
 
-        // A real keyword (anything but empty / the literal "None" a plain refresh sends) weights
-        // on-keyword gifts by the retail table's shopKeywordRefreshWeightMultiplier on top of
-        // their tier weight.
-        var keywordBoost = string.IsNullOrEmpty(keyword) || keyword == "None"
-            ? 1.0
-            : MdCommonTable.KeywordRefreshWeightMultiplier;
+        // No real keyword (the shop's first roll sends null, a plain refresh the literal "None"):
+        // every slot draws from the whole pool. Splitting it into "keyword == keyword" and the
+        // rest filled half the shop from the few gifts whose own keyword is that very value - the
+        // ten "None" economy gifts (Rebate Token, Pamphlet, Special Catalogue, ...) on a refresh,
+        // the keyword-less ones on entry.
+        if (string.IsNullOrEmpty(keyword) || keyword == "None")
+        {
+            for (var i = 0; i < count; i++)
+            {
+                var picked = SelectRandomEgoFromPool(giftPool, floor, id =>
+                    !chosen.Contains(id) && MdEgoData.GetById(id) is not null, 1.0, highTierMultiplier);
+                if (picked is { } id2) chosen.Add(id2);
+            }
+
+            Shuffle(chosen);
+            return chosen;
+        }
+
+        // A real keyword weights on-keyword gifts by the retail table's
+        // shopKeywordRefreshWeightMultiplier on top of their tier weight.
+        var keywordBoost = MdCommonTable.KeywordRefreshWeightMultiplier;
 
         var matchingCount = (count + 1) / 2; // div_ceil(2)
         for (var i = 0; i < matchingCount; i++)

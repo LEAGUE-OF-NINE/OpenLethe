@@ -69,7 +69,7 @@ public static class MapNodeRules
 
             slots.AddRange(new MdThemePool(customThemes).SelectRandomShopEgos(
                     SharedRules.ThemePackId(run), (int)SharedRules.ShopGiftCount(run), SharedRules.CurrentFloor(run), null,
-                    SharedRules.OwnedGiftIds(run), StartBuffEffects.ShopHighTierMultiplier(run))
+                    SharedRules.OwnedGiftIds(run), StartBuffEffects.ShopHighTierMultiplier(run), run.Idx)
                 .Select(id => new ShopSlotState { T = "eg", Id = id, S = 1 }));
 
             // fre/fkre: the visit's free normal / keyword refreshes still available (start buffs).
