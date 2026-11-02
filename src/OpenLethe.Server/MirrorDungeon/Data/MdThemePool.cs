@@ -5,18 +5,16 @@ public sealed class MdThemePool
 {
     public readonly Dictionary<long, ThemeStatic> pools;
 
-    // Vanilla static themes only. POST /custom/upload/mirrordungeon-theme-floor fills
-    // Account.CustomTheme; the overload below lays those packs over the static ones (Rust's
-    // ThemePool::load_from_db_or_default). Every rule that reads the CURRENT floor's pack -
-    // floor generation, starlight detection, the shop and its refresh, fusion, battle drops,
-    // reward cards - takes the account's packs from its handler and must use that overload, or a
-    // custom pack's floor finds no pack and every gift list comes back empty.
+    // The static themes plus the account's uploaded packs (Account.CustomTheme, via
+    // MdCatalog.Current - Rust's ThemePool::load_from_db_or_default), so a custom pack's floor
+    // finds its pack wherever a rule builds a pool.
     public MdThemePool()
     {
         pools = MdThemeData.AllThemes().ToDictionary(t => t.id, t => t);
     }
 
-    // The account's uploaded custom packs laid over the static ones (an uploaded id wins).
+    // Further packs laid over those (an id given here wins). The rules' customThemes parameters
+    // feed this; handlers no longer pass them, since MdCatalog already carries the account's.
     public MdThemePool(IEnumerable<ThemeStatic>? customThemes) : this()
     {
         foreach (var t in customThemes ?? Enumerable.Empty<ThemeStatic>())

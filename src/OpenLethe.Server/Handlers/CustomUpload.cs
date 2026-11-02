@@ -20,9 +20,23 @@ public static class CustomUploadEndpoints
         Upload<CustomIdentity>(app, "/custom/upload/personality", SaveColumn.CustomIdentities,
             (a, v) => a.CustomIdentities = v, "Successfully updated theme floors");
 
+        // The mod's custom_limbus_data/ego-gift-mirrordungeon and mirrordungeon-egogift-droppool.
+        // Only the fields the server reads survive (MdEgo, DungeonEgoGiftDropPool); everything else
+        // about a gift lives in the client. MdCatalog lays both over the static tables.
+        Upload<MdEgo>(app, "/custom/upload/ego-gift-mirrordungeon", SaveColumn.CustomEgoGifts,
+            (a, v) => a.CustomEgoGifts = v, "Successfully updated ego gifts");
+        Upload<DungeonEgoGiftDropPool>(app, "/custom/upload/mirrordungeon-egogift-droppool",
+            SaveColumn.CustomEgoGiftDropPools, (a, v) => a.CustomEgoGiftDropPools = v,
+            "Successfully updated ego gift drop pools");
+
+        // custom_limbus_data/battle-mirrordungeon: only id, rewardList and participantInfo are kept -
+        // what a stage hands out on a win and how many identities it deploys.
+        Upload<AbStage>(app, "/custom/upload/battle-mirrordungeon", SaveColumn.CustomMdBattles,
+            (a, v) => a.CustomMdBattles = v, "Successfully updated mirror dungeon battles");
+
         // The client mod posts about a dozen more kinds at startup (skin, lobby-bgm,
         // battle-effect, error-code-table, mirrordungeon-constraint, ...). Rust has a route for
-        // each; this port models only the two above, and the rest used to hit the framework's
+        // each; this port models only the ones above, and the rest used to hit the framework's
         // empty-body 404, which Lethe's HTTP patch throws on (ArgumentOutOfRangeException in
         // Patches.Request.PostWebRequest) and the game shows as an error. Acknowledge every other
         // kind with the same bare {"message": ...}; nothing reads them, so nothing is stored.

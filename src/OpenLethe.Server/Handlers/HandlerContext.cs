@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using OpenLethe.Data;
+using OpenLethe.Server.MirrorDungeon.Data;
 
 namespace OpenLethe.Server.Handlers;
 
@@ -12,6 +13,7 @@ internal enum SaveColumn
 {
     Md, StoryMd, Railway, Story, Chapter, Chapter10Rpg,
     BossRaid, Formations, Announcers, UserInfo, Egos, Personalities, CustomIdentities, CustomTheme,
+    CustomEgoGifts, CustomEgoGiftDropPools, CustomMdBattles,
 }
 
 /// Shared boilerplate for stateful handlers: resolve the authed account, read the
@@ -42,6 +44,9 @@ internal static class HandlerContext
         [SaveColumn.Personalities] = nameof(Account.Personalities),
         [SaveColumn.CustomIdentities] = nameof(Account.CustomIdentities),
         [SaveColumn.CustomTheme] = nameof(Account.CustomTheme),
+        [SaveColumn.CustomEgoGifts] = nameof(Account.CustomEgoGifts),
+        [SaveColumn.CustomEgoGiftDropPools] = nameof(Account.CustomEgoGiftDropPools),
+        [SaveColumn.CustomMdBattles] = nameof(Account.CustomMdBattles),
     };
 
     /// `a => new Account { Id = a.Id, <col> = a.<col>, ... }`, which EF turns into
@@ -60,6 +65,13 @@ internal static class HandlerContext
             return Expression.Lambda<Func<Account, Account>>(
                 Expression.MemberInit(Expression.New(typeof(Account)), binds), a);
         });
+
+    /// The uploads MdCatalog is built from. See the Md branch in ResolveAsync.
+    private static readonly string[] CatalogColumns =
+    {
+        nameof(Account.CustomTheme), nameof(Account.CustomEgoGifts), nameof(Account.CustomEgoGiftDropPools),
+        nameof(Account.CustomMdBattles),
+    };
 
     /// Account's writable string columns. See the blanking loop in ResolveAsync.
     private static readonly PropertyInfo[] StringColumns = typeof(Account)
@@ -93,13 +105,25 @@ internal static class HandlerContext
         if (ctx.Items["sub"] is not string sub) return null;
 
         var names = columns.Select(c => ColumnNames[c]).Distinct().ToArray();
+
+        // A Mirror Dungeon request also reads the account's uploaded packs, gifts, drop pools and
+        // battles in the same SELECT and makes them the request's MdCatalog, so every rule below sees them. They
+        // stay out of `names`: the blanking loop clears them again and the handler can't write them.
+        var loadCatalog = columns.Contains(SaveColumn.Md) || columns.Contains(SaveColumn.StoryMd);
+        var selected = loadCatalog ? names.Union(CatalogColumns).ToArray() : names;
+
         var db = ctx.RequestServices.GetRequiredService<AppDbContext>();
         var account = await db.Accounts
             .AsNoTracking()
             .Where(a => a.Username == sub)
-            .Select(Projection(names))
+            .Select(Projection(selected))
             .SingleOrDefaultAsync();
         if (account is null) return null;
+
+        if (loadCatalog)
+            MdCatalog.SetCurrent(MdCatalog.FromColumns(
+                account.CustomTheme, account.CustomEgoGifts, account.CustomEgoGiftDropPools,
+                account.CustomMdBattles));
 
         // Blank the columns the projection didn't load, BEFORE Attach snapshots them.
         // They arrive holding Account's field initializers ("{}", "[]"), so a handler
@@ -115,20 +139,6 @@ internal static class HandlerContext
         db.Attach(account);
         ctx.Items[ScopeItemKey] = names;
         return account;
-    }
-
-    /// The account's uploaded custom MD packs (Account.CustomTheme), read as a plain scalar query
-    /// next to a scoped resolve so it never touches the tracked stub (whose other columns stay
-    /// null and unwritable). Empty when nothing was uploaded.
-    public static async Task<List<ThemeStatic>> ReadCustomThemesAsync(HttpContext ctx, Guid accountId)
-    {
-        var db = ctx.RequestServices.GetRequiredService<AppDbContext>();
-        var json = await db.Accounts
-            .AsNoTracking()
-            .Where(a => a.Id == accountId)
-            .Select(a => a.CustomTheme)
-            .SingleOrDefaultAsync();
-        return AccountFields.Get<List<ThemeStatic>>(json) ?? new List<ThemeStatic>();
     }
 
     /// Deserialize the envelope and return its `parameters`.

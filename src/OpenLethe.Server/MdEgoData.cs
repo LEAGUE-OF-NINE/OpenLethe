@@ -1,5 +1,6 @@
 using System.Text.Json.Nodes;
 using OpenLethe.Resources;
+using OpenLethe.Server.MirrorDungeon.Data;
 
 namespace OpenLethe.Server;
 
@@ -70,9 +71,16 @@ public static class MdEgoData
         return d;
     });
 
-    public static MdEgo? GetById(long id) => ById.Value.GetValueOrDefault(id);
+    // The account's uploaded gifts (MdCatalog.Current) answer first, the static table after.
+    public static MdEgo? GetById(long id) => MdCatalog.Current?.Gift(id) ?? ById.Value.GetValueOrDefault(id);
 
-    public static List<long> AllIds() => Data.Value.Select(e => e.id).ToList();
+    public static List<long> AllIds() => All().Select(e => e.id).ToList();
+
+    // The static table alone - for MdCatalog's overlay and anything cached process-wide.
+    internal static List<MdEgo> StaticGifts() => Data.Value;
+
+    // Every gift this request can see: the static table with the account's uploads laid over it.
+    private static List<MdEgo> All() => MdCatalog.Current?.AllGifts ?? Data.Value;
 
     public static long UpgradeCost(long price, long desiredUl) => ((price * desiredUl / 3) / 10) * 10;
 
@@ -104,7 +112,7 @@ public static class MdEgoData
     /// are possible - do not dedupe). Keys off tag.First(), NOT DetermineEgoTier, matching Rust.
     public static List<long> GetRandomMdEgoGifts(int count)
     {
-        var eligible = Data.Value.Where(e => e.tag.FirstOrDefault() != "TIER_5").ToList();
+        var eligible = All().Where(e => e.tag.FirstOrDefault() != "TIER_5").ToList();
         if (eligible.Count == 0) return new List<long>();
 
         var weights = eligible.Select(e => e.tag.FirstOrDefault() == "TIER_4" ? 1 : 10).ToList();

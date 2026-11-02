@@ -25,6 +25,11 @@ public sealed class Account
     public string CustomTheme { get; set; } = "{}";
     public string CustomIdentities { get; set; } = "{}";
     public string CustomEgos { get; set; } = "{}";
+    // The client mod's custom_limbus_data/ego-gift-mirrordungeon, mirrordungeon-egogift-droppool
+    // and battle-mirrordungeon uploads - see OpenLethe.Server MdCatalog.
+    public string CustomEgoGifts { get; set; } = "[]";
+    public string CustomEgoGiftDropPools { get; set; } = "[]";
+    public string CustomMdBattles { get; set; } = "[]";
     public string MdSaveInfo { get; set; } = "{}";
     public string StorySaveInfo { get; set; } = "{}";
     public string StoryMdSaveInfo { get; set; } = "{}";

@@ -47,11 +47,23 @@ namespace OpenLethe.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("CustomEgoGiftDropPools")
+                        .IsRequired()
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("CustomEgoGifts")
+                        .IsRequired()
+                        .HasColumnType("jsonb");
+
                     b.Property<string>("CustomEgos")
                         .IsRequired()
                         .HasColumnType("jsonb");
 
                     b.Property<string>("CustomIdentities")
+                        .IsRequired()
+                        .HasColumnType("jsonb");
+
+                    b.Property<string>("CustomMdBattles")
                         .IsRequired()
                         .HasColumnType("jsonb");
 

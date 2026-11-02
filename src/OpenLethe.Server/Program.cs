@@ -184,6 +184,14 @@ app.UseHttpLogging();   // before UseJwtAuth so it sees the raw, unconsumed body
 
 app.UseJwtAuth();   // 401s protected routes lacking a valid token; exempts /login,/auth,/health
 
+// A fresh MdCatalog slot per request, which HandlerContext.ResolveAsync fills with the account's
+// uploaded MD content. Async so the slot is scoped to this request and never outlives it.
+app.Use(async (ctx, next) =>
+{
+    OpenLethe.Server.MirrorDungeon.Data.MdCatalog.BeginRequest();
+    await next(ctx);
+});
+
 app.MapGet("/health", () => "ok");
 
 app.MapModFiles();   // /Lethe.dll etc - LetheLauncher fetches these before launch
