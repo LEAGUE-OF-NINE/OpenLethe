@@ -14,7 +14,7 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbCon
         nameof(Account.Announcers), nameof(Account.UserInfo), nameof(Account.CustomTheme),
         nameof(Account.CustomIdentities), nameof(Account.CustomEgos),
         nameof(Account.CustomEgoGifts), nameof(Account.CustomEgoGiftDropPools),
-        nameof(Account.CustomMdBattles),
+        nameof(Account.CustomMdBattles), nameof(Account.CustomMdCommonData),
         nameof(Account.MdSaveInfo), nameof(Account.StorySaveInfo), nameof(Account.StoryMdSaveInfo),
         nameof(Account.RailwaySaveInfo),
         nameof(Account.ChapterState), nameof(Account.BossRaidSaveInfo),

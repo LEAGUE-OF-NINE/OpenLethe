@@ -1,4 +1,6 @@
+using System.Text.Json.Nodes;
 using OpenLethe.Data;
+using OpenLethe.Server.MirrorDungeon.Data;
 using OpenLethe.Server.Wire;
 
 namespace OpenLethe.Server.Handlers;
@@ -33,6 +35,37 @@ public static class CustomUploadEndpoints
         // what a stage hands out on a win and how many identities it deploys.
         Upload<AbStage>(app, "/custom/upload/battle-mirrordungeon", SaveColumn.CustomMdBattles,
             (a, v) => a.CustomMdBattles = v, "Successfully updated mirror dungeon battles");
+
+        // custom_limbus_data/mirror-dungeon-common-data. Unlike the kinds above, each file IS one
+        // object (the table is unlisted), so the list holds the files themselves. Kept whole -
+        // MdCommonSource lays each over the season's common data key by key. A file a section of
+        // which has the wrong shape is skipped (and named in the reply) rather than failing the
+        // upload: the client mod fires these at startup and shows any error as a popup.
+        app.MapPost("/custom/upload/mirror-dungeon-common-data", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.CustomMdCommonData);
+            if (account is null) return Results.Unauthorized();
+
+            var p = await HandlerContext.ReadParamsAsync<ValList<JsonObject?>>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var kept = new List<JsonObject>();
+            var skipped = new List<string>();
+            foreach (var (file, i) in (p.list ?? new()).Select((f, i) => (f, i)))
+            {
+                if (file is null) continue;
+                if (MdCommonSource.Validate(file) is { } error) skipped.Add($"file {i}: {error}");
+                else kept.Add(file);
+            }
+
+            account.CustomMdCommonData = AccountFields.Set(kept);
+            await HandlerContext.SaveAsync(ctx);
+
+            var message = skipped.Count == 0
+                ? "Successfully updated mirror dungeon common data"
+                : "Updated mirror dungeon common data; skipped " + string.Join("; ", skipped);
+            return Results.Json(new { message }, global::PacketJson.Options);
+        });
 
         // The client mod posts about a dozen more kinds at startup (skin, lobby-bgm,
         // battle-effect, error-code-table, mirrordungeon-constraint, ...). Rust has a route for

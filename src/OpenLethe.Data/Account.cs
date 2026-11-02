@@ -30,6 +30,9 @@ public sealed class Account
     public string CustomEgoGifts { get; set; } = "[]";
     public string CustomEgoGiftDropPools { get; set; } = "[]";
     public string CustomMdBattles { get; set; } = "[]";
+    // custom_limbus_data/mirror-dungeon-common-data: the uploaded files, laid over the season's
+    // common data key by key - see OpenLethe.Server MdCommonSource.
+    public string CustomMdCommonData { get; set; } = "[]";
     public string MdSaveInfo { get; set; } = "{}";
     public string StorySaveInfo { get; set; } = "{}";
     public string StoryMdSaveInfo { get; set; } = "{}";

@@ -13,7 +13,7 @@ internal enum SaveColumn
 {
     Md, StoryMd, Railway, Story, Chapter, Chapter10Rpg,
     BossRaid, Formations, Announcers, UserInfo, Egos, Personalities, CustomIdentities, CustomTheme,
-    CustomEgoGifts, CustomEgoGiftDropPools, CustomMdBattles,
+    CustomEgoGifts, CustomEgoGiftDropPools, CustomMdBattles, CustomMdCommonData,
 }
 
 /// Shared boilerplate for stateful handlers: resolve the authed account, read the
@@ -47,6 +47,7 @@ internal static class HandlerContext
         [SaveColumn.CustomEgoGifts] = nameof(Account.CustomEgoGifts),
         [SaveColumn.CustomEgoGiftDropPools] = nameof(Account.CustomEgoGiftDropPools),
         [SaveColumn.CustomMdBattles] = nameof(Account.CustomMdBattles),
+        [SaveColumn.CustomMdCommonData] = nameof(Account.CustomMdCommonData),
     };
 
     /// `a => new Account { Id = a.Id, <col> = a.<col>, ... }`, which EF turns into
@@ -70,7 +71,7 @@ internal static class HandlerContext
     private static readonly string[] CatalogColumns =
     {
         nameof(Account.CustomTheme), nameof(Account.CustomEgoGifts), nameof(Account.CustomEgoGiftDropPools),
-        nameof(Account.CustomMdBattles),
+        nameof(Account.CustomMdBattles), nameof(Account.CustomMdCommonData),
     };
 
     /// Account's writable string columns. See the blanking loop in ResolveAsync.
@@ -106,8 +107,8 @@ internal static class HandlerContext
 
         var names = columns.Select(c => ColumnNames[c]).Distinct().ToArray();
 
-        // A Mirror Dungeon request also reads the account's uploaded packs, gifts, drop pools and
-        // battles in the same SELECT and makes them the request's MdCatalog, so every rule below sees them. They
+        // A Mirror Dungeon request also reads the account's uploaded packs, gifts, drop pools,
+        // battles and common data in the same SELECT and makes them the request's MdCatalog, so every rule below sees them. They
         // stay out of `names`: the blanking loop clears them again and the handler can't write them.
         var loadCatalog = columns.Contains(SaveColumn.Md) || columns.Contains(SaveColumn.StoryMd);
         var selected = loadCatalog ? names.Union(CatalogColumns).ToArray() : names;
@@ -123,7 +124,7 @@ internal static class HandlerContext
         if (loadCatalog)
             MdCatalog.SetCurrent(MdCatalog.FromColumns(
                 account.CustomTheme, account.CustomEgoGifts, account.CustomEgoGiftDropPools,
-                account.CustomMdBattles));
+                account.CustomMdBattles, account.CustomMdCommonData));
 
         // Blank the columns the projection didn't load, BEFORE Attach snapshots them.
         // They arrive holding Account's field initializers ("{}", "[]"), so a handler

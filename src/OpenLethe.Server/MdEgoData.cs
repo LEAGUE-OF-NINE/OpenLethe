@@ -47,21 +47,17 @@ public static class MdEgoData
     private static readonly Lazy<List<MdEgo>> Data =
         new(() => StaticData.GetList<MdEgo>("static-data/ego-gift-mirrordungeon"));
 
-    private static readonly Lazy<UpgradeCostTableData?> UpgradeCostTable = new(() =>
-        StaticData.GetUnlisted<EgoGiftUpgradeCostTableFile>("static-data/mirror-dungeon-common-data")
-            .Select(t => t.egoGiftUpgradeCostTable)
-            .FirstOrDefault(t => t is not null));
+    // mirror-dungeon-common-data's egoGiftUpgradeCostTable, with the request's upload laid over it
+    // (MdCommonSource.Current).
+    private static UpgradeCostTableData? UpgradeCostTable =>
+        MdCommonSource.Current.View<EgoGiftUpgradeCostTableFile>().egoGiftUpgradeCostTable;
 
     // SelectFormation's start-buff-point bonus (60 base + this = capture's 80). Sourced from
-    // the same mirror-dungeon-common-data-md7.json file's starlightInfo.detectThemeFloorDefaultPoint -
+    // the same mirror-dungeon-common-data file's starlightInfo.detectThemeFloorDefaultPoint -
     // it's the same "default point grant" constant the starlight system reuses (byte-confirmed
     // equal to the observed +20 bonus; only one capture record exercises this).
-    private static readonly Lazy<long> DetectThemeFloorDefaultPointValue = new(() =>
-        StaticData.GetUnlisted<EgoGiftUpgradeCostTableFile>("static-data/mirror-dungeon-common-data")
-            .Select(t => t.starlightInfo)
-            .FirstOrDefault(t => t is not null)?.detectThemeFloorDefaultPoint ?? 0);
-
-    public static long DetectThemeFloorDefaultPoint => DetectThemeFloorDefaultPointValue.Value;
+    public static long DetectThemeFloorDefaultPoint =>
+        MdCommonSource.Current.View<EgoGiftUpgradeCostTableFile>().starlightInfo?.detectThemeFloorDefaultPoint ?? 0;
 
     // First-wins on duplicate id, preserving the old FirstOrDefault scan's answer.
     private static readonly Lazy<Dictionary<long, MdEgo>> ById = new(() =>
@@ -93,7 +89,7 @@ public static class MdEgoData
     public static long TierUpgradeCost(long egoGiftId, long desiredUl)
     {
         var tier = DetermineEgoTier(egoGiftId);
-        var row = UpgradeCostTable.Value?.table.FirstOrDefault(t => t.tier == tier);
+        var row = UpgradeCostTable?.table.FirstOrDefault(t => t.tier == tier);
         if (row is null || desiredUl < 1 || desiredUl > row.cost.Count) return 0;
         return row.cost[(int)desiredUl - 1];
     }

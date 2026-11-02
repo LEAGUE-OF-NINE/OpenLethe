@@ -67,6 +67,10 @@ namespace OpenLethe.Data.Migrations
                         .IsRequired()
                         .HasColumnType("jsonb");
 
+                    b.Property<string>("CustomMdCommonData")
+                        .IsRequired()
+                        .HasColumnType("jsonb");
+
                     b.Property<string>("CustomTheme")
                         .IsRequired()
                         .HasColumnType("jsonb");
