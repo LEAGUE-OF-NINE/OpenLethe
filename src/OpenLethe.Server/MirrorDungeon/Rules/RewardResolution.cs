@@ -5,7 +5,7 @@ namespace OpenLethe.Server.MirrorDungeon.Rules;
 
 // The reward-RESOLUTION group: popups queued by ExitMapNode's rre engine get resolved here.
 // Unlike ExitMapNode's raw-add (RewardEngine), these endpoints grant via SharedRules.GrantEgoGift
-// - the already-owned -> Vestige (9992 TIER_2 / 9993 TIER_3) rule. Verbatim ports of
+// - the already-owned -> Vestige (9991-9995, the gift's tier) rule. Verbatim ports of
 // Handlers/MirrorDungeonShop.cs AcquireRewardEgoGiftsMirrorDungeon (:204-235) /
 // RejectRewardEgoGiftsMirrorDungeon (:237-256) and Handlers/MirrorDungeonRewards.cs
 // AcquireRewardEgoGiftsWithEnemyBufMirrorDungeon (:156-211) / AcquireMirrorDungeonBattleReward

@@ -57,7 +57,16 @@ public sealed class DungeonEgoGiftDropPool
     public long dungeonId;
     public List<long> egoGifts = new();
     public List<long> excludeEgoGifts = new();
+    // The run difficulties (run.Idx: 0 normal, 1+ hard/infinite/extreme) excludeEgoGifts applies
+    // to - [0] in the shipped tables, so the list holds the hard-only gifts (the gen2 fusion
+    // materials, the hard packs' exclusives) and the fusion-only outputs.
+    public List<long> excludeTargetIdxList = new();
     public List<long> globalExcludeEgoGifts = new();
+
+    // Whether excludeEgoGifts applies to a run of this difficulty. No difficulty given, or a table
+    // that names none, keeps the exclusion (the normal-mode pool).
+    public bool ExcludesFor(long? dungeonIdx) =>
+        dungeonIdx is not { } idx || excludeTargetIdxList.Count == 0 || excludeTargetIdxList.Contains(idx);
 }
 
 public static class MdThemeData
@@ -68,11 +77,20 @@ public static class MdThemeData
     private static readonly Lazy<List<DungeonEgoGiftDropPool>> Pools =
         new(() => StaticData.GetList<DungeonEgoGiftDropPool>("static-data/mirrordungeon-egogift-droppool"));
 
-    public static List<ThemeStatic> AllThemes() => Themes.Value;
+    // Each of these sees the account's uploads (MdCatalog.Current) laid over the static tables.
+    public static List<ThemeStatic> AllThemes() => MirrorDungeon.Data.MdCatalog.Current?.AllThemes ?? Themes.Value;
 
-    public static ThemeStatic? GetThemeById(long id) => Themes.Value.FirstOrDefault(t => t.id == id);
+    public static ThemeStatic? GetThemeById(long id) =>
+        MirrorDungeon.Data.MdCatalog.Current?.Theme(id) ?? Themes.Value.FirstOrDefault(t => t.id == id);
 
-    public static List<DungeonEgoGiftDropPool> DropPools() => Pools.Value;
+    public static List<DungeonEgoGiftDropPool> DropPools() =>
+        MirrorDungeon.Data.MdCatalog.Current?.AllDropPools ?? Pools.Value;
+
+    // The static tables alone - for MdCatalog's overlay and anything cached process-wide, which
+    // must never capture one account's uploads.
+    internal static List<ThemeStatic> StaticThemes() => Themes.Value;
+
+    internal static List<DungeonEgoGiftDropPool> StaticDropPools() => Pools.Value;
 }
 
 // Static per-floor enemy-buff candidate pool (992xxx ids), keyed on cn.f (the floor being

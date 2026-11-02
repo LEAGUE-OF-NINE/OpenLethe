@@ -38,19 +38,11 @@ public static class StartRunRules
     // Missions.Sec=-1/Nlm=1, LevelOffsets all zero, Shop empty) - see WireMapper/Model defaults.
     public static Run NewRun(long dungeonId, long idx)
     {
-        var seps = new List<StartEgoGiftPool>
-        {
-            new() { SetId = 0, Keyword = "Combustion", Pool = new() { 9001, 9009, 9103 } },
-            new() { SetId = 1, Keyword = "Laceration", Pool = new() { 9005, 9029, 9108 } },
-            new() { SetId = 2, Keyword = "Vibration", Pool = new() { 9044, 9086, 9113 } },
-            new() { SetId = 3, Keyword = "Burst", Pool = new() { 9047, 9093, 9117 } },
-            new() { SetId = 4, Keyword = "Sinking", Pool = new() { 9041, 9054, 9124 } },
-            new() { SetId = 5, Keyword = "Breath", Pool = new() { 9046, 9051, 9129 } },
-            new() { SetId = 6, Keyword = "Charge", Pool = new() { 9043, 9052, 9134 } },
-            new() { SetId = 7, Keyword = "Slash", Pool = new() { 9032, 9194, 9140 } },
-            new() { SetId = 8, Keyword = "Penetrate", Pool = new() { 9030, 9198, 9145 } },
-            new() { SetId = 9, Keyword = "Hit", Pool = new() { 9012, 9202, 9150 } },
-        };
+        // mirror-dungeon-common-data startEgoGiftPools, in order - a set's index is its setId. The
+        // shipped table is the ten keyword sets (Combustion 9001/9009/9103 ... Hit 9012/9202/9150).
+        var seps = OpenLethe.Server.MdCommonTable.StartEgoGiftPools
+            .Select((p, i) => new StartEgoGiftPool { SetId = i, Keyword = p.keyword, Pool = new(p.normalpool) })
+            .ToList();
         var stocks = new List<SkillStock>
         {
             new() { T = "CR", N = 0 }, new() { T = "SC", N = 0 }, new() { T = "AM", N = 0 },

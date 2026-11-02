@@ -213,17 +213,19 @@ public class MdRulesRewardEngineTests
     }
 
     [Fact]
-    public void ResolveNodeExit_HardAbnoBattle_GrantsAllRewardGiftsWithoutOwnedFilter()
+    public void ResolveNodeExit_HardAbnoBattle_GrantsRewardGifts_OwnedOneBecomesVestige()
     {
         // Real static data: abno stage 2061141 (mirrordungeon-abbattle5-0.json) rewardList has
-        // TWO EGO_GIFTs [9014, 9103]. Unlike the e==6/e==3 branches, e==14 has NO
-        // already-owned filter - a raw AddRange, even if the gift is already owned.
+        // TWO EGO_GIFTs [9014, 9103]. e==14 grants through SharedRules.GrantEgoGift: the
+        // already-owned 9014 turns into its tier's Vestige instead of a second copy.
         var run = RunWithNode(nid: 700, e: 14, eid: 2061141);
         run.Gifts.Items.Add(new EgoGift { Id = 9014 }); // pre-owned
+        var vestige = StartBuffEffects.VestigeOfTier(OpenLethe.Server.MdEgoData.DetermineEgoTier(9014)!.Value);
 
         Exit(run, 700);
 
-        Assert.Equal(new List<long> { 9014, 9014, 9103 }, run.Gifts.Items.Select(g => g.Id).ToList());
+        Assert.Equal(new List<long> { 9014, vestige, 9103 }, run.Gifts.Items.Select(g => g.Id).ToList());
+        Assert.Equal(9014, run.Gifts.Items[1].Oid);
         Assert.Equal(2, run.RewardEvents.Count);
         Assert.All(run.RewardEvents, e => Assert.Equal("GetConfirmedEgogiftOnWinBattle", e.Rt));
         Assert.Equal(new List<long> { 9014 }, run.RewardEvents[0].Pool);

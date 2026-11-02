@@ -221,7 +221,7 @@ public static class MdMapGen
     // this dungeon already uses elsewhere; those come from the act-1/2 packs' pools (901xxx,
     // 971xxx, ...), so the client is guaranteed to have the static data to render them.
     private static readonly Lazy<List<long>> DungeonEventPool = new(() =>
-        MdThemeData.AllThemes()
+        MdThemeData.StaticThemes()
             .SelectMany(t => t.mapGenOption.eventPool)
             .Distinct()
             .OrderBy(id => id)

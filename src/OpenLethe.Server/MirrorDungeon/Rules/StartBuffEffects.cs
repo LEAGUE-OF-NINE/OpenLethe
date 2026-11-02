@@ -56,7 +56,7 @@ public static class StartBuffEffects
 
     // Binary Star-shop's "greater chance for high Tier E.G.O Gifts to appear in Shops". The data
     // gives no number (value 1 on every level); Tier 3+ shop shares are doubled.
-    public const double HighTierShopMultiplier = 2.0;
+    public const double HighTierShopMultiplier = 1.5;
 
     public static double ShopHighTierMultiplier(Run run) =>
         Sum(run, StartBuffEffect.ShopHighTierChance) > 0 ? HighTierShopMultiplier : 1.0;
@@ -137,7 +137,12 @@ public static class StartBuffEffects
         if (pool.Count == 0 || picks <= 0) return;
         run.RewardEvents.Add(new RewardEvent
         {
-            Rt = "GetEgogift", Se = Math.Min(picks, pool.Count), Sh = pool.Count, Pool = pool, PoolV2 = new(), PoolV3 = new(),
+            Rt = "GetEgogift",
+            Se = Math.Min(picks, pool.Count),
+            Sh = pool.Count,
+            Pool = pool,
+            PoolV2 = new(),
+            PoolV3 = new(),
         });
     }
 

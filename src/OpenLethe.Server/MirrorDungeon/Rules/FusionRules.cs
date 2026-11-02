@@ -29,8 +29,9 @@ public static class FusionRules
 
         var isSuperShop = SharedRules.IsSuperShop(run) ?? false;
         var fused = OpenLethe.Server.MdEgoFusion.FuseGift(keyword, isSuperShop, materialEgoGiftIds);
-        // Rust computes owned AFTER the removals.
-        var owned = run.Gifts.Items.Select(e => e.Id).ToList();
+        // Rust computes owned AFTER the removals. Fusion components of held fusion gifts count
+        // as owned (SharedRules.OwnedGiftIds), so a random fusion never hands one back either.
+        var owned = SharedRules.OwnedGiftIds(run);
 
         EgoGift result;
         if (fused.FixedGiftId is { } fixedId)

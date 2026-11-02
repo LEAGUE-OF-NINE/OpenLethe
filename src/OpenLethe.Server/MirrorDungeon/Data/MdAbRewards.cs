@@ -12,10 +12,12 @@ public static class MdAbRewards
     private static readonly Lazy<List<AbStage>> Stages =
         new(() => StaticData.GetList<AbStage>("static-data/battle-mirrordungeon"));
 
-    public static List<AbReward>? GetByNodeId(long encounterId) =>
-        Stages.Value.FirstOrDefault(s => s.id == encounterId)?.rewardList;
+    // The account's uploaded stage (MdCatalog.Current) wins over the static one with its id.
+    private static AbStage? Find(long encounterId) =>
+        MdCatalog.Current?.Battle(encounterId) ?? Stages.Value.FirstOrDefault(s => s.id == encounterId);
+
+    public static List<AbReward>? GetByNodeId(long encounterId) => Find(encounterId)?.rewardList;
 
     // How many identities the stage deploys (participantInfo.max), or null for an unknown stage.
-    public static long? MaxParticipants(long encounterId) =>
-        Stages.Value.FirstOrDefault(s => s.id == encounterId)?.participantInfo?.max;
+    public static long? MaxParticipants(long encounterId) => Find(encounterId)?.participantInfo?.max;
 }
