@@ -13,28 +13,26 @@ namespace OpenLethe.Server.MirrorDungeon.Rules;
 // touch. See the Task 5 brief - "the SAFE default is WRAP, leave MdMapGen where it is."
 public static class MapGenerator
 {
-    // The level-cap offsets now come from the buffs THIS run enabled (Run.StartBuffIds, persisted
-    // by EnableStartBuff). The old fixed {106,102} set was a replay-only crutch: both captured
-    // runs enable exactly those two, so the golden stayed green while any other pick did nothing.
-    // Fallback for a run that never stored its picks.
-    private static MdLevelOffsets LevelOffsetsOf(Run run) => run.StartBuffIds.Count > 0
-        ? MdStartBuffs.LevelOffsets(run.StartBuffIds)
-        : MdStartBuffs.LevelOffsets(new long[] { 106, 102 });
-
     // Port of the RecreateThemeFloorPoolMirrorDungeon handler body (:208-219). Re-rolls
     // run.ThemePools for the NEXT floor (Floor.Current.F + 1) and bumps the per-floor re-roll
     // counter. Before any floor has been selected (ThemeFloors empty) this is still the 8-option
     // floor-0 selection pool (PickThemes), not the 4-theme per-floor re-roll (RecreateThemes) -
     // capture-verified (see MdMapGen.PickThemes/RecreateThemes doc comments).
-    public static void RecreateThemePool(Run run)
+    // The re-rolls a floor allows are themePoolRecreateCount (1) plus Interstellar Travel's
+    // 2/3/4 (StartBuffEffects.ThemeRefreshAllowance); past that the pool stays as it is and the
+    // call returns false.
+    // customThemes: the account's uploaded packs, which a re-roll can offer like any static pack.
+    public static bool RecreateThemePool(Run run, IReadOnlyList<OpenLethe.Server.ThemeStatic>? customThemes = null)
     {
+        if (run.TfpsCreated >= StartBuffEffects.ThemeRefreshAllowance(run)) return false;
         run.ThemePools = run.ThemeFloors.Count == 0
-            ? OpenLethe.Server.MdMapGen.PickThemes(SharedRules.CurrentFloor(run))
+            ? OpenLethe.Server.MdMapGen.PickThemes(SharedRules.CurrentFloor(run), null, StartBuffEffects.ThemePoolSize(run), customThemes)
                 .Select(t => new ThemePool { Idx = t.idx, Tfid = t.tfid, Egs = t.egs, Upegs = t.upegs })
                 .ToList()
-            : NextFloorPools(run);
+            : NextFloorPools(run, customThemes);
         run.TfpsCreated += 1;
         run.StartPools = new();
+        return true;
     }
 
     // A normal-difficulty run: its latest pack came from an offer's normal group (wire idx 0), and
@@ -48,13 +46,15 @@ public static class MapGenerator
     // difficulty and skip the packs it already played. A normal run gets the same 8-pack shape as
     // the run start (4 normal idx 0 + 4 hard idx 1), so the screen's Normal/Hard switch works on
     // every floor; picking a hard pack sets run.Idx to 1 and the run is hard from then on (4 packs).
-    public static List<ThemePool> NextFloorPools(Run run)
+    // customThemes: the account's uploaded packs (see MdMapGen.PickThemes).
+    public static List<ThemePool> NextFloorPools(Run run, IReadOnlyList<OpenLethe.Server.ThemeStatic>? customThemes = null)
     {
         var selectionFloor = run.Floor.Current.F + 1;
         var visited = run.ThemeFloors.Select(t => t.Tfid).ToHashSet();
+        var count = StartBuffEffects.ThemePoolSize(run);
         var tfps = IsNormalMode(run)
-            ? OpenLethe.Server.MdMapGen.PickThemes(selectionFloor, visited)
-            : OpenLethe.Server.MdMapGen.RecreateThemes(selectionFloor, visited);
+            ? OpenLethe.Server.MdMapGen.PickThemes(selectionFloor, visited, count, customThemes)
+            : OpenLethe.Server.MdMapGen.RecreateThemes(selectionFloor, visited, count, customThemes);
         return tfps
             .Select(t => new ThemePool { Idx = t.idx, Tfid = t.tfid, Egs = t.egs, Upegs = t.upegs })
             .ToList();
@@ -73,7 +73,7 @@ public static class MapGenerator
         var floor = run.ThemeFloors.Count;
 
         var save = WireMapper.ToWire(run);
-        OpenLethe.Server.MdMapGen.GenerateNewFloor(floor, selectedThemeFloorId, save, customThemes);
+        OpenLethe.Server.MdMapGen.GenerateNewFloor(floor, selectedThemeFloorId, save, customThemes, selectedIdx);
         // GenerateNewFloor (+ its UpdateResult) only ever touches: dungeonMap.ns, currentInfo.cn,
         // currentInfo.eid, currentInfo.tfps, currentInfo.tfs, isEndDungeon, sepsCreated - write
         // exactly those back into `run`, never a blind whole-run re-import.
@@ -94,30 +94,38 @@ public static class MapGenerator
         RollSuperShop(run, floor, hard: selectedIdx != 0);
         run.HiddenNodeOrigins = new();
 
-        // New-floor start: full-heal the party. Every unit's CurrentHp -> 10000; a unit revived
-        // from 0 HP also has its Cm (corrosion) cleared - live units keep their Cm unchanged.
-        foreach (var u in run.Party)
-        {
-            if (u.CurrentHp == 0) u.Cm = 0;
-            u.CurrentHp = 10000;
-        }
+        // New-floor start: full-heal and revive the party (see SharedRules.ReviveAll).
+        SharedRules.ReviveAll(run);
+
+        // Start buffs that fire on reaching a floor: Cumulating Starcloud's Cost interest on every
+        // move past floor 1, the gift popup of Moon Star-shop (floor 1) / Chance Comet (3/5/7).
+        if (floor > 0) StartBuffEffects.OnMoveToNextFloor(run);
+        StartBuffEffects.OnEnterFloor(run, floor);
 
         // "New floor theme" selection: in the extreme boss act (selectedIdx==3) the theme is
         // re-selected on alternating floors, and each such selection is a NEW floor theme that
-        // increments Snft/Csnft and adds buff 102's SELECT_NEW_FLOOR_THEME level offset (+3).
-        // Csnft is a per-floor flag: 1 on a new-theme floor, reset to 0 otherwise.
+        // increments Snft/Csnft and adds buff 102's SELECT_NEW_FLOOR_THEME level offset (+3, at
+        // most +9 in all). Csnft is a per-floor flag: 1 on a new-theme floor, reset to 0 otherwise.
         // ponytail: the exact game rule for WHY act-3 themes alternate isn't encoded in the
         // static data - this reproduces both captured runs. Revisit if a deeper run differs.
         var efs = run.LevelOffsets;
+        var offsets = StartBuffEffects.LevelOffsets(run);
+        var levelBump = 0L;
         if (selectedIdx >= 3 && floor % 2 == 1)
         {
             efs.Snft += 1;
             efs.Csnft = 1;
-            efs.Sbmlos += LevelOffsetsOf(run).PerNewTheme;
+            levelBump += offsets.NewThemeBonus(efs.Snft) - offsets.NewThemeBonus(efs.Snft - 1);
+        }
+        else efs.Csnft = 0;
+        // Favor of the Nebulae++: "Upon entering Floor 6, all Identities gain 3 Level(s)".
+        if (floor == 5) levelBump += offsets.EnterSixthFloor;
+        if (levelBump != 0 || efs.Csnft == 1)
+        {
+            efs.Sbmlos += levelBump;
             var cap = efs.Sbmlos + efs.Egmlos;
             foreach (var u in run.Party) u.Mlos = cap;
         }
-        else efs.Csnft = 0;
 
         // The per-floor theme re-roll counter resets to 0 on select (RecreateThemePool bumps it
         // during the floor). Verified 0 on every captured SelectThemeFloor response.
@@ -130,8 +138,10 @@ public static class MapGenerator
     }
 
     // Super shop odds, in percent: 3% plus 1% per 20 Cost spent at shops (run.UsedCost, wire
-    // currentInfo.usedcost - the same number the client turns into the "next floor" chance).
-    public static long SuperShopPercent(long usedCost) => Math.Min(100, 3 + Math.Max(0, usedCost) / 20);
+    // currentInfo.usedcost - the same number the client turns into the "next floor" chance), plus
+    // Moon Star-shop's +10/+25% on top of those base odds (bonusPercent).
+    public static long SuperShopPercent(long usedCost, long bonusPercent = 0) =>
+        Math.Min(100, 3 + Math.Max(0, usedCost) / 20 + Math.Max(0, bonusPercent));
 
     // Turns the new floor's shop(s) into a super shop (eid 1) or a regular one (eid 0). Only hard
     // floors can roll one. The spend carries over from floor to floor and resets only when a
@@ -139,7 +149,7 @@ public static class MapGenerator
     // 0 on exactly the SelectThemeFloor responses whose new shop is eid 1, and kept otherwise.
     public static void RollSuperShop(Run run, long floor, bool hard)
     {
-        var superShop = hard && Random.Shared.Next(100) < SuperShopPercent(run.UsedCost);
+        var superShop = hard && Random.Shared.Next(100) < SuperShopPercent(run.UsedCost, StartBuffEffects.SuperShopBonusPercent(run));
         foreach (var node in run.Floor.Nodes.Where(n => n.F == floor && n.E == 10))
             node.Eid = superShop ? 1 : 0;
         if (superShop) run.UsedCost = 0;

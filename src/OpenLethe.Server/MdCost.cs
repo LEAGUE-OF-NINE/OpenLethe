@@ -68,11 +68,29 @@ public static class MdCost
     private const long GoldenUrnGift = 9079;
     private const long BongyPlushGift = 9242;
 
+    // Binary Star-shop's "Encounter Reward Cost +20/30/40%" is the same kind of bonus as Golden Urn's
+    // +20%, so the two rates add up before Bongy Plush multiplies a boss payout.
     public static long ApplyCostGifts(Run run, long nodeE, long cost)
     {
         if (cost <= 0) return cost;
-        if (run.Gifts.Items.Any(g => g.Id == GoldenUrnGift)) cost = cost * 120 / 100;
+        var ratePercent = OpenLethe.Server.MirrorDungeon.Rules.StartBuffEffects.WinBattleCostRate(run);
+        if (run.Gifts.Items.Any(g => g.Id == GoldenUrnGift)) ratePercent += 20;
+        if (ratePercent != 0) cost = cost * (100 + ratePercent) / 100;
         if (nodeE == 6 && run.Gifts.Items.Any(g => g.Id == BongyPlushGift)) cost = cost * 3 / 2;
         return cost;
+    }
+
+    // 9080 Milepost of Survival 「Upon clearing Floor Boss: gain (80 + # of Identities participating
+    // in the Encounter x 5) additional Cost (unaffected by effects that raise Cost after clearing an
+    // Encounter)」 - so it is added on top of ApplyCostGifts, never scaled by it. The exit request
+    // lists the whole roster, so the participants are the boss stage's deploy cap
+    // (participantInfo.max), limited to the sinners still standing when the fight began.
+    private const long MilepostOfSurvivalGift = 9080;
+
+    public static long MilepostOfSurvivalBonus(Run run, long nodeE, long stageId, long livingBeforeBattle)
+    {
+        if (nodeE != 6 || !run.Gifts.Items.Any(g => g.Id == MilepostOfSurvivalGift)) return 0;
+        var cap = OpenLethe.Server.MirrorDungeon.Data.MdAbRewards.MaxParticipants(stageId) ?? livingBeforeBattle;
+        return 80 + Math.Min(cap, livingBeforeBattle) * 5;
     }
 }

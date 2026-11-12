@@ -71,7 +71,7 @@ public static class StoryMdThemeData
 
     private static readonly Lazy<List<long>> FallbackEgoGiftPool = new(() =>
     {
-        var pools = MdThemeData.DropPools();
+        var pools = MdThemeData.StaticDropPools();
         if (pools.Count == 0) return new List<long>();
         var maxDungeonId = pools.Max(p => p.dungeonId);
         var pool = pools.First(p => p.dungeonId == maxDungeonId);

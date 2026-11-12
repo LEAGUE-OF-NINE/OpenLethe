@@ -33,6 +33,21 @@ public class MdRulesMapGeneratorTests
         Assert.Equal(0, run.Eid);
     }
 
+    [Fact]
+    public void GenerateFloor_SpiderwebWithBladeRyoshu_OnlyRevivesRyoshu()
+    {
+        var run = new Run();
+        run.Gifts.Items.Add(new EgoGift { Id = 9273 });
+        run.Party.Add(new PartyUnit { PersonalityId = 10415, CurrentHp = 0, Cm = 20 });
+        run.Party.Add(new PartyUnit { PersonalityId = 10306, CurrentHp = 0, Cm = 45 });
+        run.Party.Add(new PartyUnit { PersonalityId = 11115, CurrentHp = 2153, Cm = 30 });
+
+        MapGenerator.GenerateFloor(run, EmptyMd4ThemeId, selectedIdx: 0);
+
+        Assert.Equal(new long[] { 10000, 0, 10000 }, run.Party.Select(u => u.CurrentHp));
+        Assert.Equal(new long[] { 0, 45, 30 }, run.Party.Select(u => u.Cm));
+    }
+
     [Theory]
     [InlineData(0, 3)]
     [InlineData(19, 3)]
@@ -262,5 +277,48 @@ public class MdRulesMapGeneratorTests
 
         Assert.Equal(4, run.ThemePools.Count);
         Assert.All(run.ThemePools, t => Assert.Equal(3, t.Idx));
+    }
+
+    [Fact]
+    public void RecreateThemePool_OffersTheAccountsCustomPacks()
+    {
+        // An uploaded hard pack for act 1, offset 1 - the floor a floor-0 re-roll selects.
+        var custom = new OpenLethe.Server.ThemeStatic
+        {
+            id = 990001,
+            exceptionConditions = new() { new() { dungeonIdx = 1, selectableFloors = new() { 1 } } },
+            egoGiftPool = new() { 9101, 9102, 9103, 9104 },
+        };
+        var offered = false;
+        for (var i = 0; i < 200 && !offered; i++)
+        {
+            var run = new Run { Idx = 1 };
+            run.ThemeFloors.Add(new ThemeFloor { F = 0, Idx = 1, Tfid = 1001 });
+            run.Floor.Current.F = 0;
+
+            MapGenerator.RecreateThemePool(run, new[] { custom });
+
+            var pack = run.ThemePools.FirstOrDefault(t => t.Tfid == 990001);
+            if (pack is null) continue;
+            offered = true;
+            Assert.Equal(4, pack.Egs.Count);
+        }
+        Assert.True(offered, "the custom pack was never offered");
+    }
+
+    [Fact]
+    public void GenerateFloor_PackInBothGroups_RecordsTheGroupThePlayerPicked()
+    {
+        // All 8 floor-0 normal packs are floor-0 hard packs too; the hard copy carries 4 gifts.
+        foreach (var idx in new long[] { 0, 1 })
+        {
+            var run = new Run();
+            run.ThemePools.Add(new ThemePool { Idx = 0, Tfid = EmptyMd4ThemeId, Egs = new() { 9001, 9002, 9003 } });
+            run.ThemePools.Add(new ThemePool { Idx = 1, Tfid = EmptyMd4ThemeId, Egs = new() { 9004, 9005, 9006, 9007 } });
+
+            MapGenerator.GenerateFloor(run, EmptyMd4ThemeId, selectedIdx: idx);
+
+            Assert.Equal(idx == 0 ? 3 : 4, Assert.Single(run.ThemeFloors).Egs.Count);
+        }
     }
 }

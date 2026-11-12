@@ -70,8 +70,7 @@ public static class MirrorDungeonMapEndpoints
             var run = WireMapper.ToDomain(loaded);
             try
             {
-                MapGenerator.GenerateFloor(run, p.selectedThemeFoorId, p.selectedIdx,
-                    await HandlerContext.ReadCustomThemesAsync(ctx, account.Id));
+                MapGenerator.GenerateFloor(run, p.selectedThemeFoorId, p.selectedIdx);
             }
             catch (KeyNotFoundException)
             {
@@ -98,9 +97,7 @@ public static class MirrorDungeonMapEndpoints
             var enteredNode = run.Floor.Nodes.FirstOrDefault(n => n.Nid == p.currentnode.nid);
             if (enteredNode is null) return Results.BadRequest();
             var isShopNode = enteredNode.E == 10;
-            // A shop stocks the floor's pack, which can be one of the account's uploaded packs.
-            var customThemes = isShopNode ? await HandlerContext.ReadCustomThemesAsync(ctx, account.Id) : null;
-            var (changedHiddenNode, nr) = MapNodeRules.EnterNode(run, p.currentnode, customThemes: customThemes);
+            var (changedHiddenNode, nr) = MapNodeRules.EnterNode(run, p.currentnode);
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = OpenLethe.Server.AccountFields.Set(save);
@@ -181,9 +178,7 @@ public static class MirrorDungeonMapEndpoints
 
             var exitResult = RewardEngine.ResolveNodeExit(
                 run, p.currentnode, p.dungeonunitlist, p.noderesult, p.choiceEventData,
-                p.isupdatedEgoSkillStock == 1, p.egoSkillStockList, p.abnormalityLogs,
-                // Abno / hard battles offer a gift from the floor's pack, possibly an uploaded one.
-                matchingNode.E is 5 or 2 ? await HandlerContext.ReadCustomThemesAsync(ctx, account.Id) : null);
+                p.isupdatedEgoSkillStock == 1, p.egoSkillStockList, p.abnormalityLogs);
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = OpenLethe.Server.AccountFields.Set(save);

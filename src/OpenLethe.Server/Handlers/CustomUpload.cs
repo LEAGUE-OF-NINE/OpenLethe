@@ -1,4 +1,6 @@
+using System.Text.Json.Nodes;
 using OpenLethe.Data;
+using OpenLethe.Server.MirrorDungeon.Data;
 using OpenLethe.Server.Wire;
 
 namespace OpenLethe.Server.Handlers;
@@ -20,9 +22,54 @@ public static class CustomUploadEndpoints
         Upload<CustomIdentity>(app, "/custom/upload/personality", SaveColumn.CustomIdentities,
             (a, v) => a.CustomIdentities = v, "Successfully updated theme floors");
 
+        // The mod's custom_limbus_data/ego-gift-mirrordungeon and mirrordungeon-egogift-droppool.
+        // Only the fields the server reads survive (MdEgo, DungeonEgoGiftDropPool); everything else
+        // about a gift lives in the client. MdCatalog lays both over the static tables.
+        Upload<MdEgo>(app, "/custom/upload/ego-gift-mirrordungeon", SaveColumn.CustomEgoGifts,
+            (a, v) => a.CustomEgoGifts = v, "Successfully updated ego gifts");
+        Upload<DungeonEgoGiftDropPool>(app, "/custom/upload/mirrordungeon-egogift-droppool",
+            SaveColumn.CustomEgoGiftDropPools, (a, v) => a.CustomEgoGiftDropPools = v,
+            "Successfully updated ego gift drop pools");
+
+        // custom_limbus_data/battle-mirrordungeon: only id, rewardList and participantInfo are kept -
+        // what a stage hands out on a win and how many identities it deploys.
+        Upload<AbStage>(app, "/custom/upload/battle-mirrordungeon", SaveColumn.CustomMdBattles,
+            (a, v) => a.CustomMdBattles = v, "Successfully updated mirror dungeon battles");
+
+        // custom_limbus_data/mirror-dungeon-common-data. Unlike the kinds above, each file IS one
+        // object (the table is unlisted), so the list holds the files themselves. Kept whole -
+        // MdCommonSource lays each over the season's common data key by key. A file a section of
+        // which has the wrong shape is skipped (and named in the reply) rather than failing the
+        // upload: the client mod fires these at startup and shows any error as a popup.
+        app.MapPost("/custom/upload/mirror-dungeon-common-data", async (HttpContext ctx) =>
+        {
+            var account = await HandlerContext.ResolveAsync(ctx, SaveColumn.CustomMdCommonData);
+            if (account is null) return Results.Unauthorized();
+
+            var p = await HandlerContext.ReadParamsAsync<ValList<JsonObject?>>(ctx);
+            if (p is null) return Results.BadRequest();
+
+            var kept = new List<JsonObject>();
+            var skipped = new List<string>();
+            foreach (var (file, i) in (p.list ?? new()).Select((f, i) => (f, i)))
+            {
+                if (file is null) continue;
+                if (MdCommonSource.Validate(file) is { } error) skipped.Add($"file {i}: {error}");
+                else kept.Add(file);
+            }
+
+            account.CustomMdCommonData = AccountFields.Set(kept);
+            await HandlerContext.SaveAsync(ctx);
+
+            var message = skipped.Count == 0
+                ? "Successfully updated mirror dungeon common data"
+                : "Updated mirror dungeon common data; skipped " + string.Join("; ", skipped);
+            return Results.Json(new { message }, global::PacketJson.Options);
+        });
+
         // The client mod posts about a dozen more kinds at startup (skin, lobby-bgm,
         // battle-effect, error-code-table, mirrordungeon-constraint, ...). Rust has a route for
-        // each; this port models only the two above, and the rest used to hit the framework's
+        // each; this port models only the ones above, and the rest used to hit the framework's
         // empty-body 404, which Lethe's HTTP patch throws on (ArgumentOutOfRangeException in
         // Patches.Request.PostWebRequest) and the game shows as an error. Acknowledge every other
         // kind with the same bare {"message": ...}; nothing reads them, so nothing is stored.

@@ -65,6 +65,27 @@ public class CustomUploadTests(PostgresFixture db)
     }
 
     [SkippableFact]
+    public async Task ThemeFloorUpload_CustomPacksShowAsExploredInTheRecord()
+    {
+        db.RequireDb();
+        var (f, client, _, jwt) = await NewUserAsync();
+        await using var _f = f;
+
+        await client.PostAsJsonAsync("/custom/upload/mirrordungeon-theme-floor", Body(jwt, new
+        {
+            list = new object[] { new { list = new object[] { new { id = 900001L } } } },
+        }));
+
+        var resp = await client.PostAsJsonAsync("/api/GetMirrorDungeonEgoGiftRecord", Body(jwt, new { }));
+        Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
+        using var doc = System.Text.Json.JsonDocument.Parse(await resp.Content.ReadAsStringAsync());
+        var ids = doc.RootElement.GetProperty("result").GetProperty("themeFloorIds")
+            .EnumerateArray().Select(e => e.GetInt64()).ToList();
+        Assert.Contains(900001L, ids); // the uploaded pack
+        Assert.Contains(1001L, ids);   // the built-in packs stay
+    }
+
+    [SkippableFact]
     public async Task PersonalityUpload_StoresIdentitiesAndTheyBecomeOwnedPersonalities()
     {
         db.RequireDb();

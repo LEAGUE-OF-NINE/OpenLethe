@@ -1,4 +1,4 @@
-using OpenLethe.Resources;
+using OpenLethe.Server.MirrorDungeon.Data;
 
 namespace OpenLethe.Server;
 
@@ -44,8 +44,27 @@ public sealed class EgoGiftCombineTierTable
 
 public sealed class CombineTierData
 {
+    // Story-MD's tier-by-tier recipes.
     public List<CombineTwo> combineTwo = new();
     public List<CombineThree> combineThree = new();
+    // The plain fusion's score per material tier and the result tier per score range (the
+    // enhanced table is a super shop's).
+    public List<CombineScoreByTier> combineScoreByEgoGiftTier = new();
+    public List<CombineTierResult> combineTierResultByCombineScore = new();
+    public List<CombineTierResult> enhancedCombineTierResultByCombineScore = new();
+}
+
+public sealed class CombineScoreByTier
+{
+    public long egoGiftTier;
+    public long combineScore;
+}
+
+public sealed class CombineTierResult
+{
+    public long combineScoreRangeMin;
+    public long combineScoreRangeMax;
+    public long tierResult;
 }
 
 public sealed class CombineTwo
@@ -70,22 +89,20 @@ public readonly record struct MdFuseResult(long? FixedGiftId, string? Keyword, l
 
 public static class MdEgoFusion
 {
-    private static readonly Lazy<List<FixedCombination>> FixedCombinations = new(() =>
-        StaticData.GetUnlisted<EgoGiftCombineFixedTable>("static-data/mirror-dungeon-common-data")
-            .Where(t => t.egoGiftCombineFixedTable is not null)
-            .SelectMany(t => t.egoGiftCombineFixedTable!.combineFixed)
-            .ToList());
+    // Every table here is mirror-dungeon-common-data's, with the request's upload laid over it
+    // (MdCommonSource.Current); the derived maps are memoized per source, so an upload's recipes
+    // never leak into another account's fusions.
+    private static CombineFixed? FixedTable(MdCommonSource source) =>
+        source.View<EgoGiftCombineFixedTable>().egoGiftCombineFixedTable;
 
-    private static readonly Lazy<List<MixedCombination>> MixedCombinations = new(() =>
-        StaticData.GetUnlisted<EgoGiftCombineFixedTable>("static-data/mirror-dungeon-common-data")
-        .Where(t => t.egoGiftCombineFixedTable is not null)
-        .SelectMany(t => t.egoGiftCombineFixedTable!.combineMixed)
-        .ToList());
+    private static List<FixedCombination> FixedCombinations => FixedTable(MdCommonSource.Current)?.combineFixed ?? new();
 
-    private static readonly Lazy<Dictionary<long, long>> RecipeMapping = new(() =>
+    private static List<MixedCombination> MixedCombinations => FixedTable(MdCommonSource.Current)?.combineMixed ?? new();
+
+    private static Dictionary<long, long> RecipeMapping => MdCommonSource.Current.Derived("fusion.recipeMapping", source =>
     {
         var map = new Dictionary<long, long>();
-        foreach (var c in FixedCombinations.Value)
+        foreach (var c in FixedTable(source)?.combineFixed ?? new())
         {
             // Rust collects into a HashMap: duplicate hashes are last-wins, so assign
             // through the indexer rather than ToDictionary (which would throw).
@@ -94,16 +111,48 @@ public static class MdEgoFusion
         return map;
     });
 
-    public static IReadOnlyDictionary<long, long> EgoRecipeMapping => RecipeMapping.Value;
+    public static IReadOnlyDictionary<long, long> EgoRecipeMapping => RecipeMapping;
 
-    // Rust get_md_ego_gift_combinations() loads the folder unlisted and the combine handler
-    // takes .first(); the file carries many other top-level keys, which STJ ignores.
-    private static readonly Lazy<CombineTierData?> TierTable = new(() =>
-        StaticData.GetUnlisted<EgoGiftCombineTierTable>("static-data/mirror-dungeon-common-data")
-            .Select(t => t.egoGiftCombineTierTable)
-            .FirstOrDefault(t => t is not null));
+    // Fixed-recipe result -> every gift it is made from: each of its recipe rows' a/b/c and
+    // requiredEgoGiftIds, and those components' own components (9176 Impending Wave -> 9049,
+    // 9125, 9175 Surging Globe -> 9172, 9173). A run holding the result counts these as owned.
+    // The mixed recipe (9083 Lunar Memory) is deliberately not in here: its parts stay obtainable.
+    private static Dictionary<long, HashSet<long>> ComponentsByResult => MdCommonSource.Current.Derived("fusion.components", source =>
+    {
+        var direct = new Dictionary<long, HashSet<long>>();
+        foreach (var c in FixedTable(source)?.combineFixed ?? new())
+        {
+            if (!direct.TryGetValue(c.resultEgoGiftId, out var parts))
+                direct[c.resultEgoGiftId] = parts = new HashSet<long>();
+            foreach (var id in c.requiredEgoGiftIds.Concat(new[] { c.aEgoGiftId, c.bEgoGiftId, c.cEgoGiftId }
+                         .Where(id => id is not null).Select(id => id!.Value)))
+                if (id != 0 && id != c.resultEgoGiftId) parts.Add(id);
+        }
 
-    public static CombineTierData? CombineTierTable => TierTable.Value;
+        var closed = new Dictionary<long, HashSet<long>>();
+        foreach (var result in direct.Keys)
+        {
+            var all = new HashSet<long>();
+            var stack = new Stack<long>(direct[result]);
+            while (stack.Count > 0)
+            {
+                var id = stack.Pop();
+                if (id == result || !all.Add(id)) continue;
+                if (direct.TryGetValue(id, out var sub))
+                    foreach (var s in sub) stack.Push(s);
+            }
+            closed[result] = all;
+        }
+        return closed;
+    });
+
+    public static IReadOnlyCollection<long> FusionComponents(long resultEgoGiftId) =>
+        ComponentsByResult.TryGetValue(resultEgoGiftId, out var parts) ? parts : Array.Empty<long>();
+
+    // Rust get_md_ego_gift_combinations() takes the combine table of the common data; the file
+    // carries many other top-level keys, which STJ ignores.
+    public static CombineTierData? CombineTierTable =>
+        MdCommonSource.Current.View<EgoGiftCombineTierTable>().egoGiftCombineTierTable;
 
     /// Port of combine_ego_gift_story_mirror_dungeon.rs tier_to_int. Deliberately NOT
     /// MdEgoData.DetermineEgoTier: this reads tag.First() only and collapses TIER_4, TIER_5
@@ -136,7 +185,7 @@ public static class MdEgoFusion
         var ids = inputGifts.Where(i => i != 0).OrderBy(i => i).ToList();
         if (ids.Count > 0)
         {
-            foreach (var c in FixedCombinations.Value)
+            foreach (var c in FixedCombinations)
             {
                 var req = (c.requiredEgoGiftIds ?? new List<long>()).Where(i => i != 0).OrderBy(i => i).ToList();
                 if (req.Count == 0 || req.Count != ids.Count) continue;
@@ -145,7 +194,7 @@ public static class MdEgoFusion
                 if (same) return c.resultEgoGiftId;
             }
 
-            foreach (var m in MixedCombinations.Value)
+            foreach (var m in MixedCombinations)
             {
                 var needA = m.aEgoGiftRequiredNum; var needB = m.bEgoGiftRequiredNum;
                 if (ids.Count != needA + needB) continue;
@@ -162,8 +211,13 @@ public static class MdEgoFusion
         return EgoRecipeMapping.TryGetValue(hash, out var result) ? result : null;
     }
 
-    public static long DetermineEgoCombineScore(long egoGiftId) =>
-        MdEgoData.DetermineEgoTier(egoGiftId) switch
+    // combineScoreByEgoGiftTier; the switch is the shipped table, for a tier it does not list.
+    public static long DetermineEgoCombineScore(long egoGiftId)
+    {
+        var tier = MdEgoData.DetermineEgoTier(egoGiftId);
+        if (tier is { } t && CombineTierTable?.combineScoreByEgoGiftTier.FirstOrDefault(r => r.egoGiftTier == t) is { } row)
+            return row.combineScore;
+        return tier switch
         {
             1 => 3,
             2 => 6,
@@ -172,25 +226,44 @@ public static class MdEgoFusion
             5 => 30,
             _ => 0,
         };
+    }
 
-    public static long DetermineOutputEgoTier(long combineScore, bool isSuperShop) => isSuperShop
-        ? combineScore switch
-        {
-            >= 0 and <= 9 => 1,
-            >= 10 and <= 14 => 2,
-            >= 15 and <= 21 => 3,
-            _ => 4,
-        }
-        : combineScore switch
-        {
-            >= 0 and <= 10 => 1,
-            >= 11 and <= 16 => 2,
-            >= 17 and <= 24 => 3,
-            _ => 4,
-        };
+    // (enhanced)CombineTierResultByCombineScore: the row whose range starts at or below the score,
+    // the lowest row below every range (the shipped tables start at 6, but two Tier 1s score 6 and
+    // a lone material less). The switches are the shipped tables, for an empty one.
+    public static long DetermineOutputEgoTier(long combineScore, bool isSuperShop)
+    {
+        var table = CombineTierTable;
+        var rows = (isSuperShop ? table?.enhancedCombineTierResultByCombineScore : table?.combineTierResultByCombineScore)?
+            .OrderBy(r => r.combineScoreRangeMin).ToList();
+        if (rows is { Count: > 0 })
+            return (rows.LastOrDefault(r => r.combineScoreRangeMin <= combineScore) ?? rows[0]).tierResult;
 
+        return isSuperShop
+            ? combineScore switch
+            {
+                >= 0 and <= 9 => 1,
+                >= 10 and <= 14 => 2,
+                >= 15 and <= 21 => 3,
+                _ => 4,
+            }
+            : combineScore switch
+            {
+                >= 0 and <= 10 => 1,
+                >= 11 and <= 16 => 2,
+                >= 17 and <= 24 => 3,
+                _ => 4,
+            };
+    }
+
+    // egogiftRandomCombineProbs.origin: the row for this many materials, else the nearest one
+    // below (or the smallest). The fallbacks are the shipped table, for an empty one.
     public static float DetermineMatchKeywordProb(int numInputGifts)
     {
+        var probs = MdCommonTable.RandomCombineProbs;
+        if (probs.Count > 0)
+            return (float)(probs.LastOrDefault(p => p.materialCount <= numInputGifts) ?? probs[0]).prob;
+
         if (numInputGifts <= 2) return 0.6f;
         if (numInputGifts == 3) return 0.9f;
         return 0.99f;
