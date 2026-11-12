@@ -2881,6 +2881,998 @@
           ]
         }
       ]
+    },
+    {
+      "id": 2061111,
+      "skillType": "EGO_AWAKEN",
+      "skillTier": 3,
+      "requireIDList": [],
+      "isSupportSkill": true,
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "INDIGO",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "targetNum": 1,
+          "skillTargetType": "FRONT",
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": false,
+          "mpUsage": 25,
+          "skillLevelCorrection": 3,
+          "defaultValue": 10,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "isManyCoinSkill": true,
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "",
+                "buffOwner": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 0.2
+              }
+            },
+            {
+              "scriptName": "AttackDmgUpBeforeAttackViaBuffCheckDivideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self",
+                "stack": 20,
+                "turn": 0,
+                "value": 0.01,
+                "limit": 0
+              }
+            },
+            {
+              "scriptName": "TargetNumAdderBBIfMainTargetEnemy2061111",
+              "value": 2
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "UseBuffAllStackAndGiveBuffBeforeAttackIfPrideMax2061111",
+              "value": 999,
+              "buffData": {
+                "buffKeyword": "CriticalDamageUp",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 1
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 100,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAllyBreathOrChargePersonality2061111",
+              "buffData": {
+                "buffKeyword": "AttackDmgUp",
+                "target": "Target",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Target",
+                "stack": 5,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Target",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Target",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "AddShieldOnEndAttackIfTargetAlly",
+              "value": 0.2
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOProtect",
+                "target": "Target",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 6,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 6,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "",
+                "buffOwner": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 0.3
+              }
+            },
+            {
+              "scriptName": "AttackDmgMultiplierDivideByLessThenTargetNum_1",
+              "value": 0.3
+            },
+            {
+              "scriptName": "AttackDmgUpBeforeAttackViaBuffCheckDivideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self",
+                "stack": 20,
+                "turn": 0,
+                "value": 0.01,
+                "limit": 0
+              }
+            },
+            {
+              "scriptName": "TargetNumAdderBBIfMainTargetEnemy2061111",
+              "value": 2
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "UseBuffAllStackAndGiveBuffBeforeAttackIfPrideMax2061111",
+              "value": 999,
+              "buffData": {
+                "buffKeyword": "CriticalDamageUp",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 1
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 100,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAllyBreathOrChargePersonality2061111",
+              "buffData": {
+                "buffKeyword": "AttackDmgUp",
+                "target": "Target",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Target",
+                "stack": 5,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Target",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Target",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "AddShieldOnEndAttackIfTargetAlly",
+              "value": 0.2
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOProtect",
+                "target": "Target",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "HealMpOnEndAttackBothIfTargetAlly",
+              "value": 15
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 6,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 6,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "AttackDmgUpByRatioViaBuffCheckDevideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "",
+                "buffOwner": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 0.5
+              }
+            },
+            {
+              "scriptName": "AttackDmgMultiplierDivideByLessThenTargetNum_1",
+              "value": 0.5
+            },
+            {
+              "scriptName": "AttackDmgUpBeforeAttackViaBuffCheckDivideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self",
+                "stack": 20,
+                "turn": 0,
+                "value": 0.01,
+                "limit": 0
+              }
+            },
+            {
+              "scriptName": "TargetNumAdderBBIfMainTargetEnemy2061111",
+              "value": 2
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "UseBuffAllStackAndGiveBuffBeforeAttackIfPrideMax2061111",
+              "value": 999,
+              "buffData": {
+                "buffKeyword": "CriticalDamageUp",
+                "target": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 1
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 100,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAllyBreathOrChargePersonality2061111",
+              "buffData": {
+                "buffKeyword": "AttackDmgUp",
+                "target": "Target",
+                "stack": 2,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Target",
+                "stack": 5,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Target",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Target",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "AddShieldOnEndAttackIfTargetAlly",
+              "value": 0.2
+            },
+            {
+              "scriptName": "GiveBuffOnEndAttackIfAlly",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOProtect",
+                "target": "Target",
+                "stack": 3,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "HealMpOnEndAttackBothIfTargetAlly",
+              "value": 15
+            },
+            {
+              "scriptName": "DestroyRandomNegativeBuffOnEndAttackIfTargetAlly",
+              "value": 1
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            },
+            {
+              "operatorType": "ADD",
+              "scale": 7,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "CriticalDmgUpByRatio30"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2061121,
+      "skillType": "EGO_EROSION",
+      "skillTier": 3,
+      "requireIDList": [],
+      "skillData": [
+        {
+          "gaksungLevel": 1,
+          "attributeType": "INDIGO",
+          "atkType": "PENETRATE",
+          "defType": "ATTACK",
+          "targetNum": 3,
+          "skillTargetType": "RANDOM",
+          "canTeamKill": true,
+          "canDuel": true,
+          "canChangeTarget": true,
+          "mpUsage": 25,
+          "skillLevelCorrection": 5,
+          "defaultValue": 17,
+          "skillMotion": "Default",
+          "viewType": "SKILL",
+          "parryingCloseType": "NEAR",
+          "abilityScriptList": [
+            {
+              "scriptName": "SkillPowerResultAdderViaBuffCheckDevideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "",
+                "buffOwner": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 2
+              }
+            },
+            {
+              "scriptName": "AttackDmgUpBeforeAttackViaBuffCheckDivideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self",
+                "stack": 10,
+                "turn": 0,
+                "value": 0.01,
+                "limit": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerReducerBB3ByBrokenCoinWithLimit9"
+            },
+            {
+              "scriptName": "RecoverMpByBuffStackOnEndAttack2061121",
+              "value": 5,
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "Self",
+                "stack": 0,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "LoseBuffAllStackOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self"
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 4,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            },
+            {
+              "operatorType": "SUB",
+              "scale": 4,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            },
+            {
+              "operatorType": "SUB",
+              "scale": 4,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 3,
+          "abilityScriptList": [
+            {
+              "scriptName": "SkillPowerResultAdderViaBuffCheckDevideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "",
+                "buffOwner": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 2
+              }
+            },
+            {
+              "scriptName": "AttackDmgMultiplierDivideByLessThenTargetNum_1",
+              "value": 0.3
+            },
+            {
+              "scriptName": "AttackDmgUpBeforeAttackViaBuffCheckDivideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self",
+                "stack": 10,
+                "turn": 0,
+                "value": 0.01,
+                "limit": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerReducerBB3ByBrokenCoinWithLimit9"
+            },
+            {
+              "scriptName": "RecoverMpByBuffStackOnEndAttack2061121",
+              "value": 5,
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "Self",
+                "stack": 0,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "LoseBuffAllStackOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self"
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 4,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "turnLimit": 1,
+                  "buffData": {
+                    "buffKeyword": "PenetrateResultUp",
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "SUB",
+              "scale": 4,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "turnLimit": 1,
+                  "buffData": {
+                    "buffKeyword": "PenetrateDamageUp",
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "SUB",
+              "scale": 4,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "turnLimit": 1,
+                  "buffData": {
+                    "buffKeyword": "IndigoDamageUp",
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "gaksungLevel": 4,
+          "abilityScriptList": [
+            {
+              "scriptName": "SkillPowerResultAdderViaBuffCheck",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "target": "",
+                "buffOwner": "Self",
+                "stack": 999,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 3
+              }
+            },
+            {
+              "scriptName": "SkillPowerResultAdderViaBuffCheckDevideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "",
+                "buffOwner": "Self",
+                "stack": 1,
+                "turn": 0,
+                "activeRound": 0,
+                "value": 3
+              }
+            },
+            {
+              "scriptName": "AttackDmgMultiplierDivideByLessThenTargetNum_1",
+              "value": 0.5
+            },
+            {
+              "scriptName": "AttackDmgUpByDeadAllyCount2061121",
+              "value": 0.1
+            },
+            {
+              "scriptName": "AttackDmgUpBeforeAttackViaBuffCheckDivideByStack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self",
+                "stack": 10,
+                "turn": 0,
+                "value": 0.01,
+                "limit": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Breath",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 3,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "GiveBuffBeforeAttack",
+              "buffData": {
+                "buffKeyword": "Charge",
+                "target": "Self",
+                "buffOwner": "",
+                "stack": 0,
+                "turn": 6,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "SkillPowerReducerBB3ByBrokenCoinWithLimit9"
+            },
+            {
+              "scriptName": "RecoverMpByBuffStackOnEndAttack2061121",
+              "value": 5,
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOSword",
+                "target": "Self",
+                "stack": 0,
+                "turn": 0,
+                "activeRound": 0
+              }
+            },
+            {
+              "scriptName": "LoseBuffAllStackOnEndAttack",
+              "buffData": {
+                "buffKeyword": "DespairKnightEGOMind",
+                "buffOwner": "Self"
+              }
+            }
+          ],
+          "coinList": [
+            {
+              "operatorType": "SUB",
+              "scale": 3,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "turnLimit": 1,
+                  "buffData": {
+                    "buffKeyword": "PenetrateResultUp",
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "SUB",
+              "scale": 3,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "turnLimit": 1,
+                  "buffData": {
+                    "buffKeyword": "PenetrateDamageUp",
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            },
+            {
+              "operatorType": "SUB",
+              "scale": 3,
+              "grade": 2,
+              "color": "GREY",
+              "abilityScriptList": [
+                {
+                  "scriptName": "SuperCoin"
+                },
+                {
+                  "scriptName": "CriticalDmgUpByRatio30"
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "buffData": {
+                    "buffKeyword": "PenetrateTakeDamageUp",
+                    "target": "Target",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                },
+                {
+                  "scriptName": "GiveBuffOnSucceedAttack",
+                  "turnLimit": 1,
+                  "buffData": {
+                    "buffKeyword": "IndigoDamageUp",
+                    "target": "Self",
+                    "buffOwner": "",
+                    "stack": 1,
+                    "turn": 0,
+                    "activeRound": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

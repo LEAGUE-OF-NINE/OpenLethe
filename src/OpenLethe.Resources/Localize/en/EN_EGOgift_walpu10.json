@@ -1,0 +1,103 @@
+{
+  "dataList": [
+    {
+      "id": 9292,
+      "name": "Role Model",
+      "desc": "If there are 2 or more \"Fixer\" Identities in the Team Loadout, activate the following effect for 1 \"Fixer\" ally with the lattermost Deployment Order (excluding Backup units):\n- Upon entering the Encounter for the first time, gain [Emulation]\n\nTurn Start: Allied \"Fixer\" Identities heal 2 SP for every 2 allied \"Fixer\" Identities on the field\n\nIf there are 3 or more \"Fixer\" Identities of the same faction on the field, activate the following effect:\n- Base Attack Skills of allies that have [Emulation] deal +(# of \"Fixer\" allies on the field x 3)% damage (max 15%)\n\nIf there are 3 or more \"Fixer\" Identities of different factions on the field, activate the following effect:\n- On Base Attack Skill Use by an ally that has [Emulation], the said ally gains 1 [Enhancement] (2 times per turn)\n- On Hit using a Base Attack Skill by an ally that has [Emulation], inflict 1 [Vulnerable] (2 times per turn; in Focused Encounters, the Part)",
+      "simpleDesc": [
+        {
+          "abilityID": 9292,
+          "simpleDesc": ""
+        }
+      ]
+    },
+    {
+      "id": 9293,
+      "name": "Carefully-selected Medicinal Herbs",
+      "desc": "Attack Skills additionally triggered by Skills that have the [ComboSkill] effect or triggered by allies' Skill / Passive effects deal +10% damage\n- Deal an additional +2% damage every time the above effect activates (max 10%)\n- For Skills that have the [ComboSkill] effect, gain 1 [AttackDmgUp] every time the said Skills are used (max 2 per Identity)\n- If the ally is a \"<noparse>Dawn Office</noparse>\" or \"<noparse>Wedge Office</noparse>\" Identity, the said ally gains 1 [Enhancement] (max 2 per Identity)",
+      "simpleDesc": [
+        {
+          "abilityID": 9293,
+          "simpleDesc": "<noparse>Deal more damage</noparse>, gain [AttackDmgUp]. Gain [Enhancement] upon fulfilling conditions"
+        }
+      ]
+    },
+    {
+      "id": 9294,
+      "name": "Hollow Pride",
+      "desc": "Encounter Start: Apply [CursedBlessing] to 1 random ally\nThis E.G.O Gift changes into \"Pride of the Knight\" after 6 Encounter wins in which the Identity that has [CursedBlessing] survives\n{0}",
+      "simpleDesc": [
+        {
+          "abilityID": 9294,
+          "simpleDesc": "Apply [CursedBlessing]"
+        }
+      ]
+    },
+    {
+      "id": 9295,
+      "name": "Pride of the Knight",
+      "desc": "[Effects apply only to #1 Deployed Identity]\nRemove all Stagger thresholds\nEncounter Start: Apply [BeyondDespair]",
+      "simpleDesc": [
+        {
+          "abilityID": 9295,
+          "simpleDesc": "Apply [BeyondDespair]"
+        }
+      ]
+    },
+    {
+      "id": 9296,
+      "name": "Sword Laced with Grief",
+      "desc": "Pierce Base Skills that inflict [Sinking] Potency, Count, or Unique [Sinking] gain Final Power +1\n\nOn Hit by an ally using a Skill, if target has -20 or lower SP, deal Gloom damage equal to [Sinking] Potency to target (once per Skill)\n- If the said Skill was a Pierce Skill, deal additional fixed damage equal to ([Sinking] Count on target / 2) (once per Skill)\n\n[Lobotomy E.G.O::<noparse>The Sword Sharpened with Tears</noparse> Rodion Exclusive Effect]\nOn Hit against an enemy using the final Coin of a Base Skill that consumes [Charge] and has 1 Atk Weight, deal Pride damage to all enemies equal to ([Charge] Potency consumed)% of final damage (including Unique [Charge])\n\n[<noparse>The Sword Sharpened with Tears</noparse> Hong Lu E.G.O Skill Exclusive Effect]\nE.G.O Skill Final Power +1",
+      "simpleDesc": [
+        {
+          "abilityID": 9296,
+          "simpleDesc": "Skills gain Final Power, deal Gloom damage; if target has low SP, deal fixed damage"
+        }
+      ]
+    },
+    {
+      "id": 9297,
+      "name": "White Cravat",
+      "desc": "Turn Start: Activates when there are 3 or more \"<noparse>Wedge Office</noparse>\" Identities (counts Backup Identities)\n\n[<noparse>Wedge Office</noparse> Rep Outis Exclusive Effect]\n- Turn Start: If the condition above was met for the first time, gain 20 [ComboWedge]\n- Upon using \"Assume Wedge Formation\", \"... All units, engage for collision.\", \"The Wedge in the Wake of Dawnbreak\", gain 1 [ComboWedgeDawn] next turn (2 times per turn)\n- If \"Assume Wedge Formation\" was used, regain half of the consumed [ComboWedge] at the next Turn Start (once per turn, rounded down)",
+      "simpleDesc": [
+        {
+          "abilityID": 9297,
+          "simpleDesc": "Gain [ComboWedge] or [ComboWedgeDawn]"
+        }
+      ]
+    },
+    {
+      "id": 9298,
+      "name": "Black Tricorne",
+      "desc": "In a Clash, inflict 2 [Vibration] on the enemy for every Clash (3 times per Skill)\n\nOn Crit by an ally using a Basic Attack Skill against enemies, if the main target has [Vibration], trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1 (once per Skill)\n- If the enemy is in [Switch_Vibration] state, deal +10% damage on Critical Hit\n- If the enemy is in [VibrationNesting] state, deal an additional +5% damage on Critical Hit for each type of <noparse>superposed</noparse> Unique [Vibration] (max 25%)",
+      "simpleDesc": [
+        {
+          "abilityID": 9298,
+          "simpleDesc": "In a Clash, inflict Tremor\nTrigger Tremor Burst when conditions are met, Skills deal more damage on Critical Hit"
+        }
+      ]
+    },
+    {
+      "id": 9299,
+      "name": "Backup Body Adaptation Device",
+      "desc": "When triggering [VibrationExplosion] on enemies that have [VibrationCollapse], deal Sloth damage to each target equal to (each target's Defense Level reduction)% of the damage dealt (max 15%)",
+      "simpleDesc": [
+        {
+          "abilityID": 9299,
+          "simpleDesc": "Sloth damage"
+        }
+      ]
+    },
+    {
+      "id": 9300,
+      "name": "Broken Spearhead",
+      "desc": "On Crit using a Pierce Base Attack Skill, inflict [EmbeddedSpearhead] on target at Attack End (once per turn per Identity; in Focused Encounters, the Parts)",
+      "simpleDesc": [
+        {
+          "abilityID": 9300,
+          "simpleDesc": "Inflict [EmbeddedSpearhead]"
+        }
+      ]
+    }
+  ]
+}

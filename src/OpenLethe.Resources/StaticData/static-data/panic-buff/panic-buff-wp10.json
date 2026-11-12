@@ -1,0 +1,192 @@
+{
+  "list": [
+    {
+      "id": "DAWN_OFFICE",
+      "buffA": {
+        "id": "DawnOffice_LowMorale",
+        "iconId": "BloodPocket_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBsGaugeUpMultiplierViaBuffCheck",
+            "value": 0.05,
+            "buffData": {
+              "buffKeyword": "Vibration",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "AtkDamageMultiplierViaBuffCheck",
+            "value": -0.05,
+            "buffData": {
+              "buffKeyword": "Combustion",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "DawnOffice_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBsGaugeUpMultiplierViaBuffCheck",
+            "value": 0.1,
+            "buffData": {
+              "buffKeyword": "Vibration",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "AtkDamageMultiplierViaBuffCheck",
+            "value": -0.1,
+            "buffData": {
+              "buffKeyword": "Combustion",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "WEDGE_OFFICE",
+      "buffA": {
+        "id": "WedgeOffice_LowMorale",
+        "iconId": "BloodPocket_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "CriticalAtkDamageMultiplier",
+            "value": -0.05
+          },
+          {
+            "ability": "GiveBsGaugeUpMultiplierViaBuffCheck",
+            "value": 0.05,
+            "buffData": {
+              "buffKeyword": "Vibration",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "WedgeOffice_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "CriticalAtkDamageMultiplier",
+            "value": -0.1
+          },
+          {
+            "ability": "GiveBsGaugeUpMultiplierViaBuffCheck",
+            "value": 0.1,
+            "buffData": {
+              "buffKeyword": "Vibration",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "WAX_WING",
+      "buffA": {
+        "id": "WaxWing_LowMorale",
+        "iconId": "BloodPocket_LowMorale",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "AtkDamageMultiplierViaBuffCheck",
+            "value": 0.1,
+            "buffData": {
+              "buffKeyword": "Combustion",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      },
+      "buffB": {
+        "id": "WaxWing_Panic",
+        "stack": 1,
+        "turn": 0,
+        "buffClass": "VolatileBuff",
+        "buffType": "Neutral",
+        "canBeDespelled": false,
+        "list": [
+          {
+            "ability": "GiveBuffOnPanicOrLowMorale",
+            "buffData": {
+              "buffKeyword": "Vulnerable",
+              "target": "IfAbnormalityAllPartsOrSelf",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          },
+          {
+            "ability": "AtkDamageMultiplierViaBuffCheck",
+            "value": 0.25,
+            "buffData": {
+              "buffKeyword": "Combustion",
+              "buffOwner": "Target",
+              "stack": 1,
+              "turn": 0,
+              "activeRound": 0
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

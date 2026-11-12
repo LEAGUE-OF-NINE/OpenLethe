@@ -1,0 +1,555 @@
+{
+  "list": [
+    {
+      "id": "EmbeddedSpearhead",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "list": [
+        {
+          "ability": "EmbeddedSpearhead",
+          "atk": "PENETRATE",
+          "value": 0.15
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierIfComboSkill",
+          "value": 0.2
+        },
+        {
+          "ability": "LoseAllStackOnEndEnemyAttack"
+        }
+      ]
+    },
+    {
+      "id": "Emulation",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "GiveBuffOnWinDuel",
+          "buffData": {
+            "buffKeyword": "Emulation",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAByDefaultSkill",
+          "buffData": {
+            "buffKeyword": "Emulation",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnKillEnemyTarget",
+          "buffData": {
+            "buffKeyword": "Emulation",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnWinDuelOtherAlly",
+          "value" : 2,
+          "buffData": {
+            "buffKeyword": "Emulation",
+            "target": "Self",
+            "stack": -1,
+            "turn": 0,
+            "activeRound": 0,
+            "value" : 4
+          }
+        },
+        {
+          "ability": "DefaultAtkSkillAtkDamageMultiplierByStackWithLimit_30",
+          "value": 0.01
+        },
+        {
+          "ability": "DefaultAtkSkillParryingResultAdderDevideByStack",
+          "buffData": {
+            "stack": 10,
+            "value": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "DefaultAtkSkillCoinScaleAdderViaBuffCheck",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Emulation",
+            "buffOwner": "Self",
+            "stack": 20,
+            "turn": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "CursedBlessing",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TauntAllSlot",
+          "value": 2000
+        },
+        {
+          "ability": "TakeAbsMpDmgSelfOnUseAttackSkill",
+          "value": 20
+        },
+        {
+          "ability": "GiveAbsMpDmgOtherAlliesOnDie",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "id": "BeyondDespair",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "maxStack": 1,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "target": "Self",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStart",
+          "buffData": {
+            "buffKeyword": "Enhancement",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnStartTurnDefenseSkillWithTurnLimit",
+          "buffData": {
+            "buffKeyword": "Endurance",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "RecoverSelfMpOnWinDuelOrDestroyNegativeIfMaxMp_5_2"
+        },
+        {
+          "ability": "GiveAttributeDmgOnEndDefaultSkillByDealtDmgRatio",
+          "attribute": "INDIGO",
+          "value": 0.1
+        },
+        {
+          "ability": "ImmortalThisRoundOncePerBattleThenRecoverHpAndDmgUp",
+          "buffData": {
+            "buffKeyword": "Protection",
+            "buffOwner": "Self",
+            "value": 0.1,
+            "limit": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "PatronLibrarianofHistorysPage",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "TrainTeamCaptain"
+        },
+        {
+          "ability": "GiveNegativeSinBuffStackAdderForCaptain",
+          "value": 1
+        },
+        {
+          "ability": "TakeBreathCategoryStackAdderForCaptain",
+          "value": 1
+        },
+        {
+          "ability": "TakeChargeCategoryTurnAdderForCaptain",
+          "value": 1
+        },
+        {
+          "ability": "AtkDamageMultiplier",
+          "atk": "PENETRATE",
+          "value": 0.3
+        },
+        {
+          "ability": "WalpuSinStockAdderOnSucceedAttack_limit2",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "EmotionLevelZero",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 9,
+      "list": [
+        {
+          "ability": "GiveBuffOnWinDuel",
+          "buffData": {
+            "buffKeyword": "EmotionLevelZero",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAH",
+          "buffData": {
+            "buffKeyword": "EmotionLevelZero",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnKillTarget",
+          "buffData": {
+            "buffKeyword": "EmotionLevelZero",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnLoseDuel",
+          "buffData": {
+            "buffKeyword": "EmotionLevelZero",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAT",
+          "buffData": {
+            "buffKeyword": "EmotionLevelZero",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnAllyDie",
+          "buffData": {
+            "buffKeyword": "EmotionLevelZero",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TakeSinBuffDamageMultiplier",
+          "value": -0.75,
+          "buffData": {
+            "buffKeyword": "Combustion"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EmotionLevelOne",
+      "subIdList": [
+        "EmotionLevelZero"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 19,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnWinDuel",
+          "buffData": {
+            "buffKeyword": "EmotionLevelOne",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAH",
+          "buffData": {
+            "buffKeyword": "EmotionLevelOne",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnKillTarget",
+          "buffData": {
+            "buffKeyword": "EmotionLevelOne",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnLoseDuel",
+          "buffData": {
+            "buffKeyword": "EmotionLevelOne",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAT",
+          "buffData": {
+            "buffKeyword": "EmotionLevelOne",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnAllyDie",
+          "buffData": {
+            "buffKeyword": "EmotionLevelOne",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TakeSinBuffDamageMultiplier",
+          "value": -0.75,
+          "buffData": {
+            "buffKeyword": "Combustion"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EmotionLevelTwo",
+      "subIdList": [
+        "EmotionLevelZero"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 29,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 2
+        },
+        {
+          "ability": "GiveBuffOnWinDuel",
+          "buffData": {
+            "buffKeyword": "EmotionLevelTwo",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAH",
+          "buffData": {
+            "buffKeyword": "EmotionLevelTwo",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnKillTarget",
+          "buffData": {
+            "buffKeyword": "EmotionLevelTwo",
+            "target": "Self",
+            "stack": 3,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnLoseDuel",
+          "buffData": {
+            "buffKeyword": "EmotionLevelTwo",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnSAT",
+          "buffData": {
+            "buffKeyword": "EmotionLevelTwo",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnAllyDie",
+          "buffData": {
+            "buffKeyword": "EmotionLevelTwo",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TakeSinBuffDamageMultiplier",
+          "value": -0.75,
+          "buffData": {
+            "buffKeyword": "Combustion"
+          }
+        }
+      ]
+    },
+    {
+      "id": "EmotionLevelThree",
+      "subIdList": [
+        "EmotionLevelZero"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 3
+        },
+        {
+          "ability": "TakeSinBuffDamageMultiplier",
+          "value": -0.75,
+          "buffData": {
+            "buffKeyword": "Combustion"
+          }
+        }
+      ]
+    },
+    {
+      "id": "HistoryAshes",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HistoryAshesGiveBuffToAttackerOnTakeAttackDamage_min1_max3",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 0,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "HistoryAshesGiveBuffOnSAByReserveOnTakeAttackDamage",
+          "value": 0.4,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "HistoryNostalgicEmbraceOfTheOldDays",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HistoryNostalgicEmbraceOfTheOldDaysVibrationExplosionOnWinDuel_base20_per2_max50"
+        }
+      ]
+    },
+    {
+      "id": "HistoryGluttony",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "HistoryGluttonyGiveAbsDmg_min1_max3"
+        },
+        {
+          "ability": "HistoryGluttonyRecoverHp_min2_max5"
+        }
+      ]
+    }
+  ]
+}

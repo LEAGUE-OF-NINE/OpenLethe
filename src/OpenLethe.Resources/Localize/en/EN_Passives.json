@@ -3346,7 +3346,7 @@
     {
       "id": 1031504,
       "name": "The Lord's Will and Values Be With Us...",
-      "desc": "Before Attack of another \"Le Noir\" allied Identity on an enemy, this unit uses \"Judgment!\" Skill as an Unopposed Attack against the main target (once per turn)\n\nOn the final Coin Start of a Base Skill, the said Coin gains Final Power +([ChargeNoirAlly] Potency on self + ([NoirNailDonQuixote] on target / 2)) (max 5)\n\nIf this unit has [OathFieldDonQuixote], Base Skill 1/2/3 gains Clash Power +1/+2/+3\n\nWhen [VibrationExplosion] triggers on a target that has [NoirNailDonQuixote], this unit and 1 other allied [PersonalityCharge] that has the lowest [Charge] Count gain +2 [Charge] Count (2 times per turn)",
+      "desc": "Before another \"Le Noir\" allied Identity uses Attack Skills or Counter Skills on an enemy, this unit uses \"Judgment!\" Skill as an Unopposed Attack against the main target (once per turn)\n\nOn the final Coin Start of a Base Skill, the said Coin gains Final Power +([ChargeNoirAlly] Potency on self + ([NoirNailDonQuixote] on target / 2)) (max 5)\n\nIf this unit has [OathFieldDonQuixote], Base Skill 1/2/3 gains Clash Power +1/+2/+3\n\nWhen [VibrationExplosion] triggers on a target that has [NoirNailDonQuixote], this unit and 1 other allied [PersonalityCharge] that has the lowest [Charge] Count gain +2 [Charge] Count (2 times per turn)",
       "summary": "Use \"Judgment!\" Skill before a \"Le Noir\" ally attacks\nBase Skill final Coins gain Final Power\nIf [OathFieldDonQuixote] is active, Base Skills gain Clash Power\nGain [Charge] Count when triggering [VibrationExplosion] on targets that have [NoirNailDonQuixote]",
       "flavor": "The Obsidian God's words be our guiding light, our armor and shield in this troubled world of uncertainties; becometh His Voice the shining beam of light upon us, thereby bestowing us with meaning so coveted."
     },
@@ -3442,6 +3442,118 @@
       "id": 1061721,
       "name": "Tuck Them Under a Blanket",
       "desc": "The first Identity to use an [SupportProtect] exclusive Skill in a turn gains 1 [Protection] on said Skill Use (once per turn)"
+    },
+    {
+      "id": 1111601,
+      "name": "Wedge-style Spearmanship",
+      "desc": "Increase the Stagger Threshold raise by +10% for [VibrationExplosion] triggered by this unit's Skills\nCombat Start: Gain 1 [PenetrateResultUp] and 1 [PenetrateDamageUp]",
+      "flavor": "There is only so much piercing power to be gained from sharpening a spearhead. Spears forged from Patented alloys or rare materials recovered from the Ruins may offer greater results, but their price can rival several years' worth of an ordinary Fixer Office's budget. A far more economical approach is to harness the surrounding currents of wind and coil them around the weapon, granting it formidable piercing power at a fraction of the cost. The technique is well-established, with many Workshops offering their own implementations.\nWedge Office's spears are the handiwork of one such Workshop. Combined with the Office's distinctive spearwork, which makes masterful use of twisting and rotational movements, these weapons have run countless foes through."
+    },
+    {
+      "id": 1111602,
+      "name": "Unrelenting",
+      "desc": "In this Encounter, when this unit takes damage that brings its HP down to 0, apply the following effects (once per Encounter):\n- Nullify that damage; then, this unit's HP cannot drop below 1 for the turn\n- Turn End: Heal 50% HP\n- Take -20% damage for this Encounter",
+      "summary": "When this unit takes damage that brings their HP down to 0, nullify that damage; then, this unit's HP cannot drop below 1"
+    },
+    {
+      "id": 1111603,
+      "name": "Wedge Office",
+      "desc": "Turn Start: If there are 2+ allied \"Wedge Office[TabExplain]\" Identities (including this unit) on the field, apply [WedgeOffice] Stack on all allied \"Wedge Office[TabExplain]\" Identities equal to the number of the said Identities on the field",
+      "summary": "Apply [WedgeOffice]"
+    },
+    {
+      "id": 1111604,
+      "name": "Assistance of the Wedge",
+      "desc": "On Skill Use by an allied Identity (including this unit), gain 1 [ComboWedge] (once per turn per Identity)\nOn Clash Win by an allied \"Wedge Office[TabExplain]\" or \"Dawn Office[TabExplain]\" Identity, gain 2 [ComboWedge] (once per turn per Identity)\n\nAt this unit's Attack End, if this unit has 25+ [ComboWedge], use \"Assume Wedge Formation\" (once per turn)",
+      "summary": "At 25+ [ComboWedge], use \"Assume Wedge Formation\"",
+      "flavor": "Most Fixer Offices work together to make up for one another's shortcomings.\n\nSome Offices, however, find themselves so perfectly in sync that their partnership grows into something more. As they exchange information and forge deeper bonds of trust, they may eventually come to regard one another as siblings."
+    },
+    {
+      "id": 1111605,
+      "name": "Dawn - Wedge",
+      "desc": "Apply the following when allied Dawn Office[TabExplain] Rep Gregor Identity uses the \"Crack of Dawn\" Skill:\n- [ComboSkill]: Wedge Office[TabExplain] Rep Outis\n · [WhenUse] Deal +30% damage\n · [WhenUse] Allied Wedge Office[TabExplain] Rep Outis gains 1 [ComboWedgeDawn]\n\nTurn Start: Convert one of this unit's Base Skills based on [ComboWedgeDawn] Stack on self\n · At 4 [ComboWedgeDawn], convert the said Skill into \"... All units, engage for collision.\"\n · At 5 [ComboWedgeDawn], convert the said Skill into \"The Wedge in the Wake of Dawnbreak\"\n(prioritizes the Skill on the leftmost Slot's bottom row on this unit's Dashboard. If this unit already has one of the Skills above, the said Skill will not be duplicated; instead, the said Skill will be replaced by the Skill corresponding to the [ComboWedgeDawn] Stack condition)",
+      "summary": "Empower Dawn Office[TabExplain] Rep Gregor's \"Crack of Dawn\" Skill"
+    },
+    {
+      "id": 1111621,
+      "name": "Acceleration Lance",
+      "desc": "All allies' Pierce Skills deal +5% damage"
+    },
+    {
+      "id": 1031601,
+      "name": "Hunters of the City",
+      "desc": "Combat End: At 10+ [Breath] Potency, gain 1 [Agility] next turn\n\nAt more than 20 [Breath] Potency, Base Skills deal +(excess Potency)% damage on Critical Hit (max 15%)",
+      "summary": "At sufficient [Breath] Potency, gain [Agility] next turn\nAt excess [Breath] Potency, Base Skills deal more damage on Critical Hit",
+      "flavor": "The streets of the City are never short of vile and savage company after dark. Rats desperate to turn their lives around, denizens of the Backstreets harboring dreams of revenge, Syndicates and Fingers embroiled in struggles over their interests... and, of course, the Sweepers.\n\nFor all the fortunes to be made from working after sundown, few Fixers are eager to accept such contracts. There are, however, those who find their greatest opportunities precisely where others dare not tread.\n\nThe discernment to read any situation with remarkable precision. The swiftness and thoroughness to bring a job to its conclusion without inviting further trouble. With these two qualities as its greatest assets, Wedge Office has weathered every contract and walked away with the handsome compensation that follows."
+    },
+    {
+      "id": 1031602,
+      "name": "Ho, Young Sinclair! Thou Must Keep Apace!!",
+      "desc": "In the Team Loadout menu:\n- Equipping <noparse>Wedge Office</noparse> Fixer Don Quixote automatically equips Sinclair's Identity as <noparse>Wedge Office</noparse> Fixer Sinclair\n- When <noparse>Wedge Office</noparse> Fixer Sinclair is unequipped, automatically equip the most recently equipped Identity that isn't <noparse>Wedge Office</noparse> Fixer Don Quixote (If <noparse>Wedge Office</noparse> Fixer Don Quixote Identity was already equipped when entering the Team Loadout menu, removing this Identity will automatically equip the LCB Sinner Don Quixote Identity instead)\n\nFrom Turn Start ~ before Combat Start: If this unit's Speed is slower than allied <noparse>Wedge Office</noparse> Fixer Sinclair Identity's Speed, become faster until their Speed values are equal (this effect does not activate if either of the two Identities is at -45 SP, or is under an effect that fixes their Speed)",
+      "summary": "When Deployed, automatically Deploy the counterpart Identity for Sinclair\nIf this unit's Speed is slower than Sinclair's, become faster until their Speed values are equal\n"
+    },
+    {
+      "id": 1031603,
+      "name": "Wedge Drive",
+      "desc": "Turn Start: Gain 1 [BattleFieldKnow]\n\nIf any of the following conditions are met, inflict 1 [WedgeMarkYellow] on the main target (once per turn)\n- On final Coin Hit using an Attack Skill against the main target\n- Upon using this unit's Evade Skill to successfully evade all of the attacker's Coins",
+      "summary": "Turn Start: Gain [BattleFieldKnow]\nWhen conditions are met, inflict [WedgeMarkYellow] on the main target"
+    },
+    {
+      "id": 1031604,
+      "name": "Back-to-back in Dawnbreak's Light",
+      "desc": "When the allied <noparse>Dawn Office</noparse> Fixer Faust Identity uses the \"Dismemberment at High Noon\" Skill, the Skill's Coin 1 gains the following effects (once per turn):\n- [ComboSkill]: <noparse>Wedge Office</noparse> Fixer Don Quixote\n  · [OnSucceedAttack] Inflict 2 [Combustion] and +2 [Combustion] Count\n  · [OnSucceedAttack] Inflict 2 [Vibration]\n  · [OnSucceedAttack] Inflict 1 [WedgeMarkYellow]\n  · [OnSucceedAttack] Allied <noparse>Wedge Office</noparse> Rep Outis Identity gains 1 [ComboWedgeDawn]",
+      "summary": "On Combo Attack, On Hit using the \"Dismemberment at High Noon\" Skill's Coin 1, inflict [Combustion], [Vibration], [WedgeMarkYellow], and [Combustion] Count; Outis gains [ComboWedgeDawn]"
+    },
+    {
+      "id": 1031611,
+      "name": "Hunters of the City",
+      "desc": "Combat End: At 10+ [Breath] Potency, gain 1 [Agility] next turn\n\nAt more than 20 [Breath] Potency, Base Skills deal +(excess Potency)% damage on Critical Hit (max 25%)",
+      "summary": "At sufficient [Breath] Potency, gain [Agility] next turn\nAt excess [Breath] Potency, Base Skills deal more damage on Critical Hit",
+      "flavor": "The streets of the City are never short of vile and savage company after dark. Rats desperate to turn their lives around, denizens of the Backstreets harboring dreams of revenge, Syndicates and Fingers embroiled in struggles over their interests... and, of course, the Sweepers.\n\nFor all the fortunes to be made from working after sundown, few Fixers are eager to accept such contracts. There are, however, those who find their greatest opportunities precisely where others dare not tread.\n\nThe discernment to read any situation with remarkable precision. The swiftness and thoroughness to bring a job to its conclusion without inviting further trouble. With these two qualities as its greatest assets, Wedge Office has weathered every contract and walked away with the handsome compensation that follows."
+    },
+    {
+      "id": 1031621,
+      "name": "Reconnaissance",
+      "desc": "When 1 ally with the fastest Speed uses a Skill to Clash, inflict 3 [Vibration] Potency on the target of the Clash (once per turn; for Focused Encounters, the Part)",
+      "summary": "The fastest ally inflicts [Vibration] Potency against the target it's Clashing against"
+    },
+    {
+      "id": 1101701,
+      "name": "Hunters of the City",
+      "desc": "Combat End: At 10+ [Breath] Potency, gain 1 [Agility] next turn\n\nAt more than 20 [Breath] Potency, Base Skills deal +(excess Potency)% damage on Critical Hit (max 15%)",
+      "summary": "At sufficient [Breath] Potency, gain [Agility] next turn\nAt excess [Breath] Potency, Base Skills deal more damage on Critical Hit",
+      "flavor": "The streets of the City are never short of vile and savage company after dark. Rats desperate to turn their lives around, denizens of the Backstreets harboring dreams of revenge, Syndicates and Fingers embroiled in struggles over their interests... and, of course, the Sweepers.\n\nFor all the fortunes to be made from working after sundown, few Fixers are eager to accept such contracts. There are, however, those who find their greatest opportunities precisely where others dare not tread.\n\nThe discernment to read any situation with remarkable precision. The swiftness and thoroughness to bring a job to its conclusion without inviting further trouble. With these two qualities as its greatest assets, Wedge Office has weathered every contract and walked away with the handsome compensation that follows."
+    },
+    {
+      "id": 1101702,
+      "name": "Don Quixote... Please focus on the task at hand.",
+      "desc": "In the Team Loadout menu:\n- Equipping <noparse>Wedge Office</noparse> Fixer Sinclair automatically equips Don Quixote's Identity as <noparse>Wedge Office</noparse> Fixer Don Quixote\n- When <noparse>Wedge Office</noparse> Fixer Don Quixote is unequipped, automatically equip the most recently equipped Identity that isn't <noparse>Wedge Office</noparse> Fixer Sinclair (If <noparse>Wedge Office</noparse> Fixer Sinclair Identity was already equipped when entering the Team Loadout menu, removing this Identity will automatically equip the LCB Sinner Sinclair Identity instead)\n\nFrom Turn Start ~ before Combat Start: If this unit's Speed is slower than allied <noparse>Wedge Office</noparse> Fixer Don Quixote Identity's Speed, become faster until their Speed values are equal (this effect does not activate if either of the two Identities is at -45 SP, or is under an effect that fixes their Speed)",
+      "summary": "When Deployed, automatically Deploy the counterpart Identity for Don Quixote\nIf this unit's Speed is slower than Don Quixote's, become faster until their Speed values are equal"
+    },
+    {
+      "id": 1101703,
+      "name": "Wedge Drive",
+      "desc": "Turn Start: Gain 1 [BattleFieldKnow]\n\nIf any of the following conditions are met, inflict 1 [WedgeMarkGreen] on the main target (once per turn)\n- On final Coin Hit using an Attack Skill against the main target\n- Upon using this unit's Evade Skill to successfully evade all of the attacker's Coins",
+      "summary": "Turn Start: Gain [BattleFieldKnow]\nWhen conditions are met, inflict [WedgeMarkGreen] on the main target"
+    },
+    {
+      "id": 1101704,
+      "name": "Back-to-back in Dawnbreak's Light",
+      "desc": "When the allied <noparse>Dawn Office</noparse> Fixer Faust Identity uses the \"Dismemberment at High Noon\" Skill, the Skill's Coin 2 gains the following effects (once per turn):\n- [ComboSkill]: <noparse>Wedge Office</noparse> Fixer Sinclair\n  · [OnSucceedAttack] Inflict 2 [Combustion] and +2 [Combustion] Count\n  · [OnSucceedAttack] Inflict 2 [Vibration]\n  · [OnSucceedAttack] Inflict 1 [WedgeMarkGreen]\n  · [OnSucceedAttack] Allied <noparse>Wedge Office</noparse> Rep Outis Identity gains 1 [ComboWedgeDawn]",
+      "summary": "On Combo Attack, On Hit using the \"Dismemberment at High Noon\" Skill's Coin 2, inflict [Combustion], [Vibration], [WedgeMarkGreen], and [Combustion] Count; Outis gains [ComboWedgeDawn]"
+    },
+    {
+      "id": 1101711,
+      "name": "Hunters of the City",
+      "desc": "Combat End: At 10+ [Breath] Potency, gain 1 [Agility] next turn\n\nAt more than 20 [Breath] Potency, Base Skills deal +(excess Potency)% damage on Critical Hit (max 25%)",
+      "summary": "At sufficient [Breath] Potency, gain [Agility] next turn\nAt excess [Breath] Potency, Base Skills deal more damage on Critical Hit",
+      "flavor": "The streets of the City are never short of vile and savage company after dark. Rats desperate to turn their lives around, denizens of the Backstreets harboring dreams of revenge, Syndicates and Fingers embroiled in struggles over their interests... and, of course, the Sweepers.\n\nFor all the fortunes to be made from working after sundown, few Fixers are eager to accept such contracts. There are, however, those who find their greatest opportunities precisely where others dare not tread.\n\nThe discernment to read any situation with remarkable precision. The swiftness and thoroughness to bring a job to its conclusion without inviting further trouble. With these two qualities as its greatest assets, Wedge Office has weathered every contract and walked away with the handsome compensation that follows."
+    },
+    {
+      "id": 1101721,
+      "name": "Keeping Pace",
+      "desc": "Turn End: Apply 1 [Agility] next turn on the allied Identity with the slowest Speed (prioritize \"Fixer\" Identities)\n- If the said Identity is a \"Fixer\", apply 1 [AttackUp] and 1 [Agility] next turn instead",
+      "summary": "Apply [Agility] next turn for the slowest ally\nIf the said ally is a \"Fixer\", apply [Agility] and [AttackUp] next turn"
     }
   ]
 }

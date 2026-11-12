@@ -18,6 +18,28 @@
           "value": 1
         }
       ]
+    },
+    {
+      "id": "SoundOfStorm",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "CoinScaleAdderByStack",
+          "value": 1
+        },
+        {
+          "ability": "DefaultSkillDamageMultiplierByStackIfOppnentTarget",
+          "value": 0.15
+        },
+        {
+          "ability": "DestroyBuffIfNotWildHunt"
+        }
+      ]
     }
   ]
 }

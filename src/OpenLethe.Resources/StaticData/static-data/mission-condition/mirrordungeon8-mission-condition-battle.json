@@ -1,0 +1,212 @@
+{
+  "list": [
+    {
+      "id": 201005001,
+      "type": "ATTACK_DMG_PER_ONE_SKILL",
+      "valueType": "PEAK",
+      "conditions": [
+      ],
+      "uiConfig": {
+        "textTags": [ "value" ]
+      }
+    },
+    {
+      "id": 201005002,
+      "type": "ATTACK_DMG_PER_ONE_SKILL",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "DAMAGE", "min": 5000 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005003,
+      "type": "ATTACK_DMG_PER_ONE_SKILL",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "DAMAGE", "min": 10000 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005004,
+      "type": "ATTACK_DMG_PER_ONE_SKILL",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "DAMAGE", "min": 20000 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005005,
+      "type": "ATTACK_DMG_PER_ONE_SKILL",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "DAMAGE", "min": 25000 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005006,
+      "type": "GIVE_BUFF_STACK_FOR_ENEMY",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "BUFF_STACK", "ids": [ 38 ], "min": 99 }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201005007,
+      "type": "GIVE_BUFF_STACK_FOR_ENEMY",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "BUFF_STACK", "ids": [ 39 ], "min": 99 }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201005008,
+      "type": "GIVE_BUFF_STACK_FOR_ENEMY",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "BUFF_STACK", "ids": [ 40 ], "min": 99 }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201005009,
+      "type": "GIVE_BUFF_STACK_FOR_ENEMY",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "BUFF_STACK", "ids": [ 41 ], "min": 99 }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201005010,
+      "type": "GIVE_BUFF_STACK_FOR_ENEMY",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "BUFF_STACK", "ids": [ 42 ], "min": 99 }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201005011,
+      "type": "GIVE_BUFF_STACK_FOR_ALLY",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "BUFF_STACK", "ids": [ 43 ], "min": 99 }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201005012,
+      "type": "GIVE_BUFF_STACK_FOR_ALLY",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "BUFF_STACK", "ids": [ 6 ], "min": 10 }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201005014,
+      "type": "ALLY_SPEED_COUNT_ON_ROUND",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "ALLY_COUNT", "min": 6 },
+        { "target": "SPEED", "min": 12 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005015,
+      "type": "USE_CHARGE_TURN_BY_ATTACK_SKILL_ON_ROUND",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "USED_CHARGE_TURN", "min": 100 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005016,
+      "type": "CLEAR_WITH_SUPPORTIVE_DEFENSE_COUNT",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "USE_SKILL_COUNT", "min": 5 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005017,
+      "type": "GET_SHIELD_FOR_ALLY_ON_ROUND",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "GAINED_SHIELD", "min": 1000 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005018,
+      "type": "KILL_BY_CYCLE_ON_STATUE",
+      "valueType": "ACCUMULATED",
+      "conditions": [
+        { "target": "KILL_COUNT", "min": 4 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201005019,
+      "type": "SWITCH_VIBRATION_BY_KIND_ON_ROUND",
+      "valueType": "PEAK",
+      "conditions": [],
+      "uiConfig": {
+        "textTags": [ "value" ]
+      }
+    },
+    {
+      "id": 201005101,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "FLOOR", "min": 10 },
+        { "target": "EGOGIFT", "filters": [ { "key": "combine", "names": [ "ANY" ] } ], "max": 0 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    }
+  ]
+}

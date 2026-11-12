@@ -1,0 +1,1294 @@
+{
+  "dataList": [
+    {
+      "id": 158001,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Handle Request",
+          "desc": "[BeforeAttack] Heal 10 SP\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Gain 1 [ResultEnhancement] next turn"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158002,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Flash of Sunup",
+          "desc": "[WhenUse] At 15+ [DawnOfficeStigmaSOne], this Skill gains an extra Coin 2 as an [SuperCoin]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Combustion] Count"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Vibration] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158003,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Sunset Blade",
+          "desc": "[WhenUse] At 15+ [DawnOfficeStigmaSOne], apply the following effects:\n- Gains an extra Coin 3 as an [SuperCoin]\n- On Hit using the extra Coin, trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Combustion] Count"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Vibration] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158004,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Dawnsplitter",
+          "desc": "[WhenUse] Final Power +1 and deal +10% damage for every 10 [DawnOfficeStigmaSOne] on self\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Trigger [Switch_Vibration] into [VibrationIgnition]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once. Target loses 1 [Combustion] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158005,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Crack of Dawn",
+          "desc": "[WhenUse] Deal +20% damage for every target (max 60%)\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target\n[EndSkill] Heal (total sum of [Combustion] Potency on all targets x 2)% HP (max 30%)\n[EndSkill] Consume all [DawnOfficeStigmaSOne] and [Combustion] on self",
+          "flavor": "At one of the countless raging battlefields of the Smoke War, this very technique melted down and cleaved through a certain decisive weapon's last pair of wings and the space it inhabited, heralding the dawn's end.\n\n\"Hah... That almost killed me...!\"\n\"Lady, do you think... you can finish that monster off?\"",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 5 [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 5 [Vibration]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Trigger [Switch_Vibration] into [VibrationIgnition]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Trigger [VibrationExplosion] 2 times"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on the target 2 times"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158006,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Guardian",
+          "desc": "[CanDuelGuard]\n[StartBattle] Gain 1 [SupportProtect]\n[StartBattle] Gain Shield equal to 20% of max HP\n[StartBattle] Gain [Protection] equal to number of enemies that have [Combustion]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158007,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Heat Haze",
+          "desc": "[DuelCounter]\n[SupportProtect] exclusive Skill\n[WhenUse] Gain 5 [DawnOfficeStigmaSOne]\n[WhenUse] All allies heal 6 SP",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +1 [Vibration] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158101,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Handle Request",
+          "desc": "[BeforeAttack] Heal 10 SP\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Gain 1 [PlusCoinValueUp] next turn"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158102,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Butterfly Slash",
+          "desc": "[WhenUse] Gain 6 [DawnOfficeStigmaYOne]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 3 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "Reuse this Coin once for every 10 [DawnOfficeStigmaYOne] on self (max 2 times per Skill)"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Combustion] Count"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Vibration] Count"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158103,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Eject",
+          "desc": "[WhenUse] Gain 8 [DawnOfficeStigmaYOne]\n[WhenUse] Final Power +1 for every 10 [DawnOfficeStigmaYOne] on self\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Trigger [Switch_Vibration] into [VibrationIgnition]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once. Target loses 1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "Reuse this Coin once for every 10 [DawnOfficeStigmaYOne] on self (max 2 times per Skill)"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target once. Target loses 1 [Combustion] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158104,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Eject - High Noon",
+          "desc": "[WideAreaRampage]\n[WhenUse] Deal +20% damage for every target (max 60%)\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target\n[BeforeAttack] Trigger [Switch_Vibration] on all targets into [VibrationIgnition]\n[EndSkill] Heal (total sum of [Combustion] Potency on all targets)% HP (max 15%)\n[EndSkill] Heal ([Combustion] Potency on self)% HP (max 15%)\n[EndSkill] Consume all [DawnOfficeStigmaYOne] and [Combustion] on self",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "Reuse this Coin once for every 10 [DawnOfficeStigmaYOne] on self (max 2 times per Skill)"
+                },
+                {
+                  "desc": "- On Reuse, this Coin hits all targets of the attack"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [Combustion]"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack]"
+                },
+                {
+                  "desc": "- [UnBrokenCoinOnSucceedAttack] Trigger [VibrationExplosion] 2 times"
+                },
+                {
+                  "desc": "- [UnBrokenCoinOnSucceedAttack] Activate [Combustion] on the target 2 times"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158105,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Stigmatize",
+          "desc": "<color=#ff6000><mark color=#ff000040><b><u>When hit, Reuse this Skill once for every 10 [DawnOfficeStigmaYOne] on self at Turn Start (max 2 times)</color></mark></b></u>\n[StartBattle] Final Power +1 for every 2 [DawnOfficeStigmaYOne] (max 5)\n[StartBattle] Gain [DefenseUp] equal to the number of enemies that have [Combustion]\n[WhenUse] Inflict +1 more negative effect for every 10 [DawnOfficeStigmaYOne] on self",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [Vibration]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +1 [Vibration] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158106,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Seconded Offensive",
+          "desc": "[WhenUse]\n- Deal +2% damage for every [DawnOfficeStigmaYOne] on self\n- Final Power +1 for every 10 [DawnOfficeStigmaYOne] on self (max 3)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +1 [Vibration] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +1 [Combustion] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158201,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Handle Request",
+          "desc": "[BeforeAttack] Heal 20 SP\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Gain 1 [ResultEnhancement] next turn"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158202,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Sunset Blade",
+          "desc": "[WhenUse] Final Power +1 for every 4 [Combustion] on target (max 3)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Combustion] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158203,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Stigmatize",
+          "desc": "[WhenUse] Final Power +1 for every 4 [Combustion] on target (max 2)\n[BeforeAttack] Heal 15 SP\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Inflict 5 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target 2 times. Target loses 2 [Combustion] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158204,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Evade",
+          "desc": "[WhenUse] Final Power +1 for every 4 [Combustion] on target (max 3)\n<color=#ff6000><mark color=#ff000040><b><u>[OnSucceedEvade] Heal 15% HP</color></mark></b></u>",
+          "coinlist": [
+            {}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158301,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "High-speed Stabbing",
+          "desc": "[WhenUse] At 3 [WalpuTenWedgeOffice], Clash Power +1\n[WinDuel] Gain +2 [Breath] Count",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 2 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[CriticalOnSucceedAttack] Inflict +1 [Vibration] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158302,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Sparking Spear",
+          "desc": "[WhenUse] At 3 [WalpuTenWedgeOffice], Clash Power +2\n[WinDuel] Gain +2 [Breath] Count",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 3 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration] and +1 [Vibration] Count"
+                },
+                {
+                  "desc": "[CriticalOnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158303,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Transpierce",
+          "desc": "Deal +(<color=#ff6000><mark color=#ff000040><b><u>current HP percentage on target</color></mark></b></u> - 50)% damage (max 50%, min 0%)\nDeal +(([Breath] Potency on self + [Vibration] Potency on target) x 2.5)% damage on Critical Hit (max 50%)\n[WhenUse] At 3 [WalpuTenWedgeOffice], Clash Power +6\n[WinDuel] Gain 2 [Breath] and +3 [Breath] Count",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "<color=#ff6000><mark color=#ff000040><b><u>If target is in [Switch_Vibration] or [FusionVibration] states,</color></mark></b></u> this Coin deals +50% damage"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration] and +2 [Vibration] Count"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [PenetrateTakeDamageUp] (once per turn)"
+                },
+                {
+                  "desc": "[OnSucceedAttack] If target isn't in an [Switch_Vibration] state, trigger [Switch_Vibration] into [VibrationCollapse]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1 (once per Skill)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158304,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Assume Wedge Formation",
+          "desc": "Deal +30% damage for every excess Atk Weight beyond the # of actual targets\n[WhenUse]\n- Gain +3 [Breath] Count\n- <color=#ff6000><mark color=#ff000040><b><u>Gain Atk Weight equal to the number of other non-immobilized \"Wedge Office[TabExplain]\" allies</color></mark></b></u> (max 2)\n[EndSkill]\n- Consume 25 [WalpuTenComboWedge] on self\n- Gain [WalpuTenComboWedge] next turn equal to (# of Coins that weren't used x 5)\n- Apply 1 [PenetrateResultUp] next turn to other \"Wedge Office[TabExplain]\" allies",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[ComboSkill]: Wedge Office[TabExplain] Fixer Pamela"
+                },
+                {
+                  "desc": "- Deal +30% damage"
+                },
+                {
+                  "desc": "- On final Coin Hit, trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict +3 [Vibration] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[ComboSkill]: Wedge Office[TabExplain] Fixer Pameli"
+                },
+                {
+                  "desc": "- Deal +30% damage"
+                },
+                {
+                  "desc": "- On final Coin Hit, trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "Deal +30% damage on Critical Hit"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158305,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Catch Breath",
+          "desc": "[WhenUse] Coin Power +1 for every 3 [Breath] Potency on self (max 2)\n[OnSucceedEvade]\n- Gain 2 [Breath] (3 times per turn)\n- Gain 2 [Agility] next turn (once per turn)\n[EndBattle] Gain 1 [PenetrateResultUp] and 1 [PenetrateDamageUp] next turn (once per turn)",
+          "coinlist": [
+            {}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158306,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Step Aside.",
+          "desc": "[DuelCounter]\nAssist Defense[TabExplain] exclusive Skill\n[WhenUse] Clash Power +1 for every 20% missing HP on self (max 4)\n[WhenUse]\n- This unit and the ally this unit used [SupportProtect] on heal 5 SP\n- Gain Shield equal to 15% of this unit's max HP (once per turn)\n- Gain 2 [Protection] (once per turn)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [Vibration]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Gain 2 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 1 [Vibration]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Gain 2 [Breath]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158401,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Collision",
+          "desc": "[WhenUse] Final Power +1 for every 4 ([Breath] Potency on self + [Vibration] Potency on target) (max 3)\n[WhenUse] Gain 2 [Breath]\n[WhenUse] <color=#ff6000><mark color=#ff000040><b><u>[ComboSkill]: Wedge Office[TabExplain] Fixer Pamela</color></mark></b></u> (once per turn)\n- Gain 1 [WalpuTenBattleFieldKnow]\n- Reuse the final Coin (once per Skill)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 2 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "Deal +5% damage for every [WalpuTenBattleFieldKnow] on self (max 20%)"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration]"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack] Inflict 1 [WalpuTenWedgeMarkSilver]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158402,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Riding the Tide of the Offensive",
+          "desc": "[WhenUse] At 6+ ([Breath] Potency on self + [Vibration] Potency on target), Coin Power +1\n[WhenUse] Gain 3 [Breath]",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 2 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Vibration] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "Deal +5% damage for every [WalpuTenBattleFieldKnow] on self (max 20%)"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158403,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Speared Sweep",
+          "desc": "[WhenUse] At 6+ ([Breath] Potency on self + [Vibration] Potency on target), Coin Power +1\n[WhenUse] Gain 2 [Breath]\n[WhenUse] <color=#ff6000><mark color=#ff000040><b><u>[ComboSkill]: Wedge Office[TabExplain] Fixer Pamela</color></mark></b></u> (once per turn)\n- Gain 1 [WalpuTenBattleFieldKnow]\n- Deal +30% damage",
+          "coinlist": [
+            {},
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 4 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +3 [Vibration] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "Deal +10% damage for every [WalpuTenBattleFieldKnow] on self (max 40%)"
+                },
+                {
+                  "desc": "Deal +2% damage for every 1 [Vibration] Potency on target (max 20%)"
+                },
+                {
+                  "desc": "<color=#ff6000><mark color=#ff000040><b><u>If target is in [Switch_Vibration] or [FusionVibration] states,</color></mark></b></u> deal +30% damage"
+                },
+                {
+                  "desc": "[OnSucceedAttack] If target isn't in an [Switch_Vibration] state, trigger [Switch_Vibration] into [VibrationCollapse]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion] 2 times; then, reduce target's [Vibration] Count by 2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158404,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "I'll Run You Through Quick & True",
+          "desc": "Clash Power +1 for every [WalpuTenWedgeMarkSilver] on target (max 5)\n[WhenUse] At 6+ ([Breath] Potency on self + [Vibration] Potency on target), Coin Power +1\n[WhenUse] Gain 2 [Breath]\n[WhenUse] Convert all Coins into [SuperCoin]s\n[WhenUse] <color=#ff6000><mark color=#ff000040><b><u>[ComboSkill]: Wedge Office[TabExplain] Fixer Pamela</color></mark></b></u> (once per turn)\n- Gain 1 [WalpuTenBattleFieldKnow]\n- Deal +30% damage\n[EndSkill] Consume all [WalpuTenWedgeMarkSilver] on target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 4 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +3 [Vibration] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "Deal +10% damage for every [WalpuTenBattleFieldKnow] on self (max 40%)"
+                },
+                {
+                  "desc": "Deal +2% damage for every 1 [Vibration] Potency on target (max 40%)"
+                },
+                {
+                  "desc": "<color=#ff6000><mark color=#ff000040><b><u>If target is in [Switch_Vibration] or [FusionVibration] states,</color></mark></b></u> deal +30% damage"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Reuse this Coin (once per Skill)"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack] If target isn't in an [Switch_Vibration] state, trigger [Switch_Vibration] into [VibrationCollapse]"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack] Deal Pierce damage equal to ([WalpuTenWedgeMarkSilver] on target x 10)% of this Coin's final damage (max 50%)"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack] Trigger [VibrationExplosion] 2 times; then, reduce target's [Vibration] Count by 2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158405,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Catch Breath",
+          "desc": "[WhenUse] At 6+ [Breath] Potency, Coin Power +1\n[OnSucceedEvade] Gain 2 [Breath] (once per Skill)\n[OnSucceedEvade] Gain 1 [Agility] next turn (once per turn)\n[EndBattle] Gain 1 [PenetrateResultUp] next turn (once per turn)",
+          "coinlist": [
+            {}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158501,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Collision",
+          "desc": "[WhenUse] Final Power +1 for every 4 ([Breath] Potency on self + [Vibration] Potency on target) (max 3)\n[WhenUse] Gain 4 [Breath]\n[WhenUse] <color=#ff6000><mark color=#ff000040><b><u>[ComboSkill]: Wedge Office[TabExplain] Fixer Pameli</color></mark></b></u> (once per turn)\n- Gain 1 [WalpuTenBattleFieldKnow]\n- Reuse the final Coin (once per Skill)\n[WinDuel] Gain 1 [PenetrateDamageUp] next turn (once per turn)\n[BeforeAttack] The final Coin gains Final Power +1 for every [WalpuTenBattleFieldKnow] on self (max 2)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 2 [Vibration]"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack] Inflict 1 [WalpuTenWedgeMarkGold]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158502,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Gap Strike",
+          "desc": "[WhenUse] Final Power +1 for every 4 ([Breath] Potency on self + [Vibration] Potency on target) (max 3)\n[WhenUse] Gain 3 [Breath]\n[WinDuel] Inflict 1 [Vibration], then trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1\n[BeforeAttack] The final Coin gains Final Power +1 for every [WalpuTenBattleFieldKnow] on self (max 3)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 2 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +2 [Vibration] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158503,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Speared Sweep",
+          "desc": "[WhenUse] At 6+ ([Breath] Potency on self + [Vibration] Potency on target), Coin Power +1\n[WhenUse] Gain 2 [Breath]\n[WhenUse] <color=#ff6000><mark color=#ff000040><b><u>[ComboSkill]: Wedge Office[TabExplain] Fixer Pameli</color></mark></b></u> (once per turn)\n- Gain 1 [WalpuTenBattleFieldKnow]\n- Deal +40% damage\n[WinDuel] Inflict 2 [Vibration], then trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1\n[BeforeAttack] The final Coin gains Final Power +1 for every [WalpuTenBattleFieldKnow] on self (max 4)",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 4 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +3 [Vibration] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "Deal +2% damage for every 1 [Vibration] Potency on target (max 20%)"
+                },
+                {
+                  "desc": "<color=#ff6000><mark color=#ff000040><b><u>If target is in [Switch_Vibration] or [FusionVibration] states,</color></mark></b></u> deal +30% damage"
+                },
+                {
+                  "desc": "[OnSucceedAttack] If target isn't in an [Switch_Vibration] state, trigger [Switch_Vibration] into [VibrationCollapse]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion]; then, reduce target's [Vibration] Count by 1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158504,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "My Spear Will Puncture You True.",
+          "desc": "Clash Power +1 for every [WalpuTenWedgeMarkGold] on target (max 5)\n[WhenUse] At 6+ ([Breath] Potency on self + [Vibration] Potency on target), Coin Power +1\n[WhenUse] Gain 2 [Breath]\n[WhenUse] Convert all Coins into [SuperCoin]s\n[WhenUse] <color=#ff6000><mark color=#ff000040><b><u>[ComboSkill]: Wedge Office[TabExplain] Fixer Pameli</color></mark></b></u> (once per turn)\n- Gain 1 [WalpuTenBattleFieldKnow]\n- Deal +30% damage\n[WinDuel] Inflict 4 [Vibration] on target, then trigger [VibrationExplosion]\n[BeforeAttack] The final Coin gains +([WalpuTenBattleFieldKnow] on self + [WalpuTenWedgeMarkGold] on target) Final Power (max 8)\n[EndSkill] Consume all [WalpuTenWedgeMarkGold] on target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Gain 4 [Breath]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +3 [Vibration] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "Deal +2% damage for every 1 [Vibration] Potency on target (max 40%)"
+                },
+                {
+                  "desc": "<color=#ff6000><mark color=#ff000040><b><u>If target is in [Switch_Vibration] or [FusionVibration] states,</color></mark></b></u> deal +30% damage"
+                },
+                {
+                  "desc": "[OnSucceedAttack] If target isn't in an [Switch_Vibration] state, trigger [Switch_Vibration] into [VibrationCollapse]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Trigger [VibrationExplosion] 2 times; then, reduce target's [Vibration] Count by 2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158505,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Catch Breath",
+          "desc": "[WhenUse] At 6+ [Breath] Potency, Coin Power +1\n[OnSucceedEvade] Gain 3 [Breath] (once per Skill)\n[OnSucceedEvade] Gain 1 [Agility] next turn (once per turn)\n[EndBattle] Gain 1 [PenetrateResultUp] next turn (once per turn)",
+          "coinlist": [
+            {}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158601,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Rue",
+          "desc": "[WhenUse] Final Power +2 for every 4 [Combustion] on target (max 4)\n[BeforeAttack] <color=#ff6000><mark color=#ff000040><b><u>At 20+/40+ SP,</color></mark></b></u> deal +50%/+100% damage\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Inflict 5 [Combustion]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Inflict 5 [Vibration]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target 2 times. Target loses 2 [Combustion] Count"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Trigger [VibrationExplosion] 2 times; then, reduce target's [Vibration] Count by 2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158701,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Rueful Eventide",
+          "desc": "[WhenUse] At 40+ SP, gain 1 [ParryingResultUp] next turn\n[BeforeAttack] Heal 10 SP",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 4 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 4 [Combustion]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158702,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Feather Shield",
+          "desc": "[WhenUse] Gain 2 [Protection]\n- <color=#ff6000><mark color=#ff000040><b><u>If target has [Combustion]</color></mark></b></u>, gain 2 additional [Protection]\n[WhenUse] At 30+ SP, gain 2 [DefenseUp] next turn",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +3 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict +3 [Combustion] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158703,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Searing Sword",
+          "desc": "[WhenUse] Final Power +1 for every 6 [Combustion] on target (max 2)\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target\n[BeforeAttack] At 40+/45+ SP, gain +1/+2 Atk Weight",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Inflict +3 [Combustion] Count"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 6 [Combustion]"
+                }
+              ]
+            },
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Inflict 3 [PhilipWax]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158704,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Fierce Charge",
+          "desc": "[WhenUse] Final Power +1 for every 6 [Combustion] on target (max 2)\n[BeforeAttack] Deal +2% damage for every 2 [Combustion] on target (max 30%)\n[EndSkill] Lose (# of Coin 1 Reused) SP",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[OnSucceedAttack] Inflict 4 [Combustion]"
+                },
+                {
+                  "desc": "[OnSucceedAttackHead] Reuse this Coin (2 times per Skill)"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack] Inflict +2 [Combustion] Count"
+                },
+                {
+                  "desc": "[ReUseOnSucceedAttack] Inflict 2 [PhilipWax]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 158705,
+      "levelList": [
+        {
+          "level": 1,
+          "name": "Blazing Strike",
+          "desc": "<color=#ff6000><mark color=#ff000040><b><u>Can Clash with this Skill regardless of Speed</color></mark></b></u>\nDuring the turn this unit has this Skill equipped, <color=#ff6000><mark color=#ff000040><b><u>gain 2 [ResultReduction] when hit by Attack Skills</color></mark></b></u> (once per Skill; 3 times per turn)\n[WhenUse] Final Power +2 for every 4 [Combustion] on the main target (max 4)\n[BeforeAttack] At 20+/40+ SP, deal +50%/+100% damage\n[DefeatDuel]\n- Deal -80% damage\n- Damage dealt by this Skill cannot Stagger the target\n[EndSkill] End this turn",
+          "coinlist": [
+            {
+              "coindescs": [
+                {
+                  "desc": "[SuperCoin]"
+                },
+                {
+                  "desc": "[OnSucceedAttack] Inflict 10 [Combustion]"
+                },
+                {
+                  "desc": "[UnBrokenCoinOnSucceedAttack] Activate [Combustion] on target 2 times. Target loses 2 [Combustion] Count"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

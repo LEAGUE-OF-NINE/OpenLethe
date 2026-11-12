@@ -8669,6 +8669,312 @@
           "ability": "RougeFamilySinclairAddText"
         }
       ]
+    },
+    {
+      "id": "WedgeOffice",
+      "iconId": "WalpuTenWedgeOffice",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "AtkAdderByStack",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnBattleStartIfStackOver",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "PenetrateDamageUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ComboWedge",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "stackLimitPerTurn": 20,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "RyoshuSlotPlusA1C9BreakRecover",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ComboWedgeDawn",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "ActivateBuffEffect"
+        }
+      ]
+    },
+    {
+      "id": "DespairKnightEGOProtect",
+      "iconId": "KnightBless",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "OverwriteAtkResistResultIfHigher",
+          "value": 1.5
+        },
+        {
+          "ability": "TakeAtkDamageMultiplierIfBreakDespairKnightEGOProtect",
+          "value": -0.3
+        },
+        {
+          "ability": "OnDieByEnemyDespairKnightEGOProtect_2_3",
+          "buffData": {
+            "buffKeyword": "Vulnerable",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 1,
+            "limit": 1
+          }
+        },
+        {
+          "ability": "LoseStackOnRoundEnd",
+          "value": 1
+        },
+        {
+          "ability": "DestroyOtherBuffIfSameGiverDespairKnightEGOProtect",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "DespairKnightEGOSword",
+      "iconId": "SwordCutwithTear",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "ChargeSkillDmgUpByChargeStackDespairKnightEGOSword",
+          "buffData": {
+            "value": 2,
+            "limit": 10
+          }
+        },
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "atk": "PENETRATE",
+          "attribute": "INDIGO",
+          "value": 0.05
+        },
+        {
+          "ability": "IndigoDmgOnSucceedPenetrateAttackDespairKnightEGOSword",
+          "value": 0.05,
+          "buffData": {
+            "value": 2
+          }
+        },
+        {
+          "ability": "GiveBuffStackToMainTargetOnEndAttackDespairKnightEGOSword",
+          "buffData": {
+            "buffKeyword": "Sinking",
+            "target": "Target"
+          }
+        },
+        {
+          "ability": "ActivateBuffEffectDespairKnightEGOSword"
+        }
+      ]
+    },
+    {
+      "id": "DespairKnightEGOMind",
+      "iconId": "DespairAlly",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Neutral",
+      "canBeDespelled": false,
+      "maxStack": 999,
+      "stackLimitPerTurn": 500,
+      "list": [
+        {
+          "ability": "ActivateBuffEffectDespairKnightEGOMind"
+        }
+      ]
+    },
+    {
+      "id": "DespairKnightEGOAlly",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": false,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "GiveBuffOnTakeAttackDamageSelfDespairKnightEGOAlly",
+          "value": 50,
+          "buffData": {
+            "buffKeyword": "PenetrateTakeDamageUp",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "ActivateBuffEffectDespairKnightEGOAlly"
+        }
+      ]
+    },
+    {
+      "id": "BattleFieldKnow",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": false,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GiveBuffAfterGettingBuffIfAdded",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "RyoshuSlotPlusA1C9BreakRecover",
+          "value": 2
+        },
+        {
+          "ability": "DefaultAtkSkillAtkDamageMultiplierDivideByCoinCountViaBuffCheck",
+          "value": 30,
+          "buffData": {
+            "buffKeyword": "BattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 2,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "DefaultAtkSkillCoinScaleAdderViaBuffCheck",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "BattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 3,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "ChangeLastCoinToSuperCoinIfDefaultAtkSkillViaBuffCheck",
+          "buffData": {
+            "buffKeyword": "BattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 3,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "DefaultAtkSkillAtkDamageMultiplierDivideByCoinCountViaBuffCheck",
+          "value": 30,
+          "buffData": {
+            "buffKeyword": "BattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 4,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "AddTargetAtkResistUntilEndAttackIfDefaultAtkSkillViaBuffCheck",
+          "value": 0.1,
+          "atk": "PENETRATE",
+          "buffData": {
+            "buffKeyword": "BattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 5,
+            "turn": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "WedgeMarkYellow",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 8,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DestroyOnRoundStartIfAssociationAbsent_WEDGE"
+        }
+      ]
+    },
+    {
+      "id": "WedgeMarkGreen",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnDie": true,
+      "destroyableOnRetreat": true,
+      "maxStack": 8,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DestroyOnRoundStartIfAssociationAbsent_WEDGE"
+        }
+      ]
     }
   ]
 }

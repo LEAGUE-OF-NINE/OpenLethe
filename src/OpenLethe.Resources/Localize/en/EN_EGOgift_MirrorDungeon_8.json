@@ -117,6 +117,72 @@
           "simpleDesc": "Deal Slash Damage on the main target"
         }
       ]
+    },
+    {
+      "id": 9301,
+      "name": "Wuthering Heights",
+      "desc": "Turn End: when Staggered, recover from Stagger; then, at the next Turn Start, inflict 4 [Sinking] Potency and +4 [Sinking] Count to all enemies (once per Encounter; in Focused Encounters, on all Parts)\n- The above effect activates ((deployed \"Wuthering Heights\" Identities + deployed \"Edgar Family\" Identities) / 2) more times per Encounter (max 4 times per Encounter; including Backup Units)\n\nOn Kill, 1 enemy that has the least [Sinking] Count gains +2 [Sinking] Count (in Focused Encounters, the Part)\n\nOn Hit against SP Units, if target has -45 SP, deal Gloom damage equal to [Sinking] Potency on target\n\nIn Focused Encounters, On Hit against enemies that have 10+ ([Sinking] Potency + [Sinking] Count):\nDeal (([Sinking] Potency on target) / 2) Gloom damage (once per Skill)\n\nIf the Skill that hit an enemy inflicts [Sinking] (including [Sinking] Count and Unique [Sinking]), instead of dealing ([Sinking] Potency on target / 2) Gloom damage, deal ([Sinking] Potency on target) Gloom damage\n(Each turn, this applies only to the first Sinking-inflicting Skill that hits)\n\n[<noparse>Wild Hunt</noparse> Heathcliff exclusive effect]\nTurn Start: If this unit does not have [NightPathfinding], gain 1 [NightPathfinding]\n- At 5/10 [Coffin], gain 2/3 [NightPathfinding]\n- Apply 1 [SoundOfStorm] on \"Wuthering Heights\" and \"Edgar Family\" Identities (3 times per Identity per Encounter)\n\nDouble the amount of [Coffin] gained\n- Gain 2 [Coffin] when \"Wuthering Heights\" or \"Edgar Family\" Identities defeat an enemy\n\n\"Lament, Mourn, and Despair\" Skill effects:\n- Lose 15 more SP from the \"On Use\" effect\n  · The effects of the Skill or this E.G.O Gift cannot reduce this unit's SP below -40\n- On final Coin Hit, if the enemy has 20+ [Sinking] deal Gloom damage equal to 100% of this Coin's final damage",
+      "simpleDesc": [
+        {
+          "abilityID": 9432,
+          "simpleDesc": "Inflict 4 [Sinking] Potency and Count against all enemies next turn"
+        },
+        {
+          "abilityID": 94321,
+          "simpleDesc": "The enemy with the least [Sinking] Count gains +2 [Sinking] Count"
+        },
+        {
+          "abilityID": 9436,
+          "simpleDesc": "Deal Gloom damage based on [Sinking] on target"
+        },
+        {
+          "abilityID": 94361,
+          "simpleDesc": "Deal Gloom damage based on [Sinking] on target"
+        },
+        {
+          "abilityID": 93011,
+          "simpleDesc": "Gain [NightPathfinding]; apply [SoundOfStorm] to Identities of certain trait keywords"
+        },
+        {
+          "abilityID": 93012,
+          "simpleDesc": "Double the amount of [Coffin] gained"
+        },
+        {
+          "abilityID": 93013,
+          "simpleDesc": "Gain [Coffin] when Identities of certain trait keywords defeat an enemy"
+        },
+        {
+          "abilityID": 93014,
+          "simpleDesc": "\"Lament, Mourn, and Despair\" loses more SP On Use"
+        },
+        {
+          "abilityID": 93015,
+          "simpleDesc": "\"Lament, Mourn, and Despair\" deals Gloom damage on final Coin Hit"
+        }
+      ]
+    },
+    {
+      "id": 9302,
+      "name": "The Measure of Frost",
+      "desc": "Turn Start: At 40+ SP, or at -40 SP or lower, gain 1 [GainSinStockAdder]\n\n[Effect exclusive to Identities that have 2 or more Minus Coin Skills]\nTurn Start: Lose 15 SP (this unit's SP does not drop below -40 from this effect)\n\nIn this Encounter, when taking SP damage that would reduce this unit's SP to -45, this unit's SP cannot drop below -44 for the turn (once per Encounter)\n(※ Applies only to SP damage; does not apply to SP-changing effects, or SP-consuming effects such as using E.G.O Skills)\n\nBefore Attack using Skill 3 or an E.G.O Skill, consume up to 5 E.G.O Resources of the same Affinity as the said Skill to deal +(E.G.O Resources consumed x 10)% damage",
+      "simpleDesc": [
+        {
+          "abilityID": 9302,
+          "simpleDesc": "Gain [GainSinStockAdder] when SP conditions are met"
+        },
+        {
+          "abilityID": 93021,
+          "simpleDesc": "Turn Start: Lose SP"
+        },
+        {
+          "abilityID": 93022,
+          "simpleDesc": "Maintain SP at -44 once when taking SP damage that would reduce SP to -45"
+        },
+        {
+          "abilityID": 93023,
+          "simpleDesc": "Consume E.G.O Resources to deal more damage using Skill 3 and E.G.O Skills"
+        }
+      ]
     }
   ]
 }

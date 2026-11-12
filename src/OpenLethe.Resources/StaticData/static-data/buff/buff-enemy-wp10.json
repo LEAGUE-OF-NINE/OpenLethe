@@ -1,0 +1,559 @@
+{
+  "list": [
+    {
+      "id": "WalpuTenHard",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "MaxHpMultiplier",
+          "value": 0.5
+        },
+        {
+          "ability": "NegativeSinBuffMaxStackOverwriter",
+          "value": 30
+        },
+        {
+          "ability": "NegativeSinBuffMaxTurnOverwriter",
+          "value": 10
+        },
+        {
+          "ability": "TakeNegativeSinBuffDmgMultiplierForWalpu10",
+          "value": -0.3
+        },
+        {
+          "ability": "WalpuTenHardRemoveFirstBreakSectionOnGetBuff"
+        },
+        {
+          "ability": "AttackLevelAdder",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "DawnOfficeStigmaSOne",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "EnemyStigmaStepSwap_10_20_DawnOfficeStigmaSOne_DawnOfficeStigmaSTwo_DawnOfficeStigmaSThree"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "DawnOfficeStigmaSTwo",
+      "subIdList": [
+        "DawnOfficeStigmaSOne"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "EnemyStigmaStepSwap_10_20_DawnOfficeStigmaSOne_DawnOfficeStigmaSTwo_DawnOfficeStigmaSThree"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "DawnOfficeStigmaSThree",
+      "subIdList": [
+        "DawnOfficeStigmaSOne"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "EnemyStigmaStepSwap_10_20_DawnOfficeStigmaSOne_DawnOfficeStigmaSTwo_DawnOfficeStigmaSThree"
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 5,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnRoundStartByBuffStackDevideByValue",
+          "value": 10,
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffStackAdderToEnemyIfNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "stack": 1
+          }
+        },
+        {
+          "ability": "GiveBuffTurnAdderToEnemyIfNotZero",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "turn": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "DawnOfficeStigmaYOne",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "EnemyStigmaStepSwap_10_20_DawnOfficeStigmaYOne_DawnOfficeStigmaYTwo_DawnOfficeStigmaYThree"
+        },
+        {
+          "ability": "GiveBuffOnRoundEndDivideByOverStackStigmaWorkshopCelloCase_20_30",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 2,
+            "turn": 2,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "DawnOfficeStigmaYTwo",
+      "subIdList": [
+        "DawnOfficeStigmaYOne"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "EnemyStigmaStepSwap_10_20_DawnOfficeStigmaYOne_DawnOfficeStigmaYTwo_DawnOfficeStigmaYThree"
+        },
+        {
+          "ability": "GiveBuffOnRoundEndDivideByOverStackStigmaWorkshopCelloCase_20_30",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 2,
+            "turn": 2,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "DawnOfficeStigmaYThree",
+      "subIdList": [
+        "DawnOfficeStigmaYOne"
+      ],
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 30,
+      "list": [
+        {
+          "ability": "EnemyStigmaStepSwap_10_20_DawnOfficeStigmaYOne_DawnOfficeStigmaYTwo_DawnOfficeStigmaYThree"
+        },
+        {
+          "ability": "GiveBuffOnRoundEndDivideByOverStackStigmaWorkshopCelloCase_20_30",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Self",
+            "stack": 2,
+            "turn": 2,
+            "activeRound": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "LoneFixer",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "SkillPowerResultAdder",
+          "value": 3
+        },
+        {
+          "ability": "AtkAndDefAdder",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "WalpuTenWedgeOffice",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 3,
+      "list": [
+        {
+          "ability": "AtkAdderByStack",
+          "value": 1
+        },
+        {
+          "ability": "GiveBuffOnRoundStartRelatedSlotStateIfStackNotLessThen",
+          "value": 3,
+          "buffData": {
+            "buffKeyword": "PenetrateDamageUp",
+            "target": "Self",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "LoseAllStackOnRoundStartIfNoOtherAllyHasBuff"
+        }
+      ]
+    },
+    {
+      "id": "WalpuTenComboWedge",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "stackLimitPerTurn": 20,
+      "maxStack": 30,
+      "list": [
+      ]
+    },
+    {
+      "id": "WalpuTenBattleFieldKnow",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": false,
+      "maxStack": 4,
+      "list": [
+        {
+          "ability": "GiveBuffAfterGettingBuffIfAdded",
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "GiveBuffOnREPerStack",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "Breath",
+            "target": "Self",
+            "stack": 0,
+            "turn": 2,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "AtkDamageMultiplierByStack",
+          "value": 0.025
+        },
+        {
+          "ability": "ParryingResultAdderPerParryingCountViaBuffCheck",
+          "value": 2,
+          "buffData": {
+            "buffKeyword": "WalpuTenBattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 2,
+            "turn": 0,
+            "value": 1,
+            "limit": 2
+          }
+        },
+        {
+          "ability": "CoinScaleAdderViaBuffCheck",
+          "value": 1,
+          "buffData": {
+            "buffKeyword": "WalpuTenBattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 3,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "ChangeLastCoinToSuperCoinViaBuffCheck",
+          "buffData": {
+            "buffKeyword": "WalpuTenBattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 3,
+            "turn": 0
+          }
+        },
+        {
+          "ability": "AddTargetAtkResistUntilEndAttackViaBuffCheck",
+          "value": 0.1,
+          "atk": "PENETRATE",
+          "buffData": {
+            "buffKeyword": "WalpuTenBattleFieldKnow",
+            "buffTarget": "",
+            "buffOwner": "Self",
+            "stack": 4,
+            "turn": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "WalpuTenWedgeMarkSilver",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DestroyOnRoundStartIfAssociationAbsent_WEDGE"
+        }
+      ]
+    },
+    {
+      "id": "WalpuTenWedgeMarkGold",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": true,
+      "destroyableOnDie": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "GiveBuffOnRoundEnd",
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "target": "Self",
+            "stack": 0,
+            "turn": 1,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "DestroyOnRoundStartIfAssociationAbsent_WEDGE"
+        }
+      ]
+    },
+    {
+      "id": "PhilipReady",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "destroyableOnZero": false,
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 4,
+      "list": [
+      ]
+    },
+    {
+      "id": "PhilipShield",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnTakeAttackDamage",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "TakeAtkDamageMultiplier",
+          "value": -0.05
+        }
+      ]
+    },
+    {
+      "id": "PhilipSword",
+      "buffClass": "VolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "GiveBuffOnSA",
+          "buffData": {
+            "buffKeyword": "Combustion",
+            "target": "Target",
+            "stack": 2,
+            "turn": 0,
+            "activeRound": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "PhilipPower",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Positive",
+      "canBeDespelled": false,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 1,
+      "list": [
+        {
+          "ability": "AtkDamageMultiplierViaBuffCheck",
+          "value": 0.2,
+          "buffData": {
+            "buffKeyword": "Vibration",
+            "buffOwner": "Target",
+            "stack": 1,
+            "turn": 0,
+            "activeRound": 0
+          }
+        },
+        {
+          "ability": "HealMpOnEndSkillUse",
+          "value": 5
+        },
+        {
+          "ability": "ClearBreakOnRoundStartPhilipPower"
+        }
+      ]
+    },
+    {
+      "id": "PhilipWax",
+      "buffClass": "NonvolatileBuff",
+      "buffType": "Negative",
+      "canBeDespelled": true,
+      "destroyableOnRetreat": false,
+      "destroyableOnDie": true,
+      "maxStack": 5,
+      "list": [
+        {
+          "ability": "CombustionMaxStackUpPhilipWax",
+          "value": 10
+        },
+        {
+          "ability": "TakeSinBuffDamageMultiplierByStack",
+          "value": 0.1,
+          "buffData": {
+            "buffKeyword": "Combustion"
+          }
+        },
+        {
+          "ability": "ActivateBuffEffect"
+        }
+      ]
+    }
+  ]
+}

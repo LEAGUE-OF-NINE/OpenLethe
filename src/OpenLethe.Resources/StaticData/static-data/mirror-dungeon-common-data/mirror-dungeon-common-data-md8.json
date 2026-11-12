@@ -51,7 +51,11 @@
 	"currentMissionCategory": [
 		"MIRROR_DUNGEON8_COLLECTION",
 		"MIRROR_DUNGEON8_CLEAR",
-		"MIRROR_DUNGEON8_EXTREME"
+		"MIRROR_DUNGEON8_DECK",
+		"MIRROR_DUNGEON8_SHOP",
+		"MIRROR_DUNGEON8_BATTLE",
+		"MIRROR_DUNGEON8_EXTREME",
+		"MIRROR_DUNGEON8_ALL"
 	],
 	"currentEventId": 54,
 	"currentAdditionalRewardEventId": 56,
@@ -60,17 +64,17 @@
 	"specialRestingTable": [
 		{
 			"dataChecker":{
-					"gachaId": 305
+					"gachaId": 307
 				},
-				"desc": "신규 인격 특정 추출 오트쿠튀르::르루주 바느질의 왕 히스클리프 · 오트쿠튀르::르누아르 3F 방송실 홍루",
-				"startDate": "2026-10-29T01:00:00.000Z",
-				"endDate": "2026-11-12T01:00:00.000Z",
-				"personalities": [10717, 10617]
+				"desc": "제10회 발푸르기스의 밤 특정 추출",
+				"startDate": "2026-11-12T01:00:00.000Z",
+				"endDate": "2026-11-26T01:00:00.000Z",
+				"personalities": [11116, 10316, 11017]
 		}
 	],
 	"specialRestingTableDataChecker": {
 		"excludeGachaId": [
-			303, 304
+			306
 		],
 		"excludeEventId": [
 			
@@ -774,7 +778,14 @@
 				"resultEgoGiftId": 9280,
 				"requiredEgoGiftIds": [9193,9716,9279],
 				"isSpecific": true
-			}
+			},
+            {
+                "aEgoGiftId": 9432,
+                "bEgoGiftId": 9436,
+                "resultEgoGiftId": 9301,
+                "requiredEgoGiftIds": [9432,9436],
+                "isSpecific": true
+            }
 		],
 		"combineMixed": [
 			{
@@ -1487,6 +1498,9 @@
 	"specificEgoGiftForUpegsProbs":[1, 0.5, 0.25, 0.125],
 	"appearanceRateUpMultiplier": 3,
 	"pieceEgoGiftIds": [9991,9992,9993,9994,9995],
+	"egoGiftSameAsTable": [
+		{ "egoGiftId": 9296, "sameAsEgoGiftIds": [9807] }
+	],
 	"shopUpgradeFormula": [
 		{
 			"op": 0,

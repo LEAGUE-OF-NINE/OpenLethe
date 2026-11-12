@@ -3648,28 +3648,28 @@
     {
       "id": "PersonalityCombustion",
       "name": "Burn Identity",
-      "desc": "",
+      "desc": "Identities that have Base Attack Skills that inflict Burn Potency, Burn Count, or Unique Burn",
       "summary": "",
       "undefined": "-"
     },
     {
       "id": "PersonalityLaceration",
       "name": "Bleed Identity",
-      "desc": "",
+      "desc": "Identities that have Base Attack Skills that inflict Bleed Potency, Bleed Count, or Unique Bleed",
       "summary": "",
       "undefined": "-"
     },
     {
       "id": "PersonalityBurst",
       "name": "Rupture Identity",
-      "desc": "",
+      "desc": "Identities that have Base Attack Skills that inflict Rupture Potency, Rupture Count, or Unique Rupture",
       "summary": "",
       "undefined": "-"
     },
     {
       "id": "PersonalitySinking",
       "name": "Sinking Identity",
-      "desc": "",
+      "desc": "Identities that have Base Attack Skills that inflict Sinking Potency, Sinking Count, or Unique Sinking",
       "summary": "",
       "undefined": "-"
     },
@@ -3821,6 +3821,84 @@
       "id": "WarinessHonglu",
       "name": "Auditive Punishment",
       "desc": "- Max Stack: 2\n- Lose Offense Level equal to Stack\n- If there is an Identity that has Time to Listen, take +(Stack x 10)% damage from \"Le Noir\" Identities\n- Turn End: If there is an Identity that has Time to Listen, lose 1 Stack (if the Identity that inflicted this effect has been defeated or Retreated, expires)",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "ComboWedge",
+      "name": "Momentum",
+      "desc": "- Max Stack: 30\n- Can gain up to 20 Stacks per turn\nTurn Start: If this unit is Staggered, recover from Stagger (once per Encounter; excluding forced Staggers)",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "ComboWedgeDawn",
+      "name": "Dawn's Camaraderie",
+      "desc": "- Max Stack: 5",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "WedgeOffice",
+      "name": "Wedge Office",
+      "excludeAutoLink": true,
+      "desc": "- Max Stack: 3\n- Offense Level +1 for every Stack\n- Combat Start: At 3 Stacks, gain 1 Pierce DMG Up\n- Expires at Turn End",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "DespairKnightEGOProtect",
+      "name": "The Knight's Loyal Protection",
+      "desc": "Base Stack: 3\nThis unit's Attack Type Resist. that are higher than 1.5 are adjusted to 1.5 (except while Staggered)\nIf this unit is Staggered, take -30% damage (including forced Staggers)\n\nTurn End: Lose 1 Stack\nExpires when the character that applied this effect retreats, is defeated, or applies this effect to a different target; replaced when another character applies an equivalent effect\n\nIf this unit is defeated by an enemy, inflict 2 Fragile against the attacker next turn, and the unit that applied this effect gains 2 Attack Power Up and 3 Damage Up next turn (once per turn)",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "DespairKnightEGOSword",
+      "name": "Sword Sharpened with Tears",
+      "desc": "- Max Stack: 3\n- Skills that gain or consume Charge deal +(Charge Potency x 2)% damage (max 10%)\n- Pierce Skills and Pride Skills deal +(Stack x 5)% damage\n- On Hit using this unit's Pierce or Pride Skills, deal Pride damage equal to ((Stack x 2) + (5% of the Coin's final damage))\n- Attack End: If the main target is an enemy, inflict Sinking Potency equal to Stack",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "DespairKnightEGOMind",
+      "name": "Weathered Pride",
+      "desc": "- Max Stack: 999\n- Can gain up to 500 Stacks per turn",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "DespairKnightEGOAlly",
+      "name": "Sword of a Forgotten Knight",
+      "desc": "- Max Stack: 3\n- When hit by Pierce or Pride Skills, gain 1 Stack (once per Skill)\n · At max Stack, take 50 Pride damage; then, this effect expires. Gain 1 Pierce Fragility this turn and next turn\n- Only 1 character can have this effect at any given time (existing effect expires when this effect is inflicted on another target)",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "BattleFieldKnow",
+      "name": "Field Analysis",
+      "desc": "- Max Stack: 5\n- Gain +1 Poise Count when gaining Stacks of this effect\n- Turn End: Gain +(Stack) Poise Count\n- Turn Start: If this unit is Staggered at Turn Start, recover from Stagger (2 times per Encounter; excluding forced Staggers)\n- Base Attack Skills gain the following effects based on Stack:\n  · 2+: On Skill Use, deal +(30 / # of Coins)% damage on enemies (rounded down)\n  · 3+: Coin Power +1; On Skill Use, convert the final Coin to Unbreakable Coin\n  · 4+: On Skill Use, deal +(30 / # of Coins)% damage on enemies (rounded down)\n  · 5+: Target's Pierce Resist. +0.1 from Attack Start to Attack End\n- The Stack immediately before Skill Use is used to determine whether the damage-boosting and Unbreakable Coin conversion effects are activated",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "WedgeMarkYellow",
+      "name": "Wedge - Don Quixote",
+      "desc": "- Max Stack: 8\n- At sufficient Stacks, empower a certain Skill of Wedge Office Fixer Sinclair\n- Turn End: Gain +1 Tremor Count\n- Turn Start: If there are no enemy \"Wedge Office\" characters on the field, this effect expires",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "WedgeMarkGreen",
+      "name": "Wedge - Sinclair",
+      "desc": "- Max Stack: 8\n- At sufficient Stacks, empower a certain Skill of Wedge Office Fixer Don Quixote\n- Turn End: Gain +1 Tremor Count\n- Turn Start: If there are no enemy \"Wedge Office\" characters on the field, this effect expires",
+      "summary": "",
+      "undefined": "-"
+    },
+    {
+      "id": "ComboSkill",
+      "name": "Joint Combo",
+      "desc": "If the pertinent Identity is on the field, alive, and isn't immobilized, activate the linked effects (does not activate if the pertinent Identity is in any of the following states: all types of immobilized states, E.G.O Corrosions, and Staggers)",
       "summary": "",
       "undefined": "-"
     }

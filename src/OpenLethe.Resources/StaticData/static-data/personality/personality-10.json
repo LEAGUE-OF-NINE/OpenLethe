@@ -1720,6 +1720,119 @@
           "number": 0
         }
       ]
+    },
+
+    {
+      "id": 11017,
+      "updatedDate": 20261112,
+      "appearance": "11017_Sinclair_WedgeAppearance",
+      "unitKeywordList": [ "SMALL", "FIXER" ],
+      "associationList": [
+        "WEDGE"
+      ],
+      "skillKeywordList": [ "Breath", "Vibration" ],
+      "unitScriptID" : "11017",
+      "characterId": 10,
+      "panicType": 9999,
+      "season": 9110,
+      "walpurgisType": "LOR",
+      "defenseSkillIDList": [
+        1101704
+      ],
+      "initBuffList": [
+      ],
+      "panicSkillOnErosion": 1000104,
+      "slotWeightConditionList": [
+        "Default1"
+      ],
+      "rank": 3,
+      "hp": {
+        "defaultStat": 72,
+        "incrementByLevel": 2.52
+      },
+      "defCorrection": 0,
+      "minSpeedList": [
+        3,
+        3,
+        4,
+        4
+      ],
+      "maxSpeedList": [
+        5,
+        6,
+        6,
+        6
+      ],
+      "uniqueAttribute": "SHAMROCK",
+      "mentalConditionInfo": {
+        "add": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnWinDuelAsParryingCountMultiply10AndPlus20Percent"
+              },
+              {
+                "conditionID": "OnKillEnemyAsLevelRatioMultiply10"
+              },
+              {
+                "conditionID": "OnKillEnemyByOtherAllyAsLevelRatioMultiply5"
+              }
+            ]
+          }
+        ],
+        "min": [
+          {
+            "level": 1,
+            "conditionIDList": [
+              {
+                "conditionID": "OnDieAllyAsLevelRatio10"
+              }
+            ]
+          }
+        ]
+      },
+      "breakSection": {
+        "sectionList": [
+          60,
+          30
+        ]
+      },
+      "resistInfo": {
+        "atkResistList": [
+          {
+            "type": "SLASH",
+            "value": 1
+          },
+          {
+            "type": "PENETRATE",
+            "value": 0.5
+          },
+          {
+            "type": "HIT",
+            "value": 2
+          }
+        ]
+      },
+      "attributeList": [
+        {
+          "skillId": 1101701,
+          "number": 3
+        },
+        {
+          "skillId": 1101702,
+          "number": 2
+        },
+        {
+          "skillId": 1101703,
+          "number": 1
+        },
+        {
+          "skillId": 1101705,
+          "number": 0
+        }
+      ],
+      "personalityUIConfig": { "companyYPivot": 0.9 }
     }
   ]
 }

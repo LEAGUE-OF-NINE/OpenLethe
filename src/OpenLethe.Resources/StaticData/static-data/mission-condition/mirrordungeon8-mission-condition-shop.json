@@ -1,0 +1,97 @@
+{
+  "list": [
+    {
+      "id": 201004001,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "FLOOR", "min": 5 },
+        { "target": "SHOP_REFRESH_COUNT", "progress": true }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201004002,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "FLOOR", "min": 5 },
+        { "target": "SHOP_BUY_COUNT", "progress": true }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201004003,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "FLOOR", "min": 5 },
+        { "target": "EGOGIFT", "filters": [ { "key": "upgradeLevel", "ids": [ 1, 2, 3 ] } ], "progress": true }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201004004,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "FLOOR", "min": 5 },
+        { "target": "COST", "progress": true }
+      ],
+      "uiConfig": {
+        "textTags": [ "value", "c0.min" ]
+      }
+    },
+    {
+      "id": 201004011,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "SHOP_VISIT_MAX_BUY_COST", "progress": true }
+      ],
+      "uiConfig": {
+        "textTags": [ "value" ]
+      }
+    },
+    {
+      "id": 201004012,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "SHOP_SELL_COST", "progress": true }
+      ],
+      "uiConfig": {
+        "textTags": [ "value" ]
+      }
+    },
+    {
+      "id": 201004013,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "FLOOR", "min": 10 },
+        { "target": "SHOP_REFRESH_COUNT", "max": 0 }
+      ],
+      "uiConfig": {
+        "textTags": [ "c0.min" ]
+      }
+    },
+    {
+      "id": 201004014,
+      "type": "MIRROR_DUNGEON_CLEAR",
+      "valueType": "PEAK",
+      "conditions": [
+        { "target": "REBATE_MAX_STREAK", "progress": true }
+      ],
+      "uiConfig": {
+        "textTags": [ "value" ]
+      }
+    }
+  ]
+}
