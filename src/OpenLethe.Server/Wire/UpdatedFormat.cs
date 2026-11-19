@@ -96,6 +96,14 @@ public sealed class DanteAbility
     public long category;
     public List<long> abilityids = new();
     public long remaincount;
+    // Which abilities this pool has spent; the client greys those out (each has limit 1).
+    public List<DanteAbilityUsedLog> usedlogs = new();
+}
+
+public sealed class DanteAbilityUsedLog
+{
+    public int abilityId;
+    public int count;
 }
 
 public sealed class PersonalitySkin

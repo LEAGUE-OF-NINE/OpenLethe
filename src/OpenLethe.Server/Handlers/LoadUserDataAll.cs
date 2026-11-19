@@ -10,6 +10,27 @@ public static class LoadUserDataAllEndpoint
 {
     private const string StaminaRecover = "2025-03-31T15:10:00.000Z";
 
+    /// Categories 0/1 are the general pools. Each boss raid also has its own category
+    /// (danteAbilityCategory: 3, 4, 6); without an entry for it the raid shows no durantes.
+    /// A run in progress reports its partly spent pool so a relog keeps the used ones locked.
+    private static List<DanteAbility> BuildDanteAbilityList(List<long> danteIds, string? bossRaidJson)
+    {
+        var list = new List<DanteAbility>
+        {
+            new() { category = 0, abilityids = danteIds, remaincount = 2325 },
+            new() { category = 1, abilityids = danteIds, remaincount = 2325 },
+        };
+        var active = BossRaidRules.Load(bossRaidJson)?.dante;
+        foreach (var category in BossRaidRules.DanteCategories())
+        {
+            if (category is 0 or 1) continue;
+            list.Add(active is not null && active.category == category
+                ? active
+                : BossRaidRules.FreshDantePool(category));
+        }
+        return list;
+    }
+
     public static IEndpointRouteBuilder MapLoadUserDataAll(this IEndpointRouteBuilder app)
     {
         var packetId = PacketRouting.ResolvePacketId<global::ResPacket_LoadUserDataAll>();
@@ -20,7 +41,7 @@ public static class LoadUserDataAllEndpoint
             // big documents and are read by their own routes.
             var account = await HandlerContext.ResolveAsync(ctx,
                 SaveColumn.Egos, SaveColumn.Chapter, SaveColumn.UserInfo, SaveColumn.Announcers,
-                SaveColumn.Formations, SaveColumn.Personalities, SaveColumn.CustomIdentities);
+                SaveColumn.Formations, SaveColumn.Personalities, SaveColumn.CustomIdentities, SaveColumn.BossRaid);
             if (account is null) return Results.Unauthorized();
 
             var dirty = false;
@@ -99,11 +120,7 @@ public static class LoadUserDataAllEndpoint
                 membershipList = new(),
                 userUnlockCodeList = DefaultData.GetFormattedUserCodes(),
                 eventRewardStateList = new(),
-                danteAbilityList = new List<DanteAbility>
-                {
-                    new() { category = 0, abilityids = danteIds, remaincount = 2325 },
-                    new() { category = 1, abilityids = danteIds, remaincount = 2325 },
-                },
+                danteAbilityList = BuildDanteAbilityList(danteIds, account.BossRaidSaveInfo),
                 personalitySkinList = DefaultData.GetFormattedPersonalities()
                     .Select(p => new PersonalitySkin { id = p.personality_id, regdate = "" })
                     .ToList(),
