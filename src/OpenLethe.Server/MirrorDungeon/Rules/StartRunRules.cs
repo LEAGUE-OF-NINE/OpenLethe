@@ -150,7 +150,7 @@ public static class StartRunRules
         if (slot is not null)
         {
             slot.Tfid = detectThemeFloorId;
-            slot.Egs = themePool.SelectRandomEgosFromPool(detectThemeFloorId, 4, floor);
+            slot.Egs = themePool.FloorRewardEgos(detectThemeFloorId, 4, floor);
             slot.Upegs = new List<long> { 9051, 9048, 9001, 9066 };
         }
         else
@@ -160,7 +160,7 @@ public static class StartRunRules
                 // Same difficulty tier as the pool it joins (MapGenerator.NextFloorPools).
                 Idx = MapGenerator.IsNormalMode(run) ? 0 : floor / 5 + 1,
                 Tfid = detectThemeFloorId,
-                Egs = themePool.SelectRandomEgosFromPool(detectThemeFloorId, 4, floor),
+                Egs = themePool.FloorRewardEgos(detectThemeFloorId, 4, floor),
                 Upegs = new List<long> { 9051, 9048, 9001, 9066 },
             });
         }

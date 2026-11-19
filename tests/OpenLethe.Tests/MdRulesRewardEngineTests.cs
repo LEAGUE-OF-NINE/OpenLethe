@@ -121,20 +121,83 @@ public class MdRulesRewardEngineTests
     }
 
     [Fact]
-    public void ResolveNodeExit_EventNode_AlreadyOwnedGift_SkipsRawAdd()
+    public void ResolveNodeExit_EventNode_AlreadyOwnedGift_BecomesItsVestige()
     {
-        // Same chain as above, but 9021 is already owned - the e==3 branch's grant is a RAW
-        // owned-check-then-add (NOT SharedRules.GrantEgoGift's Vestige rule): an already-owned
-        // gift is simply skipped, not converted to a super/Vestige gift.
+        // Same chain as above, but 9021 is already owned: like every other battle reward it goes
+        // through SharedRules.GrantEgoGift, so the duplicate turns into its tier's Vestige (it
+        // used to be skipped outright, leaving the event fight's reward with nothing).
         var run = RunWithNode(nid: 500, e: 3, eid: 901021);
         run.ChoiceEvents.Add(new ChoiceEvent { Sl = new List<long> { 1 }, Cs = 0 });
         run.Gifts.Items.Add(new EgoGift { Id = 9021 });
+        var vestige = StartBuffEffects.VestigeOfTier(OpenLethe.Server.MdEgoData.DetermineEgoTier(9021)!.Value);
 
         Exit(run, 500);
 
-        Assert.Equal(new List<long> { 9021, 9134 }, run.Gifts.Items.Select(g => g.Id).ToList()); // no duplicate, no Vestige
-        Assert.Single(run.RewardEvents); // only the 9134 grant queues a RewardEvent
-        Assert.Equal(new List<long> { 9134 }, run.RewardEvents[0].Pool);
+        Assert.Equal(new List<long> { 9021, vestige, 9134 }, run.Gifts.Items.Select(g => g.Id).ToList());
+        Assert.Equal(9021, run.Gifts.Items[1].Oid);
+        Assert.Equal(2, run.RewardEvents.Count);
+        Assert.Equal(new List<long> { 9021 }, run.RewardEvents[0].Pool);
+        Assert.Equal(new List<long> { 9134 }, run.RewardEvents[1].Pool);
+    }
+
+    [Fact]
+    public void ResolveNodeExit_EventNode_ReExitAfterTheFight_GrantsNothingTwice()
+    {
+        // The client exits an event node again once its fight ends; the chain was consumed by the
+        // first exit, so the second must not hand out another copy or Vestige.
+        var run = RunWithNode(nid: 500, e: 3, eid: 901021);
+        run.ChoiceEvents.Add(new ChoiceEvent { Sl = new List<long> { 1 }, Cs = 0 });
+
+        Exit(run, 500);
+        Exit(run, 500);
+
+        Assert.Equal(new List<long> { 9021, 9134 }, run.Gifts.Items.Select(g => g.Id).ToList());
+    }
+
+    [Fact]
+    public void ApplyGiftUses_HollowPride_ConvertsAtItsUseLimit()
+    {
+        // 9294 Hollow Pride: useLimit 6, convertDataList [9295] Pride of the Knight.
+        var run = new Run();
+        run.Gifts.Items.Add(new EgoGift { Id = 9294 });
+
+        RewardEngine.ApplyGiftUses(run, new[] { new AcquiredEgogifts { id = 9294, un = 5 } });
+        Assert.Equal(9294, run.Gifts.Items[0].Id);
+        Assert.Equal(5, run.Gifts.Items[0].Un);
+
+        RewardEngine.ApplyGiftUses(run, new[] { new AcquiredEgogifts { id = 9294, un = 6 } });
+        Assert.Equal(9295, run.Gifts.Items[0].Id);
+        Assert.Equal(0, run.Gifts.Items[0].Un);
+    }
+
+    [Theory]
+    [InlineData(9227L, 9228L)]
+    [InlineData(9229L, 9230L)]
+    [InlineData(9231L, 9232L)]
+    public void ResolveNodeExit_CursedGiftReport_ConvertsTheGift(long cursed, long converted)
+    {
+        var run = RunWithNode(nid: 100, e: 1, eid: 0);
+        run.Gifts.Items.Add(new EgoGift { Id = cursed, Un = 5 });
+
+        RewardEngine.ResolveNodeExit(
+            run, new Currentnode { f = 0, s = 0, nid = 100 }, new List<Dungeonunitlist1>(), 0,
+            new ChoiceEventData(), false, new List<EgoSkillStock>(), new List<JsonNode>(),
+            updatedEgoGifts: new List<AcquiredEgogifts> { new() { id = cursed, un = 6 } });
+
+        Assert.Equal(new List<long> { converted }, run.Gifts.Items.Select(g => g.Id).ToList());
+    }
+
+    [Fact]
+    public void ApplyGiftUses_GiftWithoutConversion_KeepsItsCount()
+    {
+        var run = new Run();
+        run.Gifts.Items.Add(new EgoGift { Id = 9021 });
+
+        RewardEngine.ApplyGiftUses(run, new[] { new AcquiredEgogifts { id = 9021, un = 3 }, new AcquiredEgogifts { id = 1, un = 9 } });
+
+        var gift = Assert.Single(run.Gifts.Items);
+        Assert.Equal(9021, gift.Id);
+        Assert.Equal(3, gift.Un);
     }
 
     [Fact]

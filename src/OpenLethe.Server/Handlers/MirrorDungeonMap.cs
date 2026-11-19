@@ -178,7 +178,8 @@ public static class MirrorDungeonMapEndpoints
 
             var exitResult = RewardEngine.ResolveNodeExit(
                 run, p.currentnode, p.dungeonunitlist, p.noderesult, p.choiceEventData,
-                p.isupdatedEgoSkillStock == 1, p.egoSkillStockList, p.abnormalityLogs);
+                p.isupdatedEgoSkillStock == 1, p.egoSkillStockList, p.abnormalityLogs,
+                updatedEgoGifts: p.updatedEgoGifts);
             var save = WireMapper.ToWire(run);
 
             account.MdSaveInfo = OpenLethe.Server.AccountFields.Set(save);

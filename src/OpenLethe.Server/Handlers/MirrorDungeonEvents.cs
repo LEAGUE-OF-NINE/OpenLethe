@@ -23,6 +23,7 @@ public static class MirrorDungeonEventsEndpoints
             var run = WireMapper.ToDomain(loaded);
             try
             {
+                RewardEngine.ApplyGiftUses(run, p.updatedEgoGifts);
                 EventEngine.UpdateNode(run, p.currentnode, p.choiceEventData, p.dungeonUnitList);
             }
             catch (KeyNotFoundException)

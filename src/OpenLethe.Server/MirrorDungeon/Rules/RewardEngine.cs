@@ -55,6 +55,30 @@ public static class RewardEngine
         };
     }
 
+    // The client reports gifts whose use number changed as updatedEgoGifts (DungeonMapEgoGiftFormat
+    // id/pids/un/ul/sn): un is the gift's running count. Hollow Pride (9294) and the other cursed
+    // gifts (9227/9229/9231) carry useLimit 6 and convertDataList - "changes into Pride of the
+    // Knight after 6 Encounter wins ..." - and the server is what turns them: dropping the report
+    // left un at 0 in every save, so the gift never converted. A converted gift starts at un 0.
+    // A gift with a useLimit but nothing to convert into keeps its count and stays.
+    public static void ApplyGiftUses(Run run, IEnumerable<AcquiredEgogifts>? updated)
+    {
+        foreach (var report in updated ?? Enumerable.Empty<AcquiredEgogifts>())
+        {
+            var gift = run.Gifts.Items.FirstOrDefault(g => g.Id == report.id);
+            if (gift is null) continue;
+            gift.Un = Math.Max(0, report.un);
+
+            var data = OpenLethe.Server.MdEgoData.GetById(gift.Id);
+            if (data is { useLimit: > 0 } && gift.Un >= data.useLimit
+                && data.convertDataList is { Count: > 0 } convert)
+            {
+                gift.Id = convert[0];
+                gift.Un = 0;
+            }
+        }
+    }
+
     // Verbatim port of the ExitMirrorDungeonMapNode handler body (:318-564). `node`/`noderesult`/
     // `choiceEventData` mirror the request DTO 1:1 (the last two are unused here - the original
     // handler also received but never read them). Caller (the handler) is responsible for
@@ -69,9 +93,14 @@ public static class RewardEngine
         bool isUpdatedEgoSkillStock,
         List<EgoSkillStock> egoSkillStockList,
         List<JsonNode> abnormalityLogs,
-        IReadOnlyList<ThemeStatic>? customThemes = null)
+        IReadOnlyList<ThemeStatic>? customThemes = null,
+        List<AcquiredEgogifts>? updatedEgoGifts = null)
     {
         run.Floor.Current = new CurrentPosition { F = node.f, S = node.s, Nid = node.nid };
+
+        // Use counts the client tracked during the node (a cursed gift's counted wins) - stored,
+        // and a gift that reached its useLimit turns into what it converts to.
+        ApplyGiftUses(run, updatedEgoGifts);
 
         // Who could fight this encounter: the sinners standing before the client's battle result
         // lands (Milepost of Survival counts the participants, and the request lists everyone).
@@ -164,8 +193,11 @@ public static class RewardEngine
             var confirmedRre = new List<RewardEvent>();
             foreach (var giftId in collector.GiftIds)
             {
-                if (SharedRules.OwnsGift(run, giftId)) continue;
-                run.Gifts.Items.Add(new EgoGift { Id = giftId });
+                // Hidden 99xxxx gifts already landed during UpdateMapNode.
+                if (Effects.IsHiddenConfirmedGift(giftId)) continue;
+                // An owned gift (or fusion component) becomes its tier's Vestige, like every other
+                // battle reward - skipping it left an event fight's duplicate reward with nothing.
+                SharedRules.GrantEgoGift(run, giftId);
                 confirmedRre.Add(new RewardEvent
                 {
                     Rt = "GetConfirmedEgogiftOnWinBattle",
