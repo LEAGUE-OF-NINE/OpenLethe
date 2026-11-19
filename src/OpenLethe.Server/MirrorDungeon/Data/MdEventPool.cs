@@ -117,8 +117,14 @@ public sealed class MdEventPicker
 
     private bool Open(long id) => id != 0 && !used.Contains(id) && !blocked.Contains(id);
 
+    // A pack with a specialEventProb already names its own events (specialEventPool, drawn with
+    // that chance in Pick), so the floor-specific guess is only made for packs without one.
+    public bool UsesFloorSpecificWeighting =>
+        theme.IsMd4Floor && theme.mapGenOption.specialEventProb is null
+        && theme.mapGenOption.specialEventPool is not { Count: > 0 };
+
     public double WeightOf(long eventId) =>
-        theme.IsMd4Floor && theme.mapGenOption.specialEventPool is not { Count: > 0 } && MdEventPool.IsFloorSpecific(eventId)
+        UsesFloorSpecificWeighting && MdEventPool.IsFloorSpecific(eventId)
             ? FloorSpecificWeight
             : 1;
 

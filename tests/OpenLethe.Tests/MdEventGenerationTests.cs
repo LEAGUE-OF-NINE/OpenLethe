@@ -75,6 +75,21 @@ public class MdEventGenerationTests
         Assert.True(withSpecial > 160, $"{withSpecial}/200 floors had a special event");
     }
 
+    [Fact]
+    public void PacksWithSpecialEventProb_GetNoFloorSpecificBoost()
+    {
+        // 1029 An Anarchy of Colors lists floor-specific events (901100-901104) in its eventPool,
+        // but its specialEventPool/specialEventProb already decide its own events.
+        var theme = MdThemeData.GetThemeById(1029)!;
+        Assert.NotNull(theme.mapGenOption.specialEventProb);
+        var picker = new MdEventPicker(theme);
+        Assert.False(picker.UsesFloorSpecificWeighting);
+        Assert.Equal(1, picker.WeightOf(901100));
+
+        Assert.True(new MdEventPicker(MdThemeData.GetThemeById(1021)!).UsesFloorSpecificWeighting);
+        Assert.Equal(MdEventPicker.FloorSpecificWeight, new MdEventPicker(MdThemeData.GetThemeById(1021)!).WeightOf(901100));
+    }
+
     [Theory]
     [InlineData(901058L)]
     [InlineData(901068L)]
