@@ -15,7 +15,13 @@ public sealed class ThemeStatic
     public MapGenOption mapGenOption = new();
     public List<long> egoGiftPool = new();
     public List<long> specificEgoGiftPool = new();
+    // The pack's floor-clear reward gifts when they are not rolled from its pool - The B.E. (3001)
+    // always offers Bongy Plush, Lunar Memory, Faith and Piece of Relationship. Empty for every
+    // regular pack (the random draw applies). See MdThemePool.FloorRewardEgos.
+    public List<long> fixedRewardEgoGifts = new();
     public List<MapGenSequence> mapGenSequence = new();
+
+    public bool IsMd4Floor => mapGenSequence.FirstOrDefault()?.type_ == "CREATE_EMPTY_MD4_FLOOR";
 }
 
 public sealed class ExceptionCondition

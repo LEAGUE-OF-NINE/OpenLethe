@@ -13,6 +13,10 @@ public sealed class MdEgo
     public List<JsonNode>? upgradeDataList;
     public List<string> tag = new();
     public string? keyword;
+    // Cursed gifts (Hollow Pride 9294, 9227/9229/9231): after useLimit counted uses - the client
+    // reports the count as un in an exit's updatedEgoGifts - the gift turns into convertDataList[0].
+    public long useLimit;
+    public List<long>? convertDataList;
 }
 
 // static-data/mirror-dungeon-common-data/*.json (unlisted, one object per file) - same

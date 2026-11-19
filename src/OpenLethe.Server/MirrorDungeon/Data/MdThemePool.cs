@@ -72,6 +72,13 @@ public sealed class MdThemePool
         return chosen;
     }
 
+    // The gifts a pack's floor clear offers (a theme pool entry's egs): its fixedRewardEgoGifts
+    // when it names any - all of them, whatever `count` is - else `count` random ones from its pool.
+    public List<long> FloorRewardEgos(long themeId, int count, long floor) =>
+        pools.TryGetValue(themeId, out var theme) && theme.fixedRewardEgoGifts is { Count: > 0 } fixedGifts
+            ? new List<long>(fixedGifts)
+            : SelectRandomEgosFromPool(themeId, count, floor);
+
     // The current season's drop pool (the newest dungeonId).
     private static DungeonEgoGiftDropPool? SeasonDropPool() =>
         MdThemeData.DropPools().OrderByDescending(p => p.dungeonId).FirstOrDefault();

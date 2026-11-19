@@ -110,17 +110,19 @@ public static class MdMapGen
     // Picks a random node's type from the floor's odds (mirrordungeon static data, floors[]):
     // a regular battle unless the roll lands in one of the listed percentages. A type whose pack
     // pool is empty is left out of the roll, its share going to the types that can still spawn.
-    public static DungeonNode GenerateBattleNode(ThemeStatic theme, MdFloorNodeOdds odds)
+    // rollEvents: false leaves events out of the roll (their share goes to regular battles) - an
+    // MD4 floor places its events separately, a fixed number per floor (PlaceMd4Events).
+    public static DungeonNode GenerateBattleNode(ThemeStatic theme, MdFloorNodeOdds odds, bool rollEvents = true)
     {
         var opt = theme.mapGenOption;
         var candidates = new (List<long> pool, long nodeType, double weight)[]
         {
-            (opt.eventPool, 3, odds.eventNodePercentage),
+            (rollEvents ? opt.eventPool : new List<long>(), 3, rollEvents ? odds.eventNodePercentage : 0),
             (opt.abBattlePool, 5, odds.abnormalityBattlePercentage),
             (opt.hardBattlePool, 2, odds.hardBattlePercentage),
             (opt.hardAbBattlePool, 14, odds.hardAbBattlePercentage),
-            (opt.battlePool, 1, Math.Max(0, 1 - odds.eventNodePercentage - odds.abnormalityBattlePercentage
-                - odds.hardBattlePercentage - odds.hardAbBattlePercentage)),
+            (opt.battlePool, 1, Math.Max(0, 1 - (rollEvents ? odds.eventNodePercentage : 0)
+                - odds.abnormalityBattlePercentage - odds.hardBattlePercentage - odds.hardAbBattlePercentage)),
         }.Where(c => c.pool.Count > 0).ToList();
 
         // Nothing weighted can spawn: any populated pool will do.
@@ -136,6 +138,28 @@ public static class MdMapGen
             p -= c.weight;
         }
         return new DungeonNode { node_type = pick.nodeType, encounter_id = pick.pool[Random.Shared.Next(pick.pool.Count)] };
+    }
+
+    // Event nodes on a generated (MD4) floor: retail places a fixed number rather than rolling each
+    // node - 3 on every floor, 2 on the narrowest ones (floor width 3: The Unloving, Nocturnal
+    // Sweeping). Rolling eventNodePercentage per node gave anywhere from 0 to 6.
+    public static int Md4EventCount(int floorWidth) => floorWidth <= 3 ? 2 : 3;
+
+    private static bool HasEvents(ThemeStatic theme) =>
+        theme.mapGenOption.eventPool.Count > 0 || theme.mapGenOption.specialEventPool is { Count: > 0 };
+
+    // Turns Md4EventCount random nodes of the generated floor into events. Their ids stay 0 here:
+    // GenerateNewFloor fills them through an EventPicker, which knows the run.
+    private static void PlaceMd4Events(DungeonGraph graph, ThemeStatic theme, int floorWidth)
+    {
+        if (!HasEvents(theme)) return;
+        var slots = new List<(int x, int y)>();
+        for (var x = 0; x < floorWidth; x++)
+            for (var y = 0; y < DungeonGraph.Height; y++)
+                if (graph.nodes[x, y] is not null) slots.Add((x, y));
+
+        foreach (var (x, y) in ChooseMultiple(slots, Md4EventCount(floorWidth)))
+            graph.nodes[x, y] = new DungeonNode { node_type = 3, encounter_id = 0 };
     }
 
     // Port of DefaultMirrorDungeonMapGenerator::generate_md4_graph.
@@ -160,10 +184,12 @@ public static class MdMapGen
                 var beginning = x == 0 && y != 1;
                 if (layerPopulation[y][x] || middleNodeMissing || lastMiddleNodeMissing || beginning)
                 {
-                    graph.nodes[x, y] = GenerateBattleNode(theme, odds);
+                    graph.nodes[x, y] = GenerateBattleNode(theme, odds, rollEvents: false);
                 }
             }
         }
+
+        PlaceMd4Events(graph, theme, floorWidth);
 
         for (var y = 0; y < 3; y++)
         {
@@ -292,30 +318,7 @@ public static class MdMapGen
                 var eid = node.encounterId;
                 if (node.encounterType == 6 && eid == 0 && bossPool.Count > 0)
                     eid = bossPool[Random.Shared.Next(bossPool.Count)];
-                if (node.encounterType == 3 && node.encounterId == 0)
-                {
-                    var opt = theme.mapGenOption;
-                    // A pack that carries a special-event pool but no probability means "always
-                    // take from that pool" - the old code required BOTH to be non-null, so such a
-                    // pack fell straight through with eid still 0.
-                    if (opt.specialEventPool is { Count: > 0 } specialEvents)
-                    {
-                        if (opt.specialEventProb is not { } prob || Random.Shared.NextDouble() < prob)
-                        {
-                            eid = specialEvents[Random.Shared.Next(specialEvents.Count)];
-                        }
-                    }
-
-                    if (eid == 0 && opt.eventPool.Count > 0)
-                    {
-                        eid = opt.eventPool[Random.Shared.Next(opt.eventPool.Count)];
-                    }
-
-                    // Never emit an e=3 node with eid 0: the client cannot resolve it and the
-                    // event screen hangs on entry (see DungeonEventPool above).
-                    if (eid == 0) eid = PickFallbackEventId();
-                }
-
+                // Empty event slots (FILL_EMPTY_EVENT) are drawn by FillEvents below.
                 return new Ns
                 {
                     f = floor,
@@ -332,9 +335,42 @@ public static class MdMapGen
             graph = new List<Ns>();
         }
 
+        FillEvents(graph, theme, RunEventPicker(theme, save));
         DedupeEvents(graph, theme);
         save.dungeonMap.ns.AddRange(graph);
         UpdateResult(save, floor, themeId, selectedIdx);
+    }
+
+    // The picker for a floor of this run: the once-per-run events the run already played (peids)
+    // or whose gift it owns are out.
+    private static MdEventPicker RunEventPicker(ThemeStatic theme, MirrorOriginSaveInfo save)
+    {
+        var opt = theme.mapGenOption;
+        var candidates = opt.eventPool.Concat(opt.specialEventPool ?? new List<long>()).Concat(DungeonEventPool.Value);
+        var spent = MdEventPool.Spent(candidates, save.currentInfo.peids, save.currentInfo.egs.Select(g => g.id));
+        return new MdEventPicker(theme, spent);
+    }
+
+    // Gives every event node still at eid 0 its event. Ids the layout fixes count as taken first.
+    // On a generated (MD4) floor a node with no event left becomes one of the pack's battles; a
+    // fixed layout falls back to the whole dungeon's events, since an e=3 node with eid 0 hangs
+    // the client's event screen (see DungeonEventPool).
+    private static void FillEvents(List<Ns> graph, ThemeStatic theme, MdEventPicker picker)
+    {
+        var events = graph.Where(n => n.e == 3).OrderBy(n => n.s).ThenBy(n => n.nid).ToList();
+        foreach (var node in events.Where(n => n.eid != 0)) picker.MarkUsed(node.eid);
+
+        foreach (var node in events.Where(n => n.eid == 0))
+        {
+            var eid = picker.Pick();
+            if (eid == 0 && theme.IsMd4Floor && theme.mapGenOption.battlePool.Count > 0)
+            {
+                node.e = 1;
+                node.eid = theme.mapGenOption.battlePool[Random.Shared.Next(theme.mapGenOption.battlePool.Count)];
+                continue;
+            }
+            node.eid = eid != 0 ? eid : picker.PickFallback(DungeonEventPool.Value);
+        }
     }
 
     // An event appears at most once per floor. Every event node draws its id on its own (above and
@@ -491,7 +527,7 @@ public static class MdMapGen
             {
                 idx = act,
                 tfid = theme.id,
-                egs = themePool.SelectRandomEgosFromPool(theme.id, 4, selectionFloor),
+                egs = themePool.FloorRewardEgos(theme.id, 4, selectionFloor),
                 upegs = new List<long> { 9051, 9048, 9001, 9066 },
             })
             .ToList();
@@ -503,7 +539,7 @@ public static class MdMapGen
         // Capture-verified (AcquireStartEgoGiftsAndCreateThemePool, 8/8 entries): the easy
         // (idx 0) themes carry 3 reward egs, the hard (idx 1) themes carry 4 - NOT a flat 4
         // like RecreateThemes' later re-rolls.
-        egs = pool.SelectRandomEgosFromPool(theme.id, hard ? 4 : 3, floor),
+        egs = pool.FloorRewardEgos(theme.id, hard ? 4 : 3, floor),
         idx = hard ? 1 : 0,
         upegs = new List<long> { 9051, 9048, 9001, 9066 },
     };

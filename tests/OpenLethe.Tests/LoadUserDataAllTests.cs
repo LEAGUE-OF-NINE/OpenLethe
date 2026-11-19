@@ -65,7 +65,11 @@ public class LoadUserDataAllTests(PostgresFixture db)
         Assert.True(updated.GetProperty("personalityList").GetArrayLength() > 0);
         Assert.True(updated.GetProperty("mainChapterStateList").GetArrayLength() > 0);
         Assert.Equal(100, updated.GetProperty("announcer").GetProperty("announcer_ids").GetArrayLength());
-        Assert.Equal(2, updated.GetProperty("danteAbilityList").GetArrayLength());
+        // General pools 0/1 plus one per boss-raid danteAbilityCategory (3, 4, 6).
+        var dante = updated.GetProperty("danteAbilityList");
+        Assert.Equal(5, dante.GetArrayLength());
+        var raid6 = dante.EnumerateArray().Single(d => d.GetProperty("category").GetInt32() == 6);
+        Assert.Equal(2, raid6.GetProperty("remaincount").GetInt32());
         Assert.Equal(2325, updated.GetProperty("danteAbilityList")[0].GetProperty("remaincount").GetInt32());
 
         // itemList: Enkap modules + Lunacy.

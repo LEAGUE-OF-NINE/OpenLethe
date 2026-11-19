@@ -433,6 +433,8 @@ public sealed class ExitMirrorDungeonMapNodeParams
     // content and echoes them back sorted by id. Kept as raw nodes - only id/structure is
     // reproduced deterministically; the rolled fields are masked in the replay.
     public List<System.Text.Json.Nodes.JsonNode> abnormalityLogs = new();
+    // The gifts whose use count (un) changed during the node - a cursed gift's counted wins.
+    public List<AcquiredEgogifts> updatedEgoGifts = new();
 }
 
 // ---- response results ----
