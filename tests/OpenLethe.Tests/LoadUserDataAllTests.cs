@@ -65,9 +65,14 @@ public class LoadUserDataAllTests(PostgresFixture db)
         Assert.True(updated.GetProperty("personalityList").GetArrayLength() > 0);
         Assert.True(updated.GetProperty("mainChapterStateList").GetArrayLength() > 0);
         Assert.Equal(100, updated.GetProperty("announcer").GetProperty("announcer_ids").GetArrayLength());
-        // General pools 0/1 plus one per boss-raid danteAbilityCategory (3, 4, 6).
+        // General pools 0/1, railway reruns 2 (1001) and 5 (1002), boss raids 3, 4, 6.
         var dante = updated.GetProperty("danteAbilityList");
-        Assert.Equal(5, dante.GetArrayLength());
+        Assert.Equal(new[] { 0, 1, 2, 3, 4, 5, 6 },
+            dante.EnumerateArray().Select(d => d.GetProperty("category").GetInt32()).OrderBy(c => c));
+        var rail1 = dante.EnumerateArray().Single(d => d.GetProperty("category").GetInt32() == 2);
+        Assert.Equal(new[] { 90101, 80101, 70101 },
+            rail1.GetProperty("abilityids").EnumerateArray().Select(e => e.GetInt32()));
+        Assert.Equal(2325, rail1.GetProperty("remaincount").GetInt32());
         var raid6 = dante.EnumerateArray().Single(d => d.GetProperty("category").GetInt32() == 6);
         Assert.Equal(2, raid6.GetProperty("remaincount").GetInt32());
         Assert.Equal(2325, updated.GetProperty("danteAbilityList")[0].GetProperty("remaincount").GetInt32());

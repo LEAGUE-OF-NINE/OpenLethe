@@ -50,6 +50,9 @@ public sealed class RailwayDungeonDef
     public long restHPHealRate;
     public long restMPHeal;
     public bool isResetMPAtRestNode;
+    // Which danteAbilityList pool the client draws durantes from in this dungeon:
+    // 1 for lines 1-6, 2 for 1001 (line 1 rerun), 5 for 1002 (line 2 rerun).
+    public long danteAbilityCategory;
     public List<RailwayExtraReward> extraRewards = new();
     public List<RailwayBuffSetDef> buffSet = new();
     public List<RailwayNodeCollection> nodeIdCollection_ForLog = new();
@@ -69,6 +72,10 @@ public static class RailwayData
 {
     private static readonly Lazy<List<RailwayDungeonDef>> Defs =
         new(() => StaticData.GetList<RailwayDungeonDef>("static-data/railway-dungeon"));
+
+    /// The distinct durante categories the railway dungeons use.
+    public static IEnumerable<long> DanteCategories() =>
+        Defs.Value.Select(d => d.danteAbilityCategory).Distinct().OrderBy(c => c);
 
     public static RailwayDungeonDef? Find(long dungeonId) =>
         Defs.Value.FirstOrDefault(d => d.id == dungeonId);
