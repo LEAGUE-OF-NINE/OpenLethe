@@ -10,7 +10,7 @@ public static class LoadUserDataAllEndpoint
 {
     private const string StaminaRecover = "2025-03-31T15:10:00.000Z";
 
-    /// Categories 0/1 are the general pools. Each boss raid also has its own category
+    /// Categories 0/1 are the general pools; railway reruns add 2 and 5. Each boss raid also has its own category
     /// (danteAbilityCategory: 3, 4, 6); without an entry for it the raid shows no durantes.
     /// A run in progress reports its partly spent pool so a relog keeps the used ones locked.
     private static List<DanteAbility> BuildDanteAbilityList(List<long> danteIds, string? bossRaidJson)
@@ -20,10 +20,20 @@ public static class LoadUserDataAllEndpoint
             new() { category = 0, abilityids = danteIds, remaincount = 2325 },
             new() { category = 1, abilityids = danteIds, remaincount = 2325 },
         };
+        // Railway reruns use their own pools (1001 -> 2, 1002 -> 5). Like category 1, railway
+        // durantes are not tracked per run, so these get the same large count.
+        foreach (var category in RailwayData.DanteCategories())
+        {
+            if (list.Any(d => d.category == category)) continue;
+            var pool = BossRaidRules.FreshDantePool(category);
+            pool.remaincount = 2325;
+            list.Add(pool);
+        }
+
         var active = BossRaidRules.Load(bossRaidJson)?.dante;
         foreach (var category in BossRaidRules.DanteCategories())
         {
-            if (category is 0 or 1) continue;
+            if (list.Any(d => d.category == category)) continue;
             list.Add(active is not null && active.category == category
                 ? active
                 : BossRaidRules.FreshDantePool(category));
